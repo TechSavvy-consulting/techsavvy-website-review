@@ -1,0 +1,5 @@
+---
+import Icon from './Icon.astro';
+const { title = 'Let’s make your IT work for you.', text = 'Tell us about your business. We’ll talk through what you need and whether TechSavvy is the right fit.' } = Astro.props;
+---
+<section class="cta-section"><div class="container cta-inner"><div><span class="eyebrow light">A conversation is a good place to start</span><h2>{title}</h2><p>{text}</p></div><a class="button button-white" href="/contact">Let’s talk about your IT <Icon name="arrow" size={19}/></a></div></section>

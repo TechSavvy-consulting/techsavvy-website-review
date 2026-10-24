@@ -1,0 +1,24 @@
+---
+const { compact = false, id = 'contact-review', callback = false } = Astro.props;
+---
+<form id={id} class:list={['contact-form', { compact }]} aria-describedby={`${id}-notice`}>
+  <div class="form-notice" id={`${id}-notice`}><span class="status-dot"></span> Review only · Form submissions are disabled</div>
+  <div class="field-pair">
+    <label for={`${id}-name`}>Your name <span aria-hidden="true">*</span><input id={`${id}-name`} name="name" autocomplete="name" required placeholder="First and last name" /></label>
+    <label for={`${id}-company`}>Company<input id={`${id}-company`} name="company" autocomplete="organization" placeholder="Your business name" /></label>
+  </div>
+  <div class="field-pair">
+    <label for={`${id}-email`}>Work email <span aria-hidden="true">*</span><input id={`${id}-email`} name="email" type="email" autocomplete="email" required placeholder="you@company.com" /></label>
+    <label for={`${id}-phone`}>Phone{callback && <span aria-hidden="true"> *</span>}<input id={`${id}-phone`} name="phone" type="tel" autocomplete="tel" required={callback} placeholder="(918) 555-0123" /></label>
+  </div>
+  {callback && <div class="field-pair"><label for={`${id}-date`}>Preferred date <span class="optional">(optional)</span><input id={`${id}-date`} name="preferred-date" type="date" /></label><label for={`${id}-time`}>Preferred time <span class="optional">(optional)</span><input id={`${id}-time`} name="preferred-time" type="time" /></label></div>}
+  <label for={`${id}-message`}>How can we help? <span aria-hidden="true">*</span><textarea id={`${id}-message`} name="message" rows={compact ? 3 : 4} required placeholder="Tell us a little about your team and your IT needs."></textarea></label>
+  <p class="form-privacy">Please leave out passwords, patient information and other sensitive details.</p>
+  <button class="button button-primary" type="submit" disabled aria-disabled="true">{callback ? 'Request a callback' : 'Send message'} <span aria-hidden="true">↗</span></button>
+  <p class="form-footnote">Design preview only. Nothing entered here is sent or saved. <a href="/english-privacy-policy">Privacy policy</a></p>
+</form>
+<script>
+  document.querySelectorAll<HTMLFormElement>('.contact-form').forEach(form => {
+    form.addEventListener('submit', event => event.preventDefault());
+  });
+</script>

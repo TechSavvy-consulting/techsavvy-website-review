@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /
+
+# Review site only. Indexing must be reviewed separately before production.

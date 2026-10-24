@@ -1,0 +1,46 @@
+import assert from 'node:assert/strict';
+import { readFile, readdir, stat } from 'node:fs/promises';
+import { fileURLToPath } from 'node:url';
+import path from 'node:path';
+
+const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
+const dist=path.join(root,'dist');
+const inventory=JSON.parse(await readFile(path.join(root,'src/data/source-inventory.json'),'utf8'));
+const routes=[...inventory.pages.map(p=>p.path),'/thank-you','/404'];
+const files=[];
+async function walk(dir){for(const entry of await readdir(dir,{withFileTypes:true})){const full=path.join(dir,entry.name);if(entry.isDirectory())await walk(full);else files.push(full);}}
+await walk(dist);
+let linkCount=0, formCount=0;
+for(const route of routes){
+  const file=route==='/'?path.join(dist,'index.html'):path.join(dist,route.slice(1)+'.html');
+  const html=await readFile(file,'utf8');
+  assert.match(html,/<html[^>]+lang="en"/i,`${route}: document language`);
+  assert.equal((html.match(/<h1[\s>]/g)||[]).length,1,`${route}: one H1`);
+  assert.match(html,/<meta name="robots" content="noindex,nofollow,noarchive"/i,`${route}: indexing guard`);
+  assert.match(html,/<meta name="description" content="[^"]+"/i,`${route}: description`);
+  assert.match(html,/<title>[^<]+<\/title>/i,`${route}: title`);
+  assert.match(html,/<link rel="canonical" href="https:\/\/www\.techsavvy\.consulting/i,`${route}: canonical`);
+  assert.doesNotMatch(html,/<(?:script|iframe)[^>]+(?:googletagmanager|google-analytics|doubleclick|facebook\.net|youtube\.com\/embed)/i,`${route}: no optional tracking/embed`);
+  for(const match of html.matchAll(/<form\b([^>]*)>([\s\S]*?)<\/form>/gi)){
+    formCount++;
+    assert.doesNotMatch(match[1],/\b(action|data-netlify)\s*=/i,`${route}: no submission backend`);
+    assert.match(match[2],/submissions are disabled/i,`${route}: review notice`);
+    assert.match(match[2],/<button[^>]+disabled/i,`${route}: disabled submit`);
+  }
+  for(const match of html.matchAll(/(?:href|src|poster)="(\/(?!\/)[^"]*)"/g)){
+    const url=new URL(match[1],'https://review.local');
+    const target=decodeURIComponent(url.pathname);
+    if(target==='/search-lp'||target==='/home-1')continue;
+    const base=path.join(dist,target==='/'?'index.html':target.slice(1));
+    let found=false;
+    for(const candidate of [base,base+'.html',path.join(base,'index.html')]){try{if((await stat(candidate)).isFile()){found=true;break;}}catch{}}
+    assert.ok(found,`${route}: missing internal target ${target}`);
+    linkCount++;
+  }
+  for(const image of html.matchAll(/<img\b([^>]+)>/g))assert.match(image[1],/\balt=/,`${route}: image alt`);
+}
+assert.equal(formCount,2,'Expected home callback + contact form');
+assert.ok(files.some(x=>x.endsWith('techsavvy-introduction.mp4')),'Video is included');
+assert.equal(files.some(x=>/-original\./.test(x)),false,'Original oversized assets stay outside public output');
+console.log(`PASS: ${routes.length} pages, ${linkCount} local links/assets, ${formCount} disabled review forms; no optional tracking scripts.`);
+console.log('Production domain, Wix, DNS and advertising are not changed by this verification.');

@@ -1,0 +1,3969 @@
+{
+  "inventoryVersion": 1,
+  "fetchedAtUtc": "2026-10-24T21:08:29.633Z",
+  "site": "https://www.techsavvy.consulting",
+  "scope": "Current public website source content only. For an unpublished replacement review build. No account access, form submissions, visitor records, or private data.",
+  "sourceNormalization": "Text whitespace normalized and zero-width spacing removed. Consecutive identical nested paragraph/list blocks collapsed in favor of the outer element. Main content only; global navigation/media recorded separately. Remaining repeated passages reflect the current source. This is a text/content inventory, not a pixel reproduction.",
+  "canonicalPageCount": 16,
+  "sourceSitemaps": [
+    "https://www.techsavvy.consulting/sitemap.xml",
+    "https://www.techsavvy.consulting/pages-sitemap.xml",
+    "https://www.techsavvy.consulting/blog-posts-sitemap.xml",
+    "https://www.techsavvy.consulting/blog-categories-sitemap.xml"
+  ],
+  "knownLegacyRoutes": [
+    {
+      "path": "/search-lp",
+      "observedStatus": 301,
+      "observedTarget": "/contact",
+      "recommendedAction": "Preserve 301 redirect"
+    },
+    {
+      "path": "/home-1",
+      "observedStatus": 200,
+      "canonical": "https://www.techsavvy.consulting",
+      "recommendedAction": "301 redirect to / and update blog internal links"
+    }
+  ],
+  "privacyBaseline": {
+    "source": "https://www.techsavvy.consulting/english-privacy-policy",
+    "effectiveDate": "2026-10-23",
+    "publishedState": "Essential cookies/storage only; optional analytics, advertising and personalization disabled; Google Analytics and advertising pixels not active; no cookie-consent popup because optional categories are not offered.",
+    "verification": "Published policy and initial-source observations; runtime network traffic was not independently audited."
+  },
+  "existingPublicTestimonials": [
+    {
+      "quote": "We have relied on TechSavvy for all of our IT needs over the past few years. They do outstanding work and respond very quickly! I highly recommend them to anyone seeking reliable, high-quality IT services.",
+      "person": "Taryn Schell",
+      "business": "Emerge Medical",
+      "sourceUrl": "https://www.techsavvy.consulting/",
+      "scope": "Existing public website quotation only. No additional carousel reviews inferred, and no review-platform verification claimed."
+    }
+  ],
+  "global": {
+    "images": [
+      {
+        "src": "https://static.wixstatic.com/media/11062b_f4e3e7f537ff4762a1914aa14e3e36b9~mv2.png/v1/fill/w_25,h_25,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/11062b_f4e3e7f537ff4762a1914aa14e3e36b9~mv2.png",
+        "alt": "Facebook"
+      },
+      {
+        "src": "https://static.wixstatic.com/media/11062b_7dcffe5daf2944b7be0a46ac6d472634~mv2.png/v1/fill/w_25,h_25,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/11062b_7dcffe5daf2944b7be0a46ac6d472634~mv2.png",
+        "alt": "LinkedIn"
+      },
+      {
+        "src": "https://static.wixstatic.com/media/11062b_603340b7bcb14e7785c7b65b233cd9f9~mv2.png/v1/fill/w_25,h_25,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/11062b_603340b7bcb14e7785c7b65b233cd9f9~mv2.png",
+        "alt": "Instagram"
+      },
+      {
+        "src": "https://static.wixstatic.com/media/6c3b8b_562453ea7a8b4816af24642fd8ed6253~mv2.png/v1/fill/w_304,h_85,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/logo-final.png",
+        "alt": "Techsavvy Consulting logo"
+      },
+      {
+        "src": "https://static.wixstatic.com/media/6c3b8b_40c6b4411bb14a698050a16a15ae4802~mv2.jpg/v1/fill/w_201,h_55,al_c,q_80,enc_avif,quality_auto/6c3b8b_40c6b4411bb14a698050a16a15ae4802~mv2.jpg",
+        "alt": "TechSavvy Consulting Logo"
+      }
+    ],
+    "links": [
+      {
+        "href": "https://anydesk.com/en",
+        "text": "#comp-me1qdg3g svg [data-color=&quot;2&quot;] {fill: #FFFFFF;}"
+      },
+      {
+        "href": "https://anydesk.com/en",
+        "text": "Get Support"
+      },
+      {
+        "href": "https://www.facebook.com/techsavvyok",
+        "text": ""
+      },
+      {
+        "href": "https://www.linkedin.com/in/kylehearn",
+        "text": ""
+      },
+      {
+        "href": "https://www.instagram.com/techsavvyok",
+        "text": ""
+      },
+      {
+        "href": "https://www.techsavvy.consulting",
+        "text": ""
+      },
+      {
+        "href": "https://www.techsavvy.consulting",
+        "text": "HOME"
+      },
+      {
+        "href": "https://www.techsavvy.consulting/it-support-for-small-business-tulsa",
+        "text": "SERVICES"
+      },
+      {
+        "href": "https://www.techsavvy.consulting/outsourced-managed-it",
+        "text": "Managed IT Services"
+      },
+      {
+        "href": "https://www.techsavvy.consulting/proactive-it",
+        "text": "Proactive IT"
+      },
+      {
+        "href": "https://www.techsavvy.consulting/it-collaboration",
+        "text": "IT Staff Collaboration"
+      },
+      {
+        "href": "https://www.techsavvy.consulting/it-support-business-tulsa",
+        "text": "Our Advantages"
+      },
+      {
+        "href": "https://www.techsavvy.consulting/tulsa-it-faq",
+        "text": "FAQs"
+      },
+      {
+        "href": "https://www.techsavvy.consulting/about-it-support",
+        "text": "ABOUT"
+      },
+      {
+        "href": "https://www.techsavvy.consulting/offsite-backup-recovery",
+        "text": "BACKUP"
+      },
+      {
+        "href": "https://www.techsavvy.consulting/contact",
+        "text": "CONTACT"
+      },
+      {
+        "href": "https://www.techsavvy.consulting",
+        "text": "TESTIMONIALS"
+      },
+      {
+        "href": "https://www.techsavvy.consulting/blog",
+        "text": "BLOG"
+      },
+      {
+        "href": "https://www.techsavvy.consulting/english-privacy-policy",
+        "text": "Privacy Policy"
+      },
+      {
+        "href": "https://www.techsavvy.consulting/accessibility-statement",
+        "text": "Accessibility Statement"
+      },
+      {
+        "href": "https://www.wix.com",
+        "text": "Wix"
+      },
+      {
+        "href": "mailto:sales@techsavvy.consulting",
+        "text": "sales@techsavvy.consulting"
+      }
+    ]
+  },
+  "assetOrigins": [
+    {
+      "originalUrlCandidate": "https://static.wixstatic.com/media/96e054_4ab56662322c4f7a8cda159c49ba5ce9~mv2.png",
+      "observedUrl": "https://static.wixstatic.com/media/96e054_4ab56662322c4f7a8cda159c49ba5ce9~mv2.png/v1/fill/w_49,h_24,al_c,q_85,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/96e054_4ab56662322c4f7a8cda159c49ba5ce9~mv2.png",
+      "alts": [
+        "TechSavvy Background"
+      ],
+      "pages": [
+        "/"
+      ]
+    },
+    {
+      "originalUrlCandidate": "https://static.wixstatic.com/media/11062b_148abf6124504b8cbe6fa264a5249028~mv2.jpg",
+      "observedUrl": "https://static.wixstatic.com/media/11062b_148abf6124504b8cbe6fa264a5249028~mv2.jpg/v1/fill/w_147,h_83,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/11062b_148abf6124504b8cbe6fa264a5249028~mv2.jpg",
+      "alts": [
+        "Server Room"
+      ],
+      "pages": [
+        "/"
+      ]
+    },
+    {
+      "originalUrlCandidate": "https://static.wixstatic.com/media/96e054_dc111dff40b5481383b1883412fc9ae0f000.jpg",
+      "observedUrl": "https://static.wixstatic.com/media/96e054_dc111dff40b5481383b1883412fc9ae0f000.jpg/v1/fill/w_593,h_409,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/96e054_dc111dff40b5481383b1883412fc9ae0f000.jpg",
+      "alts": [
+        ""
+      ],
+      "pages": [
+        "/"
+      ]
+    },
+    {
+      "originalUrlCandidate": "https://static.wixstatic.com/media/a3c153_37bd778220b64f369d9d9528cce39ed8~mv2.jpg",
+      "observedUrl": "https://static.wixstatic.com/media/a3c153_37bd778220b64f369d9d9528cce39ed8~mv2.jpg/v1/fill/w_102,h_56,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/a3c153_37bd778220b64f369d9d9528cce39ed8~mv2.jpg",
+      "alts": [
+        ""
+      ],
+      "pages": [
+        "/"
+      ]
+    },
+    {
+      "originalUrlCandidate": "https://static.wixstatic.com/media/96e054_f6d5a6ccfd76487bab95a62d006c02b6~mv2.png",
+      "observedUrl": "https://static.wixstatic.com/media/96e054_f6d5a6ccfd76487bab95a62d006c02b6~mv2.png/v1/fill/w_187,h_71,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/emerge%20logo.png",
+      "alts": [
+        "Emerge Medical Logo"
+      ],
+      "pages": [
+        "/"
+      ]
+    },
+    {
+      "originalUrlCandidate": "https://static.wixstatic.com/media/96e054_4bc09d011b424907bad7b94bfe0bc849~mv2.png",
+      "observedUrl": "https://static.wixstatic.com/media/96e054_4bc09d011b424907bad7b94bfe0bc849~mv2.png/v1/fill/w_145,h_142,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Kyle%20Profile.png",
+      "alts": [
+        "Kyle Profile.png"
+      ],
+      "pages": [
+        "/"
+      ]
+    },
+    {
+      "originalUrlCandidate": "https://static.parastorage.com/services/linguist-flags/1.1005.0/assets/flags/square/USA.png",
+      "observedUrl": "https://static.parastorage.com/services/linguist-flags/1.1005.0/assets/flags/square/USA.png",
+      "alts": [
+        ""
+      ],
+      "pages": [
+        "/"
+      ]
+    },
+    {
+      "originalUrlCandidate": "https://static.wixstatic.com/media/6e091f_56c2cc2686a147d6ad854b2a33c52018~mv2.jpg",
+      "observedUrl": "https://static.wixstatic.com/media/6e091f_56c2cc2686a147d6ad854b2a33c52018~mv2.jpg/v1/fill/w_147,h_98,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/6e091f_56c2cc2686a147d6ad854b2a33c52018~mv2.jpg",
+      "alts": [
+        "network-switch-with-cables-min_11zon.jpg"
+      ],
+      "pages": [
+        "/"
+      ]
+    },
+    {
+      "originalUrlCandidate": "https://static.wixstatic.com/media/6c3b8b_f6e8f72c3b274f9e9e807aa590e5ee83~mv2.png",
+      "observedUrl": "https://static.wixstatic.com/media/6c3b8b_f6e8f72c3b274f9e9e807aa590e5ee83~mv2.png/v1/fill/w_84,h_69,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Screenshot%202025-08-08%20at%201_34_edited.png",
+      "alts": [
+        "Screenshot 2025-08-08 at 1.34_edited.png"
+      ],
+      "pages": [
+        "/"
+      ]
+    },
+    {
+      "originalUrlCandidate": "https://static.wixstatic.com/media/6c3b8b_693b832e9c2c4f54a3ceb7aa1ee590b5~mv2.png",
+      "observedUrl": "https://static.wixstatic.com/media/6c3b8b_693b832e9c2c4f54a3ceb7aa1ee590b5~mv2.png/v1/fill/w_84,h_69,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Screenshot%202025-08-08%20at%201_34_edited.png",
+      "alts": [
+        "Screenshot 2025-08-08 at 1.34_edited.png"
+      ],
+      "pages": [
+        "/"
+      ]
+    },
+    {
+      "originalUrlCandidate": "https://static.wixstatic.com/media/6c3b8b_023fd93c35f54c778431f52e254cd47d~mv2.png",
+      "observedUrl": "https://static.wixstatic.com/media/6c3b8b_023fd93c35f54c778431f52e254cd47d~mv2.png/v1/fill/w_84,h_69,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Screenshot%202025-08-08%20at%201_34_edited.png",
+      "alts": [
+        "Screenshot 2025-08-08 at 1.34_edited.png"
+      ],
+      "pages": [
+        "/"
+      ]
+    },
+    {
+      "originalUrlCandidate": "https://static.wixstatic.com/media/6c3b8b_ad1bb4ac0abb463284eb0bca1320e5c2~mv2.png",
+      "observedUrl": "https://static.wixstatic.com/media/6c3b8b_ad1bb4ac0abb463284eb0bca1320e5c2~mv2.png/v1/fill/w_84,h_69,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Screenshot%202025-08-08%20at%201_34_edited.png",
+      "alts": [
+        "Screenshot 2025-08-08 at 1.34_edited.png"
+      ],
+      "pages": [
+        "/"
+      ]
+    },
+    {
+      "originalUrlCandidate": "https://static.wixstatic.com/media/ce3336a21d2d4c29997a2d998b256cd4.jpg",
+      "observedUrl": "https://static.wixstatic.com/media/ce3336a21d2d4c29997a2d998b256cd4.jpg/v1/fill/w_333,h_250,fp_0.50_0.50,q_30,blur_30,enc_avif,quality_auto/ce3336a21d2d4c29997a2d998b256cd4.webp",
+      "alts": [
+        "Why Upgrading to Windows 11 from Windows 10 Is Essential for Security and Beyond"
+      ],
+      "pages": [
+        "/",
+        "/blog"
+      ]
+    },
+    {
+      "originalUrlCandidate": "https://static.wixstatic.com/media/96e054_e8205c9c08424b84a9a10d8ec3dd24d5~mv2.png",
+      "observedUrl": "https://static.wixstatic.com/media/96e054_e8205c9c08424b84a9a10d8ec3dd24d5~mv2.png/v1/fill/w_334,h_250,fp_0.50_0.50,q_35,blur_30,enc_avif,quality_auto/96e054_e8205c9c08424b84a9a10d8ec3dd24d5~mv2.webp",
+      "alts": [
+        "Why Tulsa Businesses Are Switching to Managed IT Services"
+      ],
+      "pages": [
+        "/",
+        "/blog"
+      ]
+    },
+    {
+      "originalUrlCandidate": "https://static.wixstatic.com/media/96e054_2a11d009b465479c8f3b157304a297f5~mv2.png",
+      "observedUrl": "https://static.wixstatic.com/media/96e054_2a11d009b465479c8f3b157304a297f5~mv2.png/v1/fill/w_333,h_250,fp_0.50_0.50,q_35,blur_30,enc_avif,quality_auto/96e054_2a11d009b465479c8f3b157304a297f5~mv2.webp",
+      "alts": [
+        "How to Choose the Right Managed IT Provider in Oklahoma"
+      ],
+      "pages": [
+        "/",
+        "/blog"
+      ]
+    },
+    {
+      "originalUrlCandidate": "https://static.wixstatic.com/media/11062b_b337daf680904e26b3cebd7906fb90f4~mv2.jpg",
+      "observedUrl": "https://static.wixstatic.com/media/11062b_b337daf680904e26b3cebd7906fb90f4~mv2.jpg/v1/fill/w_147,h_74,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/11062b_b337daf680904e26b3cebd7906fb90f4~mv2.jpg",
+      "alts": [
+        "Abstract Blue Geometric Design"
+      ],
+      "pages": [
+        "/about-it-support"
+      ]
+    },
+    {
+      "originalUrlCandidate": "https://static.wixstatic.com/media/96e054_179b95c6fd82416c8bb1d657a35ac45b~mv2.png",
+      "observedUrl": "https://static.wixstatic.com/media/96e054_179b95c6fd82416c8bb1d657a35ac45b~mv2.png/v1/fill/w_225,h_301,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/kyle-hearn-founder-headshot-navy-suit-review.png",
+      "alts": [
+        "kyle-hearn-founder-headshot-navy-suit-review.png"
+      ],
+      "pages": [
+        "/about-it-support"
+      ]
+    },
+    {
+      "originalUrlCandidate": "https://static.wixstatic.com/media/44ca310c068149dbaa885480c053542d.jpg",
+      "observedUrl": "https://static.wixstatic.com/media/44ca310c068149dbaa885480c053542d.jpg/v1/fill/w_113,h_75,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/44ca310c068149dbaa885480c053542d.jpg",
+      "alts": [
+        "Abstract Ceiling "
+      ],
+      "pages": [
+        "/proactive-it"
+      ]
+    },
+    {
+      "originalUrlCandidate": "https://static.wixstatic.com/media/6c3b8b_8418bc7510584d3bb617450d6a919a4c~mv2.jpg",
+      "observedUrl": "https://static.wixstatic.com/media/6c3b8b_8418bc7510584d3bb617450d6a919a4c~mv2.jpg/v1/fill/w_504,h_479,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/portrait-smiling-handsome-man-eyeglasses_edited.jpg",
+      "alts": [
+        "portrait-smiling-handsome-man-eyeglasses_edited.jpg"
+      ],
+      "pages": [
+        "/proactive-it",
+        "/outsourced-managed-it"
+      ]
+    },
+    {
+      "originalUrlCandidate": "https://static.wixstatic.com/media/6e091f_9a85c12082794c5c9d366c25ec3a3102~mv2.png",
+      "observedUrl": "https://static.wixstatic.com/media/6e091f_9a85c12082794c5c9d366c25ec3a3102~mv2.png/v1/fill/w_504,h_479,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/managed-IT-services-Tulsa-min.png",
+      "alts": [
+        "managed-IT-services-Tulsa-min.png"
+      ],
+      "pages": [
+        "/proactive-it"
+      ]
+    },
+    {
+      "originalUrlCandidate": "https://static.wixstatic.com/media/6c3b8b_205365a40924402aa7ba3703b6c9e38e~mv2.jpg",
+      "observedUrl": "https://static.wixstatic.com/media/6c3b8b_205365a40924402aa7ba3703b6c9e38e~mv2.jpg/v1/fill/w_145,h_66,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/6c3b8b_205365a40924402aa7ba3703b6c9e38e~mv2.jpg",
+      "alts": [
+        "imgi_7_dc18b8bc13904c7faea6b2d66479ddde.jpg"
+      ],
+      "pages": [
+        "/proactive-it"
+      ]
+    },
+    {
+      "originalUrlCandidate": "https://static.wixstatic.com/media/11062b_58b11b5ad04c43c3b6850f76397b0742~mv2.jpg",
+      "observedUrl": "https://static.wixstatic.com/media/11062b_58b11b5ad04c43c3b6850f76397b0742~mv2.jpg/v1/fill/w_133,h_75,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/11062b_58b11b5ad04c43c3b6850f76397b0742~mv2.jpg",
+      "alts": [
+        "Digital Maze"
+      ],
+      "pages": [
+        "/tulsa-it-faq"
+      ]
+    },
+    {
+      "originalUrlCandidate": "https://static.wixstatic.com/media/79e6ff0b4fa14818b14a29f9eca3dccc.jpg",
+      "observedUrl": "https://static.wixstatic.com/media/79e6ff0b4fa14818b14a29f9eca3dccc.jpg/v1/fill/w_113,h_75,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/79e6ff0b4fa14818b14a29f9eca3dccc.jpg",
+      "alts": [
+        "Abstract Architect"
+      ],
+      "pages": [
+        "/it-support-business-tulsa"
+      ]
+    },
+    {
+      "originalUrlCandidate": "https://static.wixstatic.com/media/6c3b8b_f60dfc15ce9f443c8d87c77e20898a02~mv2.webp",
+      "observedUrl": "https://static.wixstatic.com/media/6c3b8b_f60dfc15ce9f443c8d87c77e20898a02~mv2.webp/v1/fill/w_450,h_400,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/imgi_8_Multi-vendor-Backup-Management.webp",
+      "alts": [
+        "imgi_8_Multi-vendor-Backup-Management.webp"
+      ],
+      "pages": [
+        "/offsite-backup-recovery"
+      ]
+    },
+    {
+      "originalUrlCandidate": "https://static.wixstatic.com/media/6c3b8b_a0ab552b12cc4b38951d3b0de22b9c8a~mv2.webp",
+      "observedUrl": "https://static.wixstatic.com/media/6c3b8b_a0ab552b12cc4b38951d3b0de22b9c8a~mv2.webp/v1/fill/w_450,h_400,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/imgi_39_BlogPost-OffsiteBackups-DP-JY-81933-1-1024x465_png.webp",
+      "alts": [
+        "imgi_39_BlogPost-OffsiteBackups-DP-JY-81933-1-1024x465.png.webp"
+      ],
+      "pages": [
+        "/offsite-backup-recovery"
+      ]
+    },
+    {
+      "originalUrlCandidate": "https://static.wixstatic.com/media/11062b_536bb0dc35e34faaac7844b301768e3a~mv2.jpg",
+      "observedUrl": "https://static.wixstatic.com/media/11062b_536bb0dc35e34faaac7844b301768e3a~mv2.jpg/v1/fill/w_147,h_83,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/11062b_536bb0dc35e34faaac7844b301768e3a~mv2.jpg",
+      "alts": [
+        "Abstract Futuristic Background"
+      ],
+      "pages": [
+        "/offsite-backup-recovery"
+      ]
+    },
+    {
+      "originalUrlCandidate": "https://static.wixstatic.com/media/11062b_1f7ed8bc7b004201970df69f9eeda689~mv2.png",
+      "observedUrl": "https://static.wixstatic.com/media/11062b_1f7ed8bc7b004201970df69f9eeda689~mv2.png/v1/fill/w_25,h_25,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/11062b_1f7ed8bc7b004201970df69f9eeda689~mv2.png",
+      "alts": [
+        "Facebook"
+      ],
+      "pages": [
+        "/contact"
+      ]
+    },
+    {
+      "originalUrlCandidate": "https://static.wixstatic.com/media/11062b_a06d85fa94d64ef68680321f5a043a8c~mv2.png",
+      "observedUrl": "https://static.wixstatic.com/media/11062b_a06d85fa94d64ef68680321f5a043a8c~mv2.png/v1/fill/w_25,h_25,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/11062b_a06d85fa94d64ef68680321f5a043a8c~mv2.png",
+      "alts": [
+        "LinkedIn"
+      ],
+      "pages": [
+        "/contact"
+      ]
+    },
+    {
+      "originalUrlCandidate": "https://static.wixstatic.com/media/11062b_084cbbff6ae446c1b03dc3637193e77a~mv2.png",
+      "observedUrl": "https://static.wixstatic.com/media/11062b_084cbbff6ae446c1b03dc3637193e77a~mv2.png/v1/fill/w_25,h_25,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/11062b_084cbbff6ae446c1b03dc3637193e77a~mv2.png",
+      "alts": [
+        "Instagram"
+      ],
+      "pages": [
+        "/contact"
+      ]
+    },
+    {
+      "originalUrlCandidate": "https://static.wixstatic.com/media/11062b_5323252299a04f2a9c818aa15a74fe53~mv2.jpg",
+      "observedUrl": "https://static.wixstatic.com/media/11062b_5323252299a04f2a9c818aa15a74fe53~mv2.jpg/v1/fill/w_113,h_75,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/11062b_5323252299a04f2a9c818aa15a74fe53~mv2.jpg",
+      "alts": [
+        "Digital Network"
+      ],
+      "pages": [
+        "/outsourced-managed-it"
+      ]
+    },
+    {
+      "originalUrlCandidate": "https://static.wixstatic.com/media/2b50b7_36292ba428ff4e139bc36bd38efae510~mv2.png",
+      "observedUrl": "https://static.wixstatic.com/media/2b50b7_36292ba428ff4e139bc36bd38efae510~mv2.png/v1/fill/w_504,h_479,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/managed-IT-services-Tulsa.png",
+      "alts": [
+        "managed-IT-services-Tulsa.png"
+      ],
+      "pages": [
+        "/outsourced-managed-it"
+      ]
+    },
+    {
+      "originalUrlCandidate": "https://static.wixstatic.com/media/6c3b8b_768f7424ed8d47deb0119bf794bbd8f8~mv2.jpg",
+      "observedUrl": "https://static.wixstatic.com/media/6c3b8b_768f7424ed8d47deb0119bf794bbd8f8~mv2.jpg/v1/fill/w_147,h_67,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/6c3b8b_768f7424ed8d47deb0119bf794bbd8f8~mv2.jpg",
+      "alts": [
+        "imgi_8_acb9f725af414b4eb30473b5b8ecfe74.jpg"
+      ],
+      "pages": [
+        "/outsourced-managed-it"
+      ]
+    },
+    {
+      "originalUrlCandidate": "https://static.wixstatic.com/media/fd3af1d860fc493d9655961c44e02fad.jpg",
+      "observedUrl": "https://static.wixstatic.com/media/fd3af1d860fc493d9655961c44e02fad.jpg/v1/fill/w_125,h_75,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/fd3af1d860fc493d9655961c44e02fad.jpg",
+      "alts": [
+        "Abstract Glass Building"
+      ],
+      "pages": [
+        "/it-collaboration"
+      ]
+    },
+    {
+      "originalUrlCandidate": "https://static.wixstatic.com/media/11062b_9b439e91fbfb42c883e229c448e785f4~mv2.jpg",
+      "observedUrl": "https://static.wixstatic.com/media/11062b_9b439e91fbfb42c883e229c448e785f4~mv2.jpg/v1/fill/w_75,h_50,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/11062b_9b439e91fbfb42c883e229c448e785f4~mv2.jpg",
+      "alts": [
+        "Staff Meeting"
+      ],
+      "pages": [
+        "/it-collaboration"
+      ]
+    },
+    {
+      "originalUrlCandidate": "https://static.wixstatic.com/media/6e091f_f8db2f7422f545a588bee5596a0c44fa~mv2.jpg",
+      "observedUrl": "https://static.wixstatic.com/media/6e091f_f8db2f7422f545a588bee5596a0c44fa~mv2.jpg/v1/fill/w_218,h_156,al_c,q_80,enc_avif,quality_auto/6e091f_f8db2f7422f545a588bee5596a0c44fa~mv2.jpg",
+      "alts": [
+        ""
+      ],
+      "pages": [
+        "/post/windows11-upgrade-essential"
+      ]
+    },
+    {
+      "originalUrlCandidate": "https://static.wixstatic.com/media/6e091f_7b921afe030b41dca5449ca2759ea64b~mv2.png",
+      "observedUrl": "https://static.wixstatic.com/media/6e091f_7b921afe030b41dca5449ca2759ea64b~mv2.png/v1/fill/w_612,h_408,al_c,q_85,enc_avif,quality_auto/6e091f_7b921afe030b41dca5449ca2759ea64b~mv2.png",
+      "alts": [
+        ""
+      ],
+      "pages": [
+        "/post/managed-it-service-switching"
+      ]
+    },
+    {
+      "originalUrlCandidate": "https://static.wixstatic.com/media/6e091f_f9b1ea760edc48c491b66581cb82a65a~mv2.png",
+      "observedUrl": "https://static.wixstatic.com/media/6e091f_f9b1ea760edc48c491b66581cb82a65a~mv2.png/v1/fill/w_734,h_489,al_c,q_85,enc_avif,quality_auto/6e091f_f9b1ea760edc48c491b66581cb82a65a~mv2.png",
+      "alts": [
+        ""
+      ],
+      "pages": [
+        "/post/choose-managed-it-provider-ok"
+      ]
+    },
+    {
+      "originalUrlCandidate": "https://static.wixstatic.com/media/11062b_f4e3e7f537ff4762a1914aa14e3e36b9~mv2.png",
+      "observedUrl": "https://static.wixstatic.com/media/11062b_f4e3e7f537ff4762a1914aa14e3e36b9~mv2.png/v1/fill/w_25,h_25,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/11062b_f4e3e7f537ff4762a1914aa14e3e36b9~mv2.png",
+      "alts": [
+        "Facebook"
+      ],
+      "pages": [
+        "global"
+      ]
+    },
+    {
+      "originalUrlCandidate": "https://static.wixstatic.com/media/11062b_7dcffe5daf2944b7be0a46ac6d472634~mv2.png",
+      "observedUrl": "https://static.wixstatic.com/media/11062b_7dcffe5daf2944b7be0a46ac6d472634~mv2.png/v1/fill/w_25,h_25,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/11062b_7dcffe5daf2944b7be0a46ac6d472634~mv2.png",
+      "alts": [
+        "LinkedIn"
+      ],
+      "pages": [
+        "global"
+      ]
+    },
+    {
+      "originalUrlCandidate": "https://static.wixstatic.com/media/11062b_603340b7bcb14e7785c7b65b233cd9f9~mv2.png",
+      "observedUrl": "https://static.wixstatic.com/media/11062b_603340b7bcb14e7785c7b65b233cd9f9~mv2.png/v1/fill/w_25,h_25,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/11062b_603340b7bcb14e7785c7b65b233cd9f9~mv2.png",
+      "alts": [
+        "Instagram"
+      ],
+      "pages": [
+        "global"
+      ]
+    },
+    {
+      "originalUrlCandidate": "https://static.wixstatic.com/media/6c3b8b_562453ea7a8b4816af24642fd8ed6253~mv2.png",
+      "observedUrl": "https://static.wixstatic.com/media/6c3b8b_562453ea7a8b4816af24642fd8ed6253~mv2.png/v1/fill/w_304,h_85,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/logo-final.png",
+      "alts": [
+        "Techsavvy Consulting logo"
+      ],
+      "pages": [
+        "global"
+      ]
+    },
+    {
+      "originalUrlCandidate": "https://static.wixstatic.com/media/6c3b8b_40c6b4411bb14a698050a16a15ae4802~mv2.jpg",
+      "observedUrl": "https://static.wixstatic.com/media/6c3b8b_40c6b4411bb14a698050a16a15ae4802~mv2.jpg/v1/fill/w_201,h_55,al_c,q_80,enc_avif,quality_auto/6c3b8b_40c6b4411bb14a698050a16a15ae4802~mv2.jpg",
+      "alts": [
+        "TechSavvy Consulting Logo"
+      ],
+      "pages": [
+        "global"
+      ]
+    }
+  ],
+  "assetCaveat": "Original URL candidates are derived from observed Wix image URLs. Source imagery licensing outside Wix has not been independently verified. Prefer owned brand/founder assets and original user-provided media; use CSS for decorative backgrounds. Avoid blurry thumbnail variants. Do not interpret publicly accessible assets as a license grant.",
+  "verificationLimitations": [
+    "No form submission or email-delivery test",
+    "No runtime analytics/consent verification",
+    "No visual/mobile assessment in this inventory",
+    "No private Wix records, complete historical redirects, Search Console or ranking data",
+    "Public testimonial text is existing site content, not authorization for new endorsements",
+    "No patient information or visitor submissions collected"
+  ],
+  "pages": [
+    {
+      "path": "/",
+      "sourceUrl": "https://www.techsavvy.consulting/",
+      "status": 200,
+      "finalUrl": "https://www.techsavvy.consulting/",
+      "title": "TechSavvy Consulting: Expert IT Support for Tulsa Businesses",
+      "description": "Tulsa IT support for small businesses: managed services, cloud, cybersecurity, backups, and expert solutions from TechSavvy Consulting.",
+      "canonical": "https://www.techsavvy.consulting",
+      "robotsMeta": null,
+      "socialImage": "https://static.wixstatic.com/media/96e054_ee439feecfbd425a82a2ea27a2ca4ca2%7Emv2.jpg/v1/fit/w_2500,h_1330,al_c/96e054_ee439feecfbd425a82a2ea27a2ca4ca2%7Emv2.jpg",
+      "schema": [
+        {
+          "@context": "https://schema.org/",
+          "@type": "LocalBusiness",
+          "name": "TechSavvy Consulting LLC",
+          "url": "https://www.techsavvy.consulting",
+          "image": "https://static.wixstatic.com/media/96e054_2a3ef6ab80c047048b2cba97efc5af3e~mv2.jpg",
+          "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "US",
+            "addressLocality": "Tulsa",
+            "addressRegion": "OK",
+            "postalCode": "74145",
+            "streetAddress": "5840 South Memorial Drive"
+          },
+          "telephone": "9184002424"
+        },
+        {
+          "@context": "https://schema.org/",
+          "@type": "WebSite",
+          "name": "TechSavvy Consulting | IT Service Tulsa",
+          "url": "https://www.techsavvy.consulting"
+        }
+      ],
+      "contentBlocks": [
+        {
+          "tag": "p",
+          "text": "Seamless IT"
+        },
+        {
+          "tag": "h1",
+          "text": "With TechSavvy Consulting Solutions"
+        },
+        {
+          "tag": "p",
+          "text": "Oklahoma's trusted business computer, server, mobile, cloud, security, AI, & IT support provider."
+        },
+        {
+          "tag": "h4",
+          "text": "Business IT Support"
+        },
+        {
+          "tag": "p",
+          "text": "We Are Available, No More Waiting"
+        },
+        {
+          "tag": "h6",
+          "text": "Professional, Experienced Staff"
+        },
+        {
+          "tag": "h6",
+          "text": "United States Based Phone Support"
+        },
+        {
+          "tag": "h5",
+          "text": "Managed IT Services"
+        },
+        {
+          "tag": "h5",
+          "text": "Proactive IT"
+        },
+        {
+          "tag": "h5",
+          "text": "IT Staff Collaboration"
+        },
+        {
+          "tag": "h5",
+          "text": "Our Advantage"
+        },
+        {
+          "tag": "p",
+          "text": "Tulsa IT Support"
+        },
+        {
+          "tag": "h3",
+          "text": "How can we help you?"
+        },
+        {
+          "tag": "p",
+          "text": "Our expert team ensures your technology runs smoothly. Focus on your business, we've got this."
+        },
+        {
+          "tag": "h4",
+          "text": "Service is our Priority"
+        },
+        {
+          "tag": "h6",
+          "text": "We build lasting relationships, customizing solutions to fit your unique needs."
+        },
+        {
+          "tag": "h6",
+          "text": "Honesty & Expertise: Our friendly, knowledgeable team provides transparent, reliable support."
+        },
+        {
+          "tag": "h6",
+          "text": "Flexible Service Options: Choose how you want your tech support—on-site, or via text, phone, or video chat for fast, convenient assistance."
+        },
+        {
+          "tag": "h3",
+          "text": "Don't just take our word for it"
+        },
+        {
+          "tag": "p",
+          "text": "We have relied on TechSavvy for all of our IT needs over the past few years. They do outstanding work and respond very quickly! I highly recommend them to anyone seeking reliable, high-quality IT services."
+        },
+        {
+          "tag": "p",
+          "text": "Taryn Schell"
+        },
+        {
+          "tag": "p",
+          "text": "Emerge Medical"
+        },
+        {
+          "tag": "h3",
+          "text": "Let's sit down and visit about your needs"
+        },
+        {
+          "tag": "p",
+          "text": "At TechSavvy Consulting, we empower small businesses with 10 - 100 device users to thrive in a fast-evolving digital world. As a full-service IT management and strategy firm, TechSavvy brings decades of business technology experience and tailored solutions to simplify your IT, reduce costs, and boost efficiency."
+        },
+        {
+          "tag": "p",
+          "text": "Whether you need comprehensive IT support, proactive maintenance, or robust backup and disaster recovery, we’re here to deliver reliable, transparent solutions that fit your business."
+        },
+        {
+          "tag": "p",
+          "text": "Ready to simplify your IT and focus on growing your business? TechSavvy Consulting is here to help with a network assessment and customized proposal. Contact us now to discover how our expert IT solutions can drive your success in today’s digital landscape."
+        },
+        {
+          "tag": "p",
+          "text": "Nice to meet you, my name is Kyle Hearn! I have provided Tulsa business IT Support since 1998. Would enjoy visiting about your technology needs!"
+        },
+        {
+          "tag": "h2",
+          "text": "REQUEST A CALLBACK"
+        },
+        {
+          "tag": "label",
+          "text": "Company Name"
+        },
+        {
+          "tag": "label",
+          "text": "Name*"
+        },
+        {
+          "tag": "label",
+          "text": "Phone*"
+        },
+        {
+          "tag": "label",
+          "text": "Callback Date"
+        },
+        {
+          "tag": "button",
+          "text": "AM"
+        },
+        {
+          "tag": "label",
+          "text": "Email"
+        },
+        {
+          "tag": "label",
+          "text": "How can we help?"
+        },
+        {
+          "tag": "button",
+          "text": "Submit Call Back"
+        },
+        {
+          "tag": "p",
+          "text": "Managed Services Tulsa"
+        },
+        {
+          "tag": "h3",
+          "text": "Managed IT Services · IT Support · Cloud Support"
+        },
+        {
+          "tag": "p",
+          "text": "Managed IT Services"
+        },
+        {
+          "tag": "p",
+          "text": "Gain peace of mind with our comprehensive managed IT services for small businesses. We maintain, monitor, and manage your entire IT infrastructure"
+        },
+        {
+          "tag": "p",
+          "text": "Proactive IT Services"
+        },
+        {
+          "tag": "p",
+          "text": "Ensure your servers are always ready to perform with our proactive maintenance plan. We handle system updates, user management, database optimization, and more."
+        },
+        {
+          "tag": "p",
+          "text": "Cloud IT Support"
+        },
+        {
+          "tag": "p",
+          "text": "We manage all your cloud hosted solutions with ease. 365, WorkSpace, Line-of-business, and many others. Take the guesswork out of multiple platforms."
+        },
+        {
+          "tag": "p",
+          "text": "IT Staff Collaboration"
+        },
+        {
+          "tag": "p",
+          "text": "Collaborative services that complement rather than compete. We integrate seamlessly to expand capabilities across various areas for enhanced business IT support."
+        },
+        {
+          "tag": "p",
+          "text": "Backup & Disaster Recovery"
+        },
+        {
+          "tag": "p",
+          "text": "From offsite and local backups to advanced disaster recovery, we tailor our offerings to meet your unique needs, minimizing downtime and safeguarding your operations."
+        },
+        {
+          "tag": "p",
+          "text": "Information Security Assessment"
+        },
+        {
+          "tag": "p",
+          "text": "Assistance with most compliance standards. Information Security Assessments and Vulnerability Testing. Patch Management"
+        },
+        {
+          "tag": "h3",
+          "text": "Recent News"
+        },
+        {
+          "tag": "h2",
+          "text": "Why Upgrading to Windows 11 from Windows 10 Is Essential for Security and Beyond"
+        },
+        {
+          "tag": "h2",
+          "text": "Why Tulsa Businesses Are Switching to Managed IT Services"
+        },
+        {
+          "tag": "h2",
+          "text": "How to Choose the Right Managed IT Provider in Oklahoma"
+        }
+      ],
+      "unstructuredText": [
+        "Explore More",
+        "Time",
+        "Time",
+        ":",
+        "Hours",
+        "Minutes",
+        "Book A Discovery Call",
+        "Book A Discovery Call",
+        "Upgrading from Windows 10 to Windows 11 is a critical step toward a more secure, modern, and efficient computing experience. As cyber...",
+        "In today’s fast-paced digital world, businesses in Tulsa face growing challenges in managing their IT infrastructure efficiently and...",
+        "In today’s fast-paced digital world, businesses in Oklahoma rely heavily on their IT infrastructure to stay competitive and secure. With..."
+      ],
+      "mainLinks": [
+        {
+          "href": "https://www.techsavvy.consulting/it-support-for-small-business-tulsa",
+          "text": "Explore More"
+        },
+        {
+          "href": "https://www.techsavvy.consulting/outsourced-managed-it",
+          "text": ""
+        },
+        {
+          "href": "https://www.techsavvy.consulting/outsourced-managed-it",
+          "text": "Managed IT Services"
+        },
+        {
+          "href": "https://www.techsavvy.consulting/proactive-it",
+          "text": ""
+        },
+        {
+          "href": "https://www.techsavvy.consulting/proactive-it",
+          "text": "Proactive IT"
+        },
+        {
+          "href": "https://www.techsavvy.consulting/it-collaboration",
+          "text": ""
+        },
+        {
+          "href": "https://www.techsavvy.consulting/it-collaboration",
+          "text": "IT Staff Collaboration"
+        },
+        {
+          "href": "https://www.techsavvy.consulting/it-support-business-tulsa",
+          "text": ""
+        },
+        {
+          "href": "https://www.techsavvy.consulting/it-support-business-tulsa",
+          "text": "Our Advantage"
+        },
+        {
+          "href": "https://www.techsavvy.consulting/contact",
+          "text": "Book A Discovery Call"
+        },
+        {
+          "href": "https://www.techsavvy.consulting/outsourced-managed-it",
+          "text": ""
+        },
+        {
+          "href": "https://www.techsavvy.consulting/outsourced-managed-it",
+          "text": "Managed IT Services"
+        },
+        {
+          "href": "https://www.techsavvy.consulting/outsourced-managed-it",
+          "text": "Gain peace of mind with our comprehensive managed IT services for small businesses. We maintain, monitor, and manage your entire IT infrastructure"
+        },
+        {
+          "href": "https://www.techsavvy.consulting/proactive-it",
+          "text": ""
+        },
+        {
+          "href": "https://www.techsavvy.consulting/proactive-it",
+          "text": "Proactive IT Services"
+        },
+        {
+          "href": "https://www.techsavvy.consulting/proactive-it",
+          "text": "Ensure your servers are always ready to perform with our proactive maintenance plan. We handle system updates, user management, database optimization, and more."
+        },
+        {
+          "href": "https://www.techsavvy.consulting/it-support-for-small-business-tulsa",
+          "text": ""
+        },
+        {
+          "href": "https://www.techsavvy.consulting/it-support-for-small-business-tulsa",
+          "text": "Cloud IT Support"
+        },
+        {
+          "href": "https://www.techsavvy.consulting/it-support-for-small-business-tulsa",
+          "text": "We manage all your cloud hosted solutions with ease. 365, WorkSpace, Line-of-business, and many others. Take the guesswork out of multiple platforms."
+        },
+        {
+          "href": "https://www.techsavvy.consulting/it-collaboration",
+          "text": ""
+        },
+        {
+          "href": "https://www.techsavvy.consulting/it-collaboration",
+          "text": "IT Staff Collaboration"
+        },
+        {
+          "href": "https://www.techsavvy.consulting/it-collaboration",
+          "text": "Collaborative services that complement rather than compete. We integrate seamlessly to expand capabilities across various areas for enhanced business IT support."
+        },
+        {
+          "href": "https://www.techsavvy.consulting/offsite-backup-recovery",
+          "text": ""
+        },
+        {
+          "href": "https://www.techsavvy.consulting/offsite-backup-recovery",
+          "text": "Backup & Disaster Recovery"
+        },
+        {
+          "href": "https://www.techsavvy.consulting/offsite-backup-recovery",
+          "text": "From offsite and local backups to advanced disaster recovery, we tailor our offerings to meet your unique needs, minimizing downtime and safeguarding your operations."
+        },
+        {
+          "href": "https://www.techsavvy.consulting/outsourced-managed-it",
+          "text": ""
+        },
+        {
+          "href": "https://www.techsavvy.consulting/outsourced-managed-it",
+          "text": "Information Security Assessment"
+        },
+        {
+          "href": "https://www.techsavvy.consulting/outsourced-managed-it",
+          "text": "Assistance with most compliance standards. Information Security Assessments and Vulnerability Testing. Patch Management"
+        },
+        {
+          "href": "https://www.techsavvy.consulting/contact",
+          "text": "Book A Discovery Call"
+        },
+        {
+          "href": "https://www.techsavvy.consulting/post/windows11-upgrade-essential",
+          "text": "Why Upgrading to Windows 11 from Windows 10 Is Essential for Security and Beyond"
+        },
+        {
+          "href": "https://www.techsavvy.consulting/post/managed-it-service-switching",
+          "text": "Why Tulsa Businesses Are Switching to Managed IT Services"
+        },
+        {
+          "href": "https://www.techsavvy.consulting/post/choose-managed-it-provider-ok",
+          "text": "How to Choose the Right Managed IT Provider in Oklahoma"
+        }
+      ],
+      "images": [
+        {
+          "src": "https://static.wixstatic.com/media/96e054_4ab56662322c4f7a8cda159c49ba5ce9~mv2.png/v1/fill/w_49,h_24,al_c,q_85,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/96e054_4ab56662322c4f7a8cda159c49ba5ce9~mv2.png",
+          "alt": "TechSavvy Background"
+        },
+        {
+          "src": "https://static.wixstatic.com/media/11062b_148abf6124504b8cbe6fa264a5249028~mv2.jpg/v1/fill/w_147,h_83,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/11062b_148abf6124504b8cbe6fa264a5249028~mv2.jpg",
+          "alt": "Server Room"
+        },
+        {
+          "src": "https://static.wixstatic.com/media/96e054_dc111dff40b5481383b1883412fc9ae0f000.jpg/v1/fill/w_593,h_409,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/96e054_dc111dff40b5481383b1883412fc9ae0f000.jpg",
+          "alt": ""
+        },
+        {
+          "src": "https://static.wixstatic.com/media/a3c153_37bd778220b64f369d9d9528cce39ed8~mv2.jpg/v1/fill/w_102,h_56,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/a3c153_37bd778220b64f369d9d9528cce39ed8~mv2.jpg",
+          "alt": ""
+        },
+        {
+          "src": "https://static.wixstatic.com/media/96e054_f6d5a6ccfd76487bab95a62d006c02b6~mv2.png/v1/fill/w_187,h_71,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/emerge%20logo.png",
+          "alt": "Emerge Medical Logo"
+        },
+        {
+          "src": "https://static.wixstatic.com/media/96e054_4bc09d011b424907bad7b94bfe0bc849~mv2.png/v1/fill/w_145,h_142,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Kyle%20Profile.png",
+          "alt": "Kyle Profile.png"
+        },
+        {
+          "src": "https://static.parastorage.com/services/linguist-flags/1.1005.0/assets/flags/square/USA.png",
+          "alt": ""
+        },
+        {
+          "src": "https://static.wixstatic.com/media/6e091f_56c2cc2686a147d6ad854b2a33c52018~mv2.jpg/v1/fill/w_147,h_98,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/6e091f_56c2cc2686a147d6ad854b2a33c52018~mv2.jpg",
+          "alt": "network-switch-with-cables-min_11zon.jpg"
+        },
+        {
+          "src": "https://static.wixstatic.com/media/6c3b8b_f6e8f72c3b274f9e9e807aa590e5ee83~mv2.png/v1/fill/w_84,h_69,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Screenshot%202025-08-08%20at%201_34_edited.png",
+          "alt": "Screenshot 2025-08-08 at 1.34_edited.png"
+        },
+        {
+          "src": "https://static.wixstatic.com/media/6c3b8b_693b832e9c2c4f54a3ceb7aa1ee590b5~mv2.png/v1/fill/w_84,h_69,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Screenshot%202025-08-08%20at%201_34_edited.png",
+          "alt": "Screenshot 2025-08-08 at 1.34_edited.png"
+        },
+        {
+          "src": "https://static.wixstatic.com/media/6c3b8b_023fd93c35f54c778431f52e254cd47d~mv2.png/v1/fill/w_84,h_69,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Screenshot%202025-08-08%20at%201_34_edited.png",
+          "alt": "Screenshot 2025-08-08 at 1.34_edited.png"
+        },
+        {
+          "src": "https://static.wixstatic.com/media/6c3b8b_ad1bb4ac0abb463284eb0bca1320e5c2~mv2.png/v1/fill/w_84,h_69,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Screenshot%202025-08-08%20at%201_34_edited.png",
+          "alt": "Screenshot 2025-08-08 at 1.34_edited.png"
+        },
+        {
+          "src": "https://static.wixstatic.com/media/ce3336a21d2d4c29997a2d998b256cd4.jpg/v1/fill/w_333,h_250,fp_0.50_0.50,q_30,blur_30,enc_avif,quality_auto/ce3336a21d2d4c29997a2d998b256cd4.webp",
+          "alt": "Why Upgrading to Windows 11 from Windows 10 Is Essential for Security and Beyond"
+        },
+        {
+          "src": "https://static.wixstatic.com/media/ce3336a21d2d4c29997a2d998b256cd4.jpg/v1/fill/w_305,h_229,fp_0.50_0.50,q_90,enc_avif,quality_auto/ce3336a21d2d4c29997a2d998b256cd4.webp",
+          "alt": "Why Upgrading to Windows 11 from Windows 10 Is Essential for Security and Beyond"
+        },
+        {
+          "src": "https://static.wixstatic.com/media/96e054_e8205c9c08424b84a9a10d8ec3dd24d5~mv2.png/v1/fill/w_334,h_250,fp_0.50_0.50,q_35,blur_30,enc_avif,quality_auto/96e054_e8205c9c08424b84a9a10d8ec3dd24d5~mv2.webp",
+          "alt": "Why Tulsa Businesses Are Switching to Managed IT Services"
+        },
+        {
+          "src": "https://static.wixstatic.com/media/96e054_e8205c9c08424b84a9a10d8ec3dd24d5~mv2.png/v1/fill/w_306,h_229,fp_0.50_0.50,q_95,enc_avif,quality_auto/96e054_e8205c9c08424b84a9a10d8ec3dd24d5~mv2.webp",
+          "alt": "Why Tulsa Businesses Are Switching to Managed IT Services"
+        },
+        {
+          "src": "https://static.wixstatic.com/media/96e054_2a11d009b465479c8f3b157304a297f5~mv2.png/v1/fill/w_333,h_250,fp_0.50_0.50,q_35,blur_30,enc_avif,quality_auto/96e054_2a11d009b465479c8f3b157304a297f5~mv2.webp",
+          "alt": "How to Choose the Right Managed IT Provider in Oklahoma"
+        },
+        {
+          "src": "https://static.wixstatic.com/media/96e054_2a11d009b465479c8f3b157304a297f5~mv2.png/v1/fill/w_305,h_229,fp_0.50_0.50,q_95,enc_avif,quality_auto/96e054_2a11d009b465479c8f3b157304a297f5~mv2.webp",
+          "alt": "How to Choose the Right Managed IT Provider in Oklahoma"
+        }
+      ],
+      "videos": [
+        {
+          "fittingType": "fill",
+          "alignType": "center",
+          "hasBgScrollEffect": "",
+          "bgEffectName": "",
+          "videoId": "96e054_dc111dff40b5481383b1883412fc9ae0",
+          "videoWidth": 1264,
+          "videoHeight": 1080,
+          "qualities": [
+            {
+              "quality": "360p",
+              "size": 151920,
+              "url": "video/96e054_dc111dff40b5481383b1883412fc9ae0/360p/mp4/file.mp4"
+            },
+            {
+              "quality": "480p",
+              "size": 269760,
+              "url": "video/96e054_dc111dff40b5481383b1883412fc9ae0/480p/mp4/file.mp4"
+            },
+            {
+              "quality": "720p",
+              "size": 1365120,
+              "url": "video/96e054_dc111dff40b5481383b1883412fc9ae0/720p/mp4/file.mp4"
+            }
+          ],
+          "isVideoDataExists": "1",
+          "videoFormat": "mp4",
+          "playbackRate": 1,
+          "autoPlay": false,
+          "containerId": "comp-me1tbmkl",
+          "animatePoster": "none"
+        }
+      ],
+      "forms": [
+        {
+          "label": "Contact Form",
+          "id": "form-b3a30b08-c0f2-4273-a4a2-99a587c06893"
+        }
+      ],
+      "formFields": [
+        {
+          "tag": "input",
+          "type": "text",
+          "aria-label": "Company Name"
+        },
+        {
+          "tag": "input",
+          "type": "text",
+          "required": "",
+          "aria-label": "Name"
+        },
+        {
+          "tag": "input",
+          "type": "phone",
+          "required": "",
+          "aria-label": "Phone. Phone"
+        },
+        {
+          "tag": "input",
+          "type": "text"
+        },
+        {
+          "tag": "input",
+          "type": "time"
+        },
+        {
+          "tag": "input",
+          "type": "text",
+          "placeholder": "--"
+        },
+        {
+          "tag": "input",
+          "type": "text",
+          "placeholder": "--"
+        },
+        {
+          "tag": "input",
+          "type": "text"
+        },
+        {
+          "tag": "input",
+          "type": "email",
+          "aria-label": "Email"
+        },
+        {
+          "tag": "input",
+          "type": "text",
+          "aria-label": "How can we help?"
+        }
+      ],
+      "rawHtmlSha256": "a0217c369d963523c2fd635a90d53f5d66e51b1118d60b7b64f274aa2029be24"
+    },
+    {
+      "path": "/about-it-support",
+      "sourceUrl": "https://www.techsavvy.consulting/about-it-support",
+      "status": 200,
+      "finalUrl": "https://www.techsavvy.consulting/about-it-support",
+      "title": "About TechSavvy IT Support: Trusted Tulsa IT Partner",
+      "description": "Trusted Tulsa IT partner since 2015—TechSavvy Consulting delivers tailored infrastructure, outsourced support, and strategic planning for small businesses.",
+      "canonical": "https://www.techsavvy.consulting/about-it-support",
+      "robotsMeta": null,
+      "socialImage": "https://static.wixstatic.com/media/96e054_ee439feecfbd425a82a2ea27a2ca4ca2%7Emv2.jpg/v1/fit/w_2500,h_1330,al_c/96e054_ee439feecfbd425a82a2ea27a2ca4ca2%7Emv2.jpg",
+      "schema": [],
+      "contentBlocks": [
+        {
+          "tag": "h1",
+          "text": "About Us"
+        },
+        {
+          "tag": "p",
+          "text": "Since 2015, TechSavvy Consulting, LLC has been the trusted IT partner for small businesses in Tulsa County and beyond. We specialize in delivering tailored solutions, from infrastructure management (servers, desktops, networks, and end-user support) to strategic planning. Whether acting as your fully outsourced IT department or providing flexible support for projects and ad-hoc needs, we offer unmatched expertise, reliability, and value compared to in-house teams."
+        },
+        {
+          "tag": "p",
+          "text": "Our team of seasoned professionals, each with a minimum of five years’ experience, combines technical prowess with strong communication and business insight to align IT strategies with your goals. Serving diverse industries with 10-100 device users, we’re committed to transparent, cost-effective partnerships that empower your business."
+        },
+        {
+          "tag": "h4",
+          "text": "Why TechSavvy Consulting?"
+        },
+        {
+          "tag": "p",
+          "text": "Local, available, seasoned IT professionals ready to support your technology needs."
+        },
+        {
+          "tag": "p",
+          "text": "We bring decades of business technology experience to practical planning and support, improving ROI."
+        },
+        {
+          "tag": "p",
+          "text": "Our friendly, dedicated team is committed to enhancing your day by ensuring all your technology works seamlessly for you!"
+        },
+        {
+          "tag": "h4",
+          "text": "TechSavvy Founder"
+        },
+        {
+          "tag": "h6",
+          "text": "Kyle E. Hearn, Founder & Chief Technology Officer:"
+        },
+        {
+          "tag": "p",
+          "text": "Kyle E. Hearn is an entrepreneur and technology expert with nearly 30 years of experience in business IT strategy, process development, server, network technologies and project management."
+        },
+        {
+          "tag": "p",
+          "text": "At the age of 17, Hearn launched his first business, Mentor Technologies, and grew the company into a multi-million dollar business with a nationwide customer base. Hearn’s business successes include the creation of three technology companies, the acquisition of four IT and telephony companies and the execution of a successful exit strategy before the age of 35."
+        },
+        {
+          "tag": "p",
+          "text": "Today, Hearn uses his extensive knowledge in business development and technology to assist new businesses and individuals achieve their personal and professional goals. Hearn is the owner of TechSavvy Consulting LLC."
+        }
+      ],
+      "unstructuredText": [
+        "Book Your Consultation",
+        "Let's Start a Conversation"
+      ],
+      "mainLinks": [
+        {
+          "href": "https://www.techsavvy.consulting/contact",
+          "text": "Book Your Consultation"
+        },
+        {
+          "href": "https://www.techsavvy.consulting/contact",
+          "text": "Let's Start a Conversation"
+        }
+      ],
+      "images": [
+        {
+          "src": "https://static.wixstatic.com/media/11062b_b337daf680904e26b3cebd7906fb90f4~mv2.jpg/v1/fill/w_147,h_74,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/11062b_b337daf680904e26b3cebd7906fb90f4~mv2.jpg",
+          "alt": "Abstract Blue Geometric Design"
+        },
+        {
+          "src": "https://static.wixstatic.com/media/96e054_179b95c6fd82416c8bb1d657a35ac45b~mv2.png/v1/fill/w_225,h_301,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/kyle-hearn-founder-headshot-navy-suit-review.png",
+          "alt": "kyle-hearn-founder-headshot-navy-suit-review.png"
+        }
+      ],
+      "videos": [],
+      "forms": [],
+      "formFields": [],
+      "rawHtmlSha256": "c8738854107dbaa18e95035228c96e8e1d9172992474436dcdd01f73c8915b19"
+    },
+    {
+      "path": "/proactive-it",
+      "sourceUrl": "https://www.techsavvy.consulting/proactive-it",
+      "status": 200,
+      "finalUrl": "https://www.techsavvy.consulting/proactive-it",
+      "title": "Proactive IT Services in Tulsa | TechSavvy Consulting",
+      "description": "TechSavvy Consulting delivers proactive IT services with routine updates, optimization, user management, and preventive maintenance for reliable systems.",
+      "canonical": "https://www.techsavvy.consulting/proactive-it",
+      "robotsMeta": null,
+      "socialImage": "https://static.wixstatic.com/media/96e054_ee439feecfbd425a82a2ea27a2ca4ca2%7Emv2.jpg/v1/fit/w_2500,h_1330,al_c/96e054_ee439feecfbd425a82a2ea27a2ca4ca2%7Emv2.jpg",
+      "schema": [],
+      "contentBlocks": [
+        {
+          "tag": "h1",
+          "text": "Proactive IT"
+        },
+        {
+          "tag": "h3",
+          "text": "Monthly Server Maintenance"
+        },
+        {
+          "tag": "p",
+          "text": "Ensure your servers are always ready to perform with our proactive maintenance plan. We handle system updates, user management, database optimization, and more to prevent disruptions and maintain peak efficiency. Ideal for businesses with stable workstations but critical server needs, this package includes:"
+        },
+        {
+          "tag": "li",
+          "text": "Regular server health checks and updates."
+        },
+        {
+          "tag": "li",
+          "text": "User account management and security enhancements."
+        },
+        {
+          "tag": "li",
+          "text": "Discounted hourly rates for additional on-demand services."
+        },
+        {
+          "tag": "li",
+          "text": "Optional workstation monitoring for a comprehensive solution."
+        },
+        {
+          "tag": "p",
+          "text": "Perfect for small businesses seeking dependable server performance with flexible IT support options."
+        },
+        {
+          "tag": "h3",
+          "text": "Quarterly Check-Up Service"
+        },
+        {
+          "tag": "p",
+          "text": "Maintain your systems with our thorough quarterly evaluations, designed for businesses without regular IT maintenance. We assess disk space, antivirus protection, patches, updates, and equipment health, delivering a prioritized action plan tailored to your needs. Key features include:"
+        },
+        {
+          "tag": "li",
+          "text": "Comprehensive system and security review."
+        },
+        {
+          "tag": "li",
+          "text": "Clear, actionable recommendations with no obligation."
+        },
+        {
+          "tag": "li",
+          "text": "Flexible service options to address identified issues."
+        },
+        {
+          "tag": "p",
+          "text": "Ideal for small businesses seeking periodic IT oversight to ensure long-term functionality and performance."
+        },
+        {
+          "tag": "h3",
+          "text": "Why Choose Our Proactive IT Support?"
+        },
+        {
+          "tag": "li",
+          "text": "Prevent Downtime: Catch issues early with proactive monitoring and maintenance."
+        },
+        {
+          "tag": "li",
+          "text": "Cost-Effective: Enjoy tailored plans with predictable pricing and no hidden fees."
+        },
+        {
+          "tag": "li",
+          "text": "Expert Support: Access our skilled team for strategic guidance and rapid response."
+        },
+        {
+          "tag": "li",
+          "text": "Scalable Solutions: Add services like workstation monitoring or on-demand support as your needs evolve."
+        },
+        {
+          "tag": "p",
+          "text": "Ready to safeguard your IT systems? Contact TechSavvy Consulting today for a free consultation and discover the right proactive support package for your business. Let’s keep your technology running at its best!"
+        }
+      ],
+      "unstructuredText": [
+        "Let's Start a Conversation",
+        "Book Your Consultation",
+        "Let's Start a Conversation"
+      ],
+      "mainLinks": [
+        {
+          "href": "https://www.techsavvy.consulting/contact",
+          "text": "Let's Start a Conversation"
+        },
+        {
+          "href": "https://www.techsavvy.consulting/contact",
+          "text": "Book Your Consultation"
+        },
+        {
+          "href": "https://www.techsavvy.consulting/contact",
+          "text": "Let's Start a Conversation"
+        }
+      ],
+      "images": [
+        {
+          "src": "https://static.wixstatic.com/media/44ca310c068149dbaa885480c053542d.jpg/v1/fill/w_113,h_75,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/44ca310c068149dbaa885480c053542d.jpg",
+          "alt": "Abstract Ceiling "
+        },
+        {
+          "src": "https://static.wixstatic.com/media/6c3b8b_8418bc7510584d3bb617450d6a919a4c~mv2.jpg/v1/fill/w_504,h_479,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/portrait-smiling-handsome-man-eyeglasses_edited.jpg",
+          "alt": "portrait-smiling-handsome-man-eyeglasses_edited.jpg"
+        },
+        {
+          "src": "https://static.wixstatic.com/media/6e091f_9a85c12082794c5c9d366c25ec3a3102~mv2.png/v1/fill/w_504,h_479,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/managed-IT-services-Tulsa-min.png",
+          "alt": "managed-IT-services-Tulsa-min.png"
+        },
+        {
+          "src": "https://static.wixstatic.com/media/6c3b8b_205365a40924402aa7ba3703b6c9e38e~mv2.jpg/v1/fill/w_145,h_66,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/6c3b8b_205365a40924402aa7ba3703b6c9e38e~mv2.jpg",
+          "alt": "imgi_7_dc18b8bc13904c7faea6b2d66479ddde.jpg"
+        }
+      ],
+      "videos": [],
+      "forms": [],
+      "formFields": [],
+      "rawHtmlSha256": "683c5de4f61de3fc16df796d7fd99254925757c38373f5127905544abbb95133"
+    },
+    {
+      "path": "/blog",
+      "sourceUrl": "https://www.techsavvy.consulting/blog",
+      "status": 200,
+      "finalUrl": "https://www.techsavvy.consulting/blog",
+      "title": "Tulsa IT Blog | TechSavvy Consulting Tips & Insights",
+      "description": "Explore TechSavvy Consulting’s blog for expert insights on Tulsa business IT—from security updates and managed services to provider selection tips.",
+      "canonical": "https://www.techsavvy.consulting/blog",
+      "robotsMeta": null,
+      "socialImage": "https://static.wixstatic.com/media/96e054_ee439feecfbd425a82a2ea27a2ca4ca2%7Emv2.jpg/v1/fit/w_2500,h_1330,al_c/96e054_ee439feecfbd425a82a2ea27a2ca4ca2%7Emv2.jpg",
+      "schema": [],
+      "contentBlocks": [
+        {
+          "tag": "h1",
+          "text": "All Posts"
+        },
+        {
+          "tag": "h2",
+          "text": "Why Upgrading to Windows 11 from Windows 10 Is Essential for Security and Beyond"
+        },
+        {
+          "tag": "h2",
+          "text": "Why Tulsa Businesses Are Switching to Managed IT Services"
+        },
+        {
+          "tag": "h2",
+          "text": "How to Choose the Right Managed IT Provider in Oklahoma"
+        }
+      ],
+      "unstructuredText": [
+        "Upgrading from Windows 10 to Windows 11 is a critical step toward a more secure, modern, and efficient computing experience. As cyber...",
+        "Kyle Hearn",
+        "Aug 12, 2025",
+        "3 min read",
+        "In today’s fast-paced digital world, businesses in Tulsa face growing challenges in managing their IT infrastructure efficiently and...",
+        "Kyle Hearn",
+        "Aug 7, 2025",
+        "5 min read",
+        "In today’s fast-paced digital world, businesses in Oklahoma rely heavily on their IT infrastructure to stay competitive and secure. With...",
+        "Kyle Hearn",
+        "Aug 7, 2025",
+        "7 min read"
+      ],
+      "mainLinks": [
+        {
+          "href": "https://www.techsavvy.consulting/blog",
+          "text": "All Posts"
+        },
+        {
+          "href": "https://www.techsavvy.consulting/post/windows11-upgrade-essential",
+          "text": "Why Upgrading to Windows 11 from Windows 10 Is Essential for Security and Beyond"
+        },
+        {
+          "href": "https://www.techsavvy.consulting/post/managed-it-service-switching",
+          "text": "Why Tulsa Businesses Are Switching to Managed IT Services"
+        },
+        {
+          "href": "https://www.techsavvy.consulting/post/choose-managed-it-provider-ok",
+          "text": "How to Choose the Right Managed IT Provider in Oklahoma"
+        }
+      ],
+      "images": [
+        {
+          "src": "https://static.wixstatic.com/media/ce3336a21d2d4c29997a2d998b256cd4.jpg/v1/fill/w_333,h_250,fp_0.50_0.50,q_30,blur_30,enc_avif,quality_auto/ce3336a21d2d4c29997a2d998b256cd4.webp",
+          "alt": "Why Upgrading to Windows 11 from Windows 10 Is Essential for Security and Beyond"
+        },
+        {
+          "src": "https://static.wixstatic.com/media/ce3336a21d2d4c29997a2d998b256cd4.jpg/v1/fill/w_454,h_341,fp_0.50_0.50,q_90,enc_avif,quality_auto/ce3336a21d2d4c29997a2d998b256cd4.webp",
+          "alt": "Why Upgrading to Windows 11 from Windows 10 Is Essential for Security and Beyond"
+        },
+        {
+          "src": "https://static.wixstatic.com/media/96e054_e8205c9c08424b84a9a10d8ec3dd24d5~mv2.png/v1/fill/w_333,h_250,fp_0.50_0.50,q_35,blur_30,enc_avif,quality_auto/96e054_e8205c9c08424b84a9a10d8ec3dd24d5~mv2.webp",
+          "alt": "Why Tulsa Businesses Are Switching to Managed IT Services"
+        },
+        {
+          "src": "https://static.wixstatic.com/media/96e054_e8205c9c08424b84a9a10d8ec3dd24d5~mv2.png/v1/fill/w_454,h_341,fp_0.50_0.50,q_95,enc_avif,quality_auto/96e054_e8205c9c08424b84a9a10d8ec3dd24d5~mv2.webp",
+          "alt": "Why Tulsa Businesses Are Switching to Managed IT Services"
+        },
+        {
+          "src": "https://static.wixstatic.com/media/96e054_2a11d009b465479c8f3b157304a297f5~mv2.png/v1/fill/w_333,h_250,fp_0.50_0.50,q_35,blur_30,enc_avif,quality_auto/96e054_2a11d009b465479c8f3b157304a297f5~mv2.webp",
+          "alt": "How to Choose the Right Managed IT Provider in Oklahoma"
+        },
+        {
+          "src": "https://static.wixstatic.com/media/96e054_2a11d009b465479c8f3b157304a297f5~mv2.png/v1/fill/w_454,h_341,fp_0.50_0.50,q_95,enc_avif,quality_auto/96e054_2a11d009b465479c8f3b157304a297f5~mv2.webp",
+          "alt": "How to Choose the Right Managed IT Provider in Oklahoma"
+        }
+      ],
+      "videos": [],
+      "forms": [],
+      "formFields": [],
+      "rawHtmlSha256": "47bbe8eb0a6fb022b70bd9649c02e8af47c1463f1cc3840a5250ebeab4efe438"
+    },
+    {
+      "path": "/tulsa-it-faq",
+      "sourceUrl": "https://www.techsavvy.consulting/tulsa-it-faq",
+      "status": 200,
+      "finalUrl": "https://www.techsavvy.consulting/tulsa-it-faq",
+      "title": "TechSavvy IT FAQs: Expert Support for Tulsa Small Businesses",
+      "description": "Find answers to common IT support questions with TechSavvy Consulting’s Tulsa IT FAQs—covering services, pricing, coverage, and procurement.",
+      "canonical": "https://www.techsavvy.consulting/tulsa-it-faq",
+      "robotsMeta": null,
+      "socialImage": "https://static.wixstatic.com/media/96e054_ee439feecfbd425a82a2ea27a2ca4ca2%7Emv2.jpg/v1/fit/w_2500,h_1330,al_c/96e054_ee439feecfbd425a82a2ea27a2ca4ca2%7Emv2.jpg",
+      "schema": [],
+      "contentBlocks": [
+        {
+          "tag": "h1",
+          "text": "FAQs"
+        },
+        {
+          "tag": "h2",
+          "text": "Frequently asked questions"
+        },
+        {
+          "tag": "button",
+          "text": "How Long Have You Been in Business?"
+        },
+        {
+          "tag": "p",
+          "text": "Since our founding in 2015, TechSavvy Consulting has delivered expert IT solutions to small businesses. Our senior consultants bring over two decades of experience, with IT support expertise dating back to 1997, ensuring proven reliability and deep industry knowledge."
+        },
+        {
+          "tag": "li",
+          "text": "01How Long Have You Been in Business?Since our founding in 2015, TechSavvy Consulting has delivered expert IT solutions to small businesses. Our senior consultants bring over two decades of experience, with IT support expertise dating back to 1997, ensuring proven reliability and deep industry knowledge."
+        },
+        {
+          "tag": "button",
+          "text": "What Is Your Coverage Area?"
+        },
+        {
+          "tag": "p",
+          "text": "We provide on-site IT support throughout Tulsa County, with our service area expanding regularly—contact us to confirm availability in your location. For remote support, we serve clients nationwide, offering accessible, high-quality IT solutions for small businesses wherever you are."
+        },
+        {
+          "tag": "li",
+          "text": "02What Is Your Coverage Area?We provide on-site IT support throughout Tulsa County, with our service area expanding regularly—contact us to confirm availability in your location. For remote support, we serve clients nationwide, offering accessible, high-quality IT solutions for small businesses wherever you are."
+        },
+        {
+          "tag": "button",
+          "text": "What Sets You Apart from Competitors?"
+        },
+        {
+          "tag": "li",
+          "text": "Compared to Internal IT Departments: We deliver superior service at a fraction of the cost, eliminating the overhead and management challenges of in-house teams."
+        },
+        {
+          "tag": "li",
+          "text": "Compared to Other IT Firms: Our priority is rapid response—when you call, we answer, ready to resolve issues. Our team consists of seasoned professionals with at least five years of experience, ensuring unmatched expertise and professionalism in managed IT services for small businesses."
+        },
+        {
+          "tag": "li",
+          "text": "03What Sets You Apart from Competitors?Compared to Internal IT Departments: We deliver superior service at a fraction of the cost, eliminating the overhead and management challenges of in-house teams.Compared to Other IT Firms: Our priority is rapid response—when you call, we answer, ready to resolve issues. Our team consists of seasoned professionals with at least five years of experience, ensuring unmatched expertise and professionalism in managed IT services for small businesses."
+        },
+        {
+          "tag": "button",
+          "text": "What Payment Methods Do You Accept?"
+        },
+        {
+          "tag": "p",
+          "text": "We accept checks, CashApp, and major credit cards thru PayPal. Any applicable transaction fees will be billed to your account."
+        },
+        {
+          "tag": "li",
+          "text": "04What Payment Methods Do You Accept?We accept checks, CashApp, and major credit cards thru PayPal. Any applicable transaction fees will be billed to your account."
+        },
+        {
+          "tag": "button",
+          "text": "Do You Sell Hardware and Software?"
+        },
+        {
+          "tag": "p",
+          "text": "For your convenience, we can procure hardware and software as needed. However, to maximize your savings, we often connect you directly with vendors, avoiding markups and ensuring competitive pricing without competing with large retailers like Amazon."
+        },
+        {
+          "tag": "li",
+          "text": "05Do You Sell Hardware and Software?For your convenience, we can procure hardware and software as needed. However, to maximize your savings, we often connect you directly with vendors, avoiding markups and ensuring competitive pricing without competing with large retailers like Amazon."
+        },
+        {
+          "tag": "button",
+          "text": "Why Choose Ongoing Support Over Hourly?"
+        },
+        {
+          "tag": "p",
+          "text": "Our flat-fee ongoing support plans prioritize prevention over reaction. By aligning our interests with yours, we proactively maintain your systems to minimize issues and optimize performance. This approach delivers predictable costs and reliable network support, keeping your business running smoothly."
+        },
+        {
+          "tag": "p",
+          "text": "Have more questions? Contact us today for a free consultation and discover how our tailored IT solutions can empower your small business!"
+        },
+        {
+          "tag": "li",
+          "text": "06Why Choose Ongoing Support Over Hourly?Our flat-fee ongoing support plans prioritize prevention over reaction. By aligning our interests with yours, we proactively maintain your systems to minimize issues and optimize performance. This approach delivers predictable costs and reliable network support, keeping your business running smoothly.Have more questions? Contact us today for a free consultation and discover how our tailored IT solutions can empower your small business!"
+        }
+      ],
+      "unstructuredText": [
+        "Let's Start a Conversation"
+      ],
+      "mainLinks": [
+        {
+          "href": "https://www.techsavvy.consulting/contact",
+          "text": "Let's Start a Conversation"
+        },
+        {
+          "href": "https://www.techsavvy.consulting/",
+          "text": "Have more questions? Contact us today for a free consultation and discover how our tailored IT solutions can empower your small business!"
+        }
+      ],
+      "images": [
+        {
+          "src": "https://static.wixstatic.com/media/11062b_58b11b5ad04c43c3b6850f76397b0742~mv2.jpg/v1/fill/w_133,h_75,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/11062b_58b11b5ad04c43c3b6850f76397b0742~mv2.jpg",
+          "alt": "Digital Maze"
+        }
+      ],
+      "videos": [],
+      "forms": [],
+      "formFields": [],
+      "rawHtmlSha256": "46da3b29e32891faf4d0ecb8a87789d1402378054ee65547cda46ffcaef357f3"
+    },
+    {
+      "path": "/it-support-business-tulsa",
+      "sourceUrl": "https://www.techsavvy.consulting/it-support-business-tulsa",
+      "status": 200,
+      "finalUrl": "https://www.techsavvy.consulting/it-support-business-tulsa",
+      "title": "Our Advantages | TechSavvy Consulting | IT Service Tulsa",
+      "description": "Trusted IT support for Oklahoma small businesses. Expert computer, server, mobile, cloud, AI, & security solutions in Tulsa. Proactive managed IT services for secure, reliable systems & disaster recovery. Contact TechSavvy Consulting now!",
+      "canonical": "https://www.techsavvy.consulting/it-support-business-tulsa",
+      "robotsMeta": null,
+      "socialImage": "https://static.wixstatic.com/media/96e054_ee439feecfbd425a82a2ea27a2ca4ca2%7Emv2.jpg/v1/fit/w_2500,h_1330,al_c/96e054_ee439feecfbd425a82a2ea27a2ca4ca2%7Emv2.jpg",
+      "schema": [],
+      "contentBlocks": [
+        {
+          "tag": "h1",
+          "text": "Our Advantages"
+        },
+        {
+          "tag": "p",
+          "text": "Flexibility"
+        },
+        {
+          "tag": "p",
+          "text": "We Scale with You: Imagine a 30-employee company with one IT staffer. Adding 10 more and a new office? Hiring another doubles costs unnecessarily. Our outsourced solutions from TechSavvy Consulting adjust incrementally as you grow or downsize—no hiring hassles, just flexible IT support services for small business."
+        },
+        {
+          "tag": "p",
+          "text": "Coverage"
+        },
+        {
+          "tag": "p",
+          "text": "24/7/365 Support: What if your solo IT person is unavailable? We ensure year-round coverage with multiple familiar consultants, avoiding disruptions for consistent IT help that small business relies on."
+        },
+        {
+          "tag": "p",
+          "text": "Experience"
+        },
+        {
+          "tag": "p",
+          "text": "Trust the Experts: We've managed networks for over 200 Tulsa companies and bring enterprise-level best practices. Our consultants have at least five years' experience, turning IT into a business advantage with professional managed IT services for small businesses."
+        },
+        {
+          "tag": "p",
+          "text": "Tools"
+        },
+        {
+          "tag": "p",
+          "text": "Advanced Software at No Extra Cost: Our investments in remote management tools enable proactive prevention, quick connections, and enhanced reliability for business computer support."
+        },
+        {
+          "tag": "p",
+          "text": "Service"
+        },
+        {
+          "tag": "p",
+          "text": "A Genuine Partnership: Focused on long-term relationships, we assign a dedicated consultant who deeply understands your business for strategic recommendations. This personalized approach outshines larger firms, fostering mutual growth in local IT support for small business."
+        }
+      ],
+      "unstructuredText": [
+        "Let's Start a Conversation",
+        "Book Your Consultation"
+      ],
+      "mainLinks": [
+        {
+          "href": "https://www.techsavvy.consulting/contact",
+          "text": "Let's Start a Conversation"
+        },
+        {
+          "href": "https://www.techsavvy.consulting/contact",
+          "text": "Book Your Consultation"
+        }
+      ],
+      "images": [
+        {
+          "src": "https://static.wixstatic.com/media/79e6ff0b4fa14818b14a29f9eca3dccc.jpg/v1/fill/w_113,h_75,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/79e6ff0b4fa14818b14a29f9eca3dccc.jpg",
+          "alt": "Abstract Architect"
+        }
+      ],
+      "videos": [],
+      "forms": [],
+      "formFields": [],
+      "rawHtmlSha256": "08cb9fd59e500e5b678db61964bd4cdcc4471462ae1cce51e899dd4fedfa2157"
+    },
+    {
+      "path": "/offsite-backup-recovery",
+      "sourceUrl": "https://www.techsavvy.consulting/offsite-backup-recovery",
+      "status": 200,
+      "finalUrl": "https://www.techsavvy.consulting/offsite-backup-recovery",
+      "title": "Offsite Backup & Recovery in Tulsa | TechSavvy Consulting",
+      "description": "Protect business data with TechSavvy’s offsite backup & recovery—automated encrypted backups, monitoring, fast recovery, and disaster readiness.",
+      "canonical": "https://www.techsavvy.consulting/offsite-backup-recovery",
+      "robotsMeta": null,
+      "socialImage": "https://static.wixstatic.com/media/96e054_ee439feecfbd425a82a2ea27a2ca4ca2%7Emv2.jpg/v1/fit/w_2500,h_1330,al_c/96e054_ee439feecfbd425a82a2ea27a2ca4ca2%7Emv2.jpg",
+      "schema": [],
+      "contentBlocks": [
+        {
+          "tag": "h1",
+          "text": "Backup Solutions"
+        },
+        {
+          "tag": "p",
+          "text": "Protect your business’s critical data with TechSavvy Consulting’s comprehensive backup solutions. Our services are designed to help protect your data, maintain access where possible, and support recovery when needed. From offsite and local backups to advanced disaster recovery, we tailor our offerings to meet your unique needs, minimizing downtime and safeguarding your operations. Explore our solutions below and discover how we can keep your data safe."
+        },
+        {
+          "tag": "h3",
+          "text": "Offsite Backup with Daily Log Monitoring"
+        },
+        {
+          "tag": "p",
+          "text": "Secure your data with our robust offsite backup service, hosted in secure, cloud-based environments."
+        },
+        {
+          "tag": "p",
+          "text": "Key features include:"
+        },
+        {
+          "tag": "p",
+          "text": "Automated Daily Backups: Regular, encrypted backups to protect your data from loss or corruption."
+        },
+        {
+          "tag": "p",
+          "text": "Daily Log Monitoring: Our team reviews backup logs daily to confirm successful operations and address issues promptly."
+        },
+        {
+          "tag": "p",
+          "text": "Rapid Recovery: Quick access to your data in the event of hardware failure, ransomware, or other disruptions."
+        },
+        {
+          "tag": "p",
+          "text": "Ideal for businesses seeking reliable, hands-off data protection with minimal management overhead."
+        },
+        {
+          "tag": "h3",
+          "text": "Local Backup with Monitoring"
+        },
+        {
+          "tag": "p",
+          "text": "For businesses preferring on-premises solutions, our local backup service offers secure, monitored data protection using external media, hard drive, or NAS devices."
+        },
+        {
+          "tag": "p",
+          "text": "Key features include:"
+        },
+        {
+          "tag": "p",
+          "text": "Automated Daily Backups: Regular, encrypted backups to protect your data from loss or corruption."
+        },
+        {
+          "tag": "p",
+          "text": "Daily Log Monitoring: Our team reviews backup logs daily to confirm successful operations and address issues promptly."
+        },
+        {
+          "tag": "p",
+          "text": "Rapid Recovery: Quick access to your data in the event of hardware failure, ransomware, or other disruptions."
+        },
+        {
+          "tag": "p",
+          "text": "Ideal for businesses seeking reliable, hands-off data protection with minimal management overhead."
+        },
+        {
+          "tag": "h3",
+          "text": "Disaster Recovery Solutions"
+        },
+        {
+          "tag": "p",
+          "text": "Minimize downtime with our tailored disaster recovery plans, designed for both single and multi-location businesses:"
+        },
+        {
+          "tag": "p",
+          "text": "Single-Location Hosted Solutions: Cloud-based recovery systems for quick restoration of critical systems and data after a disaster. Includes virtualized server recovery and failover options to keep your business operational."
+        },
+        {
+          "tag": "p",
+          "text": "Multi-Location Replication: Dedicated local replication servers to synchronize data across sites, ensuring seamless recovery and business continuity for organizations with multiple offices."
+        },
+        {
+          "tag": "p",
+          "text": "Custom Recovery Plans: Detailed strategies outlining recovery time objectives (RTOs) and recovery point objectives (RPOs) to meet your specific needs."
+        },
+        {
+          "tag": "p",
+          "text": "Regular Testing: Annual or biannual disaster recovery simulations to validate plans and ensure readiness."
+        },
+        {
+          "tag": "p",
+          "text": "Our disaster recovery services are designed to get you back online quickly, protecting your revenue and reputation."
+        },
+        {
+          "tag": "h3",
+          "text": "Why Choose TechSavvy Consulting for Backup Solutions?"
+        },
+        {
+          "tag": "p",
+          "text": "Proactive Protection: Daily monitoring and regular testing help verify backup health and recovery readiness."
+        },
+        {
+          "tag": "p",
+          "text": "Tailored Approach: Customized solutions designed to fit your business size, industry, and budget."
+        },
+        {
+          "tag": "p",
+          "text": "Quarterly Restore Testing: Regular tests to verify media integrity and restore capabilities, helping confirm data can be restored when needed."
+        },
+        {
+          "tag": "p",
+          "text": "Hybrid Backup Solutions: Combine the best of offsite and local backups for maximum flexibility. Store critical data locally for fast access and replicate it to the cloud for redundancy, balancing speed and security."
+        },
+        {
+          "tag": "p",
+          "text": "Managed Encryption Services: End-to-end encryption management for backups, including key management and secure data transfer, to protect sensitive information from unauthorized access."
+        },
+        {
+          "tag": "p",
+          "text": "Ransomware Recovery Support: Specialized recovery protocols to restore data from ransomware attacks, including isolated backup repositories and rapid response to minimize damage."
+        },
+        {
+          "tag": "p",
+          "text": "Data Archiving Solutions: Long-term storage options for infrequently accessed data, optimized for cost savings and compliance with retention policies."
+        }
+      ],
+      "unstructuredText": [
+        "Book Your Consultation",
+        "Let's Start a Conversation"
+      ],
+      "mainLinks": [
+        {
+          "href": "https://www.techsavvy.consulting/contact",
+          "text": "Book Your Consultation"
+        },
+        {
+          "href": "https://www.techsavvy.consulting/contact",
+          "text": "Let's Start a Conversation"
+        }
+      ],
+      "images": [
+        {
+          "src": "https://static.wixstatic.com/media/6c3b8b_f60dfc15ce9f443c8d87c77e20898a02~mv2.webp/v1/fill/w_450,h_400,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/imgi_8_Multi-vendor-Backup-Management.webp",
+          "alt": "imgi_8_Multi-vendor-Backup-Management.webp"
+        },
+        {
+          "src": "https://static.wixstatic.com/media/6c3b8b_a0ab552b12cc4b38951d3b0de22b9c8a~mv2.webp/v1/fill/w_450,h_400,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/imgi_39_BlogPost-OffsiteBackups-DP-JY-81933-1-1024x465_png.webp",
+          "alt": "imgi_39_BlogPost-OffsiteBackups-DP-JY-81933-1-1024x465.png.webp"
+        },
+        {
+          "src": "https://static.wixstatic.com/media/11062b_536bb0dc35e34faaac7844b301768e3a~mv2.jpg/v1/fill/w_147,h_83,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/11062b_536bb0dc35e34faaac7844b301768e3a~mv2.jpg",
+          "alt": "Abstract Futuristic Background"
+        }
+      ],
+      "videos": [],
+      "forms": [],
+      "formFields": [],
+      "rawHtmlSha256": "418fbe7b5a06e646473a80c71b9bafc401498c4ae54d11d317f4c422f50a656c"
+    },
+    {
+      "path": "/contact",
+      "sourceUrl": "https://www.techsavvy.consulting/contact",
+      "status": 200,
+      "finalUrl": "https://www.techsavvy.consulting/contact",
+      "title": "Contact TechSavvy Consulting: IT Support in Tulsa, OK",
+      "description": "Get in touch with TechSavvy Consulting—Tulsa’s trusted IT support team. Call, email, or book a network assessment to simplify your business tech.",
+      "canonical": "https://www.techsavvy.consulting/contact",
+      "robotsMeta": null,
+      "socialImage": "https://static.wixstatic.com/media/96e054_ee439feecfbd425a82a2ea27a2ca4ca2%7Emv2.jpg/v1/fit/w_2500,h_1330,al_c/96e054_ee439feecfbd425a82a2ea27a2ca4ca2%7Emv2.jpg",
+      "schema": [],
+      "contentBlocks": [
+        {
+          "tag": "h1",
+          "text": "GET IN TOUCH"
+        },
+        {
+          "tag": "p",
+          "text": "Contact our dedicated IT experts today to simplify your technology needs and challenges with tailored solutions that drive your success. We respect your privacy and will never spam you or add you to email lists."
+        },
+        {
+          "tag": "label",
+          "text": "Name*"
+        },
+        {
+          "tag": "label",
+          "text": "Email*"
+        },
+        {
+          "tag": "label",
+          "text": "Telephone"
+        },
+        {
+          "tag": "label",
+          "text": "Company"
+        },
+        {
+          "tag": "label",
+          "text": "Message*"
+        },
+        {
+          "tag": "button",
+          "text": "Send Message"
+        },
+        {
+          "tag": "h4",
+          "text": "Contact Info"
+        },
+        {
+          "tag": "p",
+          "text": "5840 S Memorial Dr Tulsa, OK 74145"
+        },
+        {
+          "tag": "p",
+          "text": "918.400.2424"
+        },
+        {
+          "tag": "p",
+          "text": "sales@techsavvy.consulting"
+        }
+      ],
+      "unstructuredText": [],
+      "mainLinks": [
+        {
+          "href": "mailto:sales@techsavvy.consulting",
+          "text": "sales@techsavvy.consulting"
+        },
+        {
+          "href": "https://www.facebook.com/techsavvyok",
+          "text": ""
+        },
+        {
+          "href": "https://www.linkedin.com/in/kylehearn",
+          "text": ""
+        },
+        {
+          "href": "https://www.instagram.com/techsavvyok",
+          "text": ""
+        }
+      ],
+      "images": [
+        {
+          "src": "https://static.wixstatic.com/media/11062b_1f7ed8bc7b004201970df69f9eeda689~mv2.png/v1/fill/w_25,h_25,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/11062b_1f7ed8bc7b004201970df69f9eeda689~mv2.png",
+          "alt": "Facebook"
+        },
+        {
+          "src": "https://static.wixstatic.com/media/11062b_a06d85fa94d64ef68680321f5a043a8c~mv2.png/v1/fill/w_25,h_25,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/11062b_a06d85fa94d64ef68680321f5a043a8c~mv2.png",
+          "alt": "LinkedIn"
+        },
+        {
+          "src": "https://static.wixstatic.com/media/11062b_084cbbff6ae446c1b03dc3637193e77a~mv2.png/v1/fill/w_25,h_25,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/11062b_084cbbff6ae446c1b03dc3637193e77a~mv2.png",
+          "alt": "Instagram"
+        }
+      ],
+      "videos": [],
+      "forms": [
+        {
+          "label": "Main Contact Form",
+          "id": "form-f3132a20-850c-44a9-be94-75fed307ebce"
+        }
+      ],
+      "formFields": [
+        {
+          "tag": "input",
+          "type": "text",
+          "placeholder": " Name",
+          "required": "",
+          "aria-label": "Name"
+        },
+        {
+          "tag": "input",
+          "type": "email",
+          "placeholder": "Email",
+          "required": "",
+          "aria-label": "Email"
+        },
+        {
+          "tag": "input",
+          "type": "text",
+          "placeholder": "Telephone",
+          "aria-label": "Telephone"
+        },
+        {
+          "tag": "input",
+          "type": "text",
+          "placeholder": "Company",
+          "aria-label": "Company"
+        },
+        {
+          "tag": "textarea",
+          "placeholder": "Message",
+          "required": "",
+          "aria-label": "Message"
+        }
+      ],
+      "rawHtmlSha256": "783b39bd41904526e32db944779a1eac9761b17e42d0cd16ee7b61e6047604df"
+    },
+    {
+      "path": "/accessibility-statement",
+      "sourceUrl": "https://www.techsavvy.consulting/accessibility-statement",
+      "status": 200,
+      "finalUrl": "https://www.techsavvy.consulting/accessibility-statement",
+      "title": "Accessibility Statement | TechSavvy Consulting | IT Service Tulsa",
+      "description": "Trusted IT support for Oklahoma small businesses. Expert computer, server, mobile, cloud, AI, & security solutions in Tulsa. Proactive managed IT services for secure, reliable systems & disaster recovery. Contact TechSavvy Consulting now!",
+      "canonical": "https://www.techsavvy.consulting/accessibility-statement",
+      "robotsMeta": null,
+      "socialImage": "https://static.wixstatic.com/media/96e054_ee439feecfbd425a82a2ea27a2ca4ca2%7Emv2.jpg/v1/fit/w_2500,h_1330,al_c/96e054_ee439feecfbd425a82a2ea27a2ca4ca2%7Emv2.jpg",
+      "schema": [],
+      "contentBlocks": [
+        {
+          "tag": "h1",
+          "text": "Accessibility Statement for TechSavvy Consulting"
+        },
+        {
+          "tag": "p",
+          "text": "Effective Date: August 12, 2025"
+        },
+        {
+          "tag": "p",
+          "text": "TechSavvy Consulting is committed to ensuring that our website at https://techsavvy.consulting is accessible to all users, including those with disabilities. We strive to provide an inclusive digital experience that aligns with the Web Content Accessibility Guidelines (WCAG) 2.1, Level AA standards, to the best of our ability."
+        },
+        {
+          "tag": "h4",
+          "text": "Our Commitment to Accessibility"
+        },
+        {
+          "tag": "p",
+          "text": "We aim to make our website usable for everyone, including individuals with visual, auditory, motor, or cognitive disabilities. Our website is hosted on the Wix platform, which provides tools and features to support accessibility. We are continuously working to improve the accessibility of our content and ensure a seamless experience for all users."
+        },
+        {
+          "tag": "h4",
+          "text": "Accessibility Features"
+        },
+        {
+          "tag": "p",
+          "text": "To enhance accessibility, our website includes the following features:"
+        },
+        {
+          "tag": "li",
+          "text": "Keyboard Navigation: Our website is designed to be fully navigable using a keyboard for users who cannot use a mouse."
+        },
+        {
+          "tag": "li",
+          "text": "Screen Reader Compatibility: We aim to ensure compatibility with screen readers, such as NVDA, JAWS, and VoiceOver, through proper HTML structure and ARIA (Accessible Rich Internet Applications) landmarks."
+        },
+        {
+          "tag": "li",
+          "text": "Text Alternatives: Images on our website include descriptive alt text where applicable to assist users who rely on screen readers."
+        },
+        {
+          "tag": "li",
+          "text": "Contrast and Readability: We strive to maintain sufficient color contrast and legible font sizes to support users with visual impairments."
+        },
+        {
+          "tag": "li",
+          "text": "Responsive Design: Our website is built to be responsive, ensuring usability across various devices and screen sizes, including mobile devices and tablets."
+        },
+        {
+          "tag": "h4",
+          "text": "Third-Party Platform"
+        },
+        {
+          "tag": "p",
+          "text": "Our website is hosted by Wix.com, which incorporates accessibility features into its platform. For more information on Wix’s accessibility practices, please refer to the Wix Accessibility Statement. While we leverage Wix’s tools, we acknowledge that some elements may be outside our direct control, and we are committed to addressing any accessibility issues within our scope."
+        },
+        {
+          "tag": "h4",
+          "text": "Ongoing Efforts"
+        },
+        {
+          "tag": "p",
+          "text": "We are dedicated to improving accessibility by:"
+        },
+        {
+          "tag": "li",
+          "text": "Regularly reviewing our website for compliance with WCAG 2.1 guidelines."
+        },
+        {
+          "tag": "li",
+          "text": "Testing our website with assistive technologies to identify and address barriers."
+        },
+        {
+          "tag": "li",
+          "text": "Training our team on accessibility best practices to ensure ongoing improvements."
+        },
+        {
+          "tag": "h4",
+          "text": "Feedback and Assistance"
+        },
+        {
+          "tag": "p",
+          "text": "If you encounter any accessibility barriers while using our website or have suggestions for improvement, we encourage you to contact us. Your feedback helps us make our website more inclusive."
+        },
+        {
+          "tag": "p",
+          "text": "Please reach out to us at: TechSavvy Consulting Email: info@techsavvy.consulting Website: https://techsavvy.consulting"
+        },
+        {
+          "tag": "p",
+          "text": "We aim to respond to accessibility-related inquiries within 5 business days."
+        },
+        {
+          "tag": "h4",
+          "text": "Limitations"
+        },
+        {
+          "tag": "p",
+          "text": "While we strive to meet WCAG 2.1 Level AA standards, some areas of our website may not be fully accessible due to technical limitations or third-party content. We are actively working to identify and resolve these issues. If you require assistance accessing specific content, please contact us, and we will make reasonable efforts to provide the information in an alternative format."
+        },
+        {
+          "tag": "h4",
+          "text": "Changes to This Accessibility Statement"
+        },
+        {
+          "tag": "p",
+          "text": "We may update this Accessibility Statement periodically to reflect changes in our practices or legal requirements. Any updates will be posted on this page with an updated \"Effective Date.\""
+        },
+        {
+          "tag": "h4",
+          "text": "Contact Us"
+        },
+        {
+          "tag": "p",
+          "text": "For questions, concerns, or feedback about our website’s accessibility, please contact us at: TechSavvy Consulting Email: info@techsavvy.consulting Website: https://techsavvy.consulting"
+        }
+      ],
+      "unstructuredText": [],
+      "mainLinks": [
+        {
+          "href": "https://techsavvy.consulting",
+          "text": "https://techsavvy.consulting"
+        }
+      ],
+      "images": [],
+      "videos": [],
+      "forms": [],
+      "formFields": [],
+      "rawHtmlSha256": "89d1b1404bae964efd2531bb869c38a7878308816729c47eb009226e7cc4aff3"
+    },
+    {
+      "path": "/outsourced-managed-it",
+      "sourceUrl": "https://www.techsavvy.consulting/outsourced-managed-it",
+      "status": 200,
+      "finalUrl": "https://www.techsavvy.consulting/outsourced-managed-it",
+      "title": "Outsourced Managed IT Services in Tulsa",
+      "description": "Comprehensive managed IT services for small businesses by TechSavvy Consulting: proactive monitoring, remote support, security, vendor & compliance management.",
+      "canonical": "https://www.techsavvy.consulting/outsourced-managed-it",
+      "robotsMeta": null,
+      "socialImage": "https://static.wixstatic.com/media/96e054_ee439feecfbd425a82a2ea27a2ca4ca2%7Emv2.jpg/v1/fit/w_2500,h_1330,al_c/96e054_ee439feecfbd425a82a2ea27a2ca4ca2%7Emv2.jpg",
+      "schema": [],
+      "contentBlocks": [
+        {
+          "tag": "h1",
+          "text": "Outsourced / Managed IT"
+        },
+        {
+          "tag": "h3",
+          "text": "Full Monthly Managed IT Services / Support"
+        },
+        {
+          "tag": "p",
+          "text": "Gain peace of mind with our comprehensive managed IT services for small businesses, all for a single, affordable flat fee. We provide ongoing maintenance, monitoring, and management for the systems included in your service plan, which may include computers, servers, printers, network devices, and mobile systems. It's like having an in-house IT department, but with expanded expertise, diverse skills, and no overhead costs. Pricing is personalized based on the number of devices and your unique business requirements. We support both Apple and Windows environments and offer strategic IT planning to optimize your operations with the latest technologies."
+        },
+        {
+          "tag": "h3",
+          "text": "Remote Monthly Managed IT Services / Support"
+        },
+        {
+          "tag": "p",
+          "text": "We handle most IT needs without ever leaving our desk—over 80% of tasks are managed remotely! This package delivers the same high level of monitoring, maintenance, and support as our Full Monthly option, but through secure remote access for computers, servers, and networks. Perfect for businesses seeking reliable, cost-effective outsourced IT support, especially those outside our local area or focused on help desk services. For any on-site requirements, we will oversee your trusted local technicians to ensure seamless resolution."
+        },
+        {
+          "tag": "h3",
+          "text": "Your Custom Managed IT Solution"
+        },
+        {
+          "tag": "h4",
+          "text": "Managed IT Support:"
+        },
+        {
+          "tag": "li",
+          "text": "8am - 5pm Help Desk with responsive, friendly consultants."
+        },
+        {
+          "tag": "li",
+          "text": "On-site support (Full Managed only)."
+        },
+        {
+          "tag": "li",
+          "text": "24/7 emergency support for after-hours, weekends, and holidays. (According to Service Plan)"
+        },
+        {
+          "tag": "li",
+          "text": "Remote Support access from anywhere for swift business computer support."
+        },
+        {
+          "tag": "li",
+          "text": "Multi-Location Support: Streamlined IT solutions for businesses with multiple sites."
+        },
+        {
+          "tag": "li",
+          "text": "Cloud Support for your hosted business solutions (Office 365, Google Workspace, & Many More)"
+        },
+        {
+          "tag": "li",
+          "text": "Vendor Management: We handle third-party tech vendors, saving you time and hassle."
+        },
+        {
+          "tag": "h4",
+          "text": "Security / Compliance:"
+        },
+        {
+          "tag": "li",
+          "text": "Assistance with popular compliance standards PCI, HIPAA"
+        },
+        {
+          "tag": "li",
+          "text": "Information Security Assessments and Penetration & Vulnerability Testing"
+        },
+        {
+          "tag": "li",
+          "text": "Routine maintenance and patch management"
+        },
+        {
+          "tag": "h4",
+          "text": "CIO-Level Management / Strategic Planning:"
+        },
+        {
+          "tag": "li",
+          "text": "Guidance on optimizing IT processes."
+        },
+        {
+          "tag": "li",
+          "text": "IT budgeting and disaster recovery planning."
+        },
+        {
+          "tag": "li",
+          "text": "IT security reviews and regulatory compliance."
+        },
+        {
+          "tag": "li",
+          "text": "Comprehensive documentation, asset management, and vendor coordination for seamless support."
+        },
+        {
+          "tag": "li",
+          "text": "IT Project Management: Expert guidance for complex IT projects, from planning to execution."
+        },
+        {
+          "tag": "p",
+          "text": "Ready to outsource your IT worries? Contact TechSavvy Consulting today for a free consultation and customized quote. Let's empower your business with reliable, expert IT support!"
+        }
+      ],
+      "unstructuredText": [
+        "Let's Start a Conversation",
+        "Let's Start a Conversation",
+        "Let's Start a Conversation",
+        "Managed IT Support:",
+        "CIO-Level Management",
+        "Security / Compliance:",
+        "Security/Compliance"
+      ],
+      "mainLinks": [
+        {
+          "href": "https://www.techsavvy.consulting/contact",
+          "text": "Let's Start a Conversation"
+        },
+        {
+          "href": "https://www.techsavvy.consulting/contact",
+          "text": "Let's Start a Conversation"
+        },
+        {
+          "href": "https://www.techsavvy.consulting/contact",
+          "text": "Let's Start a Conversation"
+        }
+      ],
+      "images": [
+        {
+          "src": "https://static.wixstatic.com/media/11062b_5323252299a04f2a9c818aa15a74fe53~mv2.jpg/v1/fill/w_113,h_75,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/11062b_5323252299a04f2a9c818aa15a74fe53~mv2.jpg",
+          "alt": "Digital Network"
+        },
+        {
+          "src": "https://static.wixstatic.com/media/6c3b8b_8418bc7510584d3bb617450d6a919a4c~mv2.jpg/v1/fill/w_504,h_479,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/portrait-smiling-handsome-man-eyeglasses_edited.jpg",
+          "alt": "portrait-smiling-handsome-man-eyeglasses_edited.jpg"
+        },
+        {
+          "src": "https://static.wixstatic.com/media/2b50b7_36292ba428ff4e139bc36bd38efae510~mv2.png/v1/fill/w_504,h_479,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/managed-IT-services-Tulsa.png",
+          "alt": "managed-IT-services-Tulsa.png"
+        },
+        {
+          "src": "https://static.wixstatic.com/media/6c3b8b_768f7424ed8d47deb0119bf794bbd8f8~mv2.jpg/v1/fill/w_147,h_67,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/6c3b8b_768f7424ed8d47deb0119bf794bbd8f8~mv2.jpg",
+          "alt": "imgi_8_acb9f725af414b4eb30473b5b8ecfe74.jpg"
+        }
+      ],
+      "videos": [],
+      "forms": [],
+      "formFields": [],
+      "rawHtmlSha256": "b19f13ede17be16f9743200fe147f153321c81524331a2eb2a5a005f3f7b2152"
+    },
+    {
+      "path": "/english-privacy-policy",
+      "sourceUrl": "https://www.techsavvy.consulting/english-privacy-policy",
+      "status": 200,
+      "finalUrl": "https://www.techsavvy.consulting/english-privacy-policy",
+      "title": "Privacy Policy | TechSavvy Consulting | IT Service Tulsa",
+      "description": "Trusted IT support for Oklahoma small businesses. Expert computer, server, mobile, cloud, AI, & security solutions in Tulsa. Proactive managed IT services for secure, reliable systems & disaster recovery. Contact TechSavvy Consulting now!",
+      "canonical": "https://www.techsavvy.consulting/english-privacy-policy",
+      "robotsMeta": null,
+      "socialImage": "https://static.wixstatic.com/media/96e054_ee439feecfbd425a82a2ea27a2ca4ca2%7Emv2.jpg/v1/fit/w_2500,h_1330,al_c/96e054_ee439feecfbd425a82a2ea27a2ca4ca2%7Emv2.jpg",
+      "schema": [],
+      "contentBlocks": [
+        {
+          "tag": "h1",
+          "text": "Privacy Policy for TechSavvy Consulting"
+        },
+        {
+          "tag": "p",
+          "text": "Effective Date: October 23, 2026"
+        },
+        {
+          "tag": "p",
+          "text": "TechSavvy Consulting (\"we,\" \"our,\" or \"us\") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your personal information when you visit our website at https://techsavvy.consulting (the \"Website\"), hosted on the Wix platform. By using our Website, you agree to the terms of this Privacy Policy."
+        },
+        {
+          "tag": "h4",
+          "text": "1. Information We Collect"
+        },
+        {
+          "tag": "p",
+          "text": "We may collect the following types of information:"
+        },
+        {
+          "tag": "h5",
+          "text": "a. Personal Information"
+        },
+        {
+          "tag": "li",
+          "text": "Contact Information: Name, email address, phone number, or other details you provide when you fill out forms on our Website (e.g., contact forms, newsletter sign-ups, or inquiries)."
+        },
+        {
+          "tag": "li",
+          "text": "Communications: Information you provide when you contact us via email, phone, or other communication channels."
+        },
+        {
+          "tag": "h5",
+          "text": "b. Non-Personal Information"
+        },
+        {
+          "tag": "li",
+          "text": "Operational data: Wix processes technical information, such as IP address, browser and device details, to deliver and secure the Website and diagnose operational problems."
+        },
+        {
+          "tag": "li",
+          "text": "Cookies and similar technologies: Our Website uses only essential cookies and storage needed for core operation and security. Optional visitor analytics and advertising tracking are disabled."
+        },
+        {
+          "tag": "h4",
+          "text": "2. How We Use Your Information"
+        },
+        {
+          "tag": "p",
+          "text": "We use the information we collect to:"
+        },
+        {
+          "tag": "li",
+          "text": "Respond to your inquiries and provide consulting services."
+        },
+        {
+          "tag": "li",
+          "text": "Operate the Website and respond to information you choose to submit."
+        },
+        {
+          "tag": "li",
+          "text": "Send you newsletters, promotional materials, or updates (if you opt in)."
+        },
+        {
+          "tag": "li",
+          "text": "Maintain Website security and reliability using necessary operational information."
+        },
+        {
+          "tag": "li",
+          "text": "Comply with legal obligations or protect our legal rights."
+        },
+        {
+          "tag": "h4",
+          "text": "3. How We Share Your Information"
+        },
+        {
+          "tag": "p",
+          "text": "We do not sell, trade, or rent your personal information to third parties. We may share your information in the following cases:"
+        },
+        {
+          "tag": "li",
+          "text": "Service Providers: We use providers such as Wix for hosting, security, contact-form processing and communication delivery."
+        },
+        {
+          "tag": "li",
+          "text": "Legal Requirements: If required by law, regulation, or legal process (e.g., court order or subpoena)."
+        },
+        {
+          "tag": "li",
+          "text": "Business Transfers: In the event of a merger, acquisition, or sale of assets, your information may be transferred as part of the transaction."
+        },
+        {
+          "tag": "h4",
+          "text": "4. Cookies and Tracking Technologies"
+        },
+        {
+          "tag": "p",
+          "text": "We use essential cookies and similar storage for Website operation, security and form functionality. Optional analytics, advertising and personalization cookies are disabled. We do not use a cookie-consent popup because optional categories are not offered. You can manage stored cookies through your browser; blocking essential cookies may affect Website functions."
+        },
+        {
+          "tag": "h4",
+          "text": "5. Third-Party Services"
+        },
+        {
+          "tag": "p",
+          "text": "Wix hosts this Website and processes operational and submitted information under its Privacy Policy. Links to external websites are governed by those websites' privacy practices when you visit them. Google Analytics and advertising pixels are not active on this Website."
+        },
+        {
+          "tag": "h4",
+          "text": "6. Data Security"
+        },
+        {
+          "tag": "p",
+          "text": "We implement reasonable security measures to protect your information, including encryption and secure data storage practices provided by Wix. However, no method of transmission over the internet is completely secure, and we cannot guarantee absolute security."
+        },
+        {
+          "tag": "h4",
+          "text": "7. Your Choices and Rights"
+        },
+        {
+          "tag": "p",
+          "text": "You have the following rights regarding your personal information:"
+        },
+        {
+          "tag": "li",
+          "text": "Access: Request access to the personal information we hold about you."
+        },
+        {
+          "tag": "li",
+          "text": "Correction: Request corrections to inaccurate or incomplete information."
+        },
+        {
+          "tag": "li",
+          "text": "Deletion: Request deletion of your personal information, subject to legal obligations."
+        },
+        {
+          "tag": "li",
+          "text": "Opt-Out: Unsubscribe from marketing communications by clicking the \"unsubscribe\" link in our emails or contacting us."
+        },
+        {
+          "tag": "p",
+          "text": "To exercise these rights, please contact us at info@techsavvy.consulting."
+        },
+        {
+          "tag": "h4",
+          "text": "8. International Data Transfers"
+        },
+        {
+          "tag": "p",
+          "text": "As our Website is hosted by Wix, your data may be processed in countries outside your jurisdiction, including the United States, where data protection laws may differ. We ensure that any data transfers comply with applicable laws."
+        },
+        {
+          "tag": "h4",
+          "text": "9. Children's Privacy"
+        },
+        {
+          "tag": "p",
+          "text": "Our Website is not intended for individuals under the age of 16. We do not knowingly collect personal information from children. If you believe we have collected such information, please contact us immediately."
+        },
+        {
+          "tag": "h4",
+          "text": "10. Changes to This Privacy Policy"
+        },
+        {
+          "tag": "p",
+          "text": "We may update this Privacy Policy from time to time. Any changes will be posted on this page with an updated \"Effective Date.\" We encourage you to review this policy periodically."
+        },
+        {
+          "tag": "h4",
+          "text": "11. Contact Us"
+        },
+        {
+          "tag": "p",
+          "text": "If you have questions or concerns about this Privacy Policy or our data practices, please contact us at:"
+        },
+        {
+          "tag": "p",
+          "text": "TechSavvy Consulting LLC Email: info@techsavvy.consulting Website: https://techsavvy.consulting"
+        },
+        {
+          "tag": "p",
+          "text": "By using our Website, you acknowledge that you have read and understood this Privacy Policy."
+        }
+      ],
+      "unstructuredText": [],
+      "mainLinks": [
+        {
+          "href": "https://techsavvy.consulting",
+          "text": "https://techsavvy.consulting"
+        },
+        {
+          "href": "https://www.wix.com/about/privacy",
+          "text": "Privacy Policy"
+        },
+        {
+          "href": "mailto:info@techsavvy.consulting",
+          "text": "info@techsavvy.consulting"
+        }
+      ],
+      "images": [],
+      "videos": [],
+      "forms": [],
+      "formFields": [],
+      "rawHtmlSha256": "8cf771a1c08970c2a34ac3d2b3c5ad384c96236e5596261d779ae62d41580b87"
+    },
+    {
+      "path": "/it-support-for-small-business-tulsa",
+      "sourceUrl": "https://www.techsavvy.consulting/it-support-for-small-business-tulsa",
+      "status": 200,
+      "finalUrl": "https://www.techsavvy.consulting/it-support-for-small-business-tulsa",
+      "title": "SERVICES | TechSavvy Consulting | IT Service Tulsa",
+      "description": "Trusted IT support for Oklahoma small businesses. Expert computer, server, mobile, cloud, AI, & security solutions in Tulsa. Proactive managed IT services for secure, reliable systems & disaster recovery. Contact TechSavvy Consulting now!",
+      "canonical": "https://www.techsavvy.consulting/it-support-for-small-business-tulsa",
+      "robotsMeta": null,
+      "socialImage": "https://static.wixstatic.com/media/96e054_ee439feecfbd425a82a2ea27a2ca4ca2%7Emv2.jpg/v1/fit/w_2500,h_1330,al_c/96e054_ee439feecfbd425a82a2ea27a2ca4ca2%7Emv2.jpg",
+      "schema": [],
+      "contentBlocks": [
+        {
+          "tag": "h1",
+          "text": "What is \"IT\"?"
+        },
+        {
+          "tag": "p",
+          "text": "Information Technology (IT) powers today’s businesses, covering everything from computers and software to networks and telecommunications. At TechSavvy Consulting, we’re more than just IT support—we’re a team of skilled engineers, strategists, and problem-solvers dedicated to delivering tailored IT solutions for small businesses. Whether you need robust office systems or mobile solutions, we provide expert guidance and support to keep your business running smoothly."
+        },
+        {
+          "tag": "p",
+          "text": "Our Services"
+        },
+        {
+          "tag": "p",
+          "text": "TechSavvy Consulting specializes in managed IT services designed for small businesses, offering everything from fully outsourced IT support to flexible, on-demand assistance. We streamline your IT operations to be efficient, cost-effective, and aligned with your business goals. Our key services include:"
+        },
+        {
+          "tag": "p",
+          "text": "Outsourced IT"
+        },
+        {
+          "tag": "p",
+          "text": "Comprehensive IT management on a predictable flat-fee basis, covering servers, desktops, networking, end-user support, vendor coordination, and strategic planning—perfect for businesses seeking reliable, all-in-one IT support."
+        },
+        {
+          "tag": "p",
+          "text": "Proactive IT"
+        },
+        {
+          "tag": "p",
+          "text": "Prevent issues before they arise with regular maintenance and discounted on-site visits, ensuring dependable performance for your systems."
+        },
+        {
+          "tag": "p",
+          "text": "IT Staff Collaboration"
+        },
+        {
+          "tag": "p",
+          "text": "Augment your in-house team with project support, infrastructure monitoring, Help Desk services, and Tier-2 & 3 expertise for seamless operations."
+        },
+        {
+          "tag": "p",
+          "text": "Hourly Support"
+        },
+        {
+          "tag": "p",
+          "text": "Flexible, pre-paid time blocks for on-demand or emergency assistance, ideal for businesses needing occasional IT help without a long-term commitment."
+        },
+        {
+          "tag": "h1",
+          "text": "How We Work with You"
+        },
+        {
+          "tag": "p",
+          "text": "We understand that IT challenges often arise unexpectedly—whether it’s an urgent issue or the loss of in-house IT staff. Our process is simple and tailored to your needs:"
+        },
+        {
+          "tag": "p",
+          "text": "Custom Proposal: We provide a no-obligation plan tailored to your business, balancing cost and performance."
+        },
+        {
+          "tag": "p",
+          "text": "Immediate Solutions: We address urgent IT issues to stabilize your operations."
+        },
+        {
+          "tag": "p",
+          "text": "Network Assessment: We conduct a thorough network evaluation to identify opportunities for improvement."
+        },
+        {
+          "tag": "p",
+          "text": "Ongoing Partnership: In the early months, we implement best practices to strengthen your IT infrastructure, fostering trust and long-term reliability."
+        },
+        {
+          "tag": "h1",
+          "text": "Get Started Today"
+        },
+        {
+          "tag": "p",
+          "text": "Ready to simplify your IT and focus on growing your business? Contact TechSavvy Consulting for a free consultation and discover why we’re the trusted choice for small business IT support. Let’s build a stronger, smarter IT foundation together!"
+        }
+      ],
+      "unstructuredText": [
+        "Let's Start a Conversation"
+      ],
+      "mainLinks": [
+        {
+          "href": "https://www.techsavvy.consulting/contact",
+          "text": "Let's Start a Conversation"
+        },
+        {
+          "href": "https://www.techsavvy.consulting/outsourced-managed-it",
+          "text": "Outsourced IT"
+        },
+        {
+          "href": "https://www.techsavvy.consulting/outsourced-managed-it",
+          "text": "Comprehensive IT management on a predictable flat-fee basis, covering servers, desktops, networking, end-user support, vendor coordination, and strategic planning—perfect for businesses seeking reliable, all-in-one IT support."
+        },
+        {
+          "href": "https://www.techsavvy.consulting/proactive-it",
+          "text": "Proactive IT"
+        },
+        {
+          "href": "https://www.techsavvy.consulting/proactive-it",
+          "text": "Prevent issues before they arise with regular maintenance and discounted on-site visits, ensuring dependable performance for your systems."
+        },
+        {
+          "href": "https://www.techsavvy.consulting/it-collaboration",
+          "text": "IT Staff Collaboration"
+        },
+        {
+          "href": "https://www.techsavvy.consulting/it-collaboration",
+          "text": "Augment your in-house team with project support, infrastructure monitoring, Help Desk services, and Tier-2 & 3 expertise for seamless operations."
+        },
+        {
+          "href": "https://www.techsavvy.consulting/contact",
+          "text": "Get Started Today"
+        },
+        {
+          "href": "https://www.techsavvy.consulting/contact",
+          "text": "Ready to simplify your IT and focus on growing your business? Contact TechSavvy Consulting for a free consultation and discover why we’re the trusted choice for small business IT support. Let’s build a stronger, smarter IT foundation together!"
+        }
+      ],
+      "images": [],
+      "videos": [],
+      "forms": [],
+      "formFields": [],
+      "rawHtmlSha256": "910eb189dc994b54477e0afed3d66014d622d6173460492def54e2fba0df196d"
+    },
+    {
+      "path": "/it-collaboration",
+      "sourceUrl": "https://www.techsavvy.consulting/it-collaboration",
+      "status": 200,
+      "finalUrl": "https://www.techsavvy.consulting/it-collaboration",
+      "title": "IT Staff Collaboration in Tulsa | TechSavvy Consulting",
+      "description": "TechSavvy Consulting strengthens IT support through seamless staff collaboration, integrating with your team to boost efficiency and service quality.",
+      "canonical": "https://www.techsavvy.consulting/it-collaboration",
+      "robotsMeta": null,
+      "socialImage": "https://static.wixstatic.com/media/96e054_ee439feecfbd425a82a2ea27a2ca4ca2%7Emv2.jpg/v1/fit/w_2500,h_1330,al_c/96e054_ee439feecfbd425a82a2ea27a2ca4ca2%7Emv2.jpg",
+      "schema": [],
+      "contentBlocks": [
+        {
+          "tag": "h1",
+          "text": "IT Staff Collaboration"
+        },
+        {
+          "tag": "p",
+          "text": "For businesses with existing IT teams, TechSavvy Consulting, LLC provides collaborative services that complement rather than compete. We integrate seamlessly to expand capabilities across various areas for enhanced business IT support."
+        },
+        {
+          "tag": "li",
+          "text": "Tier-2 Support: Help Desk assistance for everyday issues, full or part-time."
+        },
+        {
+          "tag": "li",
+          "text": "Tier-3 Support: Expert assistance for complex issues, working alongside your team."
+        },
+        {
+          "tag": "li",
+          "text": "Projects: Help with initiatives your staff lacks time or resources for, including deployments and migrations."
+        },
+        {
+          "tag": "li",
+          "text": "Complete Coverage: Support during off-hours or staff absences to ensure uninterrupted operations."
+        },
+        {
+          "tag": "li",
+          "text": "Multiple Locations: Coordinated support for branches under your central IT's direction."
+        }
+      ],
+      "unstructuredText": [
+        "Let's Start a Conversation",
+        "Book Your Consultation"
+      ],
+      "mainLinks": [
+        {
+          "href": "https://www.techsavvy.consulting/contact",
+          "text": "Let's Start a Conversation"
+        },
+        {
+          "href": "https://www.techsavvy.consulting/contact",
+          "text": "Book Your Consultation"
+        }
+      ],
+      "images": [
+        {
+          "src": "https://static.wixstatic.com/media/fd3af1d860fc493d9655961c44e02fad.jpg/v1/fill/w_125,h_75,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/fd3af1d860fc493d9655961c44e02fad.jpg",
+          "alt": "Abstract Glass Building"
+        },
+        {
+          "src": "https://static.wixstatic.com/media/11062b_9b439e91fbfb42c883e229c448e785f4~mv2.jpg/v1/fill/w_75,h_50,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/11062b_9b439e91fbfb42c883e229c448e785f4~mv2.jpg",
+          "alt": "Staff Meeting"
+        }
+      ],
+      "videos": [],
+      "forms": [],
+      "formFields": [],
+      "rawHtmlSha256": "afa4264f1cce3a060526f20c7280a1b0fcbebee5d06eb64340b64f9f7d86a301"
+    },
+    {
+      "path": "/post/windows11-upgrade-essential",
+      "sourceUrl": "https://www.techsavvy.consulting/post/windows11-upgrade-essential",
+      "status": 200,
+      "finalUrl": "https://www.techsavvy.consulting/post/windows11-upgrade-essential",
+      "title": "Why Upgrade to Windows 11: Security & Performance",
+      "description": "Discover why upgrading from Windows 10 to Windows 11 is essential. Enjoy stronger security, better performance, modern tools, and future-proof protection.",
+      "canonical": "https://www.techsavvy.consulting/post/windows11-upgrade-essential",
+      "robotsMeta": null,
+      "socialImage": "https://static.wixstatic.com/media/ce3336a21d2d4c29997a2d998b256cd4.jpg/v1/fill/w_1000,h_714,al_c,q_85,usm_0.66_1.00_0.01/ce3336a21d2d4c29997a2d998b256cd4.jpg",
+      "schema": [
+        {
+          "@context": "https://schema.org",
+          "@type": "BlogPosting",
+          "author": {
+            "@type": "Person",
+            "name": "Kyle Hearn"
+          },
+          "dateModified": "2025-09-19T05:20:44.805Z",
+          "datePublished": "2025-08-13T01:45:47.451Z",
+          "headline": "Why Upgrade to Windows 11: Security & Performance",
+          "mainEntityOfPage": {
+            "@id": "https://www.techsavvy.consulting/post/windows11-upgrade-essential",
+            "@type": "itemPage",
+            "url": "https://www.techsavvy.consulting/post/windows11-upgrade-essential"
+          },
+          "description": "Discover why upgrading from Windows 10 to Windows 11 is essential. Enjoy stronger security, better performance, modern tools, and future-proof protection.",
+          "url": "https://www.techsavvy.consulting/post/windows11-upgrade-essential",
+          "image": {
+            "@type": "ImageObject",
+            "url": "https://static.wixstatic.com/media/ce3336a21d2d4c29997a2d998b256cd4.jpg/v1/fill/w_1000,h_714,al_c,q_85,usm_0.66_1.00_0.01/ce3336a21d2d4c29997a2d998b256cd4.jpg",
+            "width": "3000",
+            "height": "2143"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "name": "TechSavvy Consulting | IT Service Tulsa",
+            "url": "https://www.techsavvy.consulting"
+          }
+        }
+      ],
+      "contentBlocks": [
+        {
+          "tag": "li",
+          "text": "All Posts"
+        },
+        {
+          "tag": "h1",
+          "text": "Why Upgrading to Windows 11 from Windows 10 Is Essential for Security and Beyond"
+        },
+        {
+          "tag": "p",
+          "text": "Updated: Sep 19, 2025"
+        },
+        {
+          "tag": "p",
+          "text": "Upgrading from Windows 10 to Windows 11 is a critical step toward a more secure, modern, and efficient computing experience. As cyber threats evolve and technology advances, Windows 11 delivers robust security enhancements alongside productivity and performance improvements that make it a must-have upgrade. Here’s why switching to Windows 11 is a smart move, with a focus on its superior security features."
+        },
+        {
+          "tag": "h2",
+          "text": "1. Fortified Security for a Safer Digital World"
+        },
+        {
+          "tag": "p",
+          "text": "Windows 11 prioritizes security with cutting-edge features designed to protect your data and device. It mandates Trusted Platform Module (TPM) 2.0, a hardware-based security chip that safeguards sensitive information like encryption keys and credentials, making it harder for attackers to compromise your system. Secure Boot ensures only trusted software runs during startup, reducing the risk of malware infiltration. Additionally, Windows Hello offers biometric authentication (facial recognition or fingerprint) for secure, passwordless logins, while BitLocker encryption is more tightly integrated to protect your files from unauthorized access. Unlike Windows 10, which lacks these mandatory hardware requirements, Windows 11 is built to counter modern threats like ransomware and phishing attacks."
+        },
+        {
+          "tag": "h2",
+          "text": "2. Advanced Protection with Virtualization-Based Security (VBS)"
+        },
+        {
+          "tag": "p",
+          "text": "Windows 11 introduces Virtualization-Based Security (VBS) and Hypervisor-Protected Code Integrity (HVCI) as standard features on compatible systems. VBS isolates critical system processes in a secure virtual environment, protecting them from malicious code even if malware infiltrates your device. HVCI ensures that only verified drivers and system files run, preventing unauthorized modifications. These features, while available in some Windows 10 editions, are more seamlessly implemented in Windows 11, offering stronger defenses against sophisticated cyberattacks."
+        },
+        {
+          "tag": "h2",
+          "text": "3. A Modern, User-Friendly Interface"
+        },
+        {
+          "tag": "p",
+          "text": "Beyond security, Windows 11 offers a refreshed interface that enhances usability. The centered Start menu and taskbar provide a clean, intuitive layout, while rounded corners and updated animations create a visually appealing experience. The Widgets panel delivers personalized updates like news and calendar events, keeping you informed without compromising security, as Microsoft ensures these integrations adhere to strict privacy standards."
+        },
+        {
+          "tag": "h2",
+          "text": "4. Productivity Features to Stay Efficient"
+        },
+        {
+          "tag": "p",
+          "text": "Windows 11 boosts productivity with tools like Snap Layouts and Snap Groups, which simplify multitasking by letting you organize windows effortlessly and save layouts for later use. Virtual Desktops allow tailored workspaces for work, personal tasks, or hobbies, each with distinct settings. The integration of Microsoft Teams into the taskbar streamlines secure communication, with end-to-end encryption for calls and chats, ensuring your conversations stay private."
+        },
+        {
+          "tag": "h2",
+          "text": "5. Optimized Performance for Modern Hardware"
+        },
+        {
+          "tag": "p",
+          "text": "Windows 11 is engineered for efficiency, with faster boot times, better memory management, and improved power usage compared to Windows 10. It leverages modern hardware features like DirectStorage for faster game load times and optimized power settings for extended laptop battery life. These performance gains are achieved without compromising security, as Windows 11’s architecture is designed to balance speed and protection."
+        },
+        {
+          "tag": "h2",
+          "text": "6. Gaming Enhancements with Security in Mind"
+        },
+        {
+          "tag": "p",
+          "text": "Gamers benefit from Auto HDR for richer visuals and DirectStorage for reduced load times on NVMe SSDs. The Xbox app and Game Pass integration make gaming seamless, while Windows 11’s security features ensure your gaming environment is protected from exploits targeting outdated software. Unlike Windows 10, Windows 11’s mandatory security standards minimize vulnerabilities in gaming scenarios."
+        },
+        {
+          "tag": "h2",
+          "text": "7. A Revamped App Ecosystem"
+        },
+        {
+          "tag": "p",
+          "text": "The redesigned Microsoft Store in Windows 11 offers a wider range of apps, including Android apps via the Amazon Appstore, expanding your software options. Microsoft’s stricter app vetting process ensures these apps meet security standards, reducing the risk of downloading malicious software compared to Windows 10’s less curated store."
+        },
+        {
+          "tag": "h2",
+          "text": "8. Future-Proofing with Ongoing Security Updates"
+        },
+        {
+          "tag": "p",
+          "text": "Microsoft’s focus has shifted to Windows 11, meaning new features, performance improvements, and critical security patches will prioritize this OS. Windows 10 support ends in October 2025, and staying on an unsupported system increases vulnerability to new threats. Windows 11’s compatibility with modern hardware ensures your device remains secure and capable of handling future challenges."
+        },
+        {
+          "tag": "h2",
+          "text": "Before You Upgrade"
+        },
+        {
+          "tag": "p",
+          "text": "Ensure your device meets Windows 11’s requirements, including TPM 2.0, Secure Boot, 4GB RAM, and a compatible processor. Use Microsoft’s PC Health Check tool to verify eligibility. Back up your data to prevent loss during the upgrade, and check for updates to older apps or hardware for compatibility. For organizations, consult IT teams to ensure compliance with enterprise security policies."
+        },
+        {
+          "tag": "h2",
+          "text": "Conclusion"
+        },
+        {
+          "tag": "p",
+          "text": "Upgrading to Windows 11 from Windows 10 is a vital step to protect your digital life while enjoying a modern, efficient, and visually appealing OS. Its advanced security features—TPM 2.0, Secure Boot, VBS, and more—provide robust defenses against evolving cyber threats, surpassing Windows 10’s capabilities. Combined with productivity tools, gaming enhancements, and future-proofing, Windows 11 is the clear choice for a secure and seamless computing experience. Visit Microsoft’s official website to start your free upgrade today and take control of your digital security!"
+        },
+        {
+          "tag": "h2",
+          "text": "Recent Posts"
+        }
+      ],
+      "unstructuredText": [
+        "Search",
+        "Kyle Hearn",
+        "Aug 12, 2025",
+        "3 min read",
+        "See All",
+        "Why Tulsa Businesses Are Switching to Managed IT Services",
+        "How to Choose the Right Managed IT Provider in Oklahoma"
+      ],
+      "mainLinks": [
+        {
+          "href": "https://www.techsavvy.consulting/blog",
+          "text": "All Posts"
+        },
+        {
+          "href": "https://www.techsavvy.consulting/it-support-business-tulsa",
+          "text": "IT teams"
+        },
+        {
+          "href": "https://www.techsavvy.consulting/blog",
+          "text": "See All"
+        },
+        {
+          "href": "https://www.techsavvy.consulting/post/managed-it-service-switching",
+          "text": ""
+        },
+        {
+          "href": "https://www.techsavvy.consulting/post/managed-it-service-switching",
+          "text": "Why Tulsa Businesses Are Switching to Managed IT Services"
+        },
+        {
+          "href": "https://www.techsavvy.consulting/post/choose-managed-it-provider-ok",
+          "text": ""
+        },
+        {
+          "href": "https://www.techsavvy.consulting/post/choose-managed-it-provider-ok",
+          "text": "How to Choose the Right Managed IT Provider in Oklahoma"
+        }
+      ],
+      "images": [
+        {
+          "src": "https://static.wixstatic.com/media/6e091f_f8db2f7422f545a588bee5596a0c44fa~mv2.jpg/v1/fill/w_218,h_156,al_c,q_80,enc_avif,quality_auto/6e091f_f8db2f7422f545a588bee5596a0c44fa~mv2.jpg",
+          "alt": ""
+        }
+      ],
+      "videos": [],
+      "forms": [],
+      "formFields": [
+        {
+          "tag": "input",
+          "type": "text",
+          "placeholder": "Search"
+        }
+      ],
+      "rawHtmlSha256": "d079320c883cd1551247ae1e25a217b238e4112afe8932c10fc726a537ce51e6"
+    },
+    {
+      "path": "/post/managed-it-service-switching",
+      "sourceUrl": "https://www.techsavvy.consulting/post/managed-it-service-switching",
+      "status": 200,
+      "finalUrl": "https://www.techsavvy.consulting/post/managed-it-service-switching",
+      "title": "Why Tulsa Businesses Switch to Managed IT Services",
+      "description": "Tulsa companies save costs, boost security, and improve IT reliability with managed IT services. Learn why TechSavvy Consulting is the trusted local partner.",
+      "canonical": "https://www.techsavvy.consulting/post/managed-it-service-switching",
+      "robotsMeta": null,
+      "socialImage": "https://static.wixstatic.com/media/96e054_e8205c9c08424b84a9a10d8ec3dd24d5~mv2.png/v1/fill/w_734,h_490,al_c,lg_1,q_85/96e054_e8205c9c08424b84a9a10d8ec3dd24d5~mv2.png",
+      "schema": [
+        {
+          "@context": "https://schema.org",
+          "@type": "BlogPosting",
+          "author": {
+            "@type": "Person",
+            "name": "Kyle Hearn"
+          },
+          "dateModified": "2025-09-19T05:24:48.492Z",
+          "datePublished": "2025-08-07T20:54:14.637Z",
+          "headline": "Why Tulsa Businesses Switch to Managed IT Services",
+          "mainEntityOfPage": {
+            "@id": "https://www.techsavvy.consulting/post/managed-it-service-switching",
+            "@type": "itemPage",
+            "url": "https://www.techsavvy.consulting/post/managed-it-service-switching"
+          },
+          "description": "Tulsa companies save costs, boost security, and improve IT reliability with managed IT services. Learn why TechSavvy Consulting is the trusted local partner.",
+          "url": "https://www.techsavvy.consulting/post/managed-it-service-switching",
+          "image": {
+            "@type": "ImageObject",
+            "url": "https://static.wixstatic.com/media/96e054_e8205c9c08424b84a9a10d8ec3dd24d5~mv2.png/v1/fill/w_734,h_490,al_c,lg_1,q_85/96e054_e8205c9c08424b84a9a10d8ec3dd24d5~mv2.png",
+            "width": "612",
+            "height": "408"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "name": "TechSavvy Consulting | IT Service Tulsa",
+            "url": "https://www.techsavvy.consulting"
+          }
+        }
+      ],
+      "contentBlocks": [
+        {
+          "tag": "li",
+          "text": "All Posts"
+        },
+        {
+          "tag": "h1",
+          "text": "Why Tulsa Businesses Are Switching to Managed IT Services"
+        },
+        {
+          "tag": "p",
+          "text": "Updated: Sep 19, 2025"
+        },
+        {
+          "tag": "p",
+          "text": "In today’s fast-paced digital world, businesses in Tulsa face growing challenges in managing their IT infrastructure efficiently and securely. Increasingly, companies are opting to switch from traditional in-house IT management to managed IT services. This shift is driven by the need to reduce costs, improve system reliability, and stay ahead of cyber threats. TechSavvy Consulting, a trusted provider in Tulsa, offers tailored outsourced managed IT solutions designed to meet the evolving demands of local businesses."
+        },
+        {
+          "tag": "p",
+          "text": "This blog explores the reasons behind the growing trend of Tulsa businesses adopting managed IT services and how partnering with TechSavvy Consulting can transform business operations."
+        },
+        {
+          "tag": "h2",
+          "text": "What Are Managed IT Services?"
+        },
+        {
+          "tag": "p",
+          "text": "Before diving into why Tulsa businesses are making the switch, it’s important to understand what managed IT services are."
+        },
+        {
+          "tag": "p",
+          "text": "Managed IT services involve outsourcing your IT operations and management to a specialized third-party provider. This provider, such as TechSavvy Consulting, takes responsibility for maintaining your IT infrastructure, providing proactive monitoring, cybersecurity, technical support, and strategic IT planning."
+        },
+        {
+          "tag": "h3",
+          "text": "Benefits of Managed IT Services"
+        },
+        {
+          "tag": "p",
+          "text": "· 24/7 proactive monitoring"
+        },
+        {
+          "tag": "p",
+          "text": "· Faster issue resolution"
+        },
+        {
+          "tag": "p",
+          "text": "· Enhanced cybersecurity"
+        },
+        {
+          "tag": "p",
+          "text": "· Predictable monthly costs"
+        },
+        {
+          "tag": "p",
+          "text": "· Access to latest technologies"
+        },
+        {
+          "tag": "p",
+          "text": "· Expert IT support"
+        },
+        {
+          "tag": "p",
+          "text": "By leveraging managed IT services, businesses can focus more on core operations while leaving IT complexities to experts."
+        },
+        {
+          "tag": "h2",
+          "text": "The Growing IT Challenges Faced by Tulsa Businesses"
+        },
+        {
+          "tag": "p",
+          "text": "Tulsa businesses, like many across the country, face unique IT challenges:"
+        },
+        {
+          "tag": "h3",
+          "text": "1. Increasing Cybersecurity Threats"
+        },
+        {
+          "tag": "p",
+          "text": "With the rise of ransomware, phishing, and data breaches, cybersecurity has become a top concern. Small and medium-sized businesses in Tulsa are prime targets for cyberattacks, making it critical to have robust security protocols in place."
+        },
+        {
+          "tag": "h3",
+          "text": "2. High Cost of In-House IT Teams"
+        },
+        {
+          "tag": "p",
+          "text": "Maintaining an in-house IT team is expensive, from salaries to ongoing training and software licensing. Smaller businesses often struggle to justify these costs, leading to outdated systems and vulnerability."
+        },
+        {
+          "tag": "h3",
+          "text": "3. Rapidly Changing Technology"
+        },
+        {
+          "tag": "p",
+          "text": "Technology evolves quickly, requiring constant updates and investments. Without dedicated IT experts, businesses risk falling behind competitors and missing out on efficiencies."
+        },
+        {
+          "tag": "h3",
+          "text": "4. Downtime and Productivity Loss"
+        },
+        {
+          "tag": "p",
+          "text": "IT issues can cause significant downtime, impacting employee productivity and customer satisfaction. Tulsa businesses need reliable IT systems that minimize disruptions."
+        },
+        {
+          "tag": "h2",
+          "text": "Why Tulsa Businesses Are Making the Switch to Managed IT Services"
+        },
+        {
+          "tag": "p",
+          "text": "Tulsa companies are increasingly turning to managed IT services to solve these challenges efficiently and cost-effectively."
+        },
+        {
+          "tag": "h3",
+          "text": "Cost Savings and Budget Predictability"
+        },
+        {
+          "tag": "p",
+          "text": "Switching to managed IT services helps businesses control costs by converting unpredictable IT expenses into fixed monthly fees. TechSavvy Consulting offers transparent pricing with no surprise charges, helping Tulsa companies budget more effectively."
+        },
+        {
+          "tag": "h3",
+          "text": "Access to Expert IT Professionals"
+        },
+        {
+          "tag": "p",
+          "text": "Managed IT service providers employ certified experts who stay current with industry best practices. Tulsa businesses gain access to a team of IT specialists without hiring multiple full-time employees, ensuring top-tier support and strategic advice."
+        },
+        {
+          "tag": "h3",
+          "text": "Proactive IT Monitoring and Maintenance"
+        },
+        {
+          "tag": "p",
+          "text": "One of the biggest advantages is proactive IT monitoring, which identifies and resolves issues before they become costly problems. TechSavvy Consulting’s proactive IT services use advanced tools to keep Tulsa businesses’ networks secure and running smoothly 24/7."
+        },
+        {
+          "tag": "h3",
+          "text": "Enhanced Cybersecurity and Compliance"
+        },
+        {
+          "tag": "p",
+          "text": "Managed service providers implement multi-layered security protocols including firewalls, anti-virus, encryption, and employee training. TechSavvy Consulting helps Tulsa businesses comply with industry regulations and protects sensitive data from evolving cyber threats."
+        },
+        {
+          "tag": "h3",
+          "text": "Scalability for Growing Businesses"
+        },
+        {
+          "tag": "p",
+          "text": "As Tulsa companies grow, their IT needs become more complex. Managed IT services offer flexible solutions that scale up or down depending on business demands without the hassle of hiring or layoffs."
+        },
+        {
+          "tag": "h3",
+          "text": "Improved Focus on Core Business"
+        },
+        {
+          "tag": "p",
+          "text": "Outsourcing IT operations allows business leaders and employees to focus on what they do best — serving customers and growing their business — rather than dealing with IT issues."
+        },
+        {
+          "tag": "h2",
+          "text": "How TechSavvy Consulting Supports Tulsa Businesses"
+        },
+        {
+          "tag": "p",
+          "text": "TechSavvy Consulting is a leading provider of outsourced managed IT solutions in Tulsa, dedicated to helping businesses transform their IT environment."
+        },
+        {
+          "tag": "h3",
+          "text": "Customized IT Solutions"
+        },
+        {
+          "tag": "p",
+          "text": "Every Tulsa business is unique, so TechSavvy Consulting provides tailored IT plans that align with specific industry needs and company goals. From small startups to established enterprises, they design scalable IT strategies."
+        },
+        {
+          "tag": "h3",
+          "text": "Proactive IT Services That Prevent Downtime"
+        },
+        {
+          "tag": "p",
+          "text": "Their proactive IT approach ensures that IT systems are continuously monitored and maintained to prevent failures. By identifying vulnerabilities early, TechSavvy Consulting minimizes downtime and maintains business continuity."
+        },
+        {
+          "tag": "h3",
+          "text": "Cybersecurity Expertise"
+        },
+        {
+          "tag": "p",
+          "text": "With cyberattacks becoming more sophisticated, TechSavvy Consulting employs comprehensive security measures including threat detection, data backup, and disaster recovery planning to safeguard Tulsa businesses."
+        },
+        {
+          "tag": "h3",
+          "text": "Responsive Help Desk and Support"
+        },
+        {
+          "tag": "p",
+          "text": "Tulsa businesses benefit from TechSavvy Consulting’s quick-response IT support, providing timely resolutions to technical problems and reducing impact on operations."
+        },
+        {
+          "tag": "h3",
+          "text": "Strategic IT Consulting"
+        },
+        {
+          "tag": "p",
+          "text": "Beyond day-to-day IT management, TechSavvy Consulting partners with clients for long-term IT planning, helping Tulsa businesses leverage emerging technologies for competitive advantage."
+        },
+        {
+          "tag": "h2",
+          "text": "Common Managed IT Services Used by Tulsa Businesses"
+        },
+        {
+          "tag": "p",
+          "text": "Here are some typical managed IT services Tulsa companies rely on:"
+        },
+        {
+          "tag": "h3",
+          "text": "Network Management"
+        },
+        {
+          "tag": "p",
+          "text": "Continuous monitoring and maintenance of network infrastructure to ensure secure and reliable connectivity."
+        },
+        {
+          "tag": "h3",
+          "text": "Cloud Services"
+        },
+        {
+          "tag": "p",
+          "text": "Migration to and management of cloud platforms for increased flexibility, remote access, and cost savings."
+        },
+        {
+          "tag": "h3",
+          "text": "Data Backup and Disaster Recovery"
+        },
+        {
+          "tag": "p",
+          "text": "Regular backups and rapid recovery plans to protect critical business data from loss or corruption."
+        },
+        {
+          "tag": "h3",
+          "text": "Security Services"
+        },
+        {
+          "tag": "p",
+          "text": "Implementation of firewalls, antivirus, intrusion detection, and employee cybersecurity training."
+        },
+        {
+          "tag": "h3",
+          "text": "Help Desk Support"
+        },
+        {
+          "tag": "p",
+          "text": "24/7 technical assistance for troubleshooting and resolving IT issues."
+        },
+        {
+          "tag": "h2",
+          "text": "Tulsa Business Success with Managed IT"
+        },
+        {
+          "tag": "p",
+          "text": "Consider a Tulsa manufacturing firm that was struggling with frequent network downtime and outdated security. After partnering with TechSavvy Consulting, they implemented a customized managed IT plan including proactive monitoring, cybersecurity upgrades, and cloud migration."
+        },
+        {
+          "tag": "p",
+          "text": "Within months, the company experienced a 40% reduction in IT incidents, improved productivity, and enhanced data protection — proving the value of managed IT services."
+        },
+        {
+          "tag": "h2",
+          "text": "How to Choose the Right Managed IT Provider in Tulsa"
+        },
+        {
+          "tag": "p",
+          "text": "Selecting the right partner is critical to success. Here’s what Tulsa businesses should look for:"
+        },
+        {
+          "tag": "p",
+          "text": "· Proven local experience and reputation"
+        },
+        {
+          "tag": "p",
+          "text": "· Comprehensive service offerings"
+        },
+        {
+          "tag": "p",
+          "text": "· Transparent pricing models"
+        },
+        {
+          "tag": "p",
+          "text": "· Strong cybersecurity focus"
+        },
+        {
+          "tag": "p",
+          "text": "· Proactive monitoring and rapid response"
+        },
+        {
+          "tag": "p",
+          "text": "· Customized IT strategies"
+        },
+        {
+          "tag": "p",
+          "text": "· Positive client testimonials"
+        },
+        {
+          "tag": "p",
+          "text": "TechSavvy Consulting excels in all these areas, making it the preferred choice for many Tulsa businesses.The shift to managed IT services is more than a trend — it’s a smart business decision for Tulsa companies aiming to stay competitive and secure. By outsourcing IT operations to trusted providers like TechSavvy Consulting, businesses can reduce costs, improve performance, and focus on growth."
+        },
+        {
+          "tag": "p",
+          "text": "As technology continues to advance, having a reliable IT partner that offers proactive IT management and strategic guidance will be essential for success in Tulsa’s dynamic market."
+        },
+        {
+          "tag": "h2",
+          "text": "Conclusion"
+        },
+        {
+          "tag": "p",
+          "text": "Tulsa businesses are increasingly recognizing the benefits of switching to managed IT services. From cost savings and expert support to enhanced security and scalability, the advantages are clear. TechSavvy Consulting offers comprehensive outsourced managed IT solutions tailored to meet the specific needs of Tulsa companies."
+        },
+        {
+          "tag": "p",
+          "text": "With a proactive approach to IT management, they help businesses minimize downtime, protect against cyber threats, and stay ahead in a competitive landscape. For Tulsa businesses ready to improve their IT operations, contact TechSavvy Consulting today to discuss tailored managed IT services and find the perfect solution for your company’s needs."
+        },
+        {
+          "tag": "h2",
+          "text": "FAQs"
+        },
+        {
+          "tag": "h3",
+          "text": "1. What types of businesses in Tulsa benefit most from managed IT services?"
+        },
+        {
+          "tag": "p",
+          "text": "Managed IT services are ideal for businesses of all sizes and industries in Tulsa, including healthcare, manufacturing, finance, legal, and retail, especially those without large in-house IT teams."
+        },
+        {
+          "tag": "h3",
+          "text": "2. How does proactive IT monitoring reduce downtime?"
+        },
+        {
+          "tag": "p",
+          "text": "Proactive monitoring continuously checks IT systems to detect and fix issues before they cause failures, minimizing unexpected downtime and keeping business operations running smoothly."
+        },
+        {
+          "tag": "h3",
+          "text": "3. Can managed IT services help improve cybersecurity for my Tulsa business?"
+        },
+        {
+          "tag": "p",
+          "text": "Yes, managed IT providers implement multiple security layers including firewalls, antivirus software, threat detection, and employee training to protect businesses from cyber threats."
+        },
+        {
+          "tag": "h3",
+          "text": "4. Is switching to managed IT services expensive?"
+        },
+        {
+          "tag": "p",
+          "text": "Managed IT services typically reduce overall IT costs by providing predictable monthly fees, eliminating the need for costly in-house staffing and expensive emergency fixes."
+        },
+        {
+          "tag": "h3",
+          "text": "5. How quickly can TechSavvy Consulting respond to IT issues?"
+        },
+        {
+          "tag": "p",
+          "text": "TechSavvy Consulting offers rapid-response support and help desk services to Tulsa businesses, ensuring IT problems are resolved quickly to minimize disruption."
+        },
+        {
+          "tag": "h2",
+          "text": "Recent Posts"
+        }
+      ],
+      "unstructuredText": [
+        "Search",
+        "Kyle Hearn",
+        "Aug 7, 2025",
+        "5 min read",
+        "See All",
+        "Why Upgrading to Windows 11 from Windows 10 Is Essential for Security and Beyond",
+        "How to Choose the Right Managed IT Provider in Oklahoma"
+      ],
+      "mainLinks": [
+        {
+          "href": "https://www.techsavvy.consulting/blog",
+          "text": "All Posts"
+        },
+        {
+          "href": "https://www.techsavvy.consulting/",
+          "text": "TechSavvy Consulting"
+        },
+        {
+          "href": "https://www.techsavvy.consulting/outsourced-managed-it",
+          "text": "managed IT services"
+        },
+        {
+          "href": "https://www.techsavvy.consulting/outsourced-managed-it",
+          "text": "Managed IT services"
+        },
+        {
+          "href": "https://www.techsavvy.consulting/home-1",
+          "text": "technical support"
+        },
+        {
+          "href": "https://www.techsavvy.consulting/proactive-it",
+          "text": "proactive IT"
+        },
+        {
+          "href": "https://www.techsavvy.consulting/proactive-it",
+          "text": "proactive IT"
+        },
+        {
+          "href": "https://www.techsavvy.consulting/proactive-it",
+          "text": "proactive monitoring"
+        },
+        {
+          "href": "https://www.techsavvy.consulting/",
+          "text": "contact"
+        },
+        {
+          "href": "https://www.techsavvy.consulting/blog",
+          "text": "See All"
+        },
+        {
+          "href": "https://www.techsavvy.consulting/post/windows11-upgrade-essential",
+          "text": ""
+        },
+        {
+          "href": "https://www.techsavvy.consulting/post/windows11-upgrade-essential",
+          "text": "Why Upgrading to Windows 11 from Windows 10 Is Essential for Security and Beyond"
+        },
+        {
+          "href": "https://www.techsavvy.consulting/post/choose-managed-it-provider-ok",
+          "text": ""
+        },
+        {
+          "href": "https://www.techsavvy.consulting/post/choose-managed-it-provider-ok",
+          "text": "How to Choose the Right Managed IT Provider in Oklahoma"
+        }
+      ],
+      "images": [
+        {
+          "src": "https://static.wixstatic.com/media/6e091f_7b921afe030b41dca5449ca2759ea64b~mv2.png/v1/fill/w_612,h_408,al_c,q_85,enc_avif,quality_auto/6e091f_7b921afe030b41dca5449ca2759ea64b~mv2.png",
+          "alt": ""
+        }
+      ],
+      "videos": [],
+      "forms": [],
+      "formFields": [
+        {
+          "tag": "input",
+          "type": "text",
+          "placeholder": "Search"
+        }
+      ],
+      "rawHtmlSha256": "390c173056d53573b2e91dff21fde1b67354d96483c31d94be592a04243725ec"
+    },
+    {
+      "path": "/post/choose-managed-it-provider-ok",
+      "sourceUrl": "https://www.techsavvy.consulting/post/choose-managed-it-provider-ok",
+      "status": 200,
+      "finalUrl": "https://www.techsavvy.consulting/post/choose-managed-it-provider-ok",
+      "title": "Choosing the Best Managed IT Provider in Oklahoma",
+      "description": "Discover how to choose the right managed IT provider in Oklahoma. Learn the key factors, benefits, and why TechSavvy Consulting is trusted by local businesses.",
+      "canonical": "https://www.techsavvy.consulting/post/choose-managed-it-provider-ok",
+      "robotsMeta": null,
+      "socialImage": "https://static.wixstatic.com/media/96e054_2a11d009b465479c8f3b157304a297f5~mv2.png/v1/fill/w_734,h_490,al_c,lg_1,q_85/96e054_2a11d009b465479c8f3b157304a297f5~mv2.png",
+      "schema": [
+        {
+          "@context": "https://schema.org",
+          "@type": "BlogPosting",
+          "author": {
+            "@type": "Person",
+            "name": "Kyle Hearn"
+          },
+          "dateModified": "2025-09-19T05:30:03.983Z",
+          "datePublished": "2025-08-07T20:51:59.746Z",
+          "headline": "Choosing the Best Managed IT Provider in Oklahoma",
+          "mainEntityOfPage": {
+            "@id": "https://www.techsavvy.consulting/post/choose-managed-it-provider-ok",
+            "@type": "itemPage",
+            "url": "https://www.techsavvy.consulting/post/choose-managed-it-provider-ok"
+          },
+          "description": "Discover how to choose the right managed IT provider in Oklahoma. Learn the key factors, benefits, and why TechSavvy Consulting is trusted by local businesses.",
+          "url": "https://www.techsavvy.consulting/post/choose-managed-it-provider-ok",
+          "image": {
+            "@type": "ImageObject",
+            "url": "https://static.wixstatic.com/media/96e054_2a11d009b465479c8f3b157304a297f5~mv2.png/v1/fill/w_734,h_490,al_c,lg_1,q_85/96e054_2a11d009b465479c8f3b157304a297f5~mv2.png",
+            "width": "612",
+            "height": "408"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "name": "TechSavvy Consulting | IT Service Tulsa",
+            "url": "https://www.techsavvy.consulting"
+          }
+        }
+      ],
+      "contentBlocks": [
+        {
+          "tag": "li",
+          "text": "All Posts"
+        },
+        {
+          "tag": "h1",
+          "text": "How to Choose the Right Managed IT Provider in Oklahoma"
+        },
+        {
+          "tag": "p",
+          "text": "Updated: Sep 19, 2025"
+        },
+        {
+          "tag": "p",
+          "text": "In today’s fast-paced digital world, businesses in Oklahoma rely heavily on their IT infrastructure to stay competitive and secure. With increasing cybersecurity threats, complex technology demands, and the need for round-the-clock support, partnering with the right managed IT provider is crucial. A managed IT service provider not only manages your IT systems but also ensures your technology aligns with your business goals, minimizes downtime, and maximizes productivity."
+        },
+        {
+          "tag": "p",
+          "text": "However, selecting the right managed IT provider can be overwhelming. With numerous options available, how do you ensure you pick the one that fits your unique business needs? This comprehensive guide will walk you through the critical factors to consider when choosing a managed IT provider in Oklahoma, with insights into how TechSavvy Consulting can deliver outsourced managed IT and proactive IT services tailored for your success."
+        },
+        {
+          "tag": "h2",
+          "text": "What is a Managed IT Provider?"
+        },
+        {
+          "tag": "p",
+          "text": "Before diving into the selection process, it’s essential to understand what a managed IT provider does. A managed IT provider offers outsourced IT services, including network management, cybersecurity, cloud services, help desk support, and IT strategy consultation. Instead of handling IT internally, companies contract these providers to proactively manage their technology infrastructure, reduce risks, and support daily operations."
+        },
+        {
+          "tag": "p",
+          "text": "TechSavvy Consulting specializes in providing outsourced managed IT services and proactive IT solutions, ensuring businesses in Oklahoma stay ahead of technology challenges and can focus on their core operations."
+        },
+        {
+          "tag": "h2",
+          "text": "Why Oklahoma Businesses Need Managed IT Services"
+        },
+        {
+          "tag": "p",
+          "text": "Oklahoma is home to diverse industries ranging from energy and manufacturing to healthcare and education. Each sector has unique IT requirements and regulatory compliance standards. By partnering with a managed IT provider, Oklahoma businesses gain:"
+        },
+        {
+          "tag": "p",
+          "text": "· 24/7 monitoring and support: Constant vigilance to detect and resolve issues before they escalate."
+        },
+        {
+          "tag": "li",
+          "text": "Cybersecurity protection: Robust security measures to safeguard sensitive data and comply with industry standards."
+        },
+        {
+          "tag": "li",
+          "text": "Cost control: Predictable IT expenses through fixed monthly fees, eliminating unexpected repair costs."
+        },
+        {
+          "tag": "li",
+          "text": "Access to expertise: Skilled professionals offering the latest technology insights and soluti"
+        },
+        {
+          "tag": "li",
+          "text": "Focus on growth: Freed from daily IT hassles, businesses can concentrate on innovation and customer service."
+        },
+        {
+          "tag": "p",
+          "text": "TechSavvy Consulting understands Oklahoma’s business landscape and offers customized managed IT solutions that address local challenges effectively."
+        },
+        {
+          "tag": "h2",
+          "text": "Key Factors to Consider When Choosing a Managed IT Provider in Oklahoma"
+        },
+        {
+          "tag": "p",
+          "text": "Choosing the right managed IT provider requires careful evaluation. Here are critical factors every business should consider:"
+        },
+        {
+          "tag": "h3",
+          "text": "1. Industry Experience and Local Presence"
+        },
+        {
+          "tag": "p",
+          "text": "A provider with experience in your industry understands your unique technology challenges and regulatory needs. For example, healthcare providers in Oklahoma require HIPAA-compliant IT systems, while energy companies need solutions that ensure operational continuity."
+        },
+        {
+          "tag": "p",
+          "text": "Additionally, a local presence allows for faster on-site support and a better understanding of the regional market. TechSavvy Consulting has extensive experience working with Oklahoma businesses across various sectors and maintains a strong local presence to serve clients promptly."
+        },
+        {
+          "tag": "h3",
+          "text": "2. Range of Services Offered"
+        },
+        {
+          "tag": "p",
+          "text": "Managed IT providers vary in the breadth of their offerings. Look for a provider that offers a comprehensive suite of services, such as:"
+        },
+        {
+          "tag": "p",
+          "text": "· Network management and monitoring"
+        },
+        {
+          "tag": "p",
+          "text": "· Cybersecurity solutions"
+        },
+        {
+          "tag": "p",
+          "text": "· Cloud services and migration"
+        },
+        {
+          "tag": "p",
+          "text": "· Data backup and disaster recovery"
+        },
+        {
+          "tag": "p",
+          "text": "· Help desk and end-user support"
+        },
+        {
+          "tag": "p",
+          "text": "· IT strategy and consulting"
+        },
+        {
+          "tag": "p",
+          "text": "TechSavvy Consulting offers a full range of outsourced managed IT services and proactive IT solutions, ensuring all your technology needs are covered under one roof."
+        },
+        {
+          "tag": "h3",
+          "text": "3. Proactive vs. Reactive Approach"
+        },
+        {
+          "tag": "p",
+          "text": "Many IT providers are reactive, only responding to issues after they arise. However, a proactive approach focuses on preventing problems before they impact your business. This includes regular system health checks, patch management, vulnerability assessments, and continuous monitoring."
+        },
+        {
+          "tag": "p",
+          "text": "TechSavvy Consulting prides itself on proactive IT management, reducing downtime and optimizing system performance so that your business operates smoothly."
+        },
+        {
+          "tag": "h3",
+          "text": "4. Security and Compliance Expertise"
+        },
+        {
+          "tag": "p",
+          "text": "Cybersecurity threats are a significant concern, especially for industries handling sensitive information. Your managed IT provider should offer advanced security solutions such as firewalls, antivirus software, multi-factor authentication, and encryption. They should also assist with regulatory compliance relevant to your industry."
+        },
+        {
+          "tag": "p",
+          "text": "TechSavvy Consulting’s managed IT services include comprehensive cybersecurity measures tailored to meet Oklahoma business requirements and compliance standards."
+        },
+        {
+          "tag": "h3",
+          "text": "5. Scalability and Flexibility"
+        },
+        {
+          "tag": "p",
+          "text": "Your IT needs will evolve as your business grows or changes. A good managed IT provider offers scalable solutions that can adapt to new technologies, increased workloads, or additional users without disruption."
+        },
+        {
+          "tag": "p",
+          "text": "TechSavvy Consulting provides flexible service plans that grow with your business, ensuring you pay only for what you need."
+        },
+        {
+          "tag": "h3",
+          "text": "6. Response Time and Support Availability"
+        },
+        {
+          "tag": "p",
+          "text": "Fast and reliable support is critical when technical issues arise. Inquire about the provider’s average response times, availability of 24/7 support, and communication channels such as phone, email, or chat."
+        },
+        {
+          "tag": "p",
+          "text": "TechSavvy Consulting guarantees prompt response times and round-the-clock support, keeping your operations uninterrupted."
+        },
+        {
+          "tag": "h3",
+          "text": "7. Client References and Reviews"
+        },
+        {
+          "tag": "p",
+          "text": "Ask for references from current or past clients to get an idea of the provider’s reliability, professionalism, and effectiveness. Online reviews and testimonials can also provide valuable insights."
+        },
+        {
+          "tag": "p",
+          "text": "TechSavvy Consulting is proud of its track record serving Oklahoma businesses with transparent communication and exceptional service."
+        },
+        {
+          "tag": "h3",
+          "text": "8. Transparent Pricing Structure"
+        },
+        {
+          "tag": "p",
+          "text": "Understand how the provider charges for services. Look for clear, predictable pricing with no hidden fees. Some providers offer flat-rate monthly fees, while others charge based on usage or incidents."
+        },
+        {
+          "tag": "p",
+          "text": "TechSavvy Consulting offers transparent pricing models that align with your budget and business goals."
+        },
+        {
+          "tag": "h2",
+          "text": "Steps to Evaluate Managed IT Providers in Oklahoma"
+        },
+        {
+          "tag": "p",
+          "text": "Once you know what to look for, follow these steps to evaluate your options effectively:"
+        },
+        {
+          "tag": "h3",
+          "text": "Step 1: Define Your IT Needs and Budget"
+        },
+        {
+          "tag": "p",
+          "text": "Start by assessing your current IT infrastructure, challenges, and business goals. Determine the scope of services you require and establish a budget. This clarity will guide your provider selection."
+        },
+        {
+          "tag": "h3",
+          "text": "Step 2: Research Potential Providers"
+        },
+        {
+          "tag": "p",
+          "text": "Compile a list of managed IT providers in Oklahoma, including TechSavvy Consulting. Review their websites, service offerings, and client testimonials to shortlist candidates."
+        },
+        {
+          "tag": "h3",
+          "text": "Step 3: Request Consultations and Proposals"
+        },
+        {
+          "tag": "p",
+          "text": "Schedule consultations to discuss your IT needs. A reputable provider will perform a preliminary assessment and offer tailored proposals outlining recommended services, timelines, and pricing."
+        },
+        {
+          "tag": "h3",
+          "text": "Step 4: Check Credentials and Certifications"
+        },
+        {
+          "tag": "p",
+          "text": "Verify the provider’s industry certifications such as CompTIA, Microsoft, Cisco, or cybersecurity credentials. Certifications indicate technical expertise and commitment to quality."
+        },
+        {
+          "tag": "h3",
+          "text": "Step 5: Evaluate Service Level Agreements (SLAs)"
+        },
+        {
+          "tag": "p",
+          "text": "Review SLAs carefully to understand guaranteed uptime, response times, and penalties for service failures. SLAs protect your interests and ensure accountability."
+        },
+        {
+          "tag": "h3",
+          "text": "Step 6: Conduct Reference Checks"
+        },
+        {
+          "tag": "p",
+          "text": "Contact references to ask about their experience with the provider’s communication, problem-solving skills, and overall satisfaction."
+        },
+        {
+          "tag": "h3",
+          "text": "Step 7: Make an Informed Decision"
+        },
+        {
+          "tag": "p",
+          "text": "Based on your evaluation, select the managed IT provider that best aligns with your business needs, offers scalable solutions, and provides clear, proactive support."
+        },
+        {
+          "tag": "h2",
+          "text": "Why Choose TechSavvy Consulting as Your Managed IT Provider in Oklahoma?"
+        },
+        {
+          "tag": "p",
+          "text": "TechSavvy Consulting stands out as a trusted partner for Oklahoma businesses seeking reliable and forward-thinking managed IT services. Here’s why:"
+        },
+        {
+          "tag": "li",
+          "text": "Comprehensive Managed IT Services: From network monitoring to cybersecurity and cloud migration, TechSavvy Consulting covers all essential IT aspects."
+        },
+        {
+          "tag": "li",
+          "text": "Proactive IT Approach: Preventative maintenance and continuous monitoring reduce downtime and improve performance."
+        },
+        {
+          "tag": "li",
+          "text": "Local Expertise: Deep understanding of Oklahoma’s business environment and compliance requirements."
+        },
+        {
+          "tag": "li",
+          "text": "24/7 Support: Around-the-clock help desk support ensures rapid issue resolution."
+        },
+        {
+          "tag": "li",
+          "text": "Flexible Pricing: Transparent and customized pricing plans to suit your budget."
+        },
+        {
+          "tag": "li",
+          "text": "Customer-Centric: Focused on building long-term relationships with personalized service."
+        },
+        {
+          "tag": "p",
+          "text": "Learn more about TechSavvy Consulting’s outsourced managed IT and proactive IT solutions."
+        },
+        {
+          "tag": "h2",
+          "text": "How TechSavvy Consulting Supports Oklahoma Businesses with Outsourced Managed IT"
+        },
+        {
+          "tag": "p",
+          "text": "Outsourcing IT services to TechSavvy Consulting enables Oklahoma businesses to leverage expert technology management without the overhead of an in-house team. Benefits include:"
+        },
+        {
+          "tag": "p",
+          "text": "· Cost Efficiency: Eliminate costs related to hiring, training, and maintaining internal IT staff."
+        },
+        {
+          "tag": "p",
+          "text": "· Access to Expertise: Gain access to certified professionals and the latest technology."
+        },
+        {
+          "tag": "p",
+          "text": "· Focus on Core Business: Free up internal resources to concentrate on growth and innovation."
+        },
+        {
+          "tag": "p",
+          "text": "· Scalable Services: Easily adjust service levels as business demands change."
+        },
+        {
+          "tag": "p",
+          "text": "By partnering with TechSavvy Consulting, your business benefits from reliable, secure, and efficient IT operations designed for long-term success."
+        },
+        {
+          "tag": "h2",
+          "text": "The Role of Proactive IT in Modern Business Success"
+        },
+        {
+          "tag": "p",
+          "text": "Proactive IT goes beyond fixing problems; it anticipates and prevents them. This approach includes:"
+        },
+        {
+          "tag": "p",
+          "text": "· Continuous network monitoring"
+        },
+        {
+          "tag": "p",
+          "text": "· Automated updates and patch management"
+        },
+        {
+          "tag": "p",
+          "text": "· Regular security audits and vulnerability testing"
+        },
+        {
+          "tag": "p",
+          "text": "· Performance optimization"
+        },
+        {
+          "tag": "p",
+          "text": "TechSavvy Consulting’s proactive IT services help Oklahoma businesses maintain operational continuity and reduce unexpected downtime, ensuring technology supports business objectives effectively."
+        },
+        {
+          "tag": "h2",
+          "text": "Final Thoughts on Choosing the Right Managed IT Provider in Oklahoma"
+        },
+        {
+          "tag": "p",
+          "text": "Selecting the right managed IT provider is a strategic decision that can transform your business operations. By focusing on providers with local expertise, comprehensive services, a proactive approach, and transparent pricing, you set your company up for technological resilience and growth."
+        },
+        {
+          "tag": "p",
+          "text": "TechSavvy Consulting embodies these qualities and has a proven track record helping Oklahoma businesses navigate their IT challenges with confidence."
+        },
+        {
+          "tag": "h2",
+          "text": "Conclusion"
+        },
+        {
+          "tag": "p",
+          "text": "Choosing the right managed IT provider in Oklahoma is essential for businesses aiming to enhance security, reduce costs, and improve operational efficiency. TechSavvy Consulting offers outsourced managed IT and proactive IT services that are tailored to meet the specific needs of Oklahoma’s diverse business community. By evaluating providers carefully and prioritizing factors like industry experience, service scope, and proactive support, you can ensure a successful partnership that drives your business forward."
+        },
+        {
+          "tag": "p",
+          "text": "To learn more about how TechSavvy Consulting can support your IT needs, Contact their managed IT services designed for Oklahoma businesses."
+        },
+        {
+          "tag": "h2",
+          "text": "Frequently Asked Questions (FAQs)"
+        },
+        {
+          "tag": "p",
+          "text": "1. What is the difference between outsourced managed IT and traditional IT support?"
+        },
+        {
+          "tag": "p",
+          "text": "Outsourced managed IT involves contracting a third-party provider to proactively manage your entire IT infrastructure, while traditional IT support typically refers to reactive helpdesk assistance for specific issues."
+        },
+        {
+          "tag": "p",
+          "text": "2. How does TechSavvy Consulting ensure cybersecurity for Oklahoma businesses?"
+        },
+        {
+          "tag": "p",
+          "text": "TechSavvy Consulting implements multi-layered security protocols including firewalls, encryption, endpoint protection, and continuous monitoring to protect against evolving cyber threats."
+        },
+        {
+          "tag": "p",
+          "text": "3. Can managed IT services be customized for different industries?"
+        },
+        {
+          "tag": "p",
+          "text": "Yes, providers like TechSavvy Consulting tailor their services to meet industry-specific regulations and technology requirements, ensuring compliance and efficiency."
+        },
+        {
+          "tag": "p",
+          "text": "4. What is proactive IT management, and why is it important?"
+        },
+        {
+          "tag": "p",
+          "text": "Proactive IT management focuses on preventing IT problems through constant monitoring, maintenance, and updates, minimizing downtime and improving system reliability."
+        },
+        {
+          "tag": "p",
+          "text": "5. How quickly can TechSavvy Consulting respond to IT issues?"
+        },
+        {
+          "tag": "p",
+          "text": "TechSavvy Consulting offers 24/7 support with rapid response times to resolve issues promptly and minimize business disruption."
+        },
+        {
+          "tag": "h2",
+          "text": "Recent Posts"
+        }
+      ],
+      "unstructuredText": [
+        "Search",
+        "Kyle Hearn",
+        "Aug 7, 2025",
+        "7 min read",
+        "See All",
+        "Why Upgrading to Windows 11 from Windows 10 Is Essential for Security and Beyond",
+        "Why Tulsa Businesses Are Switching to Managed IT Services"
+      ],
+      "mainLinks": [
+        {
+          "href": "https://www.techsavvy.consulting/blog",
+          "text": "All Posts"
+        },
+        {
+          "href": "https://www.techsavvy.consulting/outsourced-managed-it",
+          "text": "managed IT provider"
+        },
+        {
+          "href": "https://www.techsavvy.consulting/outsourced-managed-it",
+          "text": "managed IT provider in Oklahoma"
+        },
+        {
+          "href": "https://www.techsavvy.consulting/it-collaboration",
+          "text": "outsourced IT services"
+        },
+        {
+          "href": "https://www.techsavvy.consulting/contact",
+          "text": "IT strategy consultation"
+        },
+        {
+          "href": "https://www.techsavvy.consulting/",
+          "text": "TechSavvy Consulting"
+        },
+        {
+          "href": "https://www.techsavvy.consulting/home-1",
+          "text": "TechSavvy Consulting"
+        },
+        {
+          "href": "https://www.techsavvy.consulting/it-support-for-small-business-tulsa",
+          "text": "flexible service plans"
+        },
+        {
+          "href": "https://www.techsavvy.consulting/outsourced-managed-it",
+          "text": "Outsourcing IT services"
+        },
+        {
+          "href": "https://www.techsavvy.consulting/proactive-it",
+          "text": "Proactive IT"
+        },
+        {
+          "href": "https://www.techsavvy.consulting/",
+          "text": "Contact"
+        },
+        {
+          "href": "https://www.techsavvy.consulting/blog",
+          "text": "See All"
+        },
+        {
+          "href": "https://www.techsavvy.consulting/post/windows11-upgrade-essential",
+          "text": ""
+        },
+        {
+          "href": "https://www.techsavvy.consulting/post/windows11-upgrade-essential",
+          "text": "Why Upgrading to Windows 11 from Windows 10 Is Essential for Security and Beyond"
+        },
+        {
+          "href": "https://www.techsavvy.consulting/post/managed-it-service-switching",
+          "text": ""
+        },
+        {
+          "href": "https://www.techsavvy.consulting/post/managed-it-service-switching",
+          "text": "Why Tulsa Businesses Are Switching to Managed IT Services"
+        }
+      ],
+      "images": [
+        {
+          "src": "https://static.wixstatic.com/media/6e091f_f9b1ea760edc48c491b66581cb82a65a~mv2.png/v1/fill/w_734,h_489,al_c,q_85,enc_avif,quality_auto/6e091f_f9b1ea760edc48c491b66581cb82a65a~mv2.png",
+          "alt": ""
+        }
+      ],
+      "videos": [],
+      "forms": [],
+      "formFields": [
+        {
+          "tag": "input",
+          "type": "text",
+          "placeholder": "Search"
+        }
+      ],
+      "rawHtmlSha256": "97a24c70b68a1db74aeb41139bb581318787706d8ca8d6c7b1e29747509e226c"
+    }
+  ]
+}
