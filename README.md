@@ -2,13 +2,17 @@
 
 A modern, host-independent design example for TechSavvy Consulting. The production Wix website remains at **www.techsavvy.consulting**.
 
-**Status:** review build only. Hosting is undecided. Forms are inactive and optional tracking is absent. Nothing in this repository changes Wix, DNS, Microsoft 365 or advertising destinations.
+**Status:** public GitHub Pages design example, approved October 24, 2026. The eventual production host is undecided. Forms are inactive and optional tracking is absent. Nothing in this repository changes Wix, DNS, Microsoft 365 or advertising destinations.
 
 ## Preview the design
 
-The running preview on the build computer is **http://127.0.0.1:4321/**. This is a local address, not a public hosted website; it works only on that computer while the preview server is running.
+**Online example:** https://techsavvy-consulting.github.io/techsavvy-website-review/
 
-You can review these screenshots directly in GitHub on any signed-in device:
+The online preview is deployed from `main` by the [GitHub Pages workflow](.github/workflows/pages.yml). Future source changes can be committed here, verified, and deployed to this same preview address. No custom domain is attached. Every page retains noindex metadata and a review notice; forms cannot submit.
+
+The optional local preview is **http://127.0.0.1:4321/**. It works only on the build computer while the preview server is running.
+
+You can also review these screenshots directly in GitHub:
 
 ![Desktop homepage review](docs/preview-desktop.png)
 
@@ -41,6 +45,17 @@ npm run preview
 Open **http://127.0.0.1:4321/**. Press Ctrl+C in the terminal to stop the preview. If port 4321 is occupied, set the `PORT` environment variable before starting.
 
 For source editing with hot reload, use `npm run dev`. Use `npm run preview` to verify the built example, including headers, redirects and 404 behavior.
+
+## GitHub preview build
+
+```sh
+npm run build:pages
+npm run verify:pages
+```
+
+This generates `dist-pages/` with the repository URL prefix, directory-style page addresses and a GitHub-compatible custom 404. The workflow uploads only this generated artifact. The separate default `npm run build` stays host-independent.
+
+Run `npm run verify:online` after a successful deployment. GitHub Pages does not apply the local server's custom response headers or legacy redirects; HTML noindex is the public indexing safeguard. Do not add `CNAME`, point production DNS here, or enable forms as part of a routine preview update.
 
 ## Editing guide
 

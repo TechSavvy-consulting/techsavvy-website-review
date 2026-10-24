@@ -2,9 +2,9 @@
 
 ## Purpose and boundaries
 
-This is the approved GitHub design example. Kyle clarified that hosting remains undecided, so this version is local and host-independent. No Netlify account, hosting subscription, public deployment, domain connection or GitHub Pages configuration was created.
+This is the approved GitHub design example. Kyle subsequently authorized a public repository and online GitHub preview on October 24, 2026. The preview uses GitHub Pages at https://techsavvy-consulting.github.io/techsavvy-website-review/. The eventual production host remains undecided. No Netlify account, paid subscription, domain connection or production DNS change is included.
 
-The private GitHub repository and local source are the working copy. The existing Wix site and the separate unpublished Wix landing-page draft remain independent.
+The public GitHub repository and local source are the working copy. The existing Wix site and the separate unpublished Wix landing-page draft remain independent.
 
 ## Design direction
 
@@ -32,7 +32,7 @@ The existing privacy and accessibility text is retained with a prominent referen
 - Wix comments, memberships, comment notifications and submission history were not exported or migrated. Blog comments are identified as not yet migrated.
 - Optional visitor analytics, advertising pixels and consent popups are absent. Keep the approved essential-only approach unless Kyle changes it.
 - The locally copied video has visible controls and no autoplay. Caption/transcript availability and content freshness still require a media review before production.
-- Media ownership/license scope and any named-customer permissions must be confirmed for final publication. Carrying an existing public testimonial into this private review is not a new endorsement or blanket permission.
+- Media ownership/license scope and any named-customer permissions must be confirmed for final production publication. The review reuses the existing public-site assets/testimonial; no new endorsement or blanket reuse permission is inferred.
 - Search Console click/ranking/backlink baselines and a complete historical redirect inventory have not been measured in this design-build task.
 
 ## Future hosting

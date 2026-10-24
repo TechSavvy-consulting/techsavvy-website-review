@@ -1,4 +1,5 @@
 ---
+import { previewPath } from '../utils/preview-path';
 import Icon from './Icon.astro';
 import ContactForm from './ContactForm.astro';
 import Cta from './Cta.astro';
@@ -50,7 +51,7 @@ const questions = [
     <section class="page-hero" aria-labelledby="about-heading">
       <div class="container">
         <nav class="breadcrumbs" aria-label="Breadcrumb">
-          <a href="/">Home</a><span aria-hidden="true">/</span><span aria-current="page">About TechSavvy</span>
+          <a href={previewPath('/')}>Home</a><span aria-hidden="true">/</span><span aria-current="page">About TechSavvy</span>
         </nav>
         <div class="page-hero-grid">
           <div>
@@ -58,11 +59,11 @@ const questions = [
             <h1 id="about-heading">Good IT starts with understanding your business.</h1>
             <p class="lead">We believe technology support should feel approachable, practical, and connected to the way you work. That is the relationship we build with businesses across the Tulsa area.</p>
             <div class="button-group">
-              <a class="button button-primary" href="/contact">Let’s talk about your IT <Icon name="arrow" size={19} /></a>
+              <a class="button button-primary" href={previewPath('/contact')}>Let’s talk about your IT <Icon name="arrow" size={19} /></a>
             </div>
           </div>
           <figure class="founder-card">
-            <img src="/images/kyle-hearn.webp" class="page-hero-portrait" width="1254" height="1254" alt="Kyle E. Hearn, founder of TechSavvy Consulting" />
+            <img src={previewPath('/images/kyle-hearn.webp')} class="page-hero-portrait" width="1254" height="1254" alt="Kyle E. Hearn, founder of TechSavvy Consulting" />
             <figcaption class="founder-label"><strong>Kyle E. Hearn</strong><span>Founder &amp; Chief Technology Officer</span></figcaption>
           </figure>
         </div>
@@ -93,7 +94,7 @@ const questions = [
           <p>Kyle’s interest in business and technology started early. At 17, he launched his first business, Mentor Technologies. His work has since spanned business IT strategy, process development, server and network technologies, and project management.</p>
           <p>As the owner of TechSavvy Consulting, Kyle brings that experience to the practical decisions businesses face: what needs attention now, what can be planned, and how technology can better support the people using it.</p>
           <p>The aim is a straightforward working relationship built on listening, clear communication, and useful technical advice.</p>
-          <p><a class="text-link" href="/it-support-business-tulsa">Explore our approach <Icon name="arrow" size={18} /></a></p>
+          <p><a class="text-link" href={previewPath('/it-support-business-tulsa')}>Explore our approach <Icon name="arrow" size={18} /></a></p>
         </div>
       </div>
     </section>
@@ -106,7 +107,7 @@ const questions = [
     <section class="page-hero" aria-labelledby="contact-heading">
       <div class="container">
         <nav class="breadcrumbs" aria-label="Breadcrumb">
-          <a href="/">Home</a><span aria-hidden="true">/</span><span aria-current="page">Contact</span>
+          <a href={previewPath('/')}>Home</a><span aria-hidden="true">/</span><span aria-current="page">Contact</span>
         </nav>
         <span class="eyebrow">A conversation is a good place to start</span>
         <h1 id="contact-heading">What could better IT look like for you?</h1>
@@ -150,7 +151,7 @@ const questions = [
     <section class="page-hero" aria-labelledby="faq-heading">
       <div class="container">
         <nav class="breadcrumbs" aria-label="Breadcrumb">
-          <a href="/">Home</a><span aria-hidden="true">/</span><span aria-current="page">Frequently Asked Questions</span>
+          <a href={previewPath('/')}>Home</a><span aria-hidden="true">/</span><span aria-current="page">Frequently Asked Questions</span>
         </nav>
         <span class="eyebrow">A little clarity before we talk</span>
         <h1 id="faq-heading">Your IT questions, answered.</h1>

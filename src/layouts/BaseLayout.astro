@@ -1,8 +1,11 @@
 ---
+import { previewPath } from '../utils/preview-path';
 import Icon from '../components/Icon.astro';
 import '../styles/global.css';
 const { title = 'TechSavvy Consulting | Tulsa Business IT Support', description = 'Friendly, experienced IT support for Tulsa businesses with 10–100 computer and device users.', path = '/', article = false } = Astro.props;
 const canonical = new URL(path, 'https://www.techsavvy.consulting').href;
+const previewImage = new URL(previewPath('/images/kyle-server-room.webp'), Astro.site).href;
+const previewUrl = new URL(previewPath(path), Astro.site).href;
 const current = String(path).replace(/\/$/, '') || '/';
 const services = [
   {href:'/outsourced-managed-it', label:'Managed IT services'},
@@ -12,7 +15,7 @@ const services = [
   {href:'/it-support-business-tulsa', label:'Our approach'},
 ];
 const serviceActive = ['/it-support-for-small-business-tulsa', ...services.map(x=>x.href)].includes(current);
-const schema = { '@context':'https://schema.org', '@type':'ProfessionalService', name:'TechSavvy Consulting, LLC', url:'https://www.techsavvy.consulting/', image:'https://www.techsavvy.consulting/images/kyle-server-room.webp', telephone:'+19184002424', email:'sales@techsavvy.consulting', foundingDate:'2015', address:{'@type':'PostalAddress',streetAddress:'5840 S Memorial Dr',addressLocality:'Tulsa',addressRegion:'OK',postalCode:'74145',addressCountry:'US'}, areaServed:{'@type':'City',name:'Tulsa'}, openingHours:['Mo-Fr 08:00-17:00'] };
+const schema = { '@context':'https://schema.org', '@type':'ProfessionalService', name:'TechSavvy Consulting, LLC', url:'https://www.techsavvy.consulting/', image:previewImage, telephone:'+19184002424', email:'sales@techsavvy.consulting', foundingDate:'2015', address:{'@type':'PostalAddress',streetAddress:'5840 S Memorial Dr',addressLocality:'Tulsa',addressRegion:'OK',postalCode:'74145',addressCountry:'US'}, areaServed:{'@type':'City',name:'Tulsa'}, openingHours:['Mo-Fr 08:00-17:00'] };
 ---
 <!doctype html>
 <html lang="en">
@@ -23,14 +26,14 @@ const schema = { '@context':'https://schema.org', '@type':'ProfessionalService',
     <meta name="description" content={description} />
     <meta name="robots" content="noindex,nofollow,noarchive" />
     <link rel="canonical" href={canonical} />
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href={previewPath('/favicon.svg')} type="image/svg+xml" />
     <meta name="theme-color" content="#14324d" />
     <meta property="og:type" content={article ? 'article' : 'website'} />
     <meta property="og:site_name" content="TechSavvy Consulting" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:url" content={canonical} />
-    <meta property="og:image" content="https://www.techsavvy.consulting/images/kyle-server-room.webp" />
+    <meta property="og:url" content={previewUrl} />
+    <meta property="og:image" content={previewImage} />
     <script type="application/ld+json" set:html={JSON.stringify(schema).replace(/</g, '\\u003c')} />
     <slot name="head" />
   </head>
@@ -40,27 +43,27 @@ const schema = { '@context':'https://schema.org', '@type':'ProfessionalService',
     <div class="utility-bar"><div class="container utility-inner"><span><Icon name="pin" size={14} /> Tulsa, Oklahoma</span><span class="utility-hours">Mon–Fri, 8am–5pm <span class="utility-divider">|</span> After-hours support according to your service plan</span><a href="https://anydesk.com/en/downloads/windows" target="_blank" rel="noopener noreferrer">Client remote support <span aria-hidden="true">↗</span></a></div></div>
     <header class="site-header">
       <div class="container header-inner">
-        <a class="brand" href="/" aria-label="TechSavvy Consulting home"><img src="/images/techsavvy-logo.webp" width="608" height="170" alt="TechSavvy Consulting" /></a>
+        <a class="brand" href={previewPath('/')} aria-label="TechSavvy Consulting home"><img src={previewPath('/images/techsavvy-logo.webp')} width="608" height="170" alt="TechSavvy Consulting" /></a>
         <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="primary-navigation"><Icon name="menu" size={25} /><span>Menu</span></button>
         <nav id="primary-navigation" class="primary-navigation" aria-label="Main navigation">
-          <a href="/" class:list={{active:current==='/'}} aria-current={current==='/'?'page':undefined}>Home</a>
-          <details class="nav-dropdown"><summary class:list={{active:serviceActive}}>Services <span aria-hidden="true">⌄</span></summary><div class="dropdown-panel"><a href="/it-support-for-small-business-tulsa">Explore all services <span>↗</span></a>{services.map(item=><a href={item.href} aria-current={current===item.href?'page':undefined}>{item.label}</a>)}</div></details>
-          <a href="/about-it-support" class:list={{active:current==='/about-it-support'}} aria-current={current==='/about-it-support'?'page':undefined}>About</a>
-          <a href="/#testimonials">Testimonials</a>
-          <a href="/blog" class:list={{active:current==='/blog'||article}} aria-current={current==='/blog'?'page':undefined}>Blog</a>
-          <a href="/contact" class="button button-primary nav-cta">Let’s talk <Icon name="arrow" size={17}/></a>
+          <a href={previewPath('/')} class:list={{active:current==='/'}} aria-current={current==='/'?'page':undefined}>Home</a>
+          <details class="nav-dropdown"><summary class:list={{active:serviceActive}}>Services <span aria-hidden="true">⌄</span></summary><div class="dropdown-panel"><a href={previewPath('/it-support-for-small-business-tulsa')}>Explore all services <span>↗</span></a>{services.map(item=><a href={previewPath(item.href)} aria-current={current===item.href?'page':undefined}>{item.label}</a>)}</div></details>
+          <a href={previewPath('/about-it-support')} class:list={{active:current==='/about-it-support'}} aria-current={current==='/about-it-support'?'page':undefined}>About</a>
+          <a href={previewPath('/#testimonials')}>Testimonials</a>
+          <a href={previewPath('/blog')} class:list={{active:current==='/blog'||article}} aria-current={current==='/blog'?'page':undefined}>Blog</a>
+          <a href={previewPath('/contact')} class="button button-primary nav-cta">Let’s talk <Icon name="arrow" size={17}/></a>
         </nav>
       </div>
     </header>
     <main id="main"><slot /></main>
     <footer class="site-footer">
       <div class="container footer-grid">
-        <div class="footer-brand"><a href="/" aria-label="TechSavvy Consulting home"><img src="/images/techsavvy-logo.webp" width="608" height="170" alt="TechSavvy Consulting" loading="lazy" /></a><p>Practical IT.<br/>Personal relationships.<br/>A local partner for your business.</p><div class="social-links"><a href="https://www.linkedin.com/company/techsavvy-consulting/" rel="noopener noreferrer" target="_blank">LinkedIn <span>↗</span></a><a href="https://www.facebook.com/techsavvyok/" rel="noopener noreferrer" target="_blank">Facebook <span>↗</span></a><a href="https://www.instagram.com/techsavvyok/" rel="noopener noreferrer" target="_blank">Instagram <span>↗</span></a></div></div>
-        <div><h2>How we help</h2><ul>{services.slice(0,4).map(item=><li><a href={item.href}>{item.label}</a></li>)}</ul></div>
-        <div><h2>TechSavvy</h2><ul><li><a href="/about-it-support">About us</a></li><li><a href="/it-support-business-tulsa">Our approach</a></li><li><a href="/tulsa-it-faq">Common questions</a></li><li><a href="/blog">TechSavvy blog</a></li><li><a href="/contact">Contact us</a></li></ul></div>
+        <div class="footer-brand"><a href={previewPath('/')} aria-label="TechSavvy Consulting home"><img src={previewPath('/images/techsavvy-logo.webp')} width="608" height="170" alt="TechSavvy Consulting" loading="lazy" /></a><p>Practical IT.<br/>Personal relationships.<br/>A local partner for your business.</p><div class="social-links"><a href="https://www.linkedin.com/company/techsavvy-consulting/" rel="noopener noreferrer" target="_blank">LinkedIn <span>↗</span></a><a href="https://www.facebook.com/techsavvyok/" rel="noopener noreferrer" target="_blank">Facebook <span>↗</span></a><a href="https://www.instagram.com/techsavvyok/" rel="noopener noreferrer" target="_blank">Instagram <span>↗</span></a></div></div>
+        <div><h2>How we help</h2><ul>{services.slice(0,4).map(item=><li><a href={previewPath(item.href)}>{item.label}</a></li>)}</ul></div>
+        <div><h2>TechSavvy</h2><ul><li><a href={previewPath('/about-it-support')}>About us</a></li><li><a href={previewPath('/it-support-business-tulsa')}>Our approach</a></li><li><a href={previewPath('/tulsa-it-faq')}>Common questions</a></li><li><a href={previewPath('/blog')}>TechSavvy blog</a></li><li><a href={previewPath('/contact')}>Contact us</a></li></ul></div>
         <div class="footer-contact"><h2>Let’s connect</h2><a class="footer-phone" href="tel:+19184002424">(918) 400-2424</a><a href="mailto:sales@techsavvy.consulting">sales@techsavvy.consulting</a><p>5840 S Memorial Dr<br/>Tulsa, OK 74145</p><p>Monday–Friday<br/>8:00am–5:00pm Central</p></div>
       </div>
-      <div class="container footer-bottom"><span>© {new Date().getFullYear()} TechSavvy Consulting, LLC.</span><div><a href="/english-privacy-policy">Privacy policy</a><a href="/accessibility-statement">Accessibility</a><span class="footer-review">Review version · Not the live website</span></div></div>
+      <div class="container footer-bottom"><span>© {new Date().getFullYear()} TechSavvy Consulting, LLC.</span><div><a href={previewPath('/english-privacy-policy')}>Privacy policy</a><a href={previewPath('/accessibility-statement')}>Accessibility</a><span class="footer-review">Review version · Not the live website</span></div></div>
     </footer>
     <script>
       const toggle = document.querySelector<HTMLButtonElement>('.menu-toggle');

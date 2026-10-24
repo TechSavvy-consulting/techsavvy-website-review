@@ -4,7 +4,9 @@ import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
-const dist=path.join(root,'dist');
+const pagesPreview=process.argv.includes('--pages');
+const prefix=pagesPreview?'/techsavvy-website-review/':'/';
+const dist=path.join(root,pagesPreview?'dist-pages':'dist');
 const inventory=JSON.parse(await readFile(path.join(root,'src/data/source-inventory.json'),'utf8'));
 const routes=[...inventory.pages.map(p=>p.path),'/thank-you','/404'];
 const files=[];
@@ -12,7 +14,7 @@ async function walk(dir){for(const entry of await readdir(dir,{withFileTypes:tru
 await walk(dist);
 let linkCount=0, formCount=0;
 for(const route of routes){
-  const file=route==='/'?path.join(dist,'index.html'):path.join(dist,route.slice(1)+'.html');
+  const file=route==='/'?path.join(dist,'index.html'):path.join(dist,route.slice(1)+(pagesPreview&&route!=='/404'?'/index.html':'.html'));
   const html=await readFile(file,'utf8');
   assert.match(html,/<html[^>]+lang="en"/i,`${route}: document language`);
   assert.equal((html.match(/<h1[\s>]/g)||[]).length,1,`${route}: one H1`);
@@ -29,7 +31,8 @@ for(const route of routes){
   }
   for(const match of html.matchAll(/(?:href|src|poster)="(\/(?!\/)[^"]*)"/g)){
     const url=new URL(match[1],'https://review.local');
-    const target=decodeURIComponent(url.pathname);
+    assert.ok(url.pathname.startsWith(prefix),`${route}: local URL remains inside preview base: ${url.pathname}`);
+    const target='/'+decodeURIComponent(url.pathname.slice(prefix.length));
     if(target==='/search-lp'||target==='/home-1')continue;
     const base=path.join(dist,target==='/'?'index.html':target.slice(1));
     let found=false;
@@ -42,5 +45,10 @@ for(const route of routes){
 assert.equal(formCount,2,'Expected home callback + contact form');
 assert.ok(files.some(x=>x.endsWith('techsavvy-introduction.mp4')),'Video is included');
 assert.equal(files.some(x=>/-original\./.test(x)),false,'Original oversized assets stay outside public output');
+if(pagesPreview){
+  assert.ok(files.includes(path.join(dist,'404.html')),'GitHub Pages custom 404 exists');
+  assert.ok(files.includes(path.join(dist,'.nojekyll')),'GitHub Pages static artifact marker exists');
+  assert.equal(files.some(x=>path.basename(x)==='CNAME'),false,'No custom domain file');
+}
 console.log(`PASS: ${routes.length} pages, ${linkCount} local links/assets, ${formCount} disabled review forms; no optional tracking scripts.`);
 console.log('Production domain, Wix, DNS and advertising are not changed by this verification.');

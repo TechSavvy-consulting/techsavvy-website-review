@@ -1,4 +1,5 @@
 ---
+import { previewPath } from '../utils/preview-path';
 import type { BlogPost } from '../data/blog';
 import Icon from './Icon.astro';
 import Cta from './Cta.astro';
@@ -18,16 +19,16 @@ const imageDescriptions: Record<string, string> = {
 <header class="page-hero">
   <div class="container narrow">
     <nav class="breadcrumbs" aria-label="Breadcrumb">
-      <a href="/">Home</a>
+      <a href={previewPath('/')}>Home</a>
       <span aria-hidden="true">/</span>
-      <a href="/blog">Blog</a>
+      <a href={previewPath('/blog')}>Blog</a>
       <span aria-hidden="true">/</span>
       <span aria-current="page">Article</span>
     </nav>
     <span class="eyebrow">{post.category}</span>
     <h1 id="article-title">{post.title}</h1>
     <div class="article-meta">
-      <img src="/images/kyle-hearn.webp" alt="" width="35" height="35" decoding="async" />
+      <img src={previewPath('/images/kyle-hearn.webp')} alt="" width="35" height="35" decoding="async" />
       <span>By {post.author}</span>
       <span aria-hidden="true">·</span>
       <span>Originally published <time datetime={post.date}>{post.displayDate}</time></span>
@@ -40,7 +41,7 @@ const imageDescriptions: Record<string, string> = {
     <article class="article-body" aria-labelledby="article-title">
       <img
         class="article-cover"
-        src={post.image}
+        src={previewPath(post.image)}
         alt={imageDescriptions[post.path] ?? ''}
         width="1200"
         height="632"
@@ -60,16 +61,16 @@ const imageDescriptions: Record<string, string> = {
         Article text has been streamlined and dated claims reviewed for this draft.
         Existing Wix comments have not been migrated.
       </div>
-      <p><a class="text-link" href="/blog">Explore more articles <Icon name="arrow" size={18} /></a></p>
+      <p><a class="text-link" href={previewPath('/blog')}>Explore more articles <Icon name="arrow" size={18} /></a></p>
     </article>
 
     <aside class="article-aside" aria-labelledby="article-contact-title">
       <span class="eyebrow">Local IT. Personal service.</span>
       <h2 id="article-contact-title">What does this mean for your business?</h2>
       <p>Talk through your current systems, priorities, and support needs with TechSavvy.</p>
-      <a class="button button-primary" href="/contact">Start a conversation <Icon name="arrow" size={17} /></a>
+      <a class="button button-primary" href={previewPath('/contact')}>Start a conversation <Icon name="arrow" size={17} /></a>
       <p><a class="text-link" href="tel:+19184002424"><Icon name="phone" size={17} />918.400.2424</a></p>
-      <a class="text-link" href="/outsourced-managed-it">Explore managed IT <Icon name="arrow" size={17} /></a>
+      <a class="text-link" href={previewPath('/outsourced-managed-it')}>Explore managed IT <Icon name="arrow" size={17} /></a>
     </aside>
   </div>
 </div>

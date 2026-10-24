@@ -6,9 +6,12 @@
   "scripts": {
     "dev": "astro dev --host 127.0.0.1",
     "build": "astro build",
+    "build:pages": "node scripts/build-pages.mjs",
     "preview": "node scripts/serve-review.mjs",
     "assets": "node scripts/prepare-assets.mjs",
     "verify": "node scripts/verify-build.mjs",
+    "verify:pages": "node scripts/verify-build.mjs --pages",
+    "verify:online": "node scripts/verify-online.mjs",
     "verify:http": "node scripts/verify-http.mjs"
   },
   "dependencies": { "astro": "7.4.2", "sharp": "0.35.5" },

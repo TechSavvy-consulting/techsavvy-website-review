@@ -5,6 +5,8 @@
 - `npm install`: 185 packages audited, zero reported vulnerabilities at installation.
 - `npm run build`: 18 static HTML pages generated successfully, including 16 source canonical routes, thank-you and 404.
 - `npm run verify`: 18 pages, 637 internal links/assets and two inactive forms passed checks for required structure, metadata, indexing guards and local targets.
+- GitHub Pages preparation: `npm run build:pages` and `npm run verify:pages` pass for the same 18 pages, 637 base-prefixed local targets and two disabled forms. Astro emits directory-style routes plus the root `404.html`. No CNAME is included.
+- Kyle explicitly approved the repository being public. The repository visibility is public and GitHub Pages is configured for workflow deployment with a null custom domain. The production hosting provider remains undecided.
 - Independent HTTP review: all 16 source canonical routes and thank-you returned 200. Unknown paths returned 404. Legacy aliases returned 301 and preserved query parameters. All 11 referenced assets loaded, including video.
 - Local server binds only to 127.0.0.1. POST, PUT and DELETE requests are rejected with 405. Video byte-range requests return 206.
 - Corrected the active navigation state to use the explicit canonical route. Corrected local trailing-slash handling and verified it is specific to the local server.
@@ -16,11 +18,11 @@
 
 ## Remaining limits
 
-- No public hosting account is connected or selected. No Netlify-host behavior is claimed.
+- The GitHub Pages preview requires its deployment workflow to succeed; verify the actual public URL after publication. No Netlify-host behavior is claimed.
 - No production form delivery, spam filtering, comment migration or real notification workflow is implemented.
 - This is not a full WCAG certification, assistive-technology audit, load test or live Search Console ranking assessment.
 - Media captions/transcript and final provider-specific policy language require review before production.
-- The interactive URL is local to the build PC and requires its preview server to be running. GitHub screenshots can be reviewed independently.
+- The optional local URL requires its preview server to be running. GitHub Pages is separate and does not run the local preview server or its HTTP headers/legacy redirects.
 
 ## Repeat the checks
 
