@@ -59,3 +59,9 @@ The built-in image-generation tool produced these project assets. Prompts are re
 | `kyle-hearn-slate-original.png` | `public/images/kyle-hearn-slate.webp` | About portrait: neutral gray with a faint slate-blue edge accent, selected after Kyle requested a little color |
 
 Both portrait edits used the existing approved Kyle portrait as their edit target and instructed the tool to preserve identity, expression, clothing and framing while changing the background. They are AI-edited derivatives, not pixel-identical copies of the original subject. The original colored-background portrait remains available for rollback. New blog images are 1440×960; portrait derivatives are 1000×1000.
+
+## Revision 7 — October 26, 2026
+
+Kyle requested different people and a different setting for one of the two new article covers. The built-in image-generation tool created `assets/originals/blog-it-growth-plan-v2-original.png`; Sharp produced `public/images/blog-it-growth-plan-v2.webp` (1440×960, approximately 165 KB). The new growth-planning illustration shows a fictional owner and advisor standing in a brick-walled showroom. It does not depict actual TechSavvy employees, customers or documented client results. The AI-workflow image is unchanged. The prior growth illustration and all original files remain available for rollback.
+
+The exact final prompt and saved paths are in [revision 7 image prompts](REVISION-7-IMAGE-PROMPTS.json). No CLI image-generation fallback was used.

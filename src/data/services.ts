@@ -136,65 +136,6 @@ export const servicePages = [
     ],
   },
   {
-    path: '/it-collaboration',
-    title: 'Co-managed IT',
-    eyebrow: 'Connected care, wherever you work',
-    headline: 'Remote expertise. Local support.',
-    summary: 'Bring everyday IT care and your local people into one working relationship. We provide remote support beyond Tulsa, with TechSavvy onsite support available for Tulsa County businesses. Elsewhere, we coordinate with your internal staff or local technician for hands-on work.',
-    icon: 'people',
-    benefits: [
-      'Remote Managed IT with Proactive IT included',
-      'Help desk, maintenance, security and backups',
-      'Onsite support available in Tulsa County',
-    ],
-    cards: [
-      {
-        title: 'Your remote help desk',
-        text: 'Wherever your people work, they can call us for help with computers, mobile devices, email, access and applications. We provide remote support and connect it with the right hands-on help for your location.',
-        icon: 'chat',
-      },
-      {
-        title: 'Computers and servers, maintained',
-        text: 'Monitoring, maintenance and updates are part of the relationship. We test updates in-house, manage remote deployment and keep an eye on system health and performance.',
-        icon: 'settings',
-      },
-      {
-        title: 'Security and backup oversight',
-        text: 'We manage endpoint protection, patching and backup monitoring to help maintain recovery readiness. Remote care stays connected with onsite support from TechSavvy in Tulsa County or your local technician elsewhere.',
-        icon: 'shield',
-      },
-      {
-        title: 'IT direction comes with the relationship',
-        text: 'Get IT director-level guidance for budgets, vendors, projects and growth. Planning and day-to-day support stay connected as your business changes.',
-        icon: 'arrow',
-      },
-      {
-        title: 'One connected workflow',
-        text: 'We prepare accounts, support cloud services and coordinate onboarding and system changes. Remote and onsite work follow the same plan, with responsibilities agreed together around your business and location.',
-        icon: 'network',
-      },
-      {
-        title: 'Clear handoffs and shared visibility',
-        text: 'Your people, our support staff and any local technicians stay connected on priorities, changes and next steps. Clear communication keeps everyone working toward the same goals.',
-        icon: 'check',
-      },
-    ],
-    faq: [
-      {
-        question: 'Who handles remote support and who comes onsite?',
-        answer: 'TechSavvy provides remote help desk support, monitoring, maintenance, patching, security and backup oversight for businesses beyond Tulsa as well as here at home. We can also provide onsite support in Tulsa County. For other locations, we coordinate hands-on work with your internal staff or local technician.',
-      },
-      {
-        question: 'Is this an ongoing managed service?',
-        answer: 'Yes. Our Remote Managed IT package provides the foundation, including Proactive IT and ongoing help desk support. Planning, vendor coordination and IT guidance are part of the relationship. We agree on onsite support and shared responsibilities around your location, people and environment.',
-      },
-      {
-        question: 'Does our internal IT team stay involved?',
-        answer: 'Yes. We work alongside your people on priorities, standards and changes, sharing the work in a way that fits your business. Your team can focus on the work it does best while we provide ongoing system care, help desk support and agreed onsite assistance. Help desk hours are weekdays, 8am–5pm, with 24/7 emergency support according to your service plan.',
-      },
-    ],
-  },
-  {
     path: '/offsite-backup-recovery',
     title: 'Backup & Recovery',
     eyebrow: 'Protect the work your business depends on',

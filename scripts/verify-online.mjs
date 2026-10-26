@@ -14,7 +14,7 @@ for (const route of routes) {
   assert.equal(new URL(response.url).pathname, url.pathname, `${route}: expected root-base route`);
   const html = await response.text();
   assert.match(html, /<meta name="robots" content="noindex,nofollow,noarchive"/i, `${route}: noindex`);
-  assert.match(html, /<meta name="techsavvy-revision" content="6"/, `${route}: current revision`);
+  assert.match(html, /<meta name="techsavvy-revision" content="7"/, `${route}: current revision`);
   assert.doesNotMatch(html, /Design preview only|Forms disabled|REVIEW SITE/i, `${route}: removed visual preview notices`);
   assert.equal((html.match(/<h1[\s>]/g) || []).length, 1, `${route}: one H1`);
   for(const form of html.matchAll(/<form\b([^>]*)>/gi))assert.match(form[1],/action="https:\/\/formspree\.io\/f\/mvkkkwyn"/,`${route}: verified form endpoint`);

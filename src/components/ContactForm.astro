@@ -49,8 +49,10 @@ const endpoint = getContactFormEndpoint();
     <button class="button button-primary" type="submit"><span data-submit-label>{callback ? 'Request a callback' : 'Send message'}</span> <span aria-hidden="true">↗</span></button>
     <p class="form-feedback" id={`${id}-status`} data-form-status role="status" aria-live="polite" aria-atomic="true" tabindex="-1" hidden></p>
     <p class="form-feedback form-feedback-error" id={`${id}-error`} data-form-error role="alert" aria-atomic="true" tabindex="-1" hidden></p>
-    <p class="form-footnote">Formspree processes this form so TechSavvy can respond to your inquiry. {contactFormConfig.submissionMode === 'native' && 'You’ll continue to Formspree for confirmation.'} <a href={previewPath('/english-privacy-policy')}>Privacy policy</a></p>
-    <p class="form-direct-contact">Prefer to reach us directly? <a href="tel:+19184002424">(918) 400-2424</a> · <a href="mailto:sales@techsavvy.consulting">Email us</a></p>
+    <div class="form-direct-contact">
+      <p>Prefer to reach us directly? <a href="tel:+19184002424">(918) 400-2424</a> · <a href="mailto:sales@techsavvy.consulting">Email us</a></p>
+      <a class="form-policy-link" href={previewPath('/english-privacy-policy')}>Privacy policy</a>
+    </div>
   </form>
 ) : (
   <section class:list={['contact-form', 'contact-form-unavailable', { compact }]} aria-labelledby={`${id}-heading`}>
@@ -217,8 +219,11 @@ const endpoint = getContactFormEndpoint();
   .form-feedback { margin-top: 18px; padding: 13px 15px; background: var(--pale); border: 1px solid #bdd7eb; border-radius: 7px; color: var(--ink); font-size: .84rem; line-height: 1.7; }
   .form-feedback-error { background: #fff5f3; border-color: #edc6c0; color: #7e2731; }
   .form-feedback[hidden] { display: none; }
-  .form-direct-contact { margin-top: 14px; font-size: .74rem; line-height: 1.7; }
+  .form-direct-contact { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px 18px; margin-top: 14px; font-size: .74rem; line-height: 1.7; }
+  .form-direct-contact p { flex: 1 1 260px; margin: 0; }
   .form-direct-contact a { color: var(--blue); text-decoration: underline; text-underline-offset: 3px; }
+  .form-direct-contact p a { white-space: nowrap; }
+  .form-direct-contact .form-policy-link { flex: 0 0 auto; margin-left: auto; white-space: nowrap; }
   .contact-form-unavailable h3 { margin-top: 15px; font-size: 1.65rem; }
   .contact-form-unavailable > p { margin-top: 18px; }
   .contact-form-unavailable .button-group { margin-top: 25px; gap: 12px; }

@@ -85,7 +85,7 @@ import { testimonials } from '../data/testimonials';
       region.setAttribute('aria-live', playing ? 'off' : 'polite');
       count.setAttribute('aria-live', playing ? 'off' : 'polite');
       // A brisk browse interval; pause, hover, focus and arrows allow longer reading.
-      if (playing && inView && !hovered && !focusPaused && !document.hidden) timer = setTimeout(() => {show(current + 1); sync();}, 7000);
+      if (playing && inView && !hovered && !focusPaused && !document.hidden) timer = setTimeout(() => {show(current + 1); sync();}, 3000);
     };
     const show = (index: number) => {
       current = (index + slides.length) % slides.length;

@@ -87,7 +87,7 @@ function fixture({ reducedMotion = false, hidden = false } = {}) {
     timerCount: () => timers.size,
     scheduled: () => {
       assert.equal(timers.size, 1, 'Exactly one autoplay timer is pending');
-      assert.equal([...timers.values()][0].delay, 7000, 'Autoplay waits seven seconds');
+      assert.equal([...timers.values()][0].delay, 3000, 'Autoplay waits three seconds');
     },
     tick: () => {
       assert.equal(timers.size, 1, 'A timer must exist before advancing');
@@ -175,4 +175,4 @@ reduced.scheduled();
 reduced.media.emit('change');
 assert.equal(reduced.timerCount(), 0, 'A reduced-motion change stops explicit playback');
 
-console.log('PASS: actual testimonial script uses seven-second autoplay, one active accessible slide, working pause/play/arrows, hover/focus/visibility guards and reduced-motion protection. No browser or network requests used.');
+console.log('PASS: actual testimonial script uses three-second autoplay, one active accessible slide, working pause/play/arrows, hover/focus/visibility guards and reduced-motion protection. No browser or network requests used.');

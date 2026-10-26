@@ -109,8 +109,8 @@ export const posts: BlogPost[] = [
     date: '2026-10-26',
     displayDate: 'October 26, 2026',
     author: 'Kyle Hearn',
-    image: '/images/blog-it-growth-plan.webp',
-    imageAlt: 'Illustrative office scene of business professionals planning technology improvements around a table.',
+    image: '/images/blog-it-growth-plan-v2.webp',
+    imageAlt: 'Illustrative scene of a business owner and technology advisor planning improvements in a brick-walled showroom.',
     category: 'IT Planning',
     readMinutes: 3,
     sources: [
@@ -285,7 +285,7 @@ export const posts: BlogPost[] = [
         "heading": "Choose the relationship that fits your operation",
         "paragraphs": [
           "Some businesses need an outside IT department, including hands-on support. Others already have someone onsite who knows the equipment and people but needs a consistent remote support operation behind them.",
-          "In a co-managed relationship, TechSavvy can provide remote help desk support, monitoring, updates, security care, backup checks, and server maintenance while your onsite resource handles local troubleshooting and hands-on tasks. Agree on how those roles work together so employees know where to get help."
+          "With Remote Managed IT, TechSavvy can provide remote help desk support, monitoring, updates, security care, backup checks, and server maintenance while your onsite resource handles local troubleshooting and hands-on tasks. Agree on how those roles work together so employees know where to get help."
         ]
       },
       {

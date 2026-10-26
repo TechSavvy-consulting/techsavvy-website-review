@@ -14,6 +14,7 @@ const images = [
   ['kyle-hearn-slate-original.png', 'kyle-hearn-slate.webp', 1000, 87],
   ['blog-ai-workflows-original.png', 'blog-ai-workflows.webp', 1440, 87],
   ['blog-it-growth-plan-original.png', 'blog-it-growth-plan.webp', 1440, 87],
+  ['blog-it-growth-plan-v2-original.png', 'blog-it-growth-plan-v2.webp', 1440, 87],
   ['techsavvy-logo-original.png', 'techsavvy-logo.webp', 608, 95],
   ['blog-windows11-original.jpg', 'blog-windows11.webp', 1200, 84],
   ['blog-switching-original.png', 'blog-switching.webp', 1200, 84],

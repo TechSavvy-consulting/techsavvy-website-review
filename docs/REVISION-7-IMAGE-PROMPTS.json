@@ -1,0 +1,13 @@
+{
+  "revision": 7,
+  "date": "2026-10-26",
+  "tool": "Built-in image_gen",
+  "assets": [
+    {
+      "path": "public/images/blog-it-growth-plan-v2.webp",
+      "original": "assets/originals/blog-it-growth-plan-v2-original.png",
+      "purpose": "Replace the growth article cover with different fictional people and a different setting. AI article image unchanged.",
+      "prompt": "Use case: photorealistic-natural\nAsset type: landscape 3:2 blog header for a Tulsa business IT consulting website, article about planning technology for business growth.\nPrimary request: A completely new photo with different people and a different setting from the recent two-office-people-at-laptop images. Do not reuse their characters or the modern glass-window office scene.\nScene/backdrop: a welcoming small-business showroom/workshop planning area with warm exposed brick, timber shelves of material samples, large factory-style windows, a standing project table. This is a professional small business, not a server room or ordinary corporate conference room.\nSubject: two fictional professionals discussing a technology growth plan: a Black male owner in his late fifties with short gray hair and subtle eyeglasses, wearing a muted olive overshirt; and a South Asian female technology advisor in her forties with a short straight bob, wearing a cream blouse. Both standing, natural expressions, focused on a large paper planning sheet and a tablet on the table. A candid three-quarter wide shot, both faces clearly visible, natural anatomically correct hands.\nStyle/medium: polished photorealistic editorial photography, authentic skin and fabric texture, warm daylight, subtle restrained blue accents that fit an established professional IT site. The foreground tablet may show a simple unlabelled blue milestone diagram; no legible data. No floating icons needed. The different workspace and people must be unmistakable even at thumbnail size.\nConstraints: no text, no captions, no watermark, no corporate logos, no identifiable real client, no artificial holograms. Balanced horizontal crop with room around heads and hands; no clipping of subjects."
+    }
+  ]
+}
