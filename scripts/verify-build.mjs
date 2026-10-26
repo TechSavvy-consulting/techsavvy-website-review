@@ -2,7 +2,9 @@ import assert from 'node:assert/strict';
 import { readFile, readdir, stat } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
+import sharp from 'sharp';
 import { allPosts, featuredPosts } from '../src/data/blog.ts';
+import { defaultSocialImage, defaultSocialImageAlt, socialImageForPost } from '../src/utils/social-image.ts';
 
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const pagesPreview=process.argv.includes('--pages');
@@ -15,6 +17,13 @@ async function walk(dir){for(const entry of await readdir(dir,{withFileTypes:tru
 await walk(dist);
 const generatedRoutes=files.filter(file=>file.endsWith('.html')).map(file=>{const relative=path.relative(dist,file).split(path.sep).join('/');return relative==='index.html'?'/':'/'+relative.replace(/\/index\.html$|\.html$/,'');});
 const routes=[...new Set([...inventory.pages.map(p=>p.path),'/thank-you','/404',...generatedRoutes])];
+const shareImages=new Set();
+const decodeHtml=value=>value.replace(/&(?:amp|quot|apos|lt|gt|#\d+|#x[\da-f]+);/gi,entity=>{
+  const named={'&amp;':'&','&quot;':'"','&apos;':"'",'&lt;':'<','&gt;':'>'};
+  return named[entity] ?? String.fromCodePoint(entity[2].toLowerCase()==='x'?parseInt(entity.slice(3,-1),16):parseInt(entity.slice(2,-1),10));
+});
+const metaContent=(html,key)=>decodeHtml(html.match(new RegExp(`<meta (?:name|property)="${key}" content="([^"]*)"`,'i'))?.[1]||'');
+assert.equal(new Set(allPosts.map(post=>socialImageForPost(post).path)).size,allPosts.length,'Each article has its own stable sharing image');
 let linkCount=0, formCount=0, referenceCount=0;
 for(const route of routes){
   const file=route==='/'?path.join(dist,'index.html'):path.join(dist,route.slice(1)+(pagesPreview&&route!=='/404'?'/index.html':'.html'));
@@ -22,7 +31,7 @@ for(const route of routes){
   assert.match(html,/<html[^>]+lang="en"/i,`${route}: document language`);
   assert.equal((html.match(/<h1[\s>]/g)||[]).length,1,`${route}: one H1`);
   assert.match(html,/<meta name="robots" content="noindex,nofollow,noarchive"/i,`${route}: indexing guard`);
-  assert.match(html,/<meta name="techsavvy-revision" content="7"/i,`${route}: current revision`);
+  assert.match(html,/<meta name="techsavvy-revision" content="8"/i,`${route}: current revision`);
   assert.doesNotMatch(html,/<a\b[^>]*href="\/it-collaboration(?:[\/#?"])/i,`${route}: no links to retired Co-managed page`);
   assert.doesNotMatch(html,/co-managed/i,`${route}: retired Co-managed advertising removed`);
   assert.ok(!/virtual CIO|Tech Mentor Technologies|emergency-support-note/i.test(html),`${route}: retired terminology and footer strip`);
@@ -39,6 +48,23 @@ for(const route of routes){
   const previewImage=html.match(/<meta property="og:image" content="([^"]+)"/i)?.[1];
   assert.ok(previewImage,`${route}: preview image metadata`);
   assert.equal(new URL(previewImage).origin,expectedOrigin,`${route}: preview image origin`);
+  const post=allPosts.find(post=>post.path===route);
+  const expectedImage=post?socialImageForPost(post):{path:defaultSocialImage,alt:defaultSocialImageAlt};
+  assert.equal(previewImage,new URL(expectedImage.path,expectedOrigin).href,`${route}: correct branded or article-specific image`);
+  assert.equal(metaContent(html,'og:image:alt'),expectedImage.alt,`${route}: accurate sharing image description`);
+  assert.equal(metaContent(html,'og:image:width'),'1200',`${route}: sharing image width metadata`);
+  assert.equal(metaContent(html,'og:image:height'),'630',`${route}: sharing image height metadata`);
+  assert.equal(metaContent(html,'og:image:type'),'image/jpeg',`${route}: sharing image type metadata`);
+  assert.equal(metaContent(html,'twitter:card'),'summary_large_image',`${route}: large-image social card`);
+  assert.equal(metaContent(html,'twitter:title'),metaContent(html,'og:title'),`${route}: consistent social titles`);
+  assert.equal(metaContent(html,'twitter:description'),metaContent(html,'og:description'),`${route}: consistent social descriptions`);
+  assert.equal(metaContent(html,'twitter:image'),previewImage,`${route}: consistent social images`);
+  assert.equal(metaContent(html,'twitter:image:alt'),expectedImage.alt,`${route}: Twitter image description`);
+  shareImages.add(expectedImage.path);
+  const schemas=[...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].map(match=>JSON.parse(match[1]));
+  assert.equal(schemas.filter(schema=>schema['@type']==='ProfessionalService').length,1,`${route}: one business schema`);
+  assert.equal(schemas.find(schema=>schema['@type']==='ProfessionalService')?.image,new URL(defaultSocialImage,expectedOrigin).href,`${route}: business schema always uses brand image`);
+  if(post)assert.equal(schemas.find(schema=>schema['@type']==='BlogPosting')?.image,previewImage,`${route}: article schema uses article image`);
   assert.doesNotMatch(html,/techsavvy-consulting\.github\.io|\/techsavvy-website-review(?:[/?#"']|$)/i,`${route}: no obsolete GitHub project URL or base`);
   assert.doesNotMatch(html,/<(?:script|iframe)[^>]+(?:googletagmanager|google-analytics|doubleclick|facebook\.net|youtube\.com\/embed)/i,`${route}: no optional tracking/embed`);
   for(const note of html.matchAll(/<div class="article-note">\s*<strong>Further reading<\/strong>([\s\S]*?)<\/div>/g)){
@@ -60,6 +86,10 @@ for(const route of routes){
     assert.match(match[2],/data-form-error/,`${route}: accessible failure feedback`);
     assert.doesNotMatch(match[2],/<button[^>]+disabled/i,`${route}: enabled submit`);
     assert.doesNotMatch(match[2],/type="file"/i,`${route}: no sensitive file uploads`);
+    const submit=match[2].match(/<button\b[^>]*type="submit"[^>]*>([\s\S]*?)<\/button>/i)?.[1];
+    assert.ok(submit,`${route}: submit button exists`);
+    assert.doesNotMatch(submit,/↗|<svg\b|aria-hidden/i,`${route}: submit button has no decorative arrow`);
+    assert.equal(decodeHtml(submit.replace(/<[^>]+>/g,'').trim()),route==='/'?'Request a callback':'Send message',`${route}: approved submit label`);
   }
   for(const match of html.matchAll(/(?:href|src|poster)="(\/(?!\/)[^"]*)"/g)){
     const url=new URL(match[1],'https://review.local');
@@ -74,12 +104,21 @@ for(const route of routes){
   }
   for(const image of html.matchAll(/<img\b([^>]+)>/g))assert.match(image[1],/\balt=/,`${route}: image alt`);
 }
+assert.equal(shareImages.size,allPosts.length+1,'One default brand image and six article images');
+for(const imagePath of shareImages){
+  const metadata=await sharp(path.join(dist,imagePath.slice(1))).metadata();
+  assert.equal(metadata.format,'jpeg',`${imagePath}: actual JPEG format`);
+  assert.equal(metadata.width,1200,`${imagePath}: actual 1200px width`);
+  assert.equal(metadata.height,630,`${imagePath}: actual 630px height`);
+}
 assert.equal(formCount,2,'Expected home callback + contact form');
 const htmlFor=async route=>readFile(path.join(dist,route+(pagesPreview?'/index.html':'.html')),'utf8');
 const faq=await htmlFor('tulsa-it-faq');
 assert.doesNotMatch(faq.match(/<main[^>]*>([\s\S]*?)<\/main>/)?.[1]||'',/<details\b/,'FAQ answers always visible');
 assert.equal((faq.match(/class="faq-answer-card"/g)||[]).length,11,'Eleven visible FAQ answers');
 const home=await readFile(path.join(dist,'index.html'),'utf8');
+assert.equal(decodeHtml(home.match(/<title>([^<]+)<\/title>/)?.[1]||''),'TechSavvy Consulting | Managed IT & Cybersecurity in Tulsa','Approved homepage search/browser title');
+assert.match(home,/<h1>Your IT department\.<br\s*\/?><em>Your growth partner\.<\/em><\/h1>/,'Visible homepage headline unchanged');
 assert.match(home,/Kyle and his team are exceptional\./,'Chris original opening restored');
 assert.match(home,/You can’t do better for your IT needs than TechSavvy\./,'Chris final recommendation preserved with approved brand spelling');
 assert.doesNotMatch(home,/Tech Savvy/,'Chris brand spelling standardized');
@@ -148,7 +187,8 @@ if(pagesPreview){
   assert.equal(files.some(x=>path.basename(x)==='CNAME'),false,'Custom domain is managed in GitHub Pages settings, not a CNAME file');
 }
 console.log(`PASS: ${routes.length} pages, ${linkCount} local links/assets, ${formCount} configured Formspree forms; no optional tracking scripts.`);
-console.log('PASS: revision 7 copy, retired-page redirects/no links, simplified credentials, distinct blog image, contact/privacy layout, three-second carousel and retained form/support workflows.');
+console.log('PASS: revision 8 homepage title, plain form buttons, seven 1200x630 JPEG sharing images, article-specific social metadata and business/article schemas.');
+console.log('PASS: retired-page redirects/no links, credentials, distinct blog image, contact/privacy layout, three-second carousel and retained form/support workflows.');
 console.log(`PASS: expected origin ${expectedOrigin}, root base /, unchanged production canonicals and no obsolete repository-prefix paths.`);
 console.log(`PASS: ${referenceCount} Further reading links open safely in a new tab with accessible notices.`);
 console.log('Production domain, Wix, DNS and advertising are not changed by this verification.');

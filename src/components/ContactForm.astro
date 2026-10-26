@@ -46,7 +46,7 @@ const endpoint = getContactFormEndpoint();
     )}
     <label for={`${id}-message`}>What would you like to improve? <span aria-hidden="true">*</span><textarea id={`${id}-message`} name="message" rows={compact ? 3 : 4} required maxlength="5000" aria-describedby={`${id}-message-error ${id}-privacy`} placeholder="Tell us about your business and what you want from an IT partner."></textarea><span class="field-error" id={`${id}-message-error`} data-field-error="message"></span></label>
     <p class="form-privacy" id={`${id}-privacy`}>Please leave out passwords, patient information and other sensitive details.</p>
-    <button class="button button-primary" type="submit"><span data-submit-label>{callback ? 'Request a callback' : 'Send message'}</span> <span aria-hidden="true">↗</span></button>
+    <button class="button button-primary" type="submit"><span data-submit-label>{callback ? 'Request a callback' : 'Send message'}</span></button>
     <p class="form-feedback" id={`${id}-status`} data-form-status role="status" aria-live="polite" aria-atomic="true" tabindex="-1" hidden></p>
     <p class="form-feedback form-feedback-error" id={`${id}-error`} data-form-error role="alert" aria-atomic="true" tabindex="-1" hidden></p>
     <div class="form-direct-contact">

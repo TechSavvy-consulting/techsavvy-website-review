@@ -1,10 +1,12 @@
 ---
 import { previewPath } from '../utils/preview-path';
+import { defaultSocialImage, defaultSocialImageAlt } from '../utils/social-image';
 import Icon from '../components/Icon.astro';
 import '../styles/global.css';
-const { title = 'TechSavvy Consulting | Managed IT for Tulsa County', description = 'Managed IT, vendor coordination and IT leadership for Tulsa County businesses. Practical support that cares about your people and your growth.', path = '/', canonicalPath = path, article = false } = Astro.props;
+const { title = 'TechSavvy Consulting | Managed IT for Tulsa County', description = 'Managed IT, vendor coordination and IT leadership for Tulsa County businesses. Practical support that cares about your people and your growth.', path = '/', canonicalPath = path, article = false, socialImage = { path: defaultSocialImage, alt: defaultSocialImageAlt } } = Astro.props;
 const canonical = new URL(canonicalPath, 'https://www.techsavvy.consulting').href;
-const previewImage = new URL(previewPath('/images/kyle-server-room.webp'), Astro.site).href;
+const previewImage = new URL(previewPath(socialImage.path), Astro.site).href;
+const brandImage = new URL(previewPath(defaultSocialImage), Astro.site).href;
 const previewUrl = new URL(previewPath(path), Astro.site).href;
 const current = String(path).replace(/\/$/, '') || '/';
 const services = [
@@ -15,7 +17,7 @@ const services = [
   {href:'/it-support-business-tulsa', label:'Why TechSavvy'},
 ];
 const serviceActive = ['/it-support-for-small-business-tulsa', ...services.map(x=>x.href)].includes(current);
-const schema = { '@context':'https://schema.org', '@type':'ProfessionalService', name:'TechSavvy Consulting, LLC', url:'https://www.techsavvy.consulting/', image:previewImage, telephone:'+19184002424', email:'sales@techsavvy.consulting', foundingDate:'2015', address:{'@type':'PostalAddress',streetAddress:'5840 S Memorial Dr',addressLocality:'Tulsa',addressRegion:'OK',postalCode:'74145',addressCountry:'US'}, areaServed:{'@type':'AdministrativeArea',name:'Tulsa County, Oklahoma'}, openingHours:['Mo-Fr 08:00-17:00'], sameAs:['https://www.linkedin.com/company/techsavvy-consulting/','https://www.facebook.com/techsavvyok/','https://www.instagram.com/techsavvyok/'], knowsAbout:['Managed IT Services','IT Leadership','Vendor Management','Cybersecurity','Microsoft 365','Backup and Recovery'] };
+const schema = { '@context':'https://schema.org', '@type':'ProfessionalService', name:'TechSavvy Consulting, LLC', url:'https://www.techsavvy.consulting/', image:brandImage, telephone:'+19184002424', email:'sales@techsavvy.consulting', foundingDate:'2015', address:{'@type':'PostalAddress',streetAddress:'5840 S Memorial Dr',addressLocality:'Tulsa',addressRegion:'OK',postalCode:'74145',addressCountry:'US'}, areaServed:{'@type':'AdministrativeArea',name:'Tulsa County, Oklahoma'}, openingHours:['Mo-Fr 08:00-17:00'], sameAs:['https://www.linkedin.com/company/techsavvy-consulting/','https://www.facebook.com/techsavvyok/','https://www.instagram.com/techsavvyok/'], knowsAbout:['Managed IT Services','IT Leadership','Vendor Management','Cybersecurity','Microsoft 365','Backup and Recovery'] };
 ---
 <!doctype html>
 <html lang="en">
@@ -25,7 +27,7 @@ const schema = { '@context':'https://schema.org', '@type':'ProfessionalService',
     <title>{title}</title>
     <meta name="description" content={description} />
     <meta name="robots" content="noindex,nofollow,noarchive" />
-    <meta name="techsavvy-revision" content="7" />
+    <meta name="techsavvy-revision" content="8" />
     <link rel="canonical" href={canonical} />
     <link rel="icon" href={previewPath('/favicon.svg')} type="image/svg+xml" />
     <meta name="theme-color" content="#14324d" />
@@ -35,6 +37,15 @@ const schema = { '@context':'https://schema.org', '@type':'ProfessionalService',
     <meta property="og:description" content={description} />
     <meta property="og:url" content={previewUrl} />
     <meta property="og:image" content={previewImage} />
+    <meta property="og:image:alt" content={socialImage.alt} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={previewImage} />
+    <meta name="twitter:image:alt" content={socialImage.alt} />
     <script type="application/ld+json" set:html={JSON.stringify(schema).replace(/</g, '\\u003c')} />
     <slot name="head" />
   </head>

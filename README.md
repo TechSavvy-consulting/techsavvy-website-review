@@ -4,7 +4,7 @@ A modern, host-independent design example for TechSavvy Consulting. The producti
 
 **Status:** public GitHub Pages test arena. Cloudflare is the planned future production host, but no Cloudflare deployment or production cutover is authorized yet. On October 26, 2026 Kyle approved real Formspree inquiries and removal of visible preview notices. Optional tracking remains absent; noindex remains enabled. The live Wix site, main website DNS, email settings and advertising destinations remain unchanged.
 
-**Current revision, October 26:** revision 7 changes the AI graphic to “Your existing tools,” speeds testimonials to three seconds, replaces the growth article photo with different people and a different setting, retires the Co-managed IT page with a Managed IT redirect, simplifies certificate dates, and cleans up the contact/privacy presentation. See [revision 7 release notes](docs/REVISION-7-RELEASE.md).
+**Revision 8, October 26:** approved update for the GitHub test arena: new homepage search/browser title, plain inquiry-form submit buttons, the approved Tulsa-inspired photographic sharing image and article-specific blog sharing images. Visible page headlines, photos and layout remain unchanged. See [revision 8 release notes](docs/REVISION-8-RELEASE.md). A local build or this source note does not itself confirm deployment; verify the GitHub Pages run and published revision metadata.
 
 **Test-address setup:** the build now targets the approved root-domain test address below. [Test-arena setup](docs/TEST-ARENA-SETUP.md) describes the settings, scope and verification requirements; a local build alone does not confirm DNS or HTTPS is active.
 
@@ -81,7 +81,7 @@ Image originals are in `assets/originals/`; optimized WebP files are in `public/
 
 ## Before considering production
 
-See [Cloudflare release checklist](docs/CLOUDFLARE-RELEASE.md), [revision 7 notes](docs/REVISION-7-RELEASE.md) and [asset provenance](docs/ASSET-SOURCES.md). Earlier dated documents describe historical stages; latest chat approvals and AGENTS.md govern scope. After website approval, deploy the exact approved GitHub revision to a separate Cloudflare preview, review provider disclosures and verify forms/SEO/redirects there. Obtain separate production-transition approval before replacing Wix.
+See [Cloudflare release checklist](docs/CLOUDFLARE-RELEASE.md), [revision 8 notes](docs/REVISION-8-RELEASE.md) and [asset provenance](docs/ASSET-SOURCES.md). Earlier dated documents describe historical stages; latest chat approvals and AGENTS.md govern scope. After website approval, deploy the exact approved GitHub revision to a separate Cloudflare preview, review provider disclosures and verify forms/SEO/redirects there. Obtain separate production-transition approval before replacing Wix.
 
 The noindex safeguards are intentionally hardcoded. A future production release requires a deliberate review of them; there is no automatic production switch.
 
