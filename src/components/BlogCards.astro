@@ -12,7 +12,7 @@ import Icon from './Icon.astro';
       <div class="blog-meta">
         <span class="category">{post.category}</span>
         <span aria-hidden="true">·</span>
-        <span>{post.updatedDate ? 'Updated ' : ''}<time datetime={post.updatedDate || post.date}>{post.displayUpdatedDate || post.displayDate}</time></span>
+        <span><time datetime={post.date}>{post.displayDate}</time></span>
       </div>
       <h3><a href={previewPath(post.path)}>{post.title}</a></h3>
       <p>{post.excerpt}</p>

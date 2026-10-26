@@ -111,46 +111,46 @@ export const servicePages = [
       },
       {
         title: 'Security built into everyday care',
-        text: 'Endpoint protection, patching and security checks strengthen your defenses. Kyle E. Hearn holds the Fortinet NSE 1 Certified in Cybersecurity credential and brings that security perspective to our ongoing care.',
+        text: 'Cybersecurity training and certifications held by our staff inform our everyday care. Endpoint protection, patching and security checks work together to strengthen your infrastructure and support the way your business works.',
         icon: 'shield',
       },
       {
         title: 'Backups with recovery in mind',
-        text: 'Check backup results, investigate failures and test selected restores. We help protect the work your business depends on and keep recovery priorities connected to your needs.',
+        text: 'Check backup results and test restores. We help protect the work your business depends on and keep recovery priorities connected to your needs.',
         icon: 'cloud',
       },
     ],
     faq: [
       {
-        question: 'Is Proactive IT included in our managed support?',
-        answer: 'Yes. Both Full Managed IT and Remote Managed IT include proactive monitoring, maintenance, updates, security checks and backup oversight. We establish the systems and backup coverage when we build your service plan.',
+        question: 'What does ongoing IT care mean for our business?',
+        answer: 'Your technology gets consistent attention between support calls. Monitoring, routine maintenance and quarterly checkups help keep computers and servers cared for, so your people can focus on their work while we look after the technology behind it.',
       },
       {
-        question: 'How do you help updates go smoothly?',
-        answer: 'We test updates in-house first, plan customer rollouts around the systems involved and check the results. When an update needs more testing or a coordinated maintenance window, we work through that before moving ahead.',
+        question: 'How does proactive care strengthen our security?',
+        answer: 'We bring tested updates, endpoint protection, security checks and backup oversight into a regular care plan. These layers help keep systems current and strengthen protection for the information and infrastructure your business depends on.',
       },
       {
-        question: 'What happens when monitoring or a checkup finds a problem?',
-        answer: 'We investigate, address issues within your managed service and keep you informed about anything that affects your work. If a larger change or replacement is needed, we explain why and help you plan the next step.',
+        question: 'How do you help our technology grow with us?',
+        answer: 'We connect what we learn from everyday care with your plans for the business. From adding people and devices to planning equipment upgrades, we help you choose practical improvements and prepare your systems for the next step.',
       },
     ],
   },
   {
     path: '/it-collaboration',
     title: 'Co-managed IT',
-    eyebrow: 'Remote IT care. Connected onsite support.',
-    headline: 'Your remote managed IT team.',
-    summary: 'We handle the help desk and ongoing remote care of your computers, servers and business systems. Your internal staff or local technician handles onsite troubleshooting and hands-on work. Together, we keep your business moving.',
+    eyebrow: 'Connected care, wherever you work',
+    headline: 'Remote expertise. Local support.',
+    summary: 'Bring everyday IT care and your local people into one working relationship. We provide remote support beyond Tulsa, with TechSavvy onsite support available for Tulsa County businesses. Elsewhere, we coordinate with your internal staff or local technician for hands-on work.',
     icon: 'people',
     benefits: [
       'Remote Managed IT with Proactive IT included',
       'Help desk, maintenance, security and backups',
-      'Connected with your onsite technician',
+      'Onsite support available in Tulsa County',
     ],
     cards: [
       {
         title: 'Your remote help desk',
-        text: 'Your people call us for help with computers, mobile devices, email, access and applications. We handle remote troubleshooting and coordinate hands-on support when it is needed.',
+        text: 'Wherever your people work, they can call us for help with computers, mobile devices, email, access and applications. We provide remote support and connect it with the right hands-on help for your location.',
         icon: 'chat',
       },
       {
@@ -160,7 +160,7 @@ export const servicePages = [
       },
       {
         title: 'Security and backup oversight',
-        text: 'We manage endpoint protection, patching and backup monitoring, investigate warnings and help maintain recovery readiness. Your local technician helps with any work that needs physical access.',
+        text: 'We manage endpoint protection, patching and backup monitoring to help maintain recovery readiness. Remote care stays connected with onsite support from TechSavvy in Tulsa County or your local technician elsewhere.',
         icon: 'shield',
       },
       {
@@ -170,27 +170,27 @@ export const servicePages = [
       },
       {
         title: 'One connected workflow',
-        text: 'We prepare accounts, support cloud services and coordinate onboarding and system changes. Your onsite contact handles physical setup, cabling and other tasks that need local hands.',
+        text: 'We prepare accounts, support cloud services and coordinate onboarding and system changes. Remote and onsite work follow the same plan, with responsibilities agreed together around your business and location.',
         icon: 'network',
       },
       {
         title: 'Clear handoffs and shared visibility',
-        text: 'Keep your local technician informed about findings, changes and next steps. Everyone knows who is handling the work and how to move an issue forward.',
+        text: 'Your people, our support staff and any local technicians stay connected on priorities, changes and next steps. Clear communication keeps everyone working toward the same goals.',
         icon: 'check',
       },
     ],
     faq: [
       {
         question: 'Who handles remote support and who comes onsite?',
-        answer: 'TechSavvy handles the help desk, remote troubleshooting, monitoring, maintenance, patching, security and backup oversight. Your internal staff or local technician handles physical access and onsite troubleshooting. We coordinate the work and keep responsibilities clear.',
+        answer: 'TechSavvy provides remote help desk support, monitoring, maintenance, patching, security and backup oversight for businesses beyond Tulsa as well as here at home. We can also provide onsite support in Tulsa County. For other locations, we coordinate hands-on work with your internal staff or local technician.',
       },
       {
         question: 'Is this an ongoing managed service?',
-        answer: 'Yes. Co-managed IT uses our Remote Managed IT package, including Proactive IT and ongoing help desk support. Planning, vendor coordination and IT guidance are part of the relationship, with responsibilities established around your environment.',
+        answer: 'Yes. Our Remote Managed IT package provides the foundation, including Proactive IT and ongoing help desk support. Planning, vendor coordination and IT guidance are part of the relationship. We agree on onsite support and shared responsibilities around your location, people and environment.',
       },
       {
         question: 'Does our internal IT team stay involved?',
-        answer: 'Yes. We work with your team on priorities, standards and changes. They remain connected to the business and onsite needs while we take care of the remote support and ongoing system care. Help desk hours are weekdays, 8am–5pm, with 24/7 emergency support according to your service plan.',
+        answer: 'Yes. We work alongside your people on priorities, standards and changes, sharing the work in a way that fits your business. Your team can focus on the work it does best while we provide ongoing system care, help desk support and agreed onsite assistance. Help desk hours are weekdays, 8am–5pm, with 24/7 emergency support according to your service plan.',
       },
     ],
   },
@@ -229,7 +229,7 @@ export const servicePages = [
       },
       {
         title: 'Recovery priorities',
-        text: 'Decide what comes back first, how much data loss is tolerable and what recovery time your business needs.',
+        text: 'Identify the systems and information your people need first, then build a recovery plan around keeping your business moving.',
         icon: 'clock',
       },
       {
@@ -245,7 +245,7 @@ export const servicePages = [
       },
       {
         question: 'How quickly could we recover?',
-        answer: 'Recovery depends on the incident, backup availability, data volume, connectivity and replacement systems. We set objectives around your priorities and test selected scenarios.',
+        answer: 'The type of backup solution you choose shapes how quickly you can get back to work. We help you create a backup and recovery plan that fits your business’s recovery needs, with clear priorities and testing to support that plan.',
       },
       {
         question: 'Can you review the backups we already use?',
@@ -304,11 +304,11 @@ export const servicePages = [
       },
       {
         question: 'Do we need to replace our current IT team?',
-        answer: 'No. We can work alongside your people or act as your IT department. We agree on ownership, responsibilities and communication together.',
+        answer: 'It’s your choice. We can work alongside your people or act as your entire IT department. Together, we choose the right balance of support, leadership and shared responsibilities for your business.',
       },
       {
         question: 'What happens when we contact you?',
-        answer: 'We discuss your business, current technology and priorities, then recommend a next step with clear scope and expectations.',
+        answer: 'We start with a friendly conversation about your business, your people and what you would like technology to help you do. You do not need to have all the answers—we explore your goals together, explain the options and guide you toward a next step that feels right for your business.',
       },
     ],
   },

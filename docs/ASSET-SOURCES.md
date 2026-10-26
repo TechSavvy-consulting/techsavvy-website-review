@@ -36,3 +36,11 @@ The following unmodified transparent PNGs were obtained from the businesses' off
 ## Revision 4 — October 26, 2026
 
 Chris Moles's full original Google review was inspected in Google Maps on October 26, 2026, on the verified TechSavvy Consulting, LLC listing (website techsavvy.consulting and phone 918-400-2424). The public reviewer display name is Chris M; the review is signed Chris Moles, General Manager. The new short, verbatim excerpt highlights server/backup/device support and prompt resolution. An ellipsis marks omitted words; no rating, response-time guarantee or new business claim was added. The testimonial source now points to the Google Maps reviews rather than the earlier LinkedIn excerpt.
+
+## Revision 5 — October 26, 2026
+
+Kyle supplied a screenshot of Chris Moles's original Google review and requested its opening and final recommendation be retained, removing only the sentence beginning “On the rare occasion.” That requested excerpt is now used, with spelling preserved. The carousel allows longer reading time for longer testimonials.
+
+AI-page illustrations and client-support device graphics are original HTML/CSS/SVG artwork, not screenshots of a delivered client system or third-party product endorsements. Existing portraits, business logos and videos are unchanged.
+
+Level download links were checked against official documentation and vendor servers on October 26, 2026. All five generic URLs returned HTTP 200; no installer was executed and no enrollment key is public. References: https://docs.level.io/en/articles/9926330-windows-install ; https://docs.level.io/en/articles/9926339-macos-install ; https://docs.level.io/en/articles/9926362-linux-install .

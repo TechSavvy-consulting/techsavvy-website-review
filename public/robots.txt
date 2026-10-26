@@ -1,4 +1,5 @@
 User-agent: *
-Disallow: /
+Allow: /
 
-# Review site only. Indexing must be reviewed separately before production.
+# Crawlers must be able to read the noindex directive on every HTML page.
+# Indexing remains disabled in HTML until a separately approved production release.

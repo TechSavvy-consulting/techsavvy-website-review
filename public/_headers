@@ -1,0 +1,7 @@
+# Cloudflare preview safeguards. GitHub Pages does not apply this file.
+# Remove X-Robots-Tag only in a separately approved production release.
+/*
+  X-Robots-Tag: noindex, nofollow, noarchive
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=()

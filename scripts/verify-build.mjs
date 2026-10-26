@@ -21,6 +21,8 @@ for(const route of routes){
   assert.match(html,/<html[^>]+lang="en"/i,`${route}: document language`);
   assert.equal((html.match(/<h1[\s>]/g)||[]).length,1,`${route}: one H1`);
   assert.match(html,/<meta name="robots" content="noindex,nofollow,noarchive"/i,`${route}: indexing guard`);
+  assert.match(html,/<meta name="techsavvy-revision" content="5"/i,`${route}: current revision`);
+  assert.doesNotMatch(html,/Design preview only|Forms disabled|REVIEW SITE|Explore all services/i,`${route}: retired visible preview wording and services link`);
   assert.match(html,/<meta name="description" content="[^"]+"/i,`${route}: description`);
   assert.match(html,/<title>[^<]+<\/title>/i,`${route}: title`);
   assert.match(html,/<link rel="canonical" href="https:\/\/www\.techsavvy\.consulting/i,`${route}: canonical`);
@@ -43,9 +45,15 @@ for(const route of routes){
   }
   for(const match of html.matchAll(/<form\b([^>]*)>([\s\S]*?)<\/form>/gi)){
     formCount++;
-    assert.doesNotMatch(match[1],/\b(action|data-netlify)\s*=/i,`${route}: no submission backend`);
-    assert.match(match[2],/submissions are disabled/i,`${route}: review notice`);
-    assert.match(match[2],/<button[^>]+disabled/i,`${route}: disabled submit`);
+    assert.match(match[1],/action="https:\/\/formspree\.io\/f\/mvkkkwyn"/i,`${route}: verified Formspree endpoint only`);
+    assert.match(match[1],/method="POST"/i,`${route}: POST submission`);
+    assert.match(match[2],/name="_gotcha"/,`${route}: spam honeypot`);
+    assert.match(match[2],/name="email"[^>]*required/,`${route}: required email`);
+    assert.match(match[2],/name="message"[^>]*required/,`${route}: required message`);
+    assert.match(match[2],/data-form-status/,`${route}: submission feedback`);
+    assert.match(match[2],/data-form-error/,`${route}: accessible failure feedback`);
+    assert.doesNotMatch(match[2],/<button[^>]+disabled/i,`${route}: enabled submit`);
+    assert.doesNotMatch(match[2],/type="file"/i,`${route}: no sensitive file uploads`);
   }
   for(const match of html.matchAll(/(?:href|src|poster)="(\/(?!\/)[^"]*)"/g)){
     const url=new URL(match[1],'https://review.local');
@@ -61,6 +69,22 @@ for(const route of routes){
   for(const image of html.matchAll(/<img\b([^>]+)>/g))assert.match(image[1],/\balt=/,`${route}: image alt`);
 }
 assert.equal(formCount,2,'Expected home callback + contact form');
+const htmlFor=async route=>readFile(path.join(dist,route+(pagesPreview?'/index.html':'.html')),'utf8');
+const faq=await htmlFor('tulsa-it-faq');
+assert.doesNotMatch(faq.match(/<main[^>]*>([\s\S]*?)<\/main>/)?.[1]||'',/<details\b/,'FAQ answers always visible');
+assert.equal((faq.match(/class="faq-answer-card"/g)||[]).length,11,'Eleven visible FAQ answers');
+const home=await readFile(path.join(dist,'index.html'),'utf8');
+assert.match(home,/Kyle and his team are exceptional\./,'Chris original opening restored');
+assert.match(home,/You can’t do better for your IT needs than Tech Savvy\./,'Chris final recommendation preserved');
+assert.doesNotMatch(home,/On the rare occasion/,'Only requested sentence omitted');
+assert.match(home,/href="#emergency-support-note"/,'Support asterisk points to explanation');
+const support=await htmlFor('client-support');
+for(const url of ['https://downloads.level.io/level.msi','https://builds.level.io/stable/level-darwin-bundle-amd64.pkg','https://builds.level.io/stable/level-darwin-bundle-arm64.pkg','https://builds.level.io/stable/level-linux-amd64','https://builds.level.io/stable/level-linux-arm64'])assert.ok(support.includes(url),`Official support download: ${url}`);
+assert.doesNotMatch(support,/LEVEL_API_KEY|LEVEL_INSTALL_KEY|levelInstallKey/i,'No enrollment secrets in support page');
+const retired=await htmlFor('it-support-for-small-business-tulsa');
+assert.match(retired,/http-equiv="refresh"/,'Retired services page has GitHub-compatible redirect');
+assert.match(retired,/<link rel="canonical" href="https:\/\/www.techsavvy.consulting\/outsourced-managed-it"/,'Retired route canonical points to replacement');
+assert.match(await htmlFor('ai-services'),/priced per project|priced for each project|project-based/i,'AI project pricing distinction');
 assert.ok(referenceCount>0,'Further reading links were verified');
 assert.ok(files.some(x=>x.endsWith('techsavvy-introduction.mp4')),'Video is included');
 assert.equal(files.some(x=>/-original\./.test(x)),false,'Original oversized assets stay outside public output');
@@ -69,7 +93,8 @@ if(pagesPreview){
   assert.ok(files.includes(path.join(dist,'.nojekyll')),'GitHub Pages static artifact marker exists');
   assert.equal(files.some(x=>path.basename(x)==='CNAME'),false,'Custom domain is managed in GitHub Pages settings, not a CNAME file');
 }
-console.log(`PASS: ${routes.length} pages, ${linkCount} local links/assets, ${formCount} disabled review forms; no optional tracking scripts.`);
+console.log(`PASS: ${routes.length} pages, ${linkCount} local links/assets, ${formCount} configured Formspree forms; no optional tracking scripts.`);
+console.log('PASS: visible FAQ, approved testimonial, support downloads, AI page and retired services redirect.');
 console.log(`PASS: expected origin ${expectedOrigin}, root base /, unchanged production canonicals and no obsolete repository-prefix paths.`);
 console.log(`PASS: ${referenceCount} Further reading links open safely in a new tab with accessible notices.`);
 console.log('Production domain, Wix, DNS and advertising are not changed by this verification.');

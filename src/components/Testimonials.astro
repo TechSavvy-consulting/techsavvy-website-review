@@ -77,14 +77,16 @@ import { testimonials } from '../data/testimonials';
     let hovered = false;
     let inView = false;
     let focusPaused = false;
-    let timer: ReturnType<typeof setInterval> | undefined;
+    let timer: ReturnType<typeof setTimeout> | undefined;
     const sync = () => {
-      clearInterval(timer);
+      clearTimeout(timer);
       playback.innerHTML = playing ? 'Pause <span aria-hidden="true">Ⅱ</span>' : 'Play <span aria-hidden="true">▷</span>';
       playback.setAttribute('aria-label', playing ? 'Pause automatic testimonials' : 'Play automatic testimonials');
       region.setAttribute('aria-live', playing ? 'off' : 'polite');
       count.setAttribute('aria-live', playing ? 'off' : 'polite');
-      if (playing && inView && !hovered && !focusPaused && !document.hidden) timer = setInterval(() => show(current + 1), 12000);
+      const words = (slides[current].querySelector('p')?.textContent || '').trim().split(/\s+/).length;
+      const readingTime = Math.max(12000, words * 300 + 2500);
+      if (playing && inView && !hovered && !focusPaused && !document.hidden) timer = setTimeout(() => {show(current + 1); sync();}, readingTime);
     };
     const show = (index: number) => {
       current = (index + slides.length) % slides.length;

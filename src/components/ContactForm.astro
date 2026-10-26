@@ -1,29 +1,226 @@
 ---
 import { previewPath } from '../utils/preview-path';
-const { compact = false, id = 'contact-review', callback = false } = Astro.props;
+import { contactFormConfig, getContactFormEndpoint } from '../data/contact-form';
+
+const { compact = false, id = 'contact-form', callback = false } = Astro.props;
+const endpoint = getContactFormEndpoint();
 ---
-<form id={id} class:list={['contact-form', { compact }]} aria-describedby={`${id}-notice`}>
-  <div class="form-notice" id={`${id}-notice`}><span class="status-dot"></span> Review only · Form submissions are disabled</div>
-  <div class="field-pair">
-    <label for={`${id}-name`}>Your name <span aria-hidden="true">*</span><input id={`${id}-name`} name="name" autocomplete="name" required placeholder="First and last name" /></label>
-    <label for={`${id}-company`}>Company<input id={`${id}-company`} name="company" autocomplete="organization" placeholder="Your business name" /></label>
-  </div>
-  <div class="field-pair">
-    <label for={`${id}-email`}>Work email <span aria-hidden="true">*</span><input id={`${id}-email`} name="email" type="email" autocomplete="email" required placeholder="you@company.com" /></label>
-    <label for={`${id}-phone`}>Phone{callback && <span aria-hidden="true"> *</span>}<input id={`${id}-phone`} name="phone" type="tel" autocomplete="tel" required={callback} placeholder="(918) 555-0123" /></label>
-  </div>
-  <div class="field-pair">
-    <label for={`${id}-users`}>Approximate number of users <span class="optional">(optional)</span><select id={`${id}-users`} name="user-count"><option value="">Select an option</option><option value="under-10">Under 10</option><option value="10-25">10–25</option><option value="26-50">26–50</option><option value="51-100">51–100</option><option value="over-100">More than 100</option><option value="not-sure">Not sure</option></select></label>
-    <label for={`${id}-servers`}>Do you have on-site servers? <span class="optional">(optional)</span><select id={`${id}-servers`} name="on-site-servers"><option value="">Select an option</option><option value="yes">Yes</option><option value="no">No</option><option value="not-sure">Not sure</option></select></label>
-  </div>
-  {callback && <div class="field-pair"><label for={`${id}-date`}>Preferred date <span class="optional">(optional)</span><input id={`${id}-date`} name="preferred-date" type="date" /></label><label for={`${id}-time`}>Preferred time <span class="optional">(optional)</span><input id={`${id}-time`} name="preferred-time" type="time" /></label></div>}
-  <label for={`${id}-message`}>What would you like to improve? <span aria-hidden="true">*</span><textarea id={`${id}-message`} name="message" rows={compact ? 3 : 4} required placeholder="Tell us about your business and what you want from an IT partner."></textarea></label>
-  <p class="form-privacy">Please leave out passwords, patient information and other sensitive details.</p>
-  <button class="button button-primary" type="submit" disabled aria-disabled="true">{callback ? 'Request a callback' : 'Send message'} <span aria-hidden="true">↗</span></button>
-  <p class="form-footnote">Design preview only. Nothing entered here is sent or saved. <a href={previewPath('/english-privacy-policy')}>Privacy policy</a></p>
-</form>
+
+{endpoint ? (
+  <form
+    id={id}
+    class:list={['contact-form', { compact }]}
+    action={endpoint}
+    method="POST"
+    accept-charset="UTF-8"
+    aria-describedby={`${id}-notice ${id}-privacy`}
+    data-contact-form
+    data-submission-mode={contactFormConfig.submissionMode}
+  >
+    <p class="form-notice" id={`${id}-notice`}>Fields marked with an asterisk (*) are required.</p>
+    <input type="hidden" name="subject" value={callback ? 'TechSavvy website: callback request' : 'TechSavvy website: new inquiry'} />
+    <input type="hidden" name="form-location" value={id} />
+    <div class="form-honeypot" aria-hidden="true">
+      <label for={`${id}-website`}>Leave this field empty<input id={`${id}-website`} type="text" name="_gotcha" tabindex="-1" autocomplete="off" /></label>
+    </div>
+    <div class="field-pair">
+      <label for={`${id}-name`}>Your name <span aria-hidden="true">*</span><input id={`${id}-name`} name="name" autocomplete="name" required maxlength="120" aria-describedby={`${id}-name-error`} placeholder="First and last name" /><span class="field-error" id={`${id}-name-error`} data-field-error="name"></span></label>
+      <label for={`${id}-company`}>Company <span class="optional">(optional)</span><input id={`${id}-company`} name="company" autocomplete="organization" maxlength="160" aria-describedby={`${id}-company-error`} placeholder="Your business name" /><span class="field-error" id={`${id}-company-error`} data-field-error="company"></span></label>
+    </div>
+    <div class="field-pair">
+      <label for={`${id}-email`}>Work email <span aria-hidden="true">*</span><input id={`${id}-email`} name="email" type="email" autocomplete="email" required maxlength="254" aria-describedby={`${id}-email-error`} placeholder="you@company.com" /><span class="field-error" id={`${id}-email-error`} data-field-error="email"></span></label>
+      <label for={`${id}-phone`}>Phone {callback ? <span aria-hidden="true">*</span> : <span class="optional">(optional)</span>}<input id={`${id}-phone`} name="phone" type="tel" autocomplete="tel" required={callback} maxlength="50" aria-describedby={`${id}-phone-error`} placeholder="(918) 555-0123" /><span class="field-error" id={`${id}-phone-error`} data-field-error="phone"></span></label>
+    </div>
+    <div class="field-pair">
+      <label for={`${id}-users`}>Approximate number of users <span class="optional">(optional)</span><select id={`${id}-users`} name="user-count" aria-describedby={`${id}-users-error`}><option value="">Select an option</option><option value="under-10">Under 10</option><option value="10-25">10–25</option><option value="26-50">26–50</option><option value="51-100">51–100</option><option value="over-100">More than 100</option><option value="not-sure">Not sure</option></select><span class="field-error" id={`${id}-users-error`} data-field-error="user-count"></span></label>
+      <label for={`${id}-servers`}>Do you have on-site servers? <span class="optional">(optional)</span><select id={`${id}-servers`} name="on-site-servers" aria-describedby={`${id}-servers-error`}><option value="">Select an option</option><option value="yes">Yes</option><option value="no">No</option><option value="not-sure">Not sure</option></select><span class="field-error" id={`${id}-servers-error`} data-field-error="on-site-servers"></span></label>
+    </div>
+    {callback && (
+      <>
+        <div class="field-pair">
+          <label for={`${id}-date`}>Preferred date <span class="optional">(optional)</span><input id={`${id}-date`} name="preferred-date" type="date" aria-describedby={`${id}-scheduling ${id}-date-error`} /><span class="field-error" id={`${id}-date-error`} data-field-error="preferred-date"></span></label>
+          <label for={`${id}-time`}>Preferred time <span class="optional">(optional)</span><input id={`${id}-time`} name="preferred-time" type="time" aria-describedby={`${id}-scheduling ${id}-time-error`} /><span class="field-error" id={`${id}-time-error`} data-field-error="preferred-time"></span></label>
+        </div>
+        <p class="form-privacy" id={`${id}-scheduling`}>Times are Central Time. We’ll confirm a time with you; this request does not book an appointment.</p>
+      </>
+    )}
+    <label for={`${id}-message`}>What would you like to improve? <span aria-hidden="true">*</span><textarea id={`${id}-message`} name="message" rows={compact ? 3 : 4} required maxlength="5000" aria-describedby={`${id}-message-error ${id}-privacy`} placeholder="Tell us about your business and what you want from an IT partner."></textarea><span class="field-error" id={`${id}-message-error`} data-field-error="message"></span></label>
+    <p class="form-privacy" id={`${id}-privacy`}>Please leave out passwords, patient information and other sensitive details.</p>
+    <button class="button button-primary" type="submit"><span data-submit-label>{callback ? 'Request a callback' : 'Send message'}</span> <span aria-hidden="true">↗</span></button>
+    <p class="form-feedback" id={`${id}-status`} data-form-status role="status" aria-live="polite" aria-atomic="true" tabindex="-1" hidden></p>
+    <p class="form-feedback form-feedback-error" id={`${id}-error`} data-form-error role="alert" aria-atomic="true" tabindex="-1" hidden></p>
+    <p class="form-footnote">Formspree processes this form so TechSavvy can respond to your inquiry. {contactFormConfig.submissionMode === 'native' && 'You’ll continue to Formspree for confirmation.'} <a href={previewPath('/english-privacy-policy')}>Privacy policy</a></p>
+    <p class="form-direct-contact">Prefer to reach us directly? <a href="tel:+19184002424">(918) 400-2424</a> · <a href="mailto:sales@techsavvy.consulting">Email us</a></p>
+  </form>
+) : (
+  <section class:list={['contact-form', 'contact-form-unavailable', { compact }]} aria-labelledby={`${id}-heading`}>
+    <span class="eyebrow">Let’s start a conversation</span>
+    <h3 id={`${id}-heading`}>We’d love to hear from you.</h3>
+    <p>Online messages aren’t available yet. Call or email us, and we’ll help you find the right next step for your business.</p>
+    <div class="button-group">
+      <a class="button button-primary" href="tel:+19184002424">Call (918) 400-2424</a>
+      <a class="button button-outline" href="mailto:sales@techsavvy.consulting">Email TechSavvy</a>
+    </div>
+    <p class="form-footnote">Please leave out passwords, patient information and other sensitive details. <a href={previewPath('/english-privacy-policy')}>Privacy policy</a></p>
+  </section>
+)}
+
 <script>
-  document.querySelectorAll<HTMLFormElement>('.contact-form').forEach(form => {
-    form.addEventListener('submit', event => event.preventDefault());
+  import { getFormspreeFieldErrors, isFormspreeSuccess } from '../utils/formspree-response';
+
+  // No credentials, tracking, draft storage or automatic retries. The form only
+  // sends after its visitor submits it. Native POST remains available without JS.
+  type ContactField = HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement;
+
+  document.querySelectorAll<HTMLFormElement>('form[data-contact-form]').forEach(form => {
+    const submit = form.querySelector<HTMLButtonElement>('button[type="submit"]');
+    const submitLabel = form.querySelector<HTMLElement>('[data-submit-label]');
+    const status = form.querySelector<HTMLElement>('[data-form-status]');
+    const errorStatus = form.querySelector<HTMLElement>('[data-form-error]');
+    if (!submit || !submitLabel || !status || !errorStatus) return;
+
+    const originalLabel = submitLabel.textContent || 'Send message';
+    let submitting = false;
+    const fields = Array.from(form.querySelectorAll<ContactField>('input:not([type="hidden"]):not([name="_gotcha"]), textarea, select'));
+    const errors = Array.from(form.querySelectorAll<HTMLElement>('[data-field-error]'));
+
+    const setBusy = (busy: boolean) => {
+      submitting = busy;
+      submit.disabled = busy;
+      submit.setAttribute('aria-disabled', String(busy));
+      form.setAttribute('aria-busy', String(busy));
+      submitLabel.textContent = busy ? 'Sending…' : originalLabel;
+    };
+
+    const showError = (message: string) => {
+      status.hidden = true;
+      errorStatus.textContent = message;
+      errorStatus.hidden = false;
+      errorStatus.focus();
+    };
+
+    const clearFieldError = (field: ContactField) => {
+      field.removeAttribute('aria-invalid');
+      const error = errors.find(item => item.dataset.fieldError === field.name);
+      if (error) error.textContent = '';
+    };
+
+    const showFieldError = (field: ContactField, message: string) => {
+      field.setAttribute('aria-invalid', 'true');
+      const error = errors.find(item => item.dataset.fieldError === field.name);
+      if (error) error.textContent = message;
+    };
+
+    fields.forEach(field => {
+      field.addEventListener('invalid', () => showFieldError(field, field.validationMessage));
+      field.addEventListener('input', () => clearFieldError(field));
+      field.addEventListener('change', () => clearFieldError(field));
+    });
+
+    // Restore an enabled button if the visitor returns from hosted Formspree
+    // confirmation/challenge with the browser Back button.
+    window.addEventListener('pageshow', event => {
+      if (event.persisted && form.dataset.submissionMode === 'native') {
+        setBusy(false);
+        status.hidden = true;
+      }
+    });
+
+    form.addEventListener('submit', async event => {
+      if (submitting) {
+        event.preventDefault();
+        return;
+      }
+
+      fields.forEach(clearFieldError);
+      errorStatus.hidden = true;
+      status.hidden = true;
+      if (!form.reportValidity()) {
+        event.preventDefault();
+        return;
+      }
+
+      if (form.dataset.submissionMode !== 'ajax') {
+        setBusy(true);
+        status.textContent = 'Continuing to Formspree to complete your message…';
+        status.hidden = false;
+        return;
+      }
+
+      event.preventDefault();
+      const action = new URL(form.action);
+      if (action.origin !== 'https://formspree.io' || !/^\/f\/[a-z0-9]+$/i.test(action.pathname) || action.search || action.hash) {
+        showError('Online messages are unavailable right now. Please call (918) 400-2424 or email sales@techsavvy.consulting.');
+        return;
+      }
+
+      const data = new FormData(form);
+      // Freeze only after capturing the AJAX payload so a successful response
+      // cannot erase edits made while that earlier payload was in flight.
+      // Native POST returns above and keeps its fields enabled for serialization.
+      const fieldDisabledStates = fields.map(field => ({ field, disabled: field.disabled }));
+      fields.forEach(field => { field.disabled = true; });
+      setBusy(true);
+      status.textContent = 'Sending your message…';
+      status.hidden = false;
+      const controller = new AbortController();
+      const timeout = window.setTimeout(() => controller.abort(), 20000);
+
+      try {
+        const response = await fetch(action.href, {
+          method: 'POST',
+          body: data,
+          headers: { Accept: 'application/json' },
+          credentials: 'omit',
+          signal: controller.signal,
+        });
+        const contentType = response.headers.get('content-type');
+        const isJson = contentType?.toLowerCase().includes('application/json');
+        const result = isJson ? await response.json() : null;
+
+        if (isFormspreeSuccess(response.ok, contentType, result)) {
+          form.reset();
+          fields.forEach(clearFieldError);
+          status.textContent = 'Thank you—your message has been submitted. We look forward to talking with you.';
+          status.hidden = false;
+          status.focus();
+          return;
+        }
+
+        getFormspreeFieldErrors(result).forEach(error => {
+          const field = fields.find(item => item.name === error.field);
+          if (field) showFieldError(field, error.message);
+        });
+        const hasFieldErrors = fields.some(field => field.hasAttribute('aria-invalid'));
+        showError(hasFieldErrors
+          ? 'Please check the highlighted fields, then send your message again.'
+          : 'We couldn’t confirm your message was submitted. Your entries are still here. Please call (918) 400-2424 or email sales@techsavvy.consulting for help.');
+      } catch {
+        // A lost response can occur after a submission was received. Never retry
+        // automatically or tell the visitor that delivery definitely failed.
+        showError('We couldn’t confirm your message was submitted. Your entries are still here. Please contact us at (918) 400-2424 or sales@techsavvy.consulting before trying again.');
+      } finally {
+        window.clearTimeout(timeout);
+        fieldDisabledStates.forEach(({ field, disabled }) => { field.disabled = disabled; });
+        setBusy(false);
+      }
+    });
   });
 </script>
+
+<style>
+  .form-honeypot { display: none; }
+  .contact-form select { display: block; width: 100%; min-width: 0; max-width: 100%; background: #fcfdfd; border: 1px solid #cbd8e1; border-radius: 6px; padding: 11px 13px; color: var(--ink); font-size: .84rem; line-height: 1.5; margin-top: 7px; min-height: 45px; }
+  .contact-form .field-error { display: block; color: #a32935; font-size: .72rem; font-weight: 500; margin-top: 5px; }
+  .contact-form .field-error:empty { display: none; }
+  .contact-form [aria-invalid="true"] { border-color: #a32935; }
+  .form-feedback { margin-top: 18px; padding: 13px 15px; background: var(--pale); border: 1px solid #bdd7eb; border-radius: 7px; color: var(--ink); font-size: .84rem; line-height: 1.7; }
+  .form-feedback-error { background: #fff5f3; border-color: #edc6c0; color: #7e2731; }
+  .form-feedback[hidden] { display: none; }
+  .form-direct-contact { margin-top: 14px; font-size: .74rem; line-height: 1.7; }
+  .form-direct-contact a { color: var(--blue); text-decoration: underline; text-underline-offset: 3px; }
+  .contact-form-unavailable h3 { margin-top: 15px; font-size: 1.65rem; }
+  .contact-form-unavailable > p { margin-top: 18px; }
+  .contact-form-unavailable .button-group { margin-top: 25px; gap: 12px; }
+  @media (max-width: 700px) { .contact-form select { font-size: 16px; padding: 10px 11px; } }
+</style>

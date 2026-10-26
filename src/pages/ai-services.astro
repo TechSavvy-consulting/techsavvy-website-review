@@ -1,0 +1,192 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Icon from '../components/Icon.astro';
+import { previewPath } from '../utils/preview-path';
+
+const capabilities = [
+  {
+    kind: 'tools',
+    icon: 'chat',
+    label: 'AI tools & practical training',
+    title: 'Help your people get more from AI.',
+    text: 'Choose and configure tools such as Microsoft 365 Copilot, Google Workspace AI or ChatGPT around your work. Learn useful ways to draft, organize and research, with clear guidance on what to share and what to review.',
+  },
+  {
+    kind: 'workflow',
+    icon: 'network',
+    label: 'Connected workflows',
+    title: 'Give repetitive work a better path.',
+    text: 'Connect routine steps across your business tools. From gathering information to preparing a follow-up, we design automations that reduce manual handoffs and keep the right people involved.',
+  },
+  {
+    kind: 'software',
+    icon: 'layers',
+    label: 'Simple custom software',
+    title: 'Build the small tool you wish you had.',
+    text: 'A focused dashboard, internal form or lightweight business app can make everyday work easier. We build around a clear business need, combining straightforward software and AI where each adds value.',
+  },
+];
+
+const steps = [
+  { number: '01', title: 'Find a useful starting point.', text: 'We learn how your people work and choose one worthwhile improvement together. You get a clear scope, price and definition of success before we begin.' },
+  { number: '02', title: 'Build, try and refine.', text: 'We create a working version, test it with your team and refine it around real tasks. Human review, access and appropriate data handling are part of the design.' },
+  { number: '03', title: 'Make it part of your work.', text: 'We help your people learn the new workflow and provide an agreed handover. Ownership, documentation and any ongoing support are defined as part of the project.' },
+];
+---
+
+<BaseLayout title="AI Services & Business Automation | TechSavvy Consulting" description="Practical AI setup, training, business automation and simple custom software. Project-based help from TechSavvy, built around your people and business goals." path="/ai-services">
+  <section class="page-hero ai-hero">
+    <div class="container">
+      <nav class="breadcrumbs" aria-label="Breadcrumb"><a href={previewPath('/')}>Home</a><span aria-hidden="true">/</span><span aria-current="page">AI services</span></nav>
+      <div class="ai-hero-grid">
+        <div>
+          <span class="eyebrow">Practical AI. A useful next step.</span>
+          <h1>AI guidance.<br/><em>Built for your business.</em></h1>
+          <p class="lead">Turn good ideas into better ways of working. We help you put AI, automation and simple custom software to work for your people—with a clear purpose and a human touch.</p>
+          <div class="button-group"><a href={previewPath('/contact')} class="button button-primary">Let’s explore your idea <Icon name="arrow" size={18}/></a><a class="text-link" href="#how-we-help">See what we can build <Icon name="arrow" size={17}/></a></div>
+          <div class="ai-project-note"><span class="icon-box"><Icon name="layers" size={20}/></span><div><strong>Project-based add-on</strong><p>Scoped and priced per project. Not included in Full, Remote or Co-managed IT support.</p></div></div>
+        </div>
+
+        <figure class="ai-workflow" aria-label="A workflow combining your information, AI assistance and human review">
+          <div class="ai-visual-heading"><span class="ai-visual-mark"><Icon name="network" size={20}/></span><span>A more useful way to work</span><span class="ai-visual-dots" aria-hidden="true"><i></i><i></i><i></i></span></div>
+          <div class="ai-flow-stage ai-flow-input"><span class="ai-stage-label">Start with your work</span><div class="ai-input-chips"><span><Icon name="chat" size={16}/> Notes</span><span><Icon name="layers" size={16}/> Documents</span><span><Icon name="check" size={16}/> Tasks</span></div></div>
+          <div class="ai-flow-connector" aria-hidden="true"><span></span><Icon name="arrow" size={17}/></div>
+          <div class="ai-flow-stage ai-flow-process"><div><span class="ai-stage-icon"><Icon name="settings" size={25}/></span><strong>AI assistance</strong><small>Organize. Draft. Connect.</small></div><span class="ai-flow-plus" aria-hidden="true">+</span><div><span class="ai-stage-icon"><Icon name="people" size={25}/></span><strong>Human review</strong><small>Your judgment stays central.</small></div></div>
+          <div class="ai-flow-connector" aria-hidden="true"><span></span><Icon name="arrow" size={17}/></div>
+          <div class="ai-flow-stage ai-flow-output"><span class="ai-output-icon"><Icon name="check" size={25}/></span><div><strong>A useful, repeatable workflow</strong><span>Built around the way your business works.</span></div></div>
+          <figcaption>Less repetitive work. More room for your people.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="how-we-help">
+    <div class="container">
+      <div class="section-heading"><span class="eyebrow">Start with the work, not the technology</span><h2>Small changes.<br/>Useful possibilities.</h2><p>You do not need to reinvent your business to find a good use for AI. We start with something that would make your team’s day easier.</p></div>
+      <div class="ai-capability-grid">
+        {capabilities.map(item => <article class="ai-capability">
+          <div class:list={['ai-capability-art', `ai-art-${item.kind}`]} aria-hidden="true">
+            {item.kind === 'tools' && <div class="ai-chat-art"><div><Icon name="chat" size={17}/><span>A useful first draft</span><i></i><i></i></div><div><Icon name="people" size={17}/><span>Your team reviews it</span><span class="ai-mini-check"><Icon name="check" size={16}/></span></div></div>}
+            {item.kind === 'workflow' && <div class="ai-path-art"><span><Icon name="mail" size={23}/><small>Request</small></span><i></i><span><Icon name="people" size={23}/><small>Review</small></span><i></i><span><Icon name="check" size={23}/><small>Next step</small></span></div>}
+            {item.kind === 'software' && <div class="ai-app-art"><div class="ai-app-top"><i></i><i></i><i></i><span>Your workspace</span></div><div class="ai-app-body"><div><span></span><span></span><span></span></div><div class="ai-app-main"><div><Icon name="layers" size={19}/><i></i></div><div><i></i><i></i><i></i></div><span><Icon name="check" size={14}/> Ready for your team</span></div></div></div>}
+          </div>
+          <div class="ai-capability-copy"><span class="eyebrow">{item.label}</span><h3>{item.title}</h3><p>{item.text}</p></div>
+        </article>)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-pale">
+    <div class="container">
+      <div class="ai-process-heading"><div class="section-heading"><span class="eyebrow">Clear steps. Shared understanding.</span><h2>From a good idea<br/>to something useful.</h2></div><p>We bring the technical help. You bring the knowledge of your business. Together, we build something your people can understand and use.</p></div>
+      <ol class="ai-step-grid" role="list">{steps.map(step => <li><span class="ai-step-number">{step.number}</span><h3>{step.title}</h3><p>{step.text}</p></li>)}</ol>
+      <div class="ai-care-note"><Icon name="shield" size={24}/><p><strong>Thoughtful use comes first.</strong> We consider permissions, sensitive information and human review when choosing tools and designing workflows. AI should support sound decisions—not replace your team’s judgment.</p></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container ai-questions-layout">
+      <div class="section-heading"><span class="eyebrow">A few useful answers</span><h2>Let’s make<br/>the details clear.</h2><p>A good project starts with shared expectations.</p></div>
+      <div class="ai-answer-list">
+        <article><h3>How is an AI project priced?</h3><p>We agree on the work, deliverables and price before starting. AI setup, training, automation and custom software are separate project-based add-ons—not included in Full, Remote or Co-managed IT support. Any required software subscriptions or ongoing costs are identified with the proposal.</p></article>
+        <article><h3>Can we use the tools we already have?</h3><p>Often, yes. We look at your Microsoft 365, Google Workspace and other business applications first. The right approach depends on the features, licensing and supported connections available, along with how your people use them.</p></article>
+        <article><h3>What happens after we start using it?</h3><p>Your project includes an agreed handover and guidance for your people. We also clarify who owns and maintains the solution. If you would like continued improvements or support, we define that separately so you know what to expect.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section"><div class="container cta-inner"><div><span class="eyebrow light">A conversation is a good place to start</span><h2>What would make work easier?</h2><p>Bring an idea—or a task you wish took less time. We’ll explore what is practical, useful and worth doing together.</p></div><a class="button button-white" href={previewPath('/contact')}>Talk about your AI project <Icon name="arrow" size={19}/></a></div></section>
+</BaseLayout>
+
+<style>
+  .ai-hero{background:linear-gradient(115deg,#f8fafc,#edf5fb);padding-bottom:66px}
+  .ai-hero-grid{display:grid;grid-template-columns:1.07fr 1fr;gap:55px;align-items:center}
+  .ai-hero h1{font-size:clamp(2.7rem,4.25vw,3.8rem);max-width:630px;line-height:1.08}
+  .ai-hero h1 em{font-style:normal;color:var(--blue)}
+  .ai-hero .lead{font-size:1.04rem;max-width:590px}
+  .ai-hero .text-link{font-size:.82rem}
+  .ai-project-note{display:flex;align-items:flex-start;gap:13px;border-top:1px solid #d3e1eb;margin-top:27px;padding-top:21px;max-width:520px}
+  .ai-project-note .icon-box{width:37px;height:37px;background:#dfedf8;border-radius:10px}
+  .ai-project-note strong{font-size:.85rem;line-height:1.5;display:block}
+  .ai-project-note p{font-size:.77rem;line-height:1.7;margin-top:4px}
+  .ai-workflow{background:linear-gradient(145deg,#14374f,#14304a);border:1px solid #234c68;border-radius:22px;padding:25px;color:#fff;box-shadow:0 20px 45px #14364f18;min-width:0}
+  .ai-visual-heading{display:flex;align-items:center;gap:10px;font-size:.76rem;font-weight:600;line-height:1.5;margin-bottom:24px;color:#e2eff9}
+  .ai-visual-mark{display:grid;place-items:center;width:32px;height:32px;border:1px solid #a4d5f42b;border-radius:8px;color:#b5ddf9}
+  .ai-visual-dots{display:flex;gap:4px;margin-left:auto}
+  .ai-visual-dots i{width:4px;height:4px;background:#86acc5;border-radius:50%}
+  .ai-flow-stage{border:1px solid #b3d5ec29;border-radius:12px;padding:20px;background:#ffffff08}
+  .ai-stage-label{display:block;font-size:.65rem;color:#b3cddd;letter-spacing:.06em;text-transform:uppercase;margin-bottom:14px;font-weight:650}
+  .ai-input-chips{display:flex;flex-wrap:wrap;gap:8px}
+  .ai-input-chips>span{display:flex;align-items:center;gap:6px;font-size:.68rem;background:#ffffff0b;padding:7px 9px;border-radius:6px;color:#e4f0f9}
+  .ai-flow-connector{height:28px;position:relative;display:flex;align-items:center;justify-content:center;color:#90c7ed}
+  .ai-flow-connector>span{position:absolute;width:1px;height:15px;top:0;background:#90c7ed70}
+  .ai-flow-connector :global(svg){transform:rotate(90deg);margin-top:9px}
+  .ai-flow-process{display:grid;grid-template-columns:minmax(0,1fr) 15px minmax(0,1fr);align-items:center;padding:21px 13px;background:#245274}
+  .ai-flow-process>div{display:flex;flex-direction:column;align-items:center;text-align:center;min-width:0}
+  .ai-stage-icon{display:grid;place-items:center;width:43px;height:43px;border-radius:11px;background:#ffffff10;color:#b9e4ff;margin-bottom:10px}
+  .ai-flow-process strong{font-size:.88rem;font-weight:650;line-height:1.5}
+  .ai-flow-process small{font-size:.62rem;line-height:1.65;color:#cadfed;margin-top:3px}
+  .ai-flow-plus{color:#a9cce3;font-size:1.25rem;text-align:center}
+  .ai-flow-output{display:flex;align-items:center;gap:13px;background:#e9f5f0;color:#194d43;border-color:#b6e5d6;padding:19px 16px}
+  .ai-output-icon{display:grid;place-items:center;border:1px solid #a7d7c8;border-radius:50%;width:39px;height:39px;flex-shrink:0;color:#226950}
+  .ai-flow-output strong{display:block;font-size:.88rem;line-height:1.5;font-weight:650}
+  .ai-flow-output div>span{display:block;color:#4d7166;font-size:.65rem;margin-top:3px;line-height:1.6}
+  .ai-workflow figcaption{color:#b7d0e1;font-size:.67rem;line-height:1.65;text-align:center;margin-top:17px}
+  .ai-capability-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+  .ai-capability{border:1px solid var(--line);border-radius:18px;overflow:hidden;background:#fff;min-width:0}
+  .ai-capability-art{height:178px;background:#edf5fa;display:grid;place-items:center;padding:24px;border-bottom:1px solid #e0eaf1}
+  .ai-art-workflow{background:#eaf3f1}
+  .ai-art-software{background:#eaf0f8}
+  .ai-capability-copy{padding:27px}
+  .ai-capability-copy .eyebrow{font-size:.61rem;letter-spacing:.13em}
+  .ai-capability h3{font-size:1.3rem;line-height:1.28;margin-top:13px}
+  .ai-capability p{font-size:.87rem;line-height:1.85;margin-top:15px}
+  .ai-chat-art{width:min(240px,100%);display:grid;gap:9px}
+  .ai-chat-art>div{display:grid;grid-template-columns:19px 1fr;gap:5px 9px;padding:11px 12px;border:1px solid #c7dce9;border-radius:10px;background:#fff;color:#347391;font-size:.6rem;line-height:1.5;box-shadow:0 6px 15px #1b4e6808}
+  .ai-chat-art>div:first-child{margin-right:15px}
+  .ai-chat-art>div:last-child{grid-template-columns:19px 1fr 18px;margin-left:15px;background:#dceefa;border-color:#b7d7eb;color:#22567b}
+  .ai-chat-art i{display:block;grid-column:2;height:4px;border-radius:2px;background:#dce8f0;max-width:105px}
+  .ai-chat-art i:last-child{max-width:76px}
+  .ai-mini-check{color:#297257}
+  .ai-path-art{display:flex;align-items:center;width:100%;max-width:270px}
+  .ai-path-art>span{display:flex;flex-direction:column;align-items:center;gap:10px;color:#2d7467;flex:1;min-width:0}
+  .ai-path-art>span :global(svg){width:49px;height:49px;padding:12px;background:#fff;border:1px solid #bbd9d0;border-radius:13px}
+  .ai-path-art small{font-size:.6rem;font-weight:600;line-height:1.5;white-space:nowrap}
+  .ai-path-art>i{height:1px;width:17px;background:#97c2b6;align-self:flex-start;margin-top:25px}
+  .ai-app-art{width:min(245px,100%);background:white;border:1px solid #bdcfe1;border-radius:9px;overflow:hidden;box-shadow:0 10px 18px #173e6110}
+  .ai-app-top{display:flex;align-items:center;gap:4px;padding:9px;border-bottom:1px solid #dbe5ef;background:#f7fafd}
+  .ai-app-top>i{width:4px;height:4px;border-radius:50%;background:#adbdcb}
+  .ai-app-top>span{font-size:.54rem;color:#5f798e;margin-left:7px;line-height:1.4}
+  .ai-app-body{display:grid;grid-template-columns:43px 1fr;min-height:96px}
+  .ai-app-body>div:first-child{display:grid;align-content:start;gap:7px;padding:15px 8px;background:#eff5fa;border-right:1px solid #e0e9f0}
+  .ai-app-body>div:first-child>span{height:4px;background:#bfcedc;border-radius:2px}
+  .ai-app-body>div:first-child>span:first-child{background:#65a7d8}
+  .ai-app-main{padding:12px;min-width:0}
+  .ai-app-main>div:first-child{display:flex;align-items:center;gap:7px;color:#528ab3}
+  .ai-app-main>div:first-child>i{height:5px;width:70px;border-radius:3px;background:#a5bfd4}
+  .ai-app-main>div:nth-child(2){display:grid;grid-template-columns:repeat(3,1fr);gap:5px;margin-top:8px}
+  .ai-app-main>div:nth-child(2)>i{height:17px;border-radius:3px;background:#e6f0f7}
+  .ai-app-main>span{display:flex;align-items:center;gap:4px;color:#4d7666;font-size:.49rem;line-height:1.4;margin-top:8px}
+  .ai-process-heading{display:grid;grid-template-columns:1fr 1fr;gap:65px;align-items:center;margin-bottom:37px}
+  .ai-process-heading .section-heading{margin:0}
+  .ai-process-heading>p{font-size:1rem;max-width:480px;line-height:1.85}
+  .ai-step-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:35px}
+  .ai-step-grid>li{border-top:1px solid #bed5e7;padding-top:22px}
+  .ai-step-number{display:block;font-size:.77rem;font-weight:750;color:var(--blue);letter-spacing:.08em;margin-bottom:13px}
+  .ai-step-grid h3{font-size:1.19rem;line-height:1.35}
+  .ai-step-grid p{font-size:.88rem;line-height:1.85;margin-top:13px}
+  .ai-care-note{display:flex;gap:15px;align-items:flex-start;border-top:1px solid #c8dce9;margin-top:36px;padding-top:25px}
+  .ai-care-note :global(svg){color:var(--blue);flex-shrink:0;margin-top:2px}
+  .ai-care-note p{font-size:.86rem;line-height:1.8;max-width:960px}
+  .ai-care-note strong{color:var(--ink)}
+  .ai-questions-layout{display:grid;grid-template-columns:.85fr 1.15fr;gap:80px;align-items:start}
+  .ai-answer-list{display:grid;gap:28px}
+  .ai-answer-list article{border-bottom:1px solid var(--line);padding-bottom:26px}
+  .ai-answer-list article:last-child{padding-bottom:0;border:0}
+  .ai-answer-list h3{font-size:1.16rem;line-height:1.4}
+  .ai-answer-list p{font-size:.91rem;line-height:1.85;margin-top:12px}
+  @media(max-width:1100px){.ai-hero-grid{gap:30px}.ai-workflow{padding:20px}.ai-capability-grid{gap:17px}.ai-capability-art{padding:18px}.ai-capability-copy{padding:24px}.ai-questions-layout{gap:45px}}
+  @media(max-width:850px){.ai-hero-grid{grid-template-columns:1fr;gap:35px}.ai-hero h1{max-width:640px}.ai-workflow{width:100%;max-width:570px;margin-inline:auto;padding:26px}.ai-hero .lead{max-width:650px}.ai-capability-grid{grid-template-columns:1fr}.ai-capability{display:grid;grid-template-columns:.8fr 1.2fr}.ai-capability-art{height:auto;min-height:205px;border-bottom:0;border-right:1px solid #e0eaf1}.ai-capability-copy{padding:27px}.ai-process-heading{gap:30px}.ai-step-grid{gap:24px}.ai-questions-layout{grid-template-columns:1fr;gap:20px}}
+  @media(max-width:600px){.ai-hero{padding-bottom:45px}.ai-hero h1{font-size:clamp(2.55rem,8.8vw,3.45rem)}.ai-hero .lead{font-size:.98rem}.ai-project-note{margin-top:25px;padding-top:20px}.ai-project-note p{font-size:.75rem}.ai-workflow{padding:20px;border-radius:17px}.ai-visual-heading{font-size:.7rem;margin-bottom:19px}.ai-flow-stage{padding:17px}.ai-flow-process{padding:18px 9px}.ai-flow-process strong{font-size:.8rem}.ai-flow-process small{font-size:.59rem}.ai-input-chips{gap:6px}.ai-input-chips>span{font-size:.62rem;padding:7px}.ai-flow-output{gap:10px;padding:17px 13px}.ai-flow-output strong{font-size:.8rem}.ai-flow-output div>span{font-size:.61rem}.ai-capability{display:block}.ai-capability-art{height:170px;min-height:0;border-right:0;border-bottom:1px solid #e0eaf1}.ai-capability-copy{padding:25px}.ai-capability p{font-size:.88rem}.ai-process-heading{grid-template-columns:1fr;gap:20px;margin-bottom:30px}.ai-process-heading>p{font-size:.94rem}.ai-step-grid{grid-template-columns:1fr;gap:25px}.ai-step-grid>li{padding-top:19px}.ai-step-number{margin-bottom:10px}.ai-care-note{margin-top:29px;gap:12px}.ai-care-note p{font-size:.84rem}.ai-answer-list p{font-size:.88rem}}
+  @media(max-width:360px){.ai-workflow{padding:16px}.ai-visual-heading{gap:7px;font-size:.65rem}.ai-flow-input{padding:15px 13px}.ai-input-chips{gap:5px}.ai-input-chips>span{font-size:.57rem;gap:4px;padding:6px}.ai-input-chips :global(svg){width:14px;height:14px}.ai-flow-process strong{font-size:.74rem}.ai-flow-process small{font-size:.54rem}.ai-flow-output strong{font-size:.74rem}.ai-output-icon{width:33px;height:33px}.ai-workflow figcaption{font-size:.61rem}.ai-project-note{gap:10px}}
+</style>

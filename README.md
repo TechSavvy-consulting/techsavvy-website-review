@@ -2,9 +2,9 @@
 
 A modern, host-independent design example for TechSavvy Consulting. The production Wix website remains at **www.techsavvy.consulting**.
 
-**Status:** public GitHub Pages test arena. Kyle approved the dedicated test address on October 26, 2026. Cloudflare is the planned future production host, but no Cloudflare deployment or production cutover is authorized by this setup. Forms are inactive and optional tracking is absent. The live Wix site, main website DNS, email and advertising destinations remain unchanged.
+**Status:** public GitHub Pages test arena. Cloudflare is the planned future production host, but no Cloudflare deployment or production cutover is authorized yet. On October 26, 2026 Kyle approved real Formspree inquiries and removal of visible preview notices. Optional tracking remains absent; noindex remains enabled. The live Wix site, main website DNS, email settings and advertising destinations remain unchanged.
 
-**Current revision, October 26:** revision 4 adds Kyle's approved AI/software/growth and service-focused wording, fuller descriptions of Full and Remote Managed IT, a Google-verified Chris Moles excerpt, and new-tab Further reading links. Page layout, review safeguards and existing assets are preserved. Revision 3 introduced four rotating client testimonials, transparent client logos and three current featured articles; see [revision 3 release notes](docs/REVISION-3-RELEASE.md).
+**Current revision, October 26:** revision 5 adds a project-priced AI Services page, Level support downloads, real inquiry forms, visible FAQ answers, expanded founder history and approved service/testimonial wording. It removes the services index (retaining a redirect), adds the emergency-support footnote and changes the footer to “Dependable IT. Practical AI.” See [revision 5 release notes](docs/REVISION-5-RELEASE.md).
 
 **Test-address setup:** the build now targets the approved root-domain test address below. [Test-arena setup](docs/TEST-ARENA-SETUP.md) describes the settings, scope and verification requirements; a local build alone does not confirm DNS or HTTPS is active.
 
@@ -12,7 +12,7 @@ A modern, host-independent design example for TechSavvy Consulting. The producti
 
 **GitHub test arena:** https://websitenew.techsavvy.consulting/
 
-The online preview is deployed from `main` by the [GitHub Pages workflow](.github/workflows/pages.yml). Future source changes can be committed here, verified, and deployed to this same test address. The custom domain is managed in GitHub Pages settings. Every page retains noindex metadata and a review notice; forms cannot submit. This is a public preview, not an access-controlled site.
+The online preview is deployed from `main` by the [GitHub Pages workflow](.github/workflows/pages.yml). Future source changes can be committed here, verified, and deployed to this same test address. The custom domain is managed in GitHub Pages settings. Every page retains noindex metadata, while visible preview notices are removed and inquiry forms can submit. This is a public test site, not an access-controlled site.
 
 The optional local preview is **http://127.0.0.1:4321/**. It works only on the build computer while the preview server is running.
 
@@ -28,9 +28,9 @@ The screenshots below document the initial design. Use the online example above 
 
 - All existing main-page and blog addresses, plus one new business-email security article.
 - A responsive homepage, service cards, four client testimonials, local video and clear contact actions.
-- Five detailed service/approach pages, About, Contact, FAQs, Blog and the existing policy texts for reference.
+- Detailed service/approach pages, separate AI Services, client support downloads, About, Contact, FAQs, Blog and provider-specific privacy/accessibility information.
 - A separate thank-you screen and proper 404 screen.
-- Review-mode forms with no endpoint, storage or submission delivery.
+- Home callback and Contact forms delivered through Formspree Free to the verified sales@techsavvy.consulting address. See src/data/contact-form.ts; the public form ID is not a secret.
 - Local assets and system fonts; no optional analytics, advertising tags or automatically loaded third-party embeds.
 - Existing canonical addresses retained as migration metadata. Every page is marked noindex.
 - `/search-lp` → `/contact` and `/home-1` → `/` redirects in the local preview, with example hosting configuration kept separately.
@@ -59,7 +59,7 @@ npm run verify:pages
 
 This generates `dist-pages/` for `https://websitenew.techsavvy.consulting/` with root-relative links, directory-style page addresses and a GitHub-compatible custom 404. There is no `/techsavvy-website-review/` URL prefix. The workflow uploads only this generated artifact. The separate default `npm run build` stays host-independent, and production canonical addresses remain unchanged.
 
-Run `npm run verify:online` after a successful deployment and HTTPS activation. It checks the test address, routes, assets, noindex, inactive forms and custom 404. GitHub Pages does not apply the local server's custom response headers or legacy redirects; HTML noindex is the public indexing safeguard. The Actions deployment does not need a `CNAME` file. Do not point production DNS here or enable forms as part of a routine preview update.
+Run `npm run verify:online` after a successful deployment. It checks the test address, routes, assets, noindex, configured form actions and custom 404. GitHub Pages does not apply Cloudflare _headers/_redirects; HTML noindex is the public indexing safeguard. Crawling is permitted so search engines can read noindex. The Actions deployment does not need a CNAME file. Do not point production DNS here.
 
 ## Editing guide
 
@@ -73,14 +73,14 @@ Run `npm run verify:online` after a successful deployment and HTTPS activation. 
 | Blog content | `src/data/blog.ts` |
 | Customer quotes and carousel | `src/data/testimonials.ts`, `src/components/Testimonials.astro` |
 | Blog article layout | `src/components/BlogArticle.astro` |
-| Form layout and review safeguards | `src/components/ContactForm.astro` |
+| Form layout, delivery and feedback | `src/components/ContactForm.astro`, `src/data/contact-form.ts` |
 | Original public-site inventory | `src/data/source-inventory.json` |
 
 Image originals are in `assets/originals/`; optimized WebP files are in `public/images/`. Run `npm run assets` to regenerate those derivatives. Video is served locally from `public/videos/`.
 
 ## Before considering production
 
-See [test-arena setup](docs/TEST-ARENA-SETUP.md), [review notes](docs/REVIEW-NOTES.md), [asset provenance](docs/ASSET-SOURCES.md) and [verification](docs/VERIFICATION.md). Earlier dated documents describe historical review stages; the current test-arena setup and chat approvals govern hosting scope. After website approval, obtain approval to deploy that exact GitHub revision to a separate Cloudflare preview, implement and test Formspree delivery, update provider-specific policies and verify SEO/redirect details. Obtain separate production-transition approval before replacing Wix.
+See [Cloudflare release checklist](docs/CLOUDFLARE-RELEASE.md), [revision 5 notes](docs/REVISION-5-RELEASE.md) and [asset provenance](docs/ASSET-SOURCES.md). Earlier dated documents describe historical stages; latest chat approvals and AGENTS.md govern scope. After website approval, deploy the exact approved GitHub revision to a separate Cloudflare preview, update the disclosed host and verify forms/SEO/redirects there. Obtain separate production-transition approval before replacing Wix.
 
 The noindex safeguards are intentionally hardcoded. A future production release requires a deliberate review of them; there is no automatic production switch.
 

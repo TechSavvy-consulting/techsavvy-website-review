@@ -1,0 +1,5 @@
+# Cloudflare routing for existing public URLs. No catch-all redirect.
+/search-lp /contact 301
+/home-1 / 301
+/it-support-for-small-business-tulsa /outsourced-managed-it 301
+/it-support-for-small-business-tulsa/ /outsourced-managed-it 301

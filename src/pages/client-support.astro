@@ -1,0 +1,55 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Icon from '../components/Icon.astro';
+import { previewPath } from '../utils/preview-path';
+const systems = [
+  { id: 'windows', title: 'Windows', subtitle: 'Level installer', description: 'Download the Windows installer. Your technician will provide the setup key and help you complete installation.', links: [{ label: 'Download for Windows', url: 'https://downloads.level.io/level.msi', type: 'MSI installer' }] },
+  { id: 'mac', title: 'macOS', subtitle: 'Choose your Mac', description: 'Choose Apple Silicon for an M-series Mac, or Intel for an Intel-based Mac. You can check under Apple menu → About This Mac.', links: [{ label: 'Apple Silicon', url: 'https://builds.level.io/stable/level-darwin-bundle-arm64.pkg', type: 'PKG · M-series' }, { label: 'Intel Mac', url: 'https://builds.level.io/stable/level-darwin-bundle-amd64.pkg', type: 'PKG · Intel' }] },
+  { id: 'linux', title: 'Linux', subtitle: 'Technician-guided setup', description: 'Download the agent for your processor. This binary is not a one-click installer; contact us for the private enrollment command and setup instructions.', links: [{ label: 'Linux x64', url: 'https://builds.level.io/stable/level-linux-amd64', type: 'Agent binary · x86-64' }, { label: 'Linux ARM64', url: 'https://builds.level.io/stable/level-linux-arm64', type: 'Agent binary · ARM64' }] },
+];
+---
+<BaseLayout title="Client Support & Downloads | TechSavvy Consulting" description="Get the Level support agent for Windows, macOS or Linux, with setup guidance from your TechSavvy technician." path="/client-support">
+  <section class="page-hero"><div class="container"><nav class="breadcrumbs" aria-label="Breadcrumb"><a href={previewPath('/')}>Home</a><span aria-hidden="true">/</span><span aria-current="page">Client support</span></nav><span class="eyebrow">Here to help</span><h1>Let’s get you connected.</h1><p class="lead">Working with a TechSavvy technician? Choose your computer below to download Level, the tool we use for remote support and ongoing device care.</p><a class="text-link support-call" href="tel:+19184002424"><Icon name="phone" size={19}/> Need a hand? (918) 400-2424</a></div></section>
+  <section class="section"><div class="container">
+    <div class="support-safety"><Icon name="shield" size={26}/><div><h2>Install only when directed by TechSavvy.</h2><p>Level enables ongoing remote access and device management—it is not a temporary screen-sharing session. Your technician will provide your setup key and instructions privately. Never share a setup key publicly or install software at the request of an unexpected caller.</p></div></div>
+    <div class="download-grid">{systems.map(system => <article class="download-card" aria-labelledby={`${system.id}-title`}>
+      <div class={`download-graphic ${system.id}`} aria-hidden="true">
+        {system.id === 'windows' ? <svg viewBox="0 0 96 76" fill="none"><rect x="8" y="5" width="80" height="53" rx="5" stroke="currentColor" stroke-width="3"/><path d="M35 70h26M48 58v12" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><path d="M32 19h14v12H32zm18 0h14v12H50zM32 35h14v12H32zm18 0h14v12H50z" fill="currentColor"/></svg> : system.id === 'mac' ? <svg viewBox="0 0 96 76" fill="none"><rect x="16" y="7" width="64" height="47" rx="5" stroke="currentColor" stroke-width="3"/><path d="M16 54 5 65c-1 2 0 5 3 5h80c3 0 4-3 3-5L80 54H16Z" stroke="currentColor" stroke-width="3"/><path d="M40 60h16M39 26l-6 6 6 6m18-12 6 6-6 6" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg> : <svg viewBox="0 0 96 76" fill="none"><rect x="8" y="7" width="80" height="62" rx="6" stroke="currentColor" stroke-width="3"/><path d="M8 21h80M24 35l11 9-11 9m20 0h23" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><circle cx="18" cy="14" r="2" fill="currentColor"/><circle cx="26" cy="14" r="2" fill="currentColor"/></svg>}
+      </div>
+      <span class="eyebrow">{system.subtitle}</span><h2 id={`${system.id}-title`}>{system.title}</h2><p>{system.description}</p>
+      <div class="download-links">{system.links.map(link => <a href={link.url} class="download-link"><span><strong>{link.label}</strong><small>{link.type}</small></span><Icon name="arrow" size={20}/></a>)}</div>
+    </article>)}</div>
+    <p class="download-source">Downloads come directly from Level’s official servers. Not sure which version you need? Call us before installing.</p>
+  </div></section>
+  <section class="section section-soft"><div class="container support-next"><div><span class="eyebrow">A familiar voice, a helpful next step</span><h2>We’ll guide you from here.</h2><p>Call your TechSavvy technician for the setup key, required permissions and the next step. If you already have Level installed, there’s usually no need to install it again.</p></div><div class="support-contact"><a href="tel:+19184002424">(918) 400-2424</a><p>Monday–Friday, 8am–5pm Central</p><p>For after-hours emergencies, use the contact and escalation process in your service plan.</p></div></div></section>
+</BaseLayout>
+<style>
+  .support-call{margin-top:25px}
+  .support-safety{display:flex;align-items:flex-start;gap:20px;border:1px solid #d0dfeb;background:var(--pale);border-radius:14px;padding:26px 30px;margin-bottom:34px}
+  .support-safety>svg{flex-shrink:0;color:var(--blue);margin-top:3px}
+  .support-safety h2{font-size:1.1rem;letter-spacing:-.02em;line-height:1.5}
+  .support-safety p{font-size:.87rem;margin-top:8px;line-height:1.85}
+  .download-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:25px}
+  .download-card{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:17px;padding:29px;background:#fff;min-width:0}
+  .download-graphic{display:flex;align-items:center;justify-content:center;height:128px;margin:-8px -8px 27px;border-radius:12px;background:linear-gradient(130deg,#eef6fc,#e1eff9);color:#1c6ba7}
+  .download-graphic.mac{background:linear-gradient(130deg,#edf2f8,#e1eaf4);color:#34556e}
+  .download-graphic.linux{background:linear-gradient(130deg,#eaf5f4,#dcefeb);color:#297267}
+  .download-graphic svg{width:96px;height:76px}
+  .download-card h2{font-size:1.9rem;margin-top:10px;line-height:1.25}
+  .download-card>p{font-size:.88rem;line-height:1.85;margin:17px 0 27px}
+  .download-links{display:grid;gap:10px;margin-top:auto}
+  .download-link{display:flex;align-items:center;justify-content:space-between;gap:12px;border:1px solid #c6daea;border-radius:9px;padding:14px 15px;color:var(--blue);background:#f7fbfe;min-height:67px}
+  .download-link:hover{background:#eaf4fb;border-color:var(--blue)}
+  .download-link strong{display:block;font-size:.84rem;font-weight:650}
+  .download-link small{display:block;font-size:.7rem;color:var(--muted);margin-top:2px}
+  .download-link svg{flex-shrink:0;transform:rotate(90deg)}
+  .download-source{font-size:.78rem;text-align:center;margin-top:25px}
+  .support-next{display:grid;grid-template-columns:1.2fr .8fr;gap:80px;align-items:center}
+  .support-next h2{margin-top:12px;font-size:2.4rem}
+  .support-next p{margin-top:16px;line-height:1.85}
+  .support-contact{border-left:2px solid #c8ddeb;padding-left:30px}
+  .support-contact>a{font-size:1.6rem;color:var(--blue);font-weight:650}
+  .support-contact p{font-size:.86rem}
+  @media(max-width:950px){.download-grid{gap:15px}.download-card{padding:22px}.support-next{gap:40px}}
+  @media(max-width:700px){.download-grid,.support-next{grid-template-columns:1fr}.download-card{padding:26px}.download-graphic{height:110px}.support-safety{padding:22px;gap:13px}.support-safety h2{font-size:1rem}.support-safety p{font-size:.83rem}.support-next h2{font-size:2rem}.support-contact{padding-left:22px}}
+</style>
