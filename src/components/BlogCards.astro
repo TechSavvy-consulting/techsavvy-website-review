@@ -1,6 +1,26 @@
 ---
 import { previewPath } from '../utils/preview-path';
-import { posts } from '../data/blog';
+import { featuredPosts } from '../data/blog';
 import Icon from './Icon.astro';
 ---
-<div class="blog-grid">{posts.map(post => <article class="blog-card"><a href={previewPath(post.path)} class="blog-card-image" tabindex="-1" aria-hidden="true"><img src={previewPath(post.image)} alt="" width="640" height="400" loading="lazy" /></a><div class="blog-card-body"><div class="blog-meta"><span class="category">{post.category}</span><span aria-hidden="true">·</span><time datetime={post.date}>{post.displayDate}</time></div><h3><a href={previewPath(post.path)}>{post.title}</a></h3><p>{post.excerpt}</p><a class="text-link" href={previewPath(post.path)} aria-label={`Read ${post.title}`}>Read article <Icon name="arrow" size={16}/></a></div></article>)}</div>
+<div class="blog-grid">
+  {featuredPosts.map(post => <article class="blog-card">
+    <a href={previewPath(post.path)} class="blog-card-image" tabindex="-1" aria-hidden="true">
+      <img src={previewPath(post.image)} alt="" width="640" height="400" loading="lazy" />
+    </a>
+    <div class="blog-card-body">
+      <div class="blog-meta">
+        <span class="category">{post.category}</span>
+        <span aria-hidden="true">·</span>
+        <span>{post.updatedDate ? 'Updated ' : ''}<time datetime={post.updatedDate || post.date}>{post.displayUpdatedDate || post.displayDate}</time></span>
+      </div>
+      <h3><a href={previewPath(post.path)}>{post.title}</a></h3>
+      <p>{post.excerpt}</p>
+      <a class="text-link" href={previewPath(post.path)} aria-label={`Read ${post.title}`}>Read article <Icon name="arrow" size={16}/></a>
+    </div>
+  </article>)}
+</div>
+
+<style>
+  .blog-card-image{display:block}
+</style>

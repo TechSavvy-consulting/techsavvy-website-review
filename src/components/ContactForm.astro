@@ -12,8 +12,12 @@ const { compact = false, id = 'contact-review', callback = false } = Astro.props
     <label for={`${id}-email`}>Work email <span aria-hidden="true">*</span><input id={`${id}-email`} name="email" type="email" autocomplete="email" required placeholder="you@company.com" /></label>
     <label for={`${id}-phone`}>Phone{callback && <span aria-hidden="true"> *</span>}<input id={`${id}-phone`} name="phone" type="tel" autocomplete="tel" required={callback} placeholder="(918) 555-0123" /></label>
   </div>
+  <div class="field-pair">
+    <label for={`${id}-users`}>Approximate number of users <span class="optional">(optional)</span><select id={`${id}-users`} name="user-count"><option value="">Select an option</option><option value="under-10">Under 10</option><option value="10-25">10–25</option><option value="26-50">26–50</option><option value="51-100">51–100</option><option value="over-100">More than 100</option><option value="not-sure">Not sure</option></select></label>
+    <label for={`${id}-servers`}>Do you have on-site servers? <span class="optional">(optional)</span><select id={`${id}-servers`} name="on-site-servers"><option value="">Select an option</option><option value="yes">Yes</option><option value="no">No</option><option value="not-sure">Not sure</option></select></label>
+  </div>
   {callback && <div class="field-pair"><label for={`${id}-date`}>Preferred date <span class="optional">(optional)</span><input id={`${id}-date`} name="preferred-date" type="date" /></label><label for={`${id}-time`}>Preferred time <span class="optional">(optional)</span><input id={`${id}-time`} name="preferred-time" type="time" /></label></div>}
-  <label for={`${id}-message`}>How can we help? <span aria-hidden="true">*</span><textarea id={`${id}-message`} name="message" rows={compact ? 3 : 4} required placeholder="Tell us a little about your team and your IT needs."></textarea></label>
+  <label for={`${id}-message`}>What would you like to improve? <span aria-hidden="true">*</span><textarea id={`${id}-message`} name="message" rows={compact ? 3 : 4} required placeholder="Tell us about your business and what you want from an IT partner."></textarea></label>
   <p class="form-privacy">Please leave out passwords, patient information and other sensitive details.</p>
   <button class="button button-primary" type="submit" disabled aria-disabled="true">{callback ? 'Request a callback' : 'Send message'} <span aria-hidden="true">↗</span></button>
   <p class="form-footnote">Design preview only. Nothing entered here is sent or saved. <a href={previewPath('/english-privacy-policy')}>Privacy policy</a></p>

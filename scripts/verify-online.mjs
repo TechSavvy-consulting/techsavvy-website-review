@@ -3,7 +3,7 @@ import { readFile } from 'node:fs/promises';
 
 const base = new URL('https://techsavvy-consulting.github.io/techsavvy-website-review/');
 const inventory = JSON.parse(await readFile(new URL('../src/data/source-inventory.json', import.meta.url), 'utf8'));
-const routes = [...inventory.pages.map(page => page.path), '/thank-you'];
+const routes = [...inventory.pages.map(page => page.path), '/thank-you', '/post/protect-business-email-microsoft-365-google-workspace'];
 const assets = new Set();
 for (const route of routes) {
   const url = new URL(route === '/' ? './' : `${route.slice(1)}/`, base);

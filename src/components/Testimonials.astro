@@ -1,0 +1,106 @@
+---
+import { previewPath } from '../utils/preview-path';
+import Icon from './Icon.astro';
+import { testimonials } from '../data/testimonials';
+---
+<section class="section testimonial-section" id="testimonials" aria-label="Client testimonials" aria-roledescription="carousel" data-testimonial-carousel>
+  <div class="container testimonial-grid">
+    <div>
+      <span class="eyebrow light">Don’t just take our word for it</span>
+      <h2>Good IT starts<br/>with trust.</h2>
+      <p class="testimonial-intro">Care, responsiveness and a relationship that lasts.</p>
+    </div>
+    <div class="testimonial-stage">
+      <div class="testimonial-slides" aria-live="off">
+        {testimonials.map((review,index) => <blockquote class:list={['testimonial-slide',{'is-active':index===0}]} aria-hidden={index===0?'false':'true'} inert={index!==0} role="group" aria-roledescription="slide" aria-label={`${index+1} of ${testimonials.length}`}>
+          <span class="quote-mark" aria-hidden="true">“</span>
+          <p>“{review.quote}”</p>
+          <footer class="testimonial-person">
+            <img class:list={['testimonial-logo',review.logoClass]} src={previewPath(review.logo)} alt={`${review.business} logo`} width={review.logoWidth} height={review.logoHeight} loading="lazy" />
+            <div><strong>{review.name}</strong><span>{review.business}</span></div>
+          </footer>
+        </blockquote>)}
+      </div>
+      <div class="testimonial-controls" hidden>
+        <div class="testimonial-directions">
+          <button type="button" data-previous aria-label="Previous testimonial"><span class="previous-icon"><Icon name="arrow" size={20}/></span></button>
+          <span class="testimonial-count" aria-live="polite" aria-atomic="true">1 / {testimonials.length}</span>
+          <button type="button" data-next aria-label="Next testimonial"><Icon name="arrow" size={20}/></button>
+        </div>
+        <button type="button" class="testimonial-playback" data-playback aria-label="Pause automatic testimonials">Pause <span aria-hidden="true">Ⅱ</span></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .testimonial-intro{margin-top:20px;font-size:.9rem;max-width:300px}
+  .testimonial-stage{min-width:0;position:relative;z-index:1}
+  .testimonial-slides{display:grid;overflow:hidden}
+  .testimonial-slide{grid-area:1/1;min-width:0;margin:0;visibility:hidden;opacity:0;transform:translateX(14px);transition:opacity .35s ease,transform .35s ease,visibility .35s}
+  .testimonial-slide.is-active{visibility:visible;opacity:1;transform:none}
+  .testimonial-slide>p{font-size:1.45rem;line-height:1.7;color:#f1f7fc;letter-spacing:-.015em}
+  .testimonial-person{display:flex;align-items:center;gap:24px;margin-top:28px;min-height:82px}
+  .testimonial-person strong{display:block;color:#fff;font-size:.95rem;line-height:1.5}
+  .testimonial-person span{display:block;color:#b9ccda;font-size:.84rem;margin-top:3px}
+  .testimonial-logo{width:165px;height:78px;max-width:42%;object-fit:contain;flex-shrink:0;background:transparent;border:0;border-radius:0;padding:0}
+  .testimonial-logo.emerge{width:180px;height:86px}
+  .testimonial-logo.detx{width:165px;height:78px}
+  .testimonial-logo.tulsa-chiropractic{width:220px;filter:brightness(0) invert(1)}
+  .testimonial-controls{display:flex;justify-content:space-between;align-items:center;gap:20px;border-top:1px solid #ffffff20;margin-top:28px;padding-top:17px}
+  .testimonial-controls[hidden]{display:none}
+  .testimonial-directions{display:flex;align-items:center;gap:16px}
+  .testimonial-controls button{display:inline-flex;align-items:center;justify-content:center;gap:9px;min-width:44px;min-height:44px;border:1px solid #ffffff35;border-radius:50%;background:transparent;color:#d8e9f5;transition:background .2s,border-color .2s}
+  .testimonial-controls button:hover{background:#ffffff12;border-color:#ffffff70}
+  .testimonial-controls .testimonial-playback{border:0;border-radius:6px;padding-inline:10px;font-size:.75rem}
+  .testimonial-count{font-size:.73rem;color:#b9ccda;font-variant-numeric:tabular-nums}
+  .previous-icon{display:flex;transform:rotate(180deg)}
+  @media(max-width:950px){.testimonial-slide>p{font-size:1.22rem}.testimonial-person{gap:18px}.testimonial-logo{width:145px}.testimonial-logo.emerge{width:155px}}
+  @media(max-width:700px){.testimonial-slide>p{font-size:1.17rem}.testimonial-person{gap:18px;margin-top:24px}.testimonial-logo,.testimonial-logo.emerge,.testimonial-logo.detx{width:140px;height:72px}.testimonial-person strong{font-size:.88rem}.testimonial-person span{font-size:.77rem}.testimonial-controls{margin-top:24px}}
+  @media(prefers-reduced-motion:reduce){.testimonial-slide{transition:none;transform:none}}
+</style>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-testimonial-carousel]').forEach(carousel => {
+    const slides = [...carousel.querySelectorAll<HTMLElement>('.testimonial-slide')];
+    const controls = carousel.querySelector<HTMLElement>('.testimonial-controls');
+    const previous = carousel.querySelector<HTMLButtonElement>('[data-previous]');
+    const next = carousel.querySelector<HTMLButtonElement>('[data-next]');
+    const playback = carousel.querySelector<HTMLButtonElement>('[data-playback]');
+    const count = carousel.querySelector<HTMLElement>('.testimonial-count');
+    const region = carousel.querySelector<HTMLElement>('.testimonial-slides');
+    if (slides.length < 2 || !controls || !previous || !next || !playback || !count || !region) return;
+    controls.hidden = false;
+    const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
+    let current = 0;
+    let playing = !reducedMotion.matches;
+    let hovered = false;
+    let inView = false;
+    let focusPaused = false;
+    let timer: ReturnType<typeof setInterval> | undefined;
+    const sync = () => {
+      clearInterval(timer);
+      playback.innerHTML = playing ? 'Pause <span aria-hidden="true">Ⅱ</span>' : 'Play <span aria-hidden="true">▷</span>';
+      playback.setAttribute('aria-label', playing ? 'Pause automatic testimonials' : 'Play automatic testimonials');
+      region.setAttribute('aria-live', playing ? 'off' : 'polite');
+      count.setAttribute('aria-live', playing ? 'off' : 'polite');
+      if (playing && inView && !hovered && !focusPaused && !document.hidden) timer = setInterval(() => show(current + 1), 12000);
+    };
+    const show = (index: number) => {
+      current = (index + slides.length) % slides.length;
+      slides.forEach((slide,i) => {const active = i === current; slide.classList.toggle('is-active',active); slide.setAttribute('aria-hidden',String(!active)); slide.inert = !active;});
+      count.textContent = `${current + 1} / ${slides.length}`;
+    };
+    const manual = (step: number) => {playing = false; sync(); show(current + step);};
+    previous.addEventListener('click', () => manual(-1));
+    next.addEventListener('click', () => manual(1));
+    playback.addEventListener('click', () => {playing = !playing; focusPaused = false; sync();});
+    carousel.addEventListener('mouseenter', () => {hovered = true; sync();});
+    carousel.addEventListener('mouseleave', () => {hovered = false; sync();});
+    carousel.addEventListener('focusin', () => {focusPaused = true; sync();});
+    document.addEventListener('visibilitychange', sync);
+    reducedMotion.addEventListener('change', () => {if (reducedMotion.matches) {playing = false; sync();}});
+    new IntersectionObserver(entries => {inView = entries[0].isIntersecting; sync();}, {threshold:.15}).observe(carousel);
+    sync();
+  });
+</script>

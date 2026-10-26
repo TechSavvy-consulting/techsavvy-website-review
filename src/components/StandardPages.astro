@@ -3,6 +3,7 @@ import { previewPath } from '../utils/preview-path';
 import Icon from './Icon.astro';
 import ContactForm from './ContactForm.astro';
 import Cta from './Cta.astro';
+import { credentials } from '../data/credentials';
 
 interface Props {
   path: string;
@@ -13,19 +14,23 @@ const { path } = Astro.props;
 const questions = [
   {
     question: 'What types of businesses do you work with?',
-    answer: 'TechSavvy primarily serves Tulsa-area organizations with 10–100 computer or device users. We work with businesses that need ongoing IT support, focused maintenance, project help, or additional support alongside an internal IT team. We start by understanding your environment and priorities to see whether we are a good fit.',
+    answer: 'We focus on organizations in Tulsa County, typically with 10–100 computer or device users. Smaller businesses with servers or more complex systems can also be a good fit. We start with your goals, environment and current support to understand the partnership you need.',
   },
   {
     question: 'How long has TechSavvy been in business?',
-    answer: 'TechSavvy Consulting was founded in 2015. Founder Kyle E. Hearn brings experience in business IT strategy, process development, server and network technologies, and project management to the company’s work.',
+    answer: 'TechSavvy Consulting was founded in 2015. Founder and Chief Technology Officer Kyle E. Hearn brings decades of business technology experience, including IT strategy, servers, networks and project management.',
   },
   {
     question: 'What areas do you cover?',
-    answer: 'We provide onsite IT support in the Tulsa area and can discuss remote support for businesses in other locations. Contact us to confirm availability for your location and the kind of help you need. Onsite arrangements and support hours are established in your service plan.',
+    answer: 'Our focus is Tulsa County. We combine remote support with on-site arrangements suited to your business, with support hours and responsibilities defined in your service plan.',
   },
   {
     question: 'What is included in managed IT support?',
-    answer: 'A managed IT plan can bring together user support, system maintenance, monitoring, and practical IT planning. The covered devices, responsibilities, support hours, and any additional project work are agreed before service begins. We tailor the package to your business.',
+    answer: 'A managed IT relationship connects day-to-day support with monitoring, maintenance, security, backup management and planning. We shape the services around your computers, servers, cloud tools, network and mobile devices, with clear responsibilities and costs.',
+  },
+  {
+    question: 'Can you help with IT direction and planning?',
+    answer: 'Yes. Our IT director and virtual CIO guidance connects technology decisions to your business goals. We help prioritize improvements, plan equipment life cycles and budgets, coordinate vendors, and prepare for new hires, locations or systems.',
   },
   {
     question: 'Can you fix things while we keep working?',
@@ -33,11 +38,15 @@ const questions = [
   },
   {
     question: 'Can you work with our existing IT team?',
-    answer: 'Yes. We can discuss co-managed support, complex troubleshooting, project assistance, or planned coverage that complements your internal team. Your team retains its role in setting priorities, and we agree on access, responsibilities, communication, and escalation procedures before starting.',
+    answer: 'Yes. Co-managed IT pairs our Remote Managed IT service with your internal staff or local technician. We handle the help desk, monitoring, maintenance, updates, security and backup oversight; your local people handle onsite troubleshooting and hands-on work. IT guidance and vendor coordination keep the work connected.',
   },
   {
     question: 'Can you help us choose hardware and software?',
-    answer: 'Yes. We can help evaluate equipment and software for your business needs and assist with procurement when appropriate. Depending on the situation, purchasing directly from a vendor may be the practical choice. We discuss the options and any related setup or support work with you.',
+    answer: 'Yes. We help evaluate hardware, software and business applications against your needs and budget. We can coordinate with vendors and plan purchasing, setup and ongoing management so the pieces work together.',
+  },
+  {
+    question: 'When is support available?',
+    answer: 'Business hours are Monday–Friday, 8 AM–5 PM Central Time. Emergency support outside those hours is available according to your service plan.',
   },
   {
     question: 'How do we get started?',
@@ -55,9 +64,9 @@ const questions = [
         </nav>
         <div class="page-hero-grid">
           <div>
-            <span class="eyebrow">Local expertise. A personal connection.</span>
-            <h1 id="about-heading">Good IT starts with understanding your business.</h1>
-            <p class="lead">We believe technology support should feel approachable, practical, and connected to the way you work. That is the relationship we build with businesses across the Tulsa area.</p>
+            <span class="eyebrow">Your Tulsa County IT partner</span>
+            <h1 id="about-heading">Technology support built around your success.</h1>
+            <p class="lead">From everyday support to IT director-level planning, we connect your technology to the way your business works. You get practical guidance, clear communication and a partner who cares about what comes next.</p>
             <div class="button-group">
               <a class="button button-primary" href={previewPath('/contact')}>Let’s talk about your IT <Icon name="arrow" size={19} /></a>
             </div>
@@ -74,12 +83,12 @@ const questions = [
       <div class="container intro-grid">
         <div class="section-heading">
           <span class="eyebrow">TechSavvy Consulting</span>
-          <h2 id="company-heading">Built around long-term relationships.</h2>
+          <h2 id="company-heading">A complete view of your IT.</h2>
         </div>
         <div>
-          <p>Founded in 2015, TechSavvy Consulting helps businesses manage the technology their people depend on. We primarily serve organizations with 10–100 computer or device users, with support shaped around their systems, priorities, and existing resources.</p>
-          <p>That can mean an ongoing managed IT relationship, regular maintenance, help with a specific project, or collaboration with an internal IT team. The starting point is the same: understand the need, explain the options, and agree on a clear scope.</p>
-          <p>Our work connects everyday support with the bigger picture—computers, servers, networks, cloud services, backups, and the decisions that keep those systems useful to your business.</p>
+          <p>Founded in 2015, TechSavvy Consulting helps Tulsa County organizations manage the technology their people depend on. We typically serve businesses with 10–100 computer or device users, along with smaller organizations that have servers or more complex needs.</p>
+          <p>We bring support, maintenance, security and planning into a connected working relationship. Computers, servers, networks, cloud services and mobile devices are considered together, with services shaped around your environment.</p>
+          <p>Whether we serve as your IT partner or work alongside your internal staff, we help coordinate vendors, prioritize improvements and prepare for growth. Our IT director and virtual CIO guidance keeps technology decisions connected to your business goals.</p>
         </div>
       </div>
     </section>
@@ -91,10 +100,40 @@ const questions = [
           <h2 id="founder-heading">Meet Kyle E. Hearn.</h2>
         </div>
         <div>
-          <p>Kyle’s interest in business and technology started early. At 17, he launched his first business, Mentor Technologies. His work has since spanned business IT strategy, process development, server and network technologies, and project management.</p>
-          <p>As the owner of TechSavvy Consulting, Kyle brings that experience to the practical decisions businesses face: what needs attention now, what can be planned, and how technology can better support the people using it.</p>
-          <p>The aim is a straightforward working relationship built on listening, clear communication, and useful technical advice.</p>
-          <p><a class="text-link" href={previewPath('/it-support-business-tulsa')}>Explore our approach <Icon name="arrow" size={18} /></a></p>
+          <p>Kyle E. Hearn is an entrepreneur and technology leader with decades of experience in business IT strategy, process development, servers, networks and project management. His career includes building and leading technology companies and helping organizations turn complex IT needs into practical plans.</p>
+          <p>As TechSavvy’s founder and Chief Technology Officer, Kyle brings both a business owner’s perspective and hands-on technical experience. He cares about understanding people’s goals, explaining their options clearly and helping their businesses grow.</p>
+          <p><a class="text-link" href={previewPath('/it-support-business-tulsa')}>Why TechSavvy <Icon name="arrow" size={18} /></a></p>
+        </div>
+      </div>
+    </section>
+    <section class="section" id="why-we-serve" aria-labelledby="serve-heading">
+      <div class="container intro-grid">
+        <div class="section-heading">
+          <span class="eyebrow">Why we serve</span>
+          <h2 id="serve-heading">Care is part of how we work.</h2>
+        </div>
+        <div>
+          <p>Our love for Jesus is at the heart of why we serve. We express it through honest guidance, dependable support, and care for our clients and our Tulsa community.</p>
+          <p>We welcome businesses of every background. Listening well, treating people with respect and following through on our commitments are part of the relationship we work to build.</p>
+        </div>
+      </div>
+    </section>
+    <section class="section section-pale" id="credentials" aria-labelledby="credentials-heading">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">Ongoing professional development</span>
+          <h2 id="credentials-heading">Training behind our guidance.</h2>
+          <p>Individual credentials earned by Kyle E. Hearn in cybersecurity fundamentals, healthcare information responsibilities and practical AI.</p>
+        </div>
+        <div class="service-grid">
+          {credentials.map(credential => (
+            <article class="service-card compact-card">
+              <span class="icon-box"><Icon name={credential.icon} size={24} /></span>
+              <h3>{credential.title}</h3>
+              <p><strong>{credential.issuer}</strong><br />{credential.description}</p>
+              <p>{credential.status}</p>
+            </article>
+          ))}
         </div>
       </div>
     </section>
@@ -109,18 +148,18 @@ const questions = [
         <nav class="breadcrumbs" aria-label="Breadcrumb">
           <a href={previewPath('/')}>Home</a><span aria-hidden="true">/</span><span aria-current="page">Contact</span>
         </nav>
-        <span class="eyebrow">A conversation is a good place to start</span>
-        <h1 id="contact-heading">What could better IT look like for you?</h1>
-        <p class="lead">Tell us a little about your business and the help you need. We can talk through your priorities and discuss the right next step.</p>
+        <span class="eyebrow">Let’s plan what comes next</span>
+        <h1 id="contact-heading">What do you need from your IT partner?</h1>
+        <p class="lead">Tell us about your business, your current technology and what you would like to improve. We will start with your goals and help identify a practical next step.</p>
       </div>
     </section>
 
     <section class="section" aria-labelledby="contact-details-heading">
       <div class="container contact-grid">
         <div class="contact-copy">
-          <span class="eyebrow">Right here in Tulsa</span>
+          <span class="eyebrow">Serving Tulsa County</span>
           <h2 id="contact-details-heading">Let’s talk about your IT.</h2>
-          <p>Whether you need ongoing support, a second perspective, or help with a particular project, start with a call or an email.</p>
+          <p>Looking for a complete IT partner, support alongside your internal staff, or clearer IT direction? Start with a conversation about how your business works.</p>
           <div class="contact-details">
             <div class="contact-detail">
               <Icon name="phone" size={23} />
@@ -136,7 +175,7 @@ const questions = [
             </div>
             <div class="contact-detail">
               <Icon name="clock" size={23} />
-              <div><small>Business hours</small><p>Monday–Friday, 8 AM–5 PM Central Time</p><p>After-hours support depends on your service agreement.</p></div>
+              <div><small>Business hours</small><p>Monday–Friday, 8 AM–5 PM Central Time</p><p>Emergency support outside business hours is available per service plan.</p></div>
             </div>
           </div>
         </div>

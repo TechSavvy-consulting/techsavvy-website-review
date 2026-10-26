@@ -4,6 +4,8 @@ A modern, host-independent design example for TechSavvy Consulting. The producti
 
 **Status:** public GitHub Pages design example, approved October 24, 2026. The eventual production host is undecided. Forms are inactive and optional tracking is absent. Nothing in this repository changes Wix, DNS, Microsoft 365 or advertising destinations.
 
+**Current revision, October 26:** revision 3 includes Kyle's approved content updates, four rotating client testimonials, transparent client logos and three current featured articles. Kyle authorized publication to the existing GitHub Pages example. See [revision 3 release notes](docs/REVISION-3-RELEASE.md).
+
 ## Preview the design
 
 **Online example:** https://techsavvy-consulting.github.io/techsavvy-website-review/
@@ -12,7 +14,7 @@ The online preview is deployed from `main` by the [GitHub Pages workflow](.githu
 
 The optional local preview is **http://127.0.0.1:4321/**. It works only on the build computer while the preview server is running.
 
-You can also review these screenshots directly in GitHub:
+The screenshots below document the initial design. Use the online example above for the current revision:
 
 ![Desktop homepage review](docs/preview-desktop.png)
 
@@ -22,8 +24,8 @@ You can also review these screenshots directly in GitHub:
 
 ## What is included
 
-- All 13 current main-page addresses and three original blog article addresses.
-- A new homepage, responsive navigation, service cards, founder section, existing testimonial excerpt, local video and clearer contact actions.
+- All existing main-page and blog addresses, plus one new business-email security article.
+- A responsive homepage, service cards, four client testimonials, local video and clear contact actions.
 - Five detailed service/approach pages, About, Contact, FAQs, Blog and the existing policy texts for reference.
 - A separate thank-you screen and proper 404 screen.
 - Review-mode forms with no endpoint, storage or submission delivery.
@@ -67,6 +69,7 @@ Run `npm run verify:online` after a successful deployment. GitHub Pages does not
 | Service content | `src/data/services.ts` |
 | About, Contact, FAQs | `src/components/StandardPages.astro` |
 | Blog content | `src/data/blog.ts` |
+| Customer quotes and carousel | `src/data/testimonials.ts`, `src/components/Testimonials.astro` |
 | Blog article layout | `src/components/BlogArticle.astro` |
 | Form layout and review safeguards | `src/components/ContactForm.astro` |
 | Original public-site inventory | `src/data/source-inventory.json` |

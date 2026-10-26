@@ -1,28 +1,20 @@
 /**
- * Review-only migration of TechSavvy's three existing public articles.
- * Source: outputs/techsavvy-website-review-research/source-inventory.json
- * Retrieved 2026-10-24. Preserve original URLs, H1 titles, author and publication instants.
- * displayDate preserves the original America/Chicago publication date.
- *
- * Editorial review notes:
- * - Removed navigation/related-post artifacts, repeated summaries, and malformed list text.
- * - Omitted the unsubstantiated manufacturing "40% reduction" example.
- * - Qualified or omitted absolute savings, compliance, response, availability and security promises.
- * - Omitted outdated Amazon Appstore/Teams claims and unsupported Windows performance guarantees.
- * - Retained the 2025 Windows article as an archive with a current lifecycle note.
- * - Categories and excerpts are organizational summaries, not original article metadata.
- * - readMinutes preserves each source's displayed estimate; original articles are now streamlined.
- *
- * Microsoft references checked 2026-10-24 for the Windows archive note:
- * https://learn.microsoft.com/en-us/lifecycle/announcements/windows-10-end-of-support
- * https://support.microsoft.com/en-us/windows/experience/compatibility/windows-11-system-requirements
- * https://learn.microsoft.com/en-us/windows/security/hardware-security/enable-virtualization-based-protection-of-code-integrity
- * https://support.microsoft.com/en-us/windows/deployment/install-upgrade/can-i-upgrade-to-windows-11
+ * TechSavvy articles for the GitHub review site.
+ * Original article URLs, titles, authors and publication instants are preserved.
+ * Refreshed articles use an explicit October 26, 2026 update date.
+ * The Windows 11 article remains available as an archive but is not featured.
+ * Reading estimates reflect the current text at approximately 200 words/minute.
+ * Factual references were checked against the linked primary sources on 2026-10-26.
  */
 export interface BlogSection {
   heading?: string;
   paragraphs: string[];
   bullets?: string[];
+}
+
+export interface BlogSource {
+  label: string;
+  url: string;
 }
 
 export interface BlogPost {
@@ -31,14 +23,262 @@ export interface BlogPost {
   excerpt: string;
   date: string;
   displayDate: string;
+  updatedDate?: string;
+  displayUpdatedDate?: string;
   author: string;
   image: string;
+  imageAlt: string;
   category: string;
   readMinutes: number;
+  archived?: boolean;
+  sources?: BlogSource[];
   sections: BlogSection[];
 }
 
 export const posts: BlogPost[] = [
+  {
+    "path": "/post/protect-business-email-microsoft-365-google-workspace",
+    "title": "Protect Your Business Email: 5 Checks for Microsoft 365 and Google Workspace",
+    "excerpt": "Five practical checks for stronger sign-ins, safer admin access, account recovery, and phishing awareness.",
+    "date": "2026-10-26",
+    "displayDate": "October 26, 2026",
+    "author": "Kyle Hearn",
+    "image": "/images/blog-email-security.svg",
+    "imageAlt": "An email envelope and security shield illustrate protecting business email.",
+    "category": "Cybersecurity",
+    "readMinutes": 3,
+    "sources": [
+      {
+        "label": "Microsoft: Set up multifactor authentication",
+        "url": "https://learn.microsoft.com/en-us/microsoft-365/admin/security-and-compliance/set-up-multi-factor-authentication?view=o365-worldwide"
+      },
+      {
+        "label": "CISA: Require multifactor authentication",
+        "url": "https://www.cisa.gov/audiences/small-and-medium-businesses/secure-your-business/require-multifactor-authentication"
+      },
+      {
+        "label": "Microsoft: Protect administrator accounts",
+        "url": "https://learn.microsoft.com/en-us/microsoft-365/admin/security-and-compliance/m365b-account-security-admins?view=o365-worldwide"
+      },
+      {
+        "label": "Google Workspace: Security checklist for small businesses",
+        "url": "https://knowledge.workspace.google.com/admin/security/security-checklist-for-small-businesses-1-100-users"
+      },
+      {
+        "label": "CISA: Recognize and report phishing",
+        "url": "https://www.cisa.gov/secure-our-world/recognize-and-report-phishing"
+      }
+    ],
+    "sections": [
+      {
+        "paragraphs": [
+          "Business email connects your people, customers, invoices, and shared files. That makes it a useful place to start when reviewing security. Whether your Tulsa business uses Microsoft 365 or Google Workspace, a few focused checks can reveal gaps before they become a difficult interruption.",
+          "Use these five questions in your next conversation with your IT provider. They are practical starting points for a review, with changes planned around the way your staff works."
+        ]
+      },
+      {
+        "heading": "1. Is stronger sign-in protection actually required?",
+        "paragraphs": [
+          "Multifactor authentication, or MFA, adds verification beyond a password. Ask your provider to check that it is required for the right accounts and that users have completed enrollment. An available setting and an enforced policy are different things.",
+          "Where your systems support them, consider phishing-resistant methods such as FIDO2 security keys or passkeys. Choose an approach that fits your applications and devices, then help employees enroll. Roll it out with recovery arrangements in place so a lost phone does not leave someone without a way to work."
+        ]
+      },
+      {
+        "heading": "2. Who has administrator access?",
+        "paragraphs": [
+          "Administrator accounts can change settings and grant access across the business. Review who holds those permissions and whether each person still needs them. Give people the permissions their responsibilities require.",
+          "Use a separate ordinary account for everyday email and browsing. Microsoft specifically recommends keeping routine work separate from administrator activity. Include your outside IT provider in this review so you understand how administrative access is assigned and protected."
+        ]
+      },
+      {
+        "heading": "3. Could you recover an account without improvising?",
+        "paragraphs": [
+          "A replacement phone or lost security key should have a clear recovery process. Confirm that authorized staff know whom to contact, how their identity will be checked, and where approved recovery information is stored.",
+          "Google recommends maintaining administrator recovery information and securely storing backup codes where applicable. Keep recovery material protected, and review it when staff or devices change. Ask your provider how the business would regain administrative access if its usual administrator were unavailable."
+        ]
+      },
+      {
+        "heading": "4. Do people know how to verify a suspicious request?",
+        "paragraphs": [
+          "An urgent message asking for a payment, password, or account change deserves a pause—even when the name looks familiar. Contact the person through a number or channel you already trust, rather than the contact details inside the message.",
+          "Make reporting simple. Tell employees where to send concerns and whom to call if they clicked a link, entered credentials, or approved an unexpected sign-in. Encourage quick reporting so your IT provider can investigate. Clear writing and familiar branding alone do not establish that a message is legitimate."
+        ]
+      },
+      {
+        "heading": "5. Who keeps the protection current?",
+        "paragraphs": [
+          "Security needs ongoing attention as employees, software, and work habits change. Assign an owner for reviewing sign-in protection, administrator access, recovery arrangements, and available email protections.",
+          "Keep browsers and applications updated, review file-sharing settings, and check the protections available in your Microsoft or Google subscription. Discuss the useful improvements for your business and put them into a manageable plan."
+        ]
+      },
+      {
+        "heading": "Start with one clear next step",
+        "paragraphs": [
+          "Ask for a short account-security review and leave with named actions and owners. TechSavvy can help connect these checks with your everyday IT support, employee needs, and plans for growth. The goal is practical protection your business can maintain."
+        ]
+      }
+    ]
+  },
+  {
+    "path": "/post/managed-it-service-switching",
+    "date": "2025-08-07T20:54:14.637Z",
+    "displayDate": "August 7, 2025",
+    "image": "/images/blog-switching.webp",
+    "category": "Managed IT",
+    "readMinutes": 3,
+    "excerpt": "What changes when everyday support, proactive care, and technology planning work together for your business.",
+    "title": "Why Tulsa Businesses Are Switching to Managed IT Services",
+    "author": "Kyle Hearn",
+    "sections": [
+      {
+        "paragraphs": [
+          "When technology becomes a daily distraction, the cost reaches beyond the repair bill. Employees wait for access, owners chase vendors, and recurring problems consume time that could go toward customers. Managed IT brings those responsibilities into an ongoing relationship.",
+          "For a Tulsa County business with roughly 10–100 users, that relationship can provide everyday support and a clearer plan for the systems the company depends on. The right fit starts with understanding how your people work and where the business is going."
+        ]
+      },
+      {
+        "heading": "Move from scattered fixes to consistent care",
+        "paragraphs": [
+          "A managed IT provider helps employees with computers, mobile devices, email, access, and business applications. Behind that support, regular monitoring, maintenance, security checks, and backup reviews help keep attention on the health of the environment.",
+          "The difference is continuity. Your provider builds familiarity with your systems, documents recurring issues, and connects today’s support requests with improvements that could make tomorrow easier. You gain someone to help follow the issue through, including coordinating with software and technology vendors."
+        ]
+      },
+      {
+        "heading": "Make proactive work part of everyday service",
+        "paragraphs": [
+          "Updates, device health, cybersecurity, and backups are connected responsibilities. Ask how they are reviewed, how issues are acted on, and how you will hear about the work that matters to your business.",
+          "At TechSavvy, Proactive IT is part of both Remote Managed IT and Full Managed IT support. We test updates in-house before customer deployment and plan their rollout around the systems involved. We also review security and backup health so developing concerns have a path to action."
+        ]
+      },
+      {
+        "heading": "Choose the relationship that fits your operation",
+        "paragraphs": [
+          "Some businesses need an outside IT department, including hands-on support. Others already have someone onsite who knows the equipment and people but needs a consistent remote support operation behind them.",
+          "In a co-managed relationship, TechSavvy can provide remote help desk support, monitoring, updates, security care, backup checks, and server maintenance while your onsite resource handles local troubleshooting and hands-on tasks. Agree on how those roles work together so employees know where to get help."
+        ]
+      },
+      {
+        "heading": "Plan for growth instead of catching up with it",
+        "paragraphs": [
+          "A new employee, application, or location affects accounts, devices, connectivity, security, and spending. Regular planning conversations help you see those connections before the change arrives.",
+          "Look for a provider who explains priorities in business terms. What should happen now? What can wait? What will need budget next quarter? A useful IT partner helps you make those decisions and coordinates the vendors involved."
+        ]
+      },
+      {
+        "heading": "Ask these questions before making a change",
+        "paragraphs": [
+          "Compare providers on the work and communication your business will receive:"
+        ],
+        "bullets": [
+          "How will employees request help, and how are urgent issues handled?",
+          "Who manages updates, security checks, backups, and follow-up work?",
+          "How will remote and onsite responsibilities fit together?",
+          "What is included in the recurring price, and how are additional costs approved?",
+          "What happens during onboarding, and how will our systems and accounts be documented?"
+        ]
+      },
+      {
+        "heading": "Start with your business, then build the IT plan",
+        "paragraphs": [
+          "Bring your current frustrations, important applications, and growth plans to the first conversation. You do not need a finished technical specification. TechSavvy’s role is to understand the business, bring the pieces together, and help your technology support what comes next."
+        ]
+      }
+    ],
+    "updatedDate": "2026-10-26",
+    "displayUpdatedDate": "October 26, 2026",
+    "imageAlt": "Digital transformation concepts illustrated above a handheld tablet.",
+    "sources": [
+      {
+        "label": "NIST: Building your small business cybersecurity team",
+        "url": "https://www.nist.gov/itl/smallbusinesscyber/guidance-topic/building-your-team"
+      },
+      {
+        "label": "NCSC: Choosing a managed service provider",
+        "url": "https://www.ncsc.gov.uk/guidance/choosing-a-managed-service-provider-msp"
+      }
+    ]
+  },
+  {
+    "path": "/post/choose-managed-it-provider-ok",
+    "date": "2025-08-07T20:51:59.746Z",
+    "displayDate": "August 7, 2025",
+    "image": "/images/blog-provider.webp",
+    "category": "IT Planning",
+    "readMinutes": 3,
+    "excerpt": "Six useful questions to find an IT partner who understands your business and follows through.",
+    "title": "How to Choose the Right Managed IT Provider in Oklahoma",
+    "author": "Kyle Hearn",
+    "sections": [
+      {
+        "paragraphs": [
+          "Choosing an IT provider is choosing a relationship with people who will support your staff and help care for important systems. A proposal should tell you how that relationship will work, not leave you comparing a page of product names.",
+          "For businesses in Tulsa County, the best starting point is a conversation about your operation: who depends on technology, which interruptions hurt most, and what you want to accomplish next. Use these six questions to make that conversation useful."
+        ]
+      },
+      {
+        "heading": "1. Do they understand how your business works?",
+        "paragraphs": [
+          "A provider should ask about your people, important applications, vendors, busy periods, and plans for growth. Ask how they would learn your environment during onboarding and keep that knowledge current.",
+          "Look for explanations you can use. You should leave a discussion understanding the priority, why it matters, and what the next step involves. A good relationship makes it easier to raise questions early."
+        ]
+      },
+      {
+        "heading": "2. Who handles support, and how do you reach them?",
+        "paragraphs": [
+          "Walk through a realistic example: an employee cannot sign in, a business application stops working, or a server is unavailable. Ask who receives the request, how urgency is assessed, and how you will get updates.",
+          "Confirm support hours, emergency arrangements, and onsite coverage. If you have someone onsite already, discuss how remote help desk support and maintenance will connect with that person’s hands-on work."
+        ]
+      },
+      {
+        "heading": "3. What happens between support calls?",
+        "paragraphs": [
+          "Ask how the provider monitors devices, deploys updates, checks security, and reviews backup results. An alert is useful when someone investigates it and follows through.",
+          "Request an example of the reporting or review conversation you would receive. It should help you understand meaningful issues and decisions. Ask how updates are tested and scheduled, and how recovery testing fits into the backup plan."
+        ]
+      },
+      {
+        "heading": "4. How do they protect access to your systems?",
+        "paragraphs": [
+          "Your IT provider may need powerful access, so ask how administrative accounts are protected, assigned, reviewed, and removed when no longer needed. Discuss how security incidents are communicated and who coordinates a response.",
+          "Check relevant experience and individual credentials. If your organization handles sensitive information, discuss those requirements directly and ask how responsibilities will be documented. A credential is useful context; the day-to-day practices matter too."
+        ]
+      },
+      {
+        "heading": "5. Will they help you plan and coordinate?",
+        "paragraphs": [
+          "An IT partner should help connect everyday support with decisions about equipment, applications, vendors, and growth. Ask how often you will review priorities and plan upcoming spending.",
+          "Vendor coordination matters when a problem touches several companies. Clarify who will work with your internet, software, and other technology providers so your staff is not left relaying technical messages back and forth."
+        ]
+      },
+      {
+        "heading": "6. Are the proposal and transition clear?",
+        "paragraphs": [
+          "Compare equivalent coverage rather than the monthly total alone. Review included services, licensing, equipment, project work, after-hours terms, and how additional work is approved.",
+          "Ask for the onboarding steps, account and documentation arrangements, and a reference from a relevant customer. You should also understand how access and documentation would be handed over if the relationship eventually changes."
+        ]
+      },
+      {
+        "heading": "Choose a partner you can grow with",
+        "paragraphs": [
+          "TechSavvy brings everyday support, proactive IT care, vendor coordination, and technology planning into a relationship built around your business. We serve Tulsa County organizations that want clear answers and a partner who cares about their people and their progress.",
+          "Start with a conversation about what is working, what needs attention, and where you want to go."
+        ]
+      }
+    ],
+    "updatedDate": "2026-10-26",
+    "displayUpdatedDate": "October 26, 2026",
+    "imageAlt": "Hands using a laptop with technology and business service illustrations.",
+    "sources": [
+      {
+        "label": "NIST: Building your small business cybersecurity team",
+        "url": "https://www.nist.gov/itl/smallbusinesscyber/guidance-topic/building-your-team"
+      },
+      {
+        "label": "NCSC: Choosing a managed service provider",
+        "url": "https://www.ncsc.gov.uk/guidance/choosing-a-managed-service-provider-msp"
+      }
+    ]
+  },
   {
     "path": "/post/windows11-upgrade-essential",
     "date": "2025-08-13T01:45:47.451Z",
@@ -96,445 +336,11 @@ export const posts: BlogPost[] = [
           "Back up your data before the upgrade, and check business applications, printers, drivers, and other hardware for compatibility. For organizations, consult your IT team to align the change with security policies and operational needs."
         ]
       }
-    ]
-  },
-  {
-    "path": "/post/managed-it-service-switching",
-    "date": "2025-08-07T20:54:14.637Z",
-    "displayDate": "August 7, 2025",
-    "image": "/images/blog-switching.webp",
-    "category": "Managed IT",
-    "readMinutes": 5,
-    "excerpt": "A practical look at proactive support, predictable planning, and the questions Tulsa businesses should ask before outsourcing IT.",
-    "title": "Why Tulsa Businesses Are Switching to Managed IT Services",
-    "author": "Kyle Hearn",
-    "sections": [
-      {
-        "paragraphs": [
-          "Businesses in Tulsa face growing challenges in managing their IT infrastructure efficiently and securely. Managed IT services are one way to address system reliability, technology planning, and cyber threats. TechSavvy Consulting offers tailored outsourced managed IT solutions for local businesses.",
-          "This article explores the reasons businesses consider managed IT services and the questions to ask before choosing a provider."
-        ]
-      },
-      {
-        "heading": "What Are Managed IT Services?",
-        "paragraphs": [
-          "Managed IT services involve outsourcing agreed IT operations and management to a specialized third-party provider. The scope can include maintaining IT infrastructure, proactive monitoring, cybersecurity, technical support, and strategic IT planning."
-        ]
-      },
-      {
-        "heading": "Benefits of Managed IT Services",
-        "paragraphs": [
-          "By leveraging managed IT services, businesses can focus more on core operations while leaving IT complexities to experts."
-        ],
-        "bullets": [
-          "Proactive monitoring and maintenance",
-          "Access to technical support",
-          "Layered cybersecurity",
-          "More predictable IT budgeting",
-          "Technology planning",
-          "Time to focus on core operations"
-        ]
-      },
-      {
-        "heading": "The Growing IT Challenges Faced by Tulsa Businesses",
-        "paragraphs": [
-          "Tulsa businesses, like many across the country, face unique IT challenges:"
-        ]
-      },
-      {
-        "heading": "1. Increasing Cybersecurity Threats",
-        "paragraphs": [
-          "Ransomware, phishing, and data breaches make cybersecurity an important concern. Small and medium-sized businesses need practical security measures that fit their environment."
-        ]
-      },
-      {
-        "heading": "2. High Cost of In-House IT Teams",
-        "paragraphs": [
-          "Maintaining an in-house IT team involves salaries, ongoing training, and software licensing. Smaller businesses need to weigh those costs against the coverage and expertise they require."
-        ]
-      },
-      {
-        "heading": "3. Rapidly Changing Technology",
-        "paragraphs": [
-          "Technology evolves quickly, requiring constant updates and investments. Without dedicated IT experts, businesses risk falling behind competitors and missing out on efficiencies."
-        ]
-      },
-      {
-        "heading": "4. Downtime and Productivity Loss",
-        "paragraphs": [
-          "IT issues can cause significant downtime, impacting employee productivity and customer satisfaction. Tulsa businesses need reliable IT systems that minimize disruptions."
-        ]
-      },
-      {
-        "heading": "Cost Savings and Budget Predictability",
-        "paragraphs": [
-          "A defined service plan can make recurring IT expenses easier to budget. Compare the monthly fee, included work, exclusions, project charges, and after-hours terms before signing."
-        ]
-      },
-      {
-        "heading": "Access to Expert IT Professionals",
-        "paragraphs": [
-          "Managed IT services can give a business access to specialists without hiring multiple full-time employees. Verify the provider’s actual experience, credentials, and staffing against your requirements."
-        ]
-      },
-      {
-        "heading": "Proactive IT Monitoring and Maintenance",
-        "paragraphs": [
-          "Proactive IT monitoring is intended to identify issues before they become larger problems. Regular maintenance and review can help reduce avoidable disruptions; no provider can prevent every incident."
-        ]
-      },
-      {
-        "heading": "Enhanced Cybersecurity and Compliance",
-        "paragraphs": [
-          "Managed service providers can implement multiple security layers, including firewalls, endpoint protection, encryption, and employee training. Discuss the responsibilities, documentation, and industry requirements that apply to your business."
-        ]
-      },
-      {
-        "heading": "Scalability for Growing Businesses",
-        "paragraphs": [
-          "As Tulsa companies grow, their IT needs become more complex. A managed IT agreement can be adjusted as users, locations, and business demands change."
-        ]
-      },
-      {
-        "heading": "Improved Focus on Core Business",
-        "paragraphs": [
-          "Outsourcing IT operations allows business leaders and employees to focus on what they do best — serving customers and growing their business — rather than dealing with IT issues."
-        ]
-      },
-      {
-        "heading": "Customized IT Solutions",
-        "paragraphs": [
-          "Every Tulsa business is unique, so TechSavvy Consulting provides tailored IT plans that align with specific industry needs and company goals. From small startups to established enterprises, they design scalable IT strategies."
-        ]
-      },
-      {
-        "heading": "Proactive IT Services",
-        "paragraphs": [
-          "Monitoring and maintenance help identify vulnerabilities and developing issues early. The goal is to reduce unexpected downtime and support business continuity."
-        ]
-      },
-      {
-        "heading": "Cybersecurity Expertise",
-        "paragraphs": [
-          "With cyberattacks becoming more sophisticated, TechSavvy Consulting employs comprehensive security measures including threat detection, data backup, and disaster recovery planning to safeguard Tulsa businesses."
-        ]
-      },
-      {
-        "heading": "Responsive Help Desk and Support",
-        "paragraphs": [
-          "Tulsa businesses benefit from TechSavvy Consulting’s quick-response IT support, providing timely resolutions to technical problems and reducing impact on operations."
-        ]
-      },
-      {
-        "heading": "Strategic IT Consulting",
-        "paragraphs": [
-          "Beyond day-to-day IT management, TechSavvy Consulting partners with clients for long-term IT planning, helping Tulsa businesses leverage emerging technologies for competitive advantage."
-        ]
-      },
-      {
-        "heading": "Common Managed IT Services Used by Tulsa Businesses",
-        "paragraphs": [
-          "Here are some typical managed IT services Tulsa companies rely on:"
-        ]
-      },
-      {
-        "heading": "Network Management",
-        "paragraphs": [
-          "Monitoring and maintenance of network infrastructure to support secure and reliable connectivity."
-        ]
-      },
-      {
-        "heading": "Cloud Services",
-        "paragraphs": [
-          "Migration to and management of cloud platforms for flexibility and remote access."
-        ]
-      },
-      {
-        "heading": "Data Backup and Disaster Recovery",
-        "paragraphs": [
-          "Regular backups and recovery planning to help protect critical business data from loss or corruption."
-        ]
-      },
-      {
-        "heading": "Security Services",
-        "paragraphs": [
-          "Implementation of firewalls, antivirus, intrusion detection, and employee cybersecurity training."
-        ]
-      },
-      {
-        "heading": "Help Desk Support",
-        "paragraphs": [
-          "Technical assistance for troubleshooting and resolving IT issues, with service hours and escalation arrangements defined in the agreement."
-        ]
-      },
-      {
-        "heading": "How to Choose the Right Managed IT Provider in Tulsa",
-        "paragraphs": [
-          "Selecting the right partner is critical. Compare providers on these points, then ask how each item will be reflected in the written service agreement."
-        ],
-        "bullets": [
-          "Relevant local experience and references",
-          "Service scope that matches your needs",
-          "Transparent pricing and exclusions",
-          "A practical cybersecurity approach",
-          "Monitoring, response targets, and escalation procedures",
-          "IT planning aligned with business goals",
-          "Client testimonials and reference conversations"
-        ]
-      },
-      {
-        "heading": "Conclusion",
-        "paragraphs": [
-          "Managed IT services can support more consistent maintenance, access to expertise, and long-term technology planning. The best fit depends on your business, budget, current team, and the scope of the agreement.",
-          "TechSavvy Consulting offers outsourced managed IT solutions tailored to Tulsa businesses. Contact us to discuss your needs and the service options available."
-        ]
-      },
-      {
-        "heading": "1. What types of businesses in Tulsa benefit most from managed IT services?",
-        "paragraphs": [
-          "Managed IT services can be useful to organizations without a large internal IT team, as well as teams that need additional specialist support. The right scope depends on the business and its existing capabilities."
-        ]
-      },
-      {
-        "heading": "2. How does proactive IT monitoring reduce downtime?",
-        "paragraphs": [
-          "Monitoring checks IT systems for developing issues so they can be investigated and addressed. Combined with maintenance and planning, it can help reduce avoidable downtime."
-        ]
-      },
-      {
-        "heading": "3. Can managed IT services help improve cybersecurity for my Tulsa business?",
-        "paragraphs": [
-          "A provider can help implement security layers such as firewalls, endpoint protection, threat detection, and employee training. Ask which controls are included and who is responsible for maintaining them."
-        ]
-      },
-      {
-        "heading": "4. Is switching to managed IT services expensive?",
-        "paragraphs": [
-          "Compare the proposed service cost with your current spending, coverage gaps, and internal workload. A monthly plan can improve predictability, but savings are not automatic."
-        ]
-      },
-      {
-        "heading": "5. How quickly can TechSavvy Consulting respond to IT issues?",
-        "paragraphs": [
-          "Discuss response targets, support hours, emergency escalation, and any after-hours charges when reviewing a proposal. Confirm those terms in the service agreement."
-        ]
-      }
-    ]
-  },
-  {
-    "path": "/post/choose-managed-it-provider-ok",
-    "date": "2025-08-07T20:51:59.746Z",
-    "displayDate": "August 7, 2025",
-    "image": "/images/blog-provider.webp",
-    "category": "IT Planning",
-    "readMinutes": 7,
-    "excerpt": "Compare local experience, security, service scope, response expectations, and pricing when choosing your next IT partner.",
-    "title": "How to Choose the Right Managed IT Provider in Oklahoma",
-    "author": "Kyle Hearn",
-    "sections": [
-      {
-        "paragraphs": [
-          "Businesses in Oklahoma rely on IT infrastructure to support daily operations, security, and growth. The right managed IT provider should align technology with your business goals and help address operational risks.",
-          "Selecting a provider can be overwhelming. This guide walks through the factors to compare, from local experience and security to service scope, response expectations, and pricing."
-        ]
-      },
-      {
-        "heading": "What is a Managed IT Provider?",
-        "paragraphs": [
-          "A managed IT provider offers outsourced services such as network management, cybersecurity, cloud services, help desk support, and IT strategy consultation. Companies contract these providers to manage agreed parts of their technology infrastructure and support daily operations."
-        ]
-      },
-      {
-        "heading": "Why Oklahoma Businesses Need Managed IT Services",
-        "paragraphs": [
-          "Oklahoma is home to diverse industries ranging from energy and manufacturing to healthcare and education. Each sector has its own technology requirements. A managed IT relationship can support:"
-        ],
-        "bullets": [
-          "Monitoring and maintenance of agreed systems",
-          "Security measures suited to the business",
-          "More predictable budgeting for included services",
-          "Access to technical expertise",
-          "More time for internal teams to focus on core work"
-        ]
-      },
-      {
-        "heading": "Key Factors to Consider When Choosing a Managed IT Provider in Oklahoma",
-        "paragraphs": [
-          "Choosing the right managed IT provider requires careful evaluation. Here are critical factors every business should consider:"
-        ]
-      },
-      {
-        "heading": "1. Industry Experience and Local Presence",
-        "paragraphs": [
-          "A provider with experience in your industry is better placed to understand its technology challenges and regulatory needs. Ask for relevant examples and how they handle sensitive information.",
-          "A local presence can be important when on-site assistance is needed. Confirm the actual service area, availability, and arrangements for visiting your location."
-        ]
-      },
-      {
-        "heading": "2. Range of Services Offered",
-        "paragraphs": [
-          "Managed IT providers vary in the breadth of their offerings. Compare the proposed scope against your requirements, including:"
-        ],
-        "bullets": [
-          "Network management and monitoring",
-          "Cybersecurity solutions",
-          "Cloud services and migration",
-          "Data backup and disaster recovery",
-          "Help desk and end-user support",
-          "IT strategy and consulting"
-        ]
-      },
-      {
-        "heading": "3. Proactive vs. Reactive Approach",
-        "paragraphs": [
-          "Reactive support responds to issues after they arise. A proactive approach also focuses on identifying problems before they affect your business. This can include system health checks, patch management, vulnerability assessments, and monitoring.",
-          "Ask how the provider reports findings, prioritizes work, and follows through on unresolved risks."
-        ]
-      },
-      {
-        "heading": "4. Security and Compliance Expertise",
-        "paragraphs": [
-          "Your managed IT provider should be able to explain its approach to firewalls, endpoint protection, multi-factor authentication, encryption, and backups.",
-          "Discuss the industry requirements that apply to your organization and the responsibilities of both parties. A service contract should not be treated as a blanket guarantee of compliance."
-        ]
-      },
-      {
-        "heading": "5. Scalability and Flexibility",
-        "paragraphs": [
-          "Your IT needs will evolve as your business grows or changes. Ask how the agreement handles additional users, new locations, changing workloads, and new technology."
-        ]
-      },
-      {
-        "heading": "6. Response Time and Support Availability",
-        "paragraphs": [
-          "Fast and reliable support matters when technical issues arise. Ask about response targets, business-hours coverage, after-hours arrangements, escalation procedures, and communication channels such as phone, email, or chat.",
-          "Confirm what is included in the proposed agreement rather than assuming that monitoring means a staffed help desk is available around the clock."
-        ]
-      },
-      {
-        "heading": "7. Client References and Reviews",
-        "paragraphs": [
-          "Ask for references from current or past clients to get an idea of the provider’s reliability, professionalism, and effectiveness. Online reviews and testimonials can also provide valuable insights."
-        ]
-      },
-      {
-        "heading": "8. Transparent Pricing Structure",
-        "paragraphs": [
-          "Understand how the provider charges for services. Some providers offer recurring monthly fees, while others charge based on usage or incidents. Ask about exclusions, projects, licenses, after-hours work, and minimum commitments.",
-          "Compare equivalent scopes rather than choosing on the headline monthly fee alone."
-        ]
-      },
-      {
-        "heading": "Steps to Evaluate Managed IT Providers in Oklahoma",
-        "paragraphs": [
-          "Once you know what to look for, follow these steps to evaluate your options effectively:"
-        ]
-      },
-      {
-        "heading": "Step 1: Define Your IT Needs and Budget",
-        "paragraphs": [
-          "Start by assessing your current IT infrastructure, challenges, and business goals. Determine the scope of services you require and establish a budget. This clarity will guide your provider selection."
-        ]
-      },
-      {
-        "heading": "Step 2: Research Potential Providers",
-        "paragraphs": [
-          "Compile a list of managed IT providers in Oklahoma, including TechSavvy Consulting. Review their websites, service offerings, and client testimonials to shortlist candidates."
-        ]
-      },
-      {
-        "heading": "Step 3: Request Consultations and Proposals",
-        "paragraphs": [
-          "Schedule consultations to discuss your IT needs. Ask for a proposal outlining recommended services, responsibilities, timelines, and pricing."
-        ]
-      },
-      {
-        "heading": "Step 4: Check Credentials and Certifications",
-        "paragraphs": [
-          "Verify any credentials or certifications the provider claims. Ask how its staff’s experience relates to the systems and business needs in your environment."
-        ]
-      },
-      {
-        "heading": "Step 5: Evaluate Service Level Agreements (SLAs)",
-        "paragraphs": [
-          "Review the service agreement carefully. Identify response targets, coverage hours, exclusions, escalation procedures, and any stated remedies. Make sure you understand the difference between a response target and a resolution guarantee."
-        ]
-      },
-      {
-        "heading": "Step 6: Conduct Reference Checks",
-        "paragraphs": [
-          "Contact references to ask about their experience with the provider’s communication, problem-solving skills, and overall satisfaction."
-        ]
-      },
-      {
-        "heading": "Step 7: Make an Informed Decision",
-        "paragraphs": [
-          "Based on your evaluation, select the managed IT provider that best aligns with your business needs, offers scalable solutions, and provides clear, proactive support."
-        ]
-      },
-      {
-        "heading": "Discuss Your Requirements with TechSavvy Consulting",
-        "paragraphs": [
-          "TechSavvy Consulting provides outsourced managed IT and proactive IT services for Oklahoma businesses. A conversation about your current systems, priorities, and internal resources is the starting point for defining the right scope."
-        ],
-        "bullets": [
-          "Network, security, and cloud support",
-          "Proactive maintenance and monitoring",
-          "Local support and technology planning",
-          "Service options tailored to business needs",
-          "Long-term relationships and clear communication"
-        ]
-      },
-      {
-        "heading": "The Role of Proactive IT in Modern Business Success",
-        "paragraphs": [
-          "Proactive IT includes maintenance and review intended to identify developing issues, not just respond after something breaks. Depending on the agreed scope, this may include:"
-        ],
-        "bullets": [
-          "Network monitoring",
-          "Updates and patch management",
-          "Security reviews and vulnerability testing",
-          "Performance review and improvement planning"
-        ]
-      },
-      {
-        "heading": "Conclusion",
-        "paragraphs": [
-          "Choosing a managed IT provider is a business decision, not just a technology purchase. Prioritize relevant experience, a clear service scope, practical security, and transparent pricing.",
-          "Compare proposals carefully and confirm expectations in writing. Contact TechSavvy Consulting to discuss outsourced managed IT and proactive support for your Oklahoma business."
-        ]
-      },
-      {
-        "heading": "1. What is the difference between outsourced managed IT and traditional IT support?",
-        "paragraphs": [
-          "Managed IT typically combines ongoing responsibility for an agreed set of systems with proactive maintenance and support. Traditional break-fix support usually addresses individual problems as they arise."
-        ]
-      },
-      {
-        "heading": "2. What should a managed IT security discussion cover?",
-        "paragraphs": [
-          "Discuss the security controls included in the plan, such as firewalls, encryption, endpoint protection, backups, and monitoring. Clarify responsibilities and how findings will be reported and addressed."
-        ]
-      },
-      {
-        "heading": "3. Can managed IT services be customized for different industries?",
-        "paragraphs": [
-          "A service plan can be tailored to the organization’s technology and industry requirements. Verify the provider’s relevant experience and agree on responsibilities in writing."
-        ]
-      },
-      {
-        "heading": "4. What is proactive IT management, and why is it important?",
-        "paragraphs": [
-          "Proactive IT management uses monitoring, maintenance, and updates to identify developing problems and help reduce avoidable disruption."
-        ]
-      },
-      {
-        "heading": "5. How quickly can TechSavvy Consulting respond to IT issues?",
-        "paragraphs": [
-          "Response targets and support hours should be confirmed in the proposed service agreement, including escalation and after-hours arrangements."
-        ]
-      }
-    ]
+    ],
+    "archived": true,
+    "imageAlt": "A business workstation with multiple displays."
   }
 ];
+
+export const featuredPosts = posts.filter(post => !post.archived);
 

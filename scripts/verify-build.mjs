@@ -8,10 +8,11 @@ const pagesPreview=process.argv.includes('--pages');
 const prefix=pagesPreview?'/techsavvy-website-review/':'/';
 const dist=path.join(root,pagesPreview?'dist-pages':'dist');
 const inventory=JSON.parse(await readFile(path.join(root,'src/data/source-inventory.json'),'utf8'));
-const routes=[...inventory.pages.map(p=>p.path),'/thank-you','/404'];
 const files=[];
 async function walk(dir){for(const entry of await readdir(dir,{withFileTypes:true})){const full=path.join(dir,entry.name);if(entry.isDirectory())await walk(full);else files.push(full);}}
 await walk(dist);
+const generatedRoutes=files.filter(file=>file.endsWith('.html')).map(file=>{const relative=path.relative(dist,file).split(path.sep).join('/');return relative==='index.html'?'/':'/'+relative.replace(/\/index\.html$|\.html$/,'');});
+const routes=[...new Set([...inventory.pages.map(p=>p.path),'/thank-you','/404',...generatedRoutes])];
 let linkCount=0, formCount=0;
 for(const route of routes){
   const file=route==='/'?path.join(dist,'index.html'):path.join(dist,route.slice(1)+(pagesPreview&&route!=='/404'?'/index.html':'.html'));
