@@ -5,7 +5,8 @@ import path from 'node:path';
 
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const pagesPreview=process.argv.includes('--pages');
-const prefix=pagesPreview?'/techsavvy-website-review/':'/';
+const prefix='/';
+const expectedOrigin=pagesPreview?'https://websitenew.techsavvy.consulting':'https://www.techsavvy.consulting';
 const dist=path.join(root,pagesPreview?'dist-pages':'dist');
 const inventory=JSON.parse(await readFile(path.join(root,'src/data/source-inventory.json'),'utf8'));
 const files=[];
@@ -23,6 +24,14 @@ for(const route of routes){
   assert.match(html,/<meta name="description" content="[^"]+"/i,`${route}: description`);
   assert.match(html,/<title>[^<]+<\/title>/i,`${route}: title`);
   assert.match(html,/<link rel="canonical" href="https:\/\/www\.techsavvy\.consulting/i,`${route}: canonical`);
+  const previewUrl=html.match(/<meta property="og:url" content="([^"]+)"/i)?.[1];
+  assert.ok(previewUrl,`${route}: preview URL metadata`);
+  assert.equal(new URL(previewUrl).origin,expectedOrigin,`${route}: expected preview origin`);
+  assert.equal(new URL(previewUrl).pathname,route,`${route}: root-base preview path`);
+  const previewImage=html.match(/<meta property="og:image" content="([^"]+)"/i)?.[1];
+  assert.ok(previewImage,`${route}: preview image metadata`);
+  assert.equal(new URL(previewImage).origin,expectedOrigin,`${route}: preview image origin`);
+  assert.doesNotMatch(html,/techsavvy-consulting\.github\.io|\/techsavvy-website-review(?:[/?#"']|$)/i,`${route}: no obsolete GitHub project URL or base`);
   assert.doesNotMatch(html,/<(?:script|iframe)[^>]+(?:googletagmanager|google-analytics|doubleclick|facebook\.net|youtube\.com\/embed)/i,`${route}: no optional tracking/embed`);
   for(const match of html.matchAll(/<form\b([^>]*)>([\s\S]*?)<\/form>/gi)){
     formCount++;
@@ -49,7 +58,8 @@ assert.equal(files.some(x=>/-original\./.test(x)),false,'Original oversized asse
 if(pagesPreview){
   assert.ok(files.includes(path.join(dist,'404.html')),'GitHub Pages custom 404 exists');
   assert.ok(files.includes(path.join(dist,'.nojekyll')),'GitHub Pages static artifact marker exists');
-  assert.equal(files.some(x=>path.basename(x)==='CNAME'),false,'No custom domain file');
+  assert.equal(files.some(x=>path.basename(x)==='CNAME'),false,'Custom domain is managed in GitHub Pages settings, not a CNAME file');
 }
 console.log(`PASS: ${routes.length} pages, ${linkCount} local links/assets, ${formCount} disabled review forms; no optional tracking scripts.`);
+console.log(`PASS: expected origin ${expectedOrigin}, root base /, unchanged production canonicals and no obsolete repository-prefix paths.`);
 console.log('Production domain, Wix, DNS and advertising are not changed by this verification.');

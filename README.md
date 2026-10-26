@@ -2,15 +2,17 @@
 
 A modern, host-independent design example for TechSavvy Consulting. The production Wix website remains at **www.techsavvy.consulting**.
 
-**Status:** public GitHub Pages design example, approved October 24, 2026. The eventual production host is undecided. Forms are inactive and optional tracking is absent. Nothing in this repository changes Wix, DNS, Microsoft 365 or advertising destinations.
+**Status:** public GitHub Pages test arena. Kyle approved the dedicated test address on October 26, 2026. Cloudflare is the planned future production host, but no Cloudflare deployment or production cutover is authorized by this setup. Forms are inactive and optional tracking is absent. The live Wix site, main website DNS, email and advertising destinations remain unchanged.
 
 **Current revision, October 26:** revision 3 includes Kyle's approved content updates, four rotating client testimonials, transparent client logos and three current featured articles. Kyle authorized publication to the existing GitHub Pages example. See [revision 3 release notes](docs/REVISION-3-RELEASE.md).
 
+**Test-address setup:** the build now targets the approved root-domain test address below. [Test-arena setup](docs/TEST-ARENA-SETUP.md) describes the settings, scope and verification requirements; a local build alone does not confirm DNS or HTTPS is active.
+
 ## Preview the design
 
-**Online example:** https://techsavvy-consulting.github.io/techsavvy-website-review/
+**GitHub test arena:** https://websitenew.techsavvy.consulting/
 
-The online preview is deployed from `main` by the [GitHub Pages workflow](.github/workflows/pages.yml). Future source changes can be committed here, verified, and deployed to this same preview address. No custom domain is attached. Every page retains noindex metadata and a review notice; forms cannot submit.
+The online preview is deployed from `main` by the [GitHub Pages workflow](.github/workflows/pages.yml). Future source changes can be committed here, verified, and deployed to this same test address. The custom domain is managed in GitHub Pages settings. Every page retains noindex metadata and a review notice; forms cannot submit. This is a public preview, not an access-controlled site.
 
 The optional local preview is **http://127.0.0.1:4321/**. It works only on the build computer while the preview server is running.
 
@@ -55,9 +57,9 @@ npm run build:pages
 npm run verify:pages
 ```
 
-This generates `dist-pages/` with the repository URL prefix, directory-style page addresses and a GitHub-compatible custom 404. The workflow uploads only this generated artifact. The separate default `npm run build` stays host-independent.
+This generates `dist-pages/` for `https://websitenew.techsavvy.consulting/` with root-relative links, directory-style page addresses and a GitHub-compatible custom 404. There is no `/techsavvy-website-review/` URL prefix. The workflow uploads only this generated artifact. The separate default `npm run build` stays host-independent, and production canonical addresses remain unchanged.
 
-Run `npm run verify:online` after a successful deployment. GitHub Pages does not apply the local server's custom response headers or legacy redirects; HTML noindex is the public indexing safeguard. Do not add `CNAME`, point production DNS here, or enable forms as part of a routine preview update.
+Run `npm run verify:online` after a successful deployment and HTTPS activation. It checks the test address, routes, assets, noindex, inactive forms and custom 404. GitHub Pages does not apply the local server's custom response headers or legacy redirects; HTML noindex is the public indexing safeguard. The Actions deployment does not need a `CNAME` file. Do not point production DNS here or enable forms as part of a routine preview update.
 
 ## Editing guide
 
@@ -78,6 +80,8 @@ Image originals are in `assets/originals/`; optimized WebP files are in `public/
 
 ## Before considering production
 
-See [review notes](docs/REVIEW-NOTES.md), [asset provenance](docs/ASSET-SOURCES.md) and [verification](docs/VERIFICATION.md). Select a host, review copy and permissions, implement and test real form delivery, update provider-specific policies, verify SEO/Search Console details, and obtain production-transition approval.
+See [test-arena setup](docs/TEST-ARENA-SETUP.md), [review notes](docs/REVIEW-NOTES.md), [asset provenance](docs/ASSET-SOURCES.md) and [verification](docs/VERIFICATION.md). Earlier dated documents describe historical review stages; the current test-arena setup and chat approvals govern hosting scope. After website approval, obtain approval to deploy that exact GitHub revision to a separate Cloudflare preview, implement and test Formspree delivery, update provider-specific policies and verify SEO/redirect details. Obtain separate production-transition approval before replacing Wix.
 
 The noindex safeguards are intentionally hardcoded. A future production release requires a deliberate review of them; there is no automatic production switch.
+
+GitHub remains the source of truth and test arena. Future Cloudflare releases must promote an explicitly approved commit, preserve a rollback revision and never automatically follow every change to the GitHub preview.

@@ -3,8 +3,8 @@ import { defineConfig } from 'astro/config';
 const githubPreview = process.env.PREVIEW_PLATFORM === 'github-pages';
 
 export default defineConfig({
-  site: githubPreview ? 'https://techsavvy-consulting.github.io' : 'https://www.techsavvy.consulting',
-  base: githubPreview ? '/techsavvy-website-review' : '/',
+  site: githubPreview ? 'https://websitenew.techsavvy.consulting' : 'https://www.techsavvy.consulting',
+  base: '/',
   outDir: githubPreview ? './dist-pages' : './dist',
   output: 'static',
   trailingSlash: githubPreview ? 'always' : 'never',

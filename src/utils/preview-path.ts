@@ -1,4 +1,4 @@
-/** Prefix local URLs for the GitHub project preview; leave the host-neutral build unchanged. */
+/** Resolve local URLs against the configured preview base; root-base builds remain host-neutral. */
 export function previewPath(value: string): string {
   if (!value.startsWith('/') || value.startsWith('//')) return value;
   const base = import.meta.env.BASE_URL.replace(/\/+$/, '');
