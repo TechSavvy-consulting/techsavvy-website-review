@@ -14,9 +14,9 @@ Prepared October 26, 2026. This is preparation, not a deployment or DNS authoriz
 
 1. Record the exact approved Git commit and prior rollback commit. Build from that revision, not an unreviewed moving branch.
 2. Choose manual Direct Upload, or disable automatic production deployments if using Cloudflare Git integration. Direct Upload and Git-integrated projects have different migration constraints; confirm the method before creating a project.
-3. Set Astro's `site` to the actual Cloudflare preview origin for correct sharing images/URLs. Keep production canonicals and noindex during preview. Update the privacy page to identify Cloudflare rather than GitHub as the host.
+3. Set Astro's `site` to the actual Cloudflare preview origin for correct sharing images/URLs. Keep production canonicals and noindex during preview. Review the hosting-neutral privacy disclosure against the actual Cloudflare configuration and add provider details where appropriate; do not claim a migration before it occurs.
 4. Build and run route, link, form and responsive checks. Upload the approved artifact only after deployment approval. Do not connect the main domain yet.
-5. Verify HTTPS, all legacy paths, redirect query strings, real 404 status, assets/video range, emergency-support footnote, keyboard/mobile interactions and both real form workflows. Send clearly identified synthetic inquiries and verify receipt at sales@techsavvy.consulting.
+5. Verify HTTPS, all legacy paths, redirect query strings, real 404 status, assets/video range, emergency-support asterisk-to-FAQ link, keyboard/mobile interactions and both real form workflows. Send clearly identified synthetic inquiries and verify receipt at sales@techsavvy.consulting.
 
 ## Separate production cutover
 
@@ -24,6 +24,7 @@ Prepared October 26, 2026. This is preparation, not a deployment or DNS authoriz
 - Resolve www/apex canonical behavior, preserve existing URLs and apply permanent redirects for retired URLs. No catch-all homepage redirect.
 - Deliberately remove HTML/header noindex from production only. Keep the GitHub arena noindex. Add a production canonical sitemap and review robots/Search Console submission.
 - Review privacy/provider disclosures and any consent requirements for future analytics or marketing scripts. No such scripts are currently installed.
+- Add and verify accurate captions or a transcript for the introduction video. Revision 6's accessibility statement discloses the current limitation; update it when addressed. Do not claim full WCAG conformance without an appropriate audit.
 - Verify domain SSL, form delivery and old URLs after cutover. Keep the Wix site and prior DNS/artifact rollback available until accepted.
 
 ## Form operations

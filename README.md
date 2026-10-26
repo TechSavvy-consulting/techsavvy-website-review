@@ -4,7 +4,7 @@ A modern, host-independent design example for TechSavvy Consulting. The producti
 
 **Status:** public GitHub Pages test arena. Cloudflare is the planned future production host, but no Cloudflare deployment or production cutover is authorized yet. On October 26, 2026 Kyle approved real Formspree inquiries and removal of visible preview notices. Optional tracking remains absent; noindex remains enabled. The live Wix site, main website DNS, email settings and advertising destinations remain unchanged.
 
-**Current revision, October 26:** revision 5 adds a project-priced AI Services page, Level support downloads, real inquiry forms, visible FAQ answers, expanded founder history and approved service/testimonial wording. It removes the services index (retaining a redirect), adds the emergency-support footnote and changes the footer to “Dependable IT. Practical AI.” See [revision 5 release notes](docs/REVISION-5-RELEASE.md).
+**Current revision, October 26:** revision 6 adds two practical business articles with people-focused illustrations, a complete six-article blog index and newest-three homepage selection. Testimonials browse every seven seconds with reading controls retained. It refines AI/service/About copy, standardizes IT director-level guidance, updates privacy/accessibility information, removes the bottom support strip and gives Kyle's portrait a neutral-gray background with a faint slate-blue accent. See [revision 6 release notes](docs/REVISION-6-RELEASE.md).
 
 **Test-address setup:** the build now targets the approved root-domain test address below. [Test-arena setup](docs/TEST-ARENA-SETUP.md) describes the settings, scope and verification requirements; a local build alone does not confirm DNS or HTTPS is active.
 
@@ -26,9 +26,9 @@ The screenshots below document the initial design. Use the online example above 
 
 ## What is included
 
-- All existing main-page and blog addresses, plus one new business-email security article.
+- All existing main-page and blog addresses, plus new business-email security, AI-workflow and IT-growth-planning articles.
 - A responsive homepage, service cards, four client testimonials, local video and clear contact actions.
-- Detailed service/approach pages, separate AI Services, client support downloads, About, Contact, FAQs, Blog and provider-specific privacy/accessibility information.
+- Detailed service/approach pages, separate AI Services, client support downloads, About, Contact, FAQs, Blog and hosting-neutral privacy/accessibility information that discloses Formspree.
 - A separate thank-you screen and proper 404 screen.
 - Home callback and Contact forms delivered through Formspree Free to the verified sales@techsavvy.consulting address. See src/data/contact-form.ts; the public form ID is not a secret.
 - Local assets and system fonts; no optional analytics, advertising tags or automatically loaded third-party embeds.
@@ -71,6 +71,7 @@ Run `npm run verify:online` after a successful deployment. It checks the test ad
 | Service content | `src/data/services.ts` |
 | About, Contact, FAQs | `src/components/StandardPages.astro` |
 | Blog content | `src/data/blog.ts` |
+| Privacy and accessibility content | `src/components/PolicyContent.astro` |
 | Customer quotes and carousel | `src/data/testimonials.ts`, `src/components/Testimonials.astro` |
 | Blog article layout | `src/components/BlogArticle.astro` |
 | Form layout, delivery and feedback | `src/components/ContactForm.astro`, `src/data/contact-form.ts` |
@@ -80,7 +81,7 @@ Image originals are in `assets/originals/`; optimized WebP files are in `public/
 
 ## Before considering production
 
-See [Cloudflare release checklist](docs/CLOUDFLARE-RELEASE.md), [revision 5 notes](docs/REVISION-5-RELEASE.md) and [asset provenance](docs/ASSET-SOURCES.md). Earlier dated documents describe historical stages; latest chat approvals and AGENTS.md govern scope. After website approval, deploy the exact approved GitHub revision to a separate Cloudflare preview, update the disclosed host and verify forms/SEO/redirects there. Obtain separate production-transition approval before replacing Wix.
+See [Cloudflare release checklist](docs/CLOUDFLARE-RELEASE.md), [revision 6 notes](docs/REVISION-6-RELEASE.md) and [asset provenance](docs/ASSET-SOURCES.md). Earlier dated documents describe historical stages; latest chat approvals and AGENTS.md govern scope. After website approval, deploy the exact approved GitHub revision to a separate Cloudflare preview, review provider disclosures and verify forms/SEO/redirects there. Obtain separate production-transition approval before replacing Wix.
 
 The noindex safeguards are intentionally hardcoded. A future production release requires a deliberate review of them; there is no automatic production switch.
 

@@ -2,6 +2,7 @@ import assert from 'node:assert/strict';
 import { readFile, readdir, stat } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
+import { allPosts, featuredPosts } from '../src/data/blog.ts';
 
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const pagesPreview=process.argv.includes('--pages');
@@ -21,7 +22,10 @@ for(const route of routes){
   assert.match(html,/<html[^>]+lang="en"/i,`${route}: document language`);
   assert.equal((html.match(/<h1[\s>]/g)||[]).length,1,`${route}: one H1`);
   assert.match(html,/<meta name="robots" content="noindex,nofollow,noarchive"/i,`${route}: indexing guard`);
-  assert.match(html,/<meta name="techsavvy-revision" content="5"/i,`${route}: current revision`);
+  assert.match(html,/<meta name="techsavvy-revision" content="6"/i,`${route}: current revision`);
+  assert.ok(!/virtual CIO|Tech Mentor Technologies|emergency-support-note/i.test(html),`${route}: retired terminology and footer strip`);
+  const footer=html.match(/<footer class="site-footer"[\s\S]*?<\/footer>/)?.[0]||'';
+  assert.ok(!/Client support &amp; downloads/i.test(footer),`${route}: removed footer download link`);
   assert.doesNotMatch(html,/Design preview only|Forms disabled|REVIEW SITE|Explore all services/i,`${route}: retired visible preview wording and services link`);
   assert.match(html,/<meta name="description" content="[^"]+"/i,`${route}: description`);
   assert.match(html,/<title>[^<]+<\/title>/i,`${route}: title`);
@@ -75,9 +79,41 @@ assert.doesNotMatch(faq.match(/<main[^>]*>([\s\S]*?)<\/main>/)?.[1]||'',/<detail
 assert.equal((faq.match(/class="faq-answer-card"/g)||[]).length,11,'Eleven visible FAQ answers');
 const home=await readFile(path.join(dist,'index.html'),'utf8');
 assert.match(home,/Kyle and his team are exceptional\./,'Chris original opening restored');
-assert.match(home,/You can’t do better for your IT needs than Tech Savvy\./,'Chris final recommendation preserved');
+assert.match(home,/You can’t do better for your IT needs than TechSavvy\./,'Chris final recommendation preserved with approved brand spelling');
+assert.doesNotMatch(home,/Tech Savvy/,'Chris brand spelling standardized');
 assert.doesNotMatch(home,/On the rare occasion/,'Only requested sentence omitted');
-assert.match(home,/href="#emergency-support-note"/,'Support asterisk points to explanation');
+assert.match(home,/href="\/tulsa-it-faq#support-hours"/,'Support asterisk points to existing FAQ explanation');
+assert.match(faq,/id="support-hours"/,'Support explanation target exists');
+assert.doesNotMatch(home,/Scoped and priced separately by project/,'Homepage project qualifier removed');
+const blog=await htmlFor('blog');
+const cardPaths=html=>[...html.matchAll(/<a href="([^"]+)" class="blog-card-image"/g)].map(match=>match[1]);
+assert.equal(allPosts.length,6,'Six articles including the retained archive');
+assert.deepEqual(cardPaths(home),featuredPosts.map(post=>post.path),'Homepage has exactly the newest three articles in order');
+assert.deepEqual(cardPaths(blog),allPosts.map(post=>post.path),'Blog index has every article in publication order');
+assert.equal(featuredPosts.filter(post=>post.path.includes('practical-ai-workflows')||post.path.includes('it-plan-business-growth')).length,2,'Both new articles featured');
+assert.equal(featuredPosts.some(post=>post.date.startsWith('2025-08-07')),false,'August 7 posts retained on archive, not homepage');
+const about=await htmlFor('about-it-support');
+assert.match(about,/Mentor Technologies in 1998/,'Correct founding business');
+assert.match(about,/35\+ states/,'Approved geographic history');
+assert.match(about,/kyle-hearn-slate.webp/,'Neutral-gray portrait with subtle slate accent used');
+assert.doesNotMatch(about,/Computers, servers, networks, cloud services and mobile devices are considered together/,'Removed repetitive About sentence');
+const ai=await htmlFor('ai-services');
+assert.doesNotMatch(ai,/human review/i,'AI positioning no longer centers human review');
+assert.match(ai,/Connected tools/,'AI hero shows connected tools');
+const faqHeadings=[];
+for(const route of ['outsourced-managed-it','proactive-it','it-collaboration','offsite-backup-recovery','it-support-business-tulsa','ai-services']){
+  const html=await htmlFor(route);
+  const heading=route==='ai-services'
+    ? html.match(/A few useful answers<\/span><h2[^>]*>([\s\S]*?)<\/h2>/)?.[1]
+    : html.match(/class="container service-page-faq"[\s\S]*?<h2[^>]*>([\s\S]*?)<\/h2>/)?.[1];
+  assert.ok(heading,`${route}: FAQ introduction exists`);
+  faqHeadings.push(heading);
+}
+assert.equal(new Set(faqHeadings).size,6,'Each service FAQ has a distinct introduction');
+assert.doesNotMatch(await htmlFor('english-privacy-policy'),/hosted on GitHub|hosted on Cloudflare/i,'Hosting disclosure does not misstate the pending migration');
+const carouselSource=await readFile(path.join(root,'src/components/Testimonials.astro'),'utf8');
+assert.match(carouselSource,/sync\(\);\}, 7000\)/,'Seven-second browsing interval');
+for(const control of ['data-playback','data-next','data-previous','prefers-reduced-motion','focusPaused','document.hidden'])assert.ok(carouselSource.includes(control),`Carousel retains ${control}`);
 const support=await htmlFor('client-support');
 for(const url of ['https://downloads.level.io/level.msi','https://builds.level.io/stable/level-darwin-bundle-amd64.pkg','https://builds.level.io/stable/level-darwin-bundle-arm64.pkg','https://builds.level.io/stable/level-linux-amd64','https://builds.level.io/stable/level-linux-arm64'])assert.ok(support.includes(url),`Official support download: ${url}`);
 assert.doesNotMatch(support,/LEVEL_API_KEY|LEVEL_INSTALL_KEY|levelInstallKey/i,'No enrollment secrets in support page');
@@ -94,7 +130,7 @@ if(pagesPreview){
   assert.equal(files.some(x=>path.basename(x)==='CNAME'),false,'Custom domain is managed in GitHub Pages settings, not a CNAME file');
 }
 console.log(`PASS: ${routes.length} pages, ${linkCount} local links/assets, ${formCount} configured Formspree forms; no optional tracking scripts.`);
-console.log('PASS: visible FAQ, approved testimonial, support downloads, AI page and retired services redirect.');
+console.log('PASS: revision 6 copy, six-post archive/newest-three homepage, unique FAQ introductions, approved portrait, seven-second carousel and retained form/support workflows.');
 console.log(`PASS: expected origin ${expectedOrigin}, root base /, unchanged production canonicals and no obsolete repository-prefix paths.`);
 console.log(`PASS: ${referenceCount} Further reading links open safely in a new tab with accessible notices.`);
 console.log('Production domain, Wix, DNS and advertising are not changed by this verification.');

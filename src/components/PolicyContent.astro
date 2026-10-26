@@ -1,0 +1,67 @@
+---
+interface Props {
+  path: string;
+}
+
+const { path } = Astro.props;
+const isPrivacy = path === '/english-privacy-policy';
+---
+
+<p class="article-note">Updated October 26, 2026</p>
+
+{isPrivacy ? <>
+  <h2>About this policy</h2>
+  <p>This policy explains how TechSavvy Consulting, LLC handles information connected with this website and its inquiry forms. It does not replace a client service agreement or describe every activity involved in managing a client’s systems.</p>
+
+  <h2>Information you share</h2>
+  <p>When you contact us, we receive the information you provide: your name, company, email address, phone number and message. Forms may also ask about your number of users, on-site servers or preferred callback time. Required fields are marked; other details are optional.</p>
+  <p>Please do not send passwords, patient information, payment details or other sensitive information through these forms. If confidential information is needed for a service, contact us to arrange an appropriate way to share it.</p>
+
+  <h2>How we use inquiries</h2>
+  <p>We use this information to respond, understand your business needs, arrange conversations, prepare proposals and maintain related correspondence. We may also use relevant records to protect our services, resolve disputes or meet legal obligations. Submitting an inquiry does not automatically subscribe you to a marketing mailing list.</p>
+
+  <h2>Providers that help operate the website</h2>
+  <p>Our hosting and website-delivery providers process technical information needed to deliver pages, maintain reliability and protect against abuse. This can include IP addresses, requested pages, browser or device details and access times.</p>
+  <p>Formspree receives and processes form submissions, stores submission records and sends notifications to TechSavvy at sales@techsavvy.consulting. It may process technical information such as IP addresses, browser details and referring pages to operate its service and prevent abuse. See <a href="https://formspree.io/legal/privacy-policy/" target="_blank" rel="noopener noreferrer">Formspree’s privacy policy</a>.</p>
+  <p>Our email and business systems also hold the correspondence we receive. Provider processing may occur in the United States or other countries where those providers operate. Providers’ own privacy notices describe their practices.</p>
+
+  <h2>Sharing and tracking</h2>
+  <p>We do not sell, trade or rent your personal information. Information may be handled by providers supporting our operations, disclosed when legally required, or used to protect our legal rights. Relevant business records may also transfer in a business sale or reorganization.</p>
+  <p>We have not added optional analytics, advertising pixels or marketing cookies to this website. This does not mean that no technical information is processed: hosting, form delivery and security services still handle operational data. Third-party pages you choose to visit may use their own cookies and tracking.</p>
+
+  <h2>Security and retention</h2>
+  <p>The website and form endpoint use HTTPS to protect information in transit. No online service or transmission method can guarantee complete security. Please share only the details needed for your inquiry.</p>
+  <p>How long correspondence and related records are kept depends on the inquiry, any resulting service relationship, and applicable legal or operational needs. Records held by providers are also subject to their retention practices. Contact us if you would like us to review information you have shared.</p>
+
+  <h2>Your choices</h2>
+  <p>You can contact us by phone or email instead of using a form. You may ask to access, correct or delete information you have provided, or ask us to stop optional marketing communications. We may need to verify your identity, and some records may need to be retained. Any additional privacy rights depend on the laws that apply to your request.</p>
+
+  <h2>External links and support software</h2>
+  <p>Social networks, article references and download destinations are separate services with their own privacy practices. Level support software can enable ongoing device monitoring and remote management after installation and enrollment. Install or enroll it only when instructed by TechSavvy and authorized for your device; service arrangements govern that access.</p>
+
+  <h2>Children and policy updates</h2>
+  <p>This website is intended for businesses, not children. If you believe a child has submitted personal information, contact us so we can review it. We may update this policy as the website or our practices change; the date above identifies the latest version.</p>
+
+  <h2>Contact TechSavvy</h2>
+  <p>For privacy questions or requests, email <a href="mailto:sales@techsavvy.consulting">sales@techsavvy.consulting</a> or call <a href="tel:+19184002424">(918) 400-2424</a>. You can also write to TechSavvy Consulting, LLC, 5840 S Memorial Dr, Tulsa, OK 74145.</p>
+</> : <>
+  <h2>A website more people can use</h2>
+  <p>TechSavvy Consulting is committed to making our information and services accessible to people with disabilities. We use the <a href="https://www.w3.org/WAI/standards-guidelines/wcag/" target="_blank" rel="noopener noreferrer">Web Content Accessibility Guidelines (WCAG) 2.2, Level AA</a> as a design goal. This statement is not a certification of full conformance.</p>
+
+  <h2>Features that support access</h2>
+  <ul>
+    <li>A skip-to-content link, structured headings and visible keyboard focus.</li>
+    <li>Descriptive text for meaningful images and labeled form fields with feedback.</li>
+    <li>Responsive layouts for different screen sizes and support for reduced-motion preferences.</li>
+    <li>Controls to pause or move through testimonials, and a FAQ page with answers already visible.</li>
+  </ul>
+  <p>The site uses standard HTML, CSS and JavaScript. Some interactive features depend on JavaScript; phone and email links provide another way to contact us.</p>
+
+  <h2>Limitations and ongoing work</h2>
+  <p>The homepage introduction video does not currently include a separate captions track or full transcript. External websites, form-provider pages and downloaded software may have different accessibility features. We have not verified every browser and assistive-technology combination, and barriers may remain.</p>
+  <p>We review accessibility as the site changes. Please let us know if a feature prevents you from getting the information or assistance you need.</p>
+
+  <h2>Feedback and assistance</h2>
+  <p>Email <a href="mailto:sales@techsavvy.consulting">sales@techsavvy.consulting</a> or call <a href="tel:+19184002424">(918) 400-2424</a>. Tell us the page or feature involved, what you were trying to do and your preferred way to hear back. Browser or assistive-technology details can help, but please leave out sensitive information.</p>
+  <p>We can discuss your needs directly and help you access the information in another way. This statement will be updated as our website changes.</p>
+</>}

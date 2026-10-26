@@ -37,6 +37,137 @@ export interface BlogPost {
 
 export const posts: BlogPost[] = [
   {
+    path: '/post/practical-ai-workflows-growing-business',
+    title: '5 Practical AI Workflows for a Growing Business',
+    excerpt: 'Turn repeated emails, meeting notes and everyday handoffs into useful workflows built around your business.',
+    date: '2026-10-26',
+    displayDate: 'October 26, 2026',
+    author: 'Kyle Hearn',
+    image: '/images/blog-ai-workflows.webp',
+    imageAlt: 'Illustrative office scene of business professionals exploring an AI-assisted workflow together.',
+    category: 'Practical AI',
+    readMinutes: 3,
+    sources: [
+      { label: 'Microsoft: Overview of Power Automate cloud flows', url: 'https://learn.microsoft.com/en-us/power-automate/overview-cloud' },
+      { label: 'Microsoft: Catch up on meetings with Copilot in Teams', url: 'https://support.microsoft.com/en-us/teams/copilot/catch-up-on-meetings-with-microsoft-365-copilot-in-teams' },
+      { label: 'Microsoft: Copilot capabilities in business applications', url: 'https://www.microsoft.com/en-us/copilot/solutions/enterprise' },
+    ],
+    sections: [
+      {
+        paragraphs: [
+          'A useful AI project often starts with an ordinary question: why are we doing this same task again? For a growing Tulsa business, the opportunity may be hiding in repeated emails, meeting notes, scattered requests or the spreadsheet someone rebuilds every Friday.',
+          'You do not need to replace your business software to get started. Look for one familiar workflow that could work better. AI can organize and draft information; automation can move it between steps. These five examples are starting points to adapt, not promises that every tool or subscription supports every connection.',
+        ],
+      },
+      {
+        heading: '1. Turn a conversation into a useful follow-up',
+        paragraphs: [
+          'After a customer call, your staff may rewrite notes into an email and then copy the next steps into a task list. A focused workflow can turn approved notes into a consistent follow-up draft with the relevant details and outstanding questions.',
+          'Start with your existing email and customer-management tools. Define where the information comes from, what a finished follow-up should include and who receives it. The goal is a smoother handoff, not another place to enter the same information.',
+        ],
+      },
+      {
+        heading: '2. Make meeting notes easier to use',
+        paragraphs: [
+          'A meeting is more useful when the next steps are easy to find. Microsoft documents that Copilot in Teams can summarize discussion and suggest action items. Availability depends on licensing, meeting settings and the content captured.',
+          'A practical starting point is a short recap organized into decisions, responsibilities and next steps. Agree on recording or transcription arrangements before using meeting content, and keep the recap in a place the right people can access.',
+        ],
+      },
+      {
+        heading: '3. Give incoming requests a clear destination',
+        paragraphs: [
+          'Consider an internal request for equipment, a new customer inquiry or a routine service question. A form can gather the important details, create a record and notify the person responsible. AI can help organize free-text requests when that adds value.',
+          'Not every step needs AI. Tools such as Power Automate support event-triggered, button-driven and scheduled workflows. Straightforward rules may be the simplest way to route a request or send a reminder.',
+        ],
+      },
+      {
+        heading: '4. Make company knowledge easier to find',
+        paragraphs: [
+          'Employees often know an answer exists but cannot remember which document contains it. A carefully configured assistant can help people locate information in an approved set of procedures, product notes or internal resources.',
+          'Start with a small, well-maintained collection. Identify who keeps it current, preserve existing access boundaries and make source documents easy to open. Better-organized information benefits the business even before an AI tool is connected.',
+        ],
+      },
+      {
+        heading: '5. Build the small tool your process is missing',
+        paragraphs: [
+          'Sometimes the best improvement is a simple business app: a job-status dashboard, an onboarding checklist or a form that feeds a shared work queue. AI can assist with summaries or document preparation where useful; ordinary software can handle the structure.',
+          'Choose one outcome you can evaluate, such as fewer duplicate entries or a clearer view of outstanding work. Test it with the people who will use it, compare the result with the old process and refine from there.',
+        ],
+      },
+      {
+        heading: 'Bring us the task you wish worked better',
+        paragraphs: [
+          'TechSavvy helps Tulsa County businesses choose AI tools, guide their users and develop practical automation or custom software. We start with how your people work and look for an improvement worth making. AI and development projects are separately scoped and priced, with any subscriptions and ongoing support explained before work begins.',
+        ],
+      },
+    ],
+  },
+  {
+    path: '/post/it-plan-business-growth',
+    title: 'Growing Your Business? Build an IT Plan for What’s Next',
+    excerpt: 'Connect hiring, equipment, cloud tools and technology vendors in a practical plan for your next stage of growth.',
+    date: '2026-10-26',
+    displayDate: 'October 26, 2026',
+    author: 'Kyle Hearn',
+    image: '/images/blog-it-growth-plan.webp',
+    imageAlt: 'Illustrative office scene of business professionals planning technology improvements around a table.',
+    category: 'IT Planning',
+    readMinutes: 3,
+    sources: [
+      { label: 'NIST: Cybersecurity Framework 2.0 Small Business Quick-Start Guide', url: 'https://doi.org/10.6028/NIST.SP.1300' },
+      { label: 'NIST: Building your small business cybersecurity team', url: 'https://www.nist.gov/itl/smallbusinesscyber/guidance-topic/building-your-team' },
+    ],
+    sections: [
+      {
+        paragraphs: [
+          'Growth brings good questions. Can we welcome five new employees smoothly? Will our applications work well in a second location? Could we make a busy department’s day easier without replacing everything?',
+          'An IT plan connects those business goals with the people, systems and vendors needed to deliver them. It does not need to be a large technical document. For a Tulsa County organization with 10–100 users, a clear set of priorities, owners and dates is a useful place to begin.',
+        ],
+      },
+      {
+        heading: 'Start with the next business milestone',
+        paragraphs: [
+          'Talk about what your business wants to accomplish over the next six to twelve months. Hiring, opening a location, introducing a service and adopting a new application each create different technology needs.',
+          'Pick the milestone that matters most and work backward. If a new office opens in spring, internet service, equipment, application access and staff preparation belong on the schedule well before opening day. Bring IT into the conversation while there is still time to compare options.',
+        ],
+      },
+      {
+        heading: 'Know what you already have',
+        paragraphs: [
+          'Keep a current picture of your devices, business applications, cloud subscriptions and important services. NIST’s small-business guidance recommends maintaining an inventory of the technology a business relies on. This also provides a practical foundation for planning changes.',
+          'Add business context: who uses each system, who manages it, when contracts renew and which other services it depends on. You can then discuss whether existing tools already support the next step or whether an upgrade would be worthwhile.',
+        ],
+      },
+      {
+        heading: 'Coordinate vendors around one plan',
+        paragraphs: [
+          'Your internet provider, business-software company and other technology vendors each handle a piece of the operation. A shared plan connects their work so your employees do not have to carry technical messages between them.',
+          'For example, a new application may require vendor setup, account permissions, compatible devices and staff training. Give each part an owner and an agreed sequence. Your IT partner can coordinate the technical details, explain choices and keep the work moving toward the business goal.',
+        ],
+      },
+      {
+        heading: 'Make spending decisions easier to understand',
+        paragraphs: [
+          'Separate routine operating costs from planned improvements. List upcoming renewals, equipment replacements and project work, then explain the business reason for each item. Include training and ongoing software costs when comparing options.',
+          'A useful roadmap distinguishes what is needed for the next milestone from improvements that can wait. Revisit it as plans change. The purpose is not to buy more technology; it is to make deliberate choices that fit your people, budget and direction.',
+        ],
+      },
+      {
+        heading: 'Keep dependable service part of the growth plan',
+        paragraphs: [
+          'As the business adds people and systems, review access, security responsibilities and backup arrangements alongside those changes. NIST recommends connecting cybersecurity planning with business objectives and documenting responsibilities when outside providers are involved.',
+          'Think through which services staff need first to keep serving customers. Ask your IT partner to align backup and recovery planning with those priorities, and include time to prepare employees for new tools. Growth works better when everyday support remains connected to the larger plan.',
+        ],
+      },
+      {
+        heading: 'Leave the conversation with a clear next step',
+        paragraphs: [
+          'A useful planning meeting ends with a short list: the next milestone, the work needed, who owns it and when to check progress. TechSavvy brings IT leadership, everyday support and vendor coordination together for Tulsa County businesses. Tell us where you want to grow, and we can build the technology plan with you.',
+        ],
+      },
+    ],
+  },
+  {
     "path": "/post/protect-business-email-microsoft-365-google-workspace",
     "title": "Protect Your Business Email: 5 Checks for Microsoft 365 and Google Workspace",
     "excerpt": "Five practical checks for stronger sign-ins, safer admin access, account recovery, and phishing awareness.",
@@ -342,5 +473,12 @@ export const posts: BlogPost[] = [
   }
 ];
 
-export const featuredPosts = posts.filter(post => !post.archived);
+// Stable publication-date ordering keeps same-day articles in editorial order.
+// Updated dates describe revisions and do not turn older articles into new posts.
+export const allPosts = posts
+  .map((post, sourceOrder) => ({ post, sourceOrder }))
+  .sort((a, b) => Date.parse(b.post.date) - Date.parse(a.post.date) || a.sourceOrder - b.sourceOrder)
+  .map(({ post }) => post);
+
+export const featuredPosts = allPosts.slice(0, 3);
 

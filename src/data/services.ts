@@ -45,7 +45,7 @@ export const servicePages = [
       {
         id: 'leadership',
         title: 'IT leadership for your next step',
-        text: 'An IT director or virtual CIO perspective: roadmaps, budgets, equipment planning and employee onboarding that support your business goals.',
+        text: 'IT director-level guidance: roadmaps, budgets, equipment planning and employee onboarding that support your business goals.',
         icon: 'layers',
       },
     ],
@@ -165,7 +165,7 @@ export const servicePages = [
       },
       {
         title: 'IT direction comes with the relationship',
-        text: 'Get IT director and virtual CIO guidance for budgets, vendors, projects and growth. Planning and day-to-day support stay connected as your business changes.',
+        text: 'Get IT director-level guidance for budgets, vendors, projects and growth. Planning and day-to-day support stay connected as your business changes.',
         icon: 'arrow',
       },
       {

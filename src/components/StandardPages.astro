@@ -32,7 +32,7 @@ const questionGroups = [
       },
       {
         question: 'How long has TechSavvy been in business?',
-        answer: 'TechSavvy Consulting was founded in 2015. Our founder, Kyle E. Hearn, started Tech Mentor Technologies in 1998. That experience in technology and business ownership informs how we help customers today: with practical guidance and a long-term view of their success.',
+        answer: 'TechSavvy Consulting was founded in 2015. Our founder, Kyle E. Hearn, started Mentor Technologies in 1998. That experience in technology and business ownership informs how we help customers today: with practical guidance and a long-term view of their success.',
       },
     ],
   },
@@ -64,7 +64,7 @@ const questionGroups = [
     questions: [
       {
         question: 'Can you help us plan as we grow?',
-        answer: 'Yes. Our IT director and virtual CIO guidance connects technology to your goals. We help prioritize improvements, plan equipment and budgets, coordinate vendors, and prepare for new people, locations or systems. You get a practical path forward, not just a list of things to buy.',
+        answer: 'Yes. Our IT director-level guidance connects technology to your goals. We help prioritize improvements, plan equipment and budgets, coordinate vendors, and prepare for new people, locations or systems. You get a practical path forward, not just a list of things to buy.',
       },
       {
         question: 'Can you help our tools work better together?',
@@ -100,7 +100,7 @@ const questionGroups = [
             </div>
           </div>
           <figure class="founder-card">
-            <img src={previewPath('/images/kyle-hearn.webp')} class="page-hero-portrait" width="1254" height="1254" alt="Kyle E. Hearn, founder of TechSavvy Consulting" />
+            <img src={previewPath('/images/kyle-hearn-slate.webp')} class="page-hero-portrait" width="1000" height="1000" alt="Kyle E. Hearn, founder of TechSavvy Consulting" />
             <figcaption class="founder-label"><strong>Kyle E. Hearn</strong><span>Founder &amp; Chief Technology Officer</span></figcaption>
           </figure>
         </div>
@@ -115,8 +115,7 @@ const questionGroups = [
         </div>
         <div>
           <p>Founded in 2015, TechSavvy Consulting helps Tulsa County organizations manage the technology their people depend on. We typically serve businesses with 10–100 computer or device users, along with smaller organizations that have servers or more complex needs.</p>
-          <p>We bring support, maintenance, security and planning into a connected working relationship. Computers, servers, networks, cloud services and mobile devices are considered together, with services shaped around your environment.</p>
-          <p>Whether we serve as your IT partner or work alongside your internal staff, we help coordinate vendors, prioritize improvements and prepare for growth. Our IT director and virtual CIO guidance keeps technology decisions connected to your business goals.</p>
+          <p>We bring support, maintenance, security and planning into a connected working relationship. Whether we serve as your IT partner or work alongside your internal staff, we help coordinate vendors, prioritize improvements and prepare for growth. Our IT director-level guidance keeps technology decisions connected to your business goals.</p>
         </div>
       </div>
     </section>
@@ -128,7 +127,7 @@ const questionGroups = [
           <h2 id="founder-heading">Meet Kyle E. Hearn.</h2>
         </div>
         <div>
-          <p>Kyle E. Hearn started Tech Mentor Technologies in 1998 and grew it to serve over 1,000 customers across 35 states. Building that business gave him a firsthand understanding of what organizations need from technology—and how much a dependable IT relationship matters.</p>
+          <p>Kyle E. Hearn started Mentor Technologies in 1998 and grew it to serve over 1,000 customers across 35+ states. Building that business gave him a firsthand understanding of what organizations need from technology—and how much a dependable IT relationship matters.</p>
           <p>After selling the business, Kyle took five years off. That time confirmed that technology and serving people were more than a career: they were his passion. He founded TechSavvy Consulting in 2015, bringing together a business owner’s perspective and decades of hands-on experience in IT strategy, servers, networks and project management.</p>
           <p>Today, as founder and Chief Technology Officer, Kyle helps customers turn their goals into practical plans. He loves serving the Tulsa community, and putting his experience to work for local businesses is one way he gives back.</p>
           <p><a class="text-link" href={previewPath('/it-support-business-tulsa')}>Why TechSavvy <Icon name="arrow" size={18} /></a></p>
@@ -243,7 +242,7 @@ const questionGroups = [
           </div>
           <div class="faq-answer-grid">
             {group.questions.map(({ question, answer }) => (
-              <article class="faq-answer-card">
+              <article class="faq-answer-card" id={question === 'When is support available?' ? 'support-hours' : undefined}>
                 <h3>{question}</h3>
                 <p>{answer}</p>
               </article>
@@ -320,6 +319,7 @@ const questionGroups = [
   }
 
   .faq-answer-card {
+    scroll-margin-top: 24px;
     padding: 27px;
     border: 1px solid var(--line);
     border-top: 3px solid #94c7ec;

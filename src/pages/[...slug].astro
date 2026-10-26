@@ -6,8 +6,9 @@ import Cta from '../components/Cta.astro';
 import BlogCards from '../components/BlogCards.astro';
 import StandardPages from '../components/StandardPages.astro';
 import BlogArticle from '../components/BlogArticle.astro';
+import PolicyContent from '../components/PolicyContent.astro';
 import { servicePages } from '../data/services';
-import { posts } from '../data/blog';
+import { posts, allPosts } from '../data/blog';
 import inventory from '../data/source-inventory.json';
 
 export function getStaticPaths() {
@@ -26,7 +27,7 @@ const pageMetadata: Record<string, {title: string; description: string}> = {
   '/about-it-support': {title:'About TechSavvy Consulting | Your Tulsa County IT Partner', description:'Get to know TechSavvy: practical IT leadership, customer care, vendor coordination and a commitment to serving Jesus and the Tulsa community.'},
   '/contact': {title:'Talk About Your IT Plan | TechSavvy Consulting, Tulsa', description:'Talk with TechSavvy about managed IT, IT leadership and vendor coordination for your Tulsa County business. Start with your goals and what comes next.'},
   '/it-support-for-small-business-tulsa': {title:'Managed IT Services | TechSavvy Consulting', description:'Continue to TechSavvy managed IT services: connected support, proactive care and IT leadership for your business.'},
-  '/tulsa-it-faq': {title:'Managed IT Questions Answered | TechSavvy Tulsa', description:'Learn about TechSavvy managed IT, virtual CIO guidance, vendor coordination and support arrangements for Tulsa County organizations.'},
+  '/tulsa-it-faq': {title:'Managed IT Questions Answered | TechSavvy Tulsa', description:'Learn about TechSavvy managed IT, IT director-level guidance, vendor coordination and support arrangements for Tulsa County organizations.'},
   '/english-privacy-policy': {title:'Privacy Policy | TechSavvy Consulting', description:'How TechSavvy handles website inquiries, the providers supporting this site, and how to contact us about privacy.'},
   '/accessibility-statement': {title:'Accessibility | TechSavvy Consulting', description:'Accessibility features on the TechSavvy website and ways to get help accessing our information and services.'},
   '/thank-you': {title:'Thank You | TechSavvy Consulting', description:'Contact TechSavvy Consulting about your business technology, or call us when you need a more immediate conversation.'},
@@ -34,6 +35,14 @@ const pageMetadata: Record<string, {title: string; description: string}> = {
 const title = service ? `${service.title} | TechSavvy Consulting` : post ? `${post.title} | TechSavvy Consulting` : pageMetadata[path]?.title || source?.title || 'TechSavvy Consulting';
 const description = service?.summary || post?.excerpt || pageMetadata[path]?.description || source?.description || 'Practical IT support and leadership for Tulsa County businesses.';
 const articleSchema = post && { '@context':'https://schema.org','@type':'BlogPosting',headline:post.title,datePublished:post.date,dateModified:post.updatedDate || post.date,author:{'@type':'Person',name:post.author},publisher:{'@type':'Organization',name:'TechSavvy Consulting, LLC'},mainEntityOfPage:'https://www.techsavvy.consulting'+post.path,image:new URL(previewPath(post.image),Astro.site).href };
+const faqIntroductions: Record<string, {eyebrow: string; heading: string; text: string}> = {
+  '/outsourced-managed-it': {eyebrow:'Finding your fit', heading:'Let’s talk through the possibilities.', text:'A good IT relationship starts with understanding what works for your business. Here are a few helpful starting points.'},
+  '/proactive-it': {eyebrow:'A closer look at ongoing care', heading:'Know what’s working behind the scenes.', text:'See how regular attention keeps your technology connected to the way your people work.'},
+  '/it-collaboration': {eyebrow:'Working better together', heading:'Let’s connect the right support.', text:'Remote expertise and hands-on care can work as one. Here’s how we shape that relationship around you.'},
+  '/offsite-backup-recovery': {eyebrow:'Planning for continuity', heading:'Build confidence in your next step.', text:'Your backup and recovery plan should reflect what matters to your business. These answers explain where we start.'},
+  '/it-support-business-tulsa': {eyebrow:'Getting to know each other', heading:'A good relationship starts with a conversation.', text:'Here’s a little more about how we listen, work alongside your people and help you move forward.'},
+};
+const faqIntroduction = faqIntroductions[path];
 ---
 <BaseLayout title={title} description={description} path={path} canonicalPath={serviceIndex ? '/outsourced-managed-it' : path} article={!!post}>
   <Fragment slot="head">
@@ -50,35 +59,16 @@ const articleSchema = post && { '@context':'https://schema.org','@type':'BlogPos
     <div class="container benefit-strip">{service.benefits.map(benefit=><div><Icon name="check" size={20}/><span>{benefit}</span></div>)}</div>
     {'plans' in service && <section class="section section-pale" id="plans"><div class="container"><div class="section-heading"><span class="eyebrow">Two ways to work together</span><h2>Choose the support that fits.</h2><p>Both Full and Remote Managed IT include Proactive IT: monitoring, maintenance, tested updates, security checks and backup oversight.</p><a class="text-link" style="margin-top:18px" href={previewPath('/proactive-it')}>See what Proactive IT includes <Icon name="arrow" size={17}/></a></div><div class="split-section">{service.plans.map(plan=><article class="service-card compact-card"><span class="icon-box"><Icon name={plan.icon} size={24}/></span><h3>{plan.title}</h3><p>{plan.text}</p></article>)}</div></div></section>}
     <section class="section"><div class="container"><div class="section-heading"><span class="eyebrow">{path==='/proactive-it'?'Included with managed IT':path==='/it-collaboration'?'Your remote IT operation':path==='/it-support-business-tulsa'?'A relationship worth building':'IT that supports your next step.'}</span><h2>{path==='/proactive-it'?'Ongoing care for the systems you count on.':path==='/it-collaboration'?'Remote expertise. Local hands-on care.':'Your people. Your systems. Your goals.'}</h2><p>{path==='/proactive-it'?'Monitoring, tested updates, security and backup care work together as part of your managed service.':path==='/it-collaboration'?'We handle remote support and ongoing system care, working closely with the people who know your location.':path==='/it-support-business-tulsa'?'We learn how your business works, care for your people and build trust through clear answers and follow-through.':'Connect everyday IT care with the priorities that move your business forward.'}</p></div><div class="service-grid">{service.cards.map(card=><article class="service-card compact-card" id={'id' in card ? card.id : undefined}><span class="icon-box"><Icon name={card.icon} size={24}/></span><h3>{card.title}</h3><p>{card.text}</p></article>)}</div></div></section>
-    <section class="section section-soft"><div class="container service-page-faq"><div class="section-heading"><span class="eyebrow">A few useful answers</span><h2>Good questions.<br/>Straight answers.</h2><p>Every business is different. If your question isn’t here, let’s talk it through.</p><a href={previewPath('/tulsa-it-faq')} class="text-link" style="margin-top:23px">More common questions <Icon name="arrow" size={18}/></a></div><div class="faq-list">{service.faq.map(item=><details class="faq-item"><summary>{item.question}</summary><div>{item.answer}</div></details>)}</div></div></section><Cta />
+    <section class="section section-soft"><div class="container service-page-faq"><div class="section-heading"><span class="eyebrow">{faqIntroduction.eyebrow}</span><h2>{faqIntroduction.heading}</h2><p>{faqIntroduction.text}</p><a href={previewPath('/tulsa-it-faq')} class="text-link" style="margin-top:23px">More common questions <Icon name="arrow" size={18}/></a></div><div class="faq-list">{service.faq.map(item=><details class="faq-item"><summary>{item.question}</summary><div>{item.answer}</div></details>)}</div></div></section><Cta />
   </>}
   {serviceIndex && <section class="section section-pale"><div class="container empty-state"><span class="eyebrow">Managed IT services</span><h1 style="margin-top:15px">Your next stop: connected IT care.</h1><p>Our services overview is now part of Managed IT Services. If you are not redirected automatically, continue below.</p><a href={serviceDestination} class="button button-primary">View Managed IT Services <Icon name="arrow" size={18}/></a></div></section>}
   <StandardPages path={path} />
-  {path==='/blog' && <><section class="page-hero"><div class="container"><div class="breadcrumbs"><a href={previewPath('/')}>Home</a><span>/</span><span>Blog</span></div><span class="eyebrow">The TechSavvy blog</span><h1>Useful ideas.<br/>Practical perspective.</h1><p class="lead">Thoughts on business technology, IT support and making informed decisions for your team.</p></div></section><section class="section"><div class="container"><BlogCards /><p class="article-note">Article cards show original publication dates. When an article has been refreshed, its updated date appears inside. Looking for our earlier Windows guidance? <a href={previewPath('/post/windows11-upgrade-essential')}>Read the archived Windows 11 article.</a></p></div></section><Cta /></>}
+  {path==='/blog' && <><section class="page-hero"><div class="container"><div class="breadcrumbs"><a href={previewPath('/')}>Home</a><span>/</span><span>Blog</span></div><span class="eyebrow">The TechSavvy blog</span><h1>Useful ideas.<br/>Practical perspective.</h1><p class="lead">Thoughts on business technology, IT support and making informed decisions for your team.</p></div></section><section class="section"><div class="container"><BlogCards posts={allPosts} /><p class="article-note">All articles, newest first. Cards show original publication dates; refreshed articles show their updated date inside. Older guidance retained for reference is marked as an archive.</p></div></section><Cta /></>}
   {post && <BlogArticle post={post} />}
   {(isPrivacy || isAccessibility) && <>
     <section class="page-hero"><div class="container"><div class="breadcrumbs"><a href={previewPath('/')}>Home</a><span>/</span><span>{isPrivacy?'Privacy':'Accessibility'}</span></div><span class="eyebrow">Clear information. Thoughtful design.</span><h1>{isPrivacy?'Privacy policy':'Accessibility statement'}</h1></div></section>
     <section class="section"><div class="container legal-content">
-      <p class="article-note">Updated October 26, 2026</p>
-      {isPrivacy ? <>
-        <h2>Information you share with us</h2>
-        <p>TechSavvy Consulting, LLC uses website inquiries to respond to your questions, discuss your business needs and plan requested services. Information may include your name, business, email address, phone number and message, along with optional details about your technology or preferred callback time.</p>
-        <p>Please do not submit passwords, patient or other protected health information, payment details, or other sensitive information through this website. If a service requires confidential information, contact us to arrange an appropriate way to share it.</p>
-        <h2>Website and inquiry providers</h2>
-        <p>This website is hosted on GitHub Pages. GitHub logs visitor IP addresses for security purposes. See <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener noreferrer">GitHub’s privacy statement</a> for information about its handling of technical data.</p>
-        <p>If you use an online inquiry form, Formspree processes the details you submit to deliver your message to TechSavvy. Formspree may also process technical information, such as your IP address, browser and referring page, to operate its service and protect against spam and abuse. See <a href="https://formspree.io/legal/privacy-policy/" target="_blank" rel="noopener noreferrer">Formspree’s privacy policy</a>.</p>
-        <h2>Tracking and external links</h2>
-        <p>We have not added optional analytics or advertising tracking to this website. Hosting, form processing and security services may still process technical data as described above. External websites and software downloads have their own privacy practices.</p>
-        <h2>Questions about your information</h2>
-        <p>Contact us if you have a privacy question or want to discuss information you have shared with TechSavvy. Email <a href="mailto:sales@techsavvy.consulting">sales@techsavvy.consulting</a> or call <a href="tel:+19184002424">(918) 400-2424</a>.</p>
-      </> : <>
-        <h2>Information that is easier to use</h2>
-        <p>We want people to be able to learn about TechSavvy and contact us in a way that works for them. This website includes labeled form fields, visible keyboard focus, a skip-to-content link, descriptive image text and support for reduced-motion preferences.</p>
-        <p>Our navigation and controls are designed for keyboard use. The FAQ page keeps answers visible without requiring you to open each question, and testimonial controls let you pause or move through reviews.</p>
-        <h2>Help us improve</h2>
-        <p>If something is difficult to read, navigate or use, please tell us which page or feature is involved and what would help. You can include your browser or assistive technology if you are comfortable sharing it; please leave out sensitive personal information.</p>
-        <p>Email <a href="mailto:sales@techsavvy.consulting">sales@techsavvy.consulting</a> or call <a href="tel:+19184002424">(918) 400-2424</a>. We can help you access the information or discuss your needs directly.</p>
-      </>}
+      <PolicyContent path={path} />
     </div></section>
   </>}
   {path==='/thank-you' && <section class="section section-pale"><div class="container empty-state"><span class="eyebrow">Let’s keep the conversation going</span><h1 style="margin-top:15px">Thanks for reaching out.</h1><p>We look forward to learning about your business. A successfully submitted inquiry is confirmed on the contact form itself. If you need a more immediate conversation, call <a href="tel:+19184002424">(918) 400-2424</a>.</p><a href={previewPath('/')} class="button button-primary">Back to Home <Icon name="arrow" size={18}/></a></div></section>}

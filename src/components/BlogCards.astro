@@ -1,16 +1,19 @@
 ---
 import { previewPath } from '../utils/preview-path';
-import { featuredPosts } from '../data/blog';
+import { featuredPosts, type BlogPost } from '../data/blog';
 import Icon from './Icon.astro';
+interface Props { posts?: BlogPost[] }
+const { posts = featuredPosts } = Astro.props;
 ---
 <div class="blog-grid">
-  {featuredPosts.map(post => <article class="blog-card">
+  {posts.map(post => <article class="blog-card">
     <a href={previewPath(post.path)} class="blog-card-image" tabindex="-1" aria-hidden="true">
       <img src={previewPath(post.image)} alt="" width="640" height="400" loading="lazy" />
     </a>
     <div class="blog-card-body">
       <div class="blog-meta">
         <span class="category">{post.category}</span>
+        {post.archived && <span class="archive-label">Archive</span>}
         <span aria-hidden="true">·</span>
         <span><time datetime={post.date}>{post.displayDate}</time></span>
       </div>

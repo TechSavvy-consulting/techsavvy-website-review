@@ -16,7 +16,7 @@ Source inventory retrieved October 24, 2026. These are existing public website a
 
 The hero and suit headshot match the currently published PNG originals by SHA-256. The server-room image is an existing AI-recreated brand illustration featuring Kyle; it is not represented as documentary evidence of an actual customer facility.
 
-WebP derivatives are generated with `scripts/prepare-assets.mjs`. The logo's proportions and lettering are preserved. No new face edits or image generation were performed in this task.
+WebP derivatives are generated with `scripts/prepare-assets.mjs`. The logo's proportions and lettering are preserved. The initial build used the existing images without generation; revision-specific additions are documented below.
 
 ## Revision 3 — October 26, 2026
 
@@ -44,3 +44,18 @@ Kyle supplied a screenshot of Chris Moles's original Google review and requested
 AI-page illustrations and client-support device graphics are original HTML/CSS/SVG artwork, not screenshots of a delivered client system or third-party product endorsements. Existing portraits, business logos and videos are unchanged.
 
 Level download links were checked against official documentation and vendor servers on October 26, 2026. All five generic URLs returned HTTP 200; no installer was executed and no enrollment key is public. References: https://docs.level.io/en/articles/9926330-windows-install ; https://docs.level.io/en/articles/9926339-macos-install ; https://docs.level.io/en/articles/9926362-linux-install .
+
+## Revision 6 — October 26, 2026
+
+Kyle explicitly authorized correcting the three instances of “Tech Savvy” to “TechSavvy” in Chris Moles's supplied review. The approved excerpt otherwise stays unchanged. Seven-second browsing replaces variable long delays; pause, manual arrows, hover/focus pauses, hidden-tab handling and reduced-motion support remain.
+
+The built-in image-generation tool produced these project assets. Prompts are retained in [revision 6 image prompts](REVISION-6-IMAGE-PROMPTS.json). Original PNGs stay in assets/originals; compressed WebP derivatives are used on the site. Existing originals are preserved. New article illustrations show fictional professionals, not TechSavvy employees, customers, a customer office or documented results.
+
+| Source PNG | Public derivative | Use |
+| --- | --- | --- |
+| `blog-ai-workflows-original.png` | `public/images/blog-ai-workflows.webp` | AI-workflows article cover and card; people at a laptop with illustrative workflow icons |
+| `blog-it-growth-plan-original.png` | `public/images/blog-it-growth-plan.webp` | Growth-planning article cover and card; people discussing a tablet roadmap |
+| `kyle-hearn-neutral-original.png` | `public/images/kyle-hearn-neutral.webp` | Plain neutral-gray background option retained for comparison |
+| `kyle-hearn-slate-original.png` | `public/images/kyle-hearn-slate.webp` | About portrait: neutral gray with a faint slate-blue edge accent, selected after Kyle requested a little color |
+
+Both portrait edits used the existing approved Kyle portrait as their edit target and instructed the tool to preserve identity, expression, clothing and framing while changing the background. They are AI-edited derivatives, not pixel-identical copies of the original subject. The original colored-background portrait remains available for rollback. New blog images are 1440×960; portrait derivatives are 1000×1000.

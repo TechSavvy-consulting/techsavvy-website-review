@@ -1,0 +1,24 @@
+{
+  "date": "2026-10-26",
+  "tool": "Built-in image_gen",
+  "assets": [
+    {
+      "output": "public/images/kyle-hearn-neutral.webp",
+      "input": "public/images/kyle-hearn.webp",
+      "prompt": "Use case: identity-preserve. Edit target: the supplied square portrait of Kyle Hearn in a navy blazer and white shirt. Change ONLY the background: remove the cyan blue and lime green painted areas and pale yellow backdrop, replace with an understated soft warm light-gray studio background with very subtle natural tonal depth. Preserve the exact man's identity, face, skin texture, wrinkles, smile, eyes, hair, beard, clothing, pose, lighting, proportions and square crop. Do not beautify, relight or retouch the person. This is for an established Tulsa IT firm's About page. No text, logos, patterns, props or watermark."
+    },
+    {
+      "output": "public/images/kyle-hearn-slate.webp",
+      "input": "public/images/kyle-hearn.webp",
+      "prompt": "Use case: identity-preserve. Edit target: this exact supplied square professional portrait of Kyle Hearn in navy blazer and white shirt. Replace ONLY its colored cream/cyan/lime painted background. New backdrop: predominantly soft neutral light warm gray, with an extremely subtle out-of-focus slate-blue accent along the far upper-left and lower-right outer edges, and gentle studio depth. Neutral gray must remain directly behind his face and head; the muted blue is a quiet 10 percent accent, not a stripe or a graphic shape. Understated polished business portrait, not a colorful marketing gradient. No green, yellow, bright cyan, neon, furniture, windows, objects, skyline, text or watermark. Preserve the exact person, facial structure, eyes, smile, hair, beard, skin texture, age, navy jacket, white shirt, pose, lighting and square framing from the original. Do not beautify or retouch the man. Keep the person visually dominant and background softly unobtrusive."
+    },
+    {
+      "output": "public/images/blog-ai-workflows.webp",
+      "prompt": "Use case: ads-marketing. Asset type: wide landscape 3:2 business technology blog cover, designed to crop safely to 1.9:1. Original polished photorealistic editorial composite for an article '5 Practical AI Workflows for a Growing Business'; no words in image. Scene: a business professional woman in a modern modest office working at an open laptop, another colleague beside her discussing the screen naturally; people and their hands fully plausible. Medium-wide view of faces and work surface, faces in the central horizontal crop-safe band. Add a restrained elegant translucent layer of connected white-line icons over the laptop side of the composition: a document, an email envelope, a gear, and checkmarks connected by a thin blue path, suggesting connected business workflows. These are clearly illustrative overlays, not a real product interface. Similar feel to professional digital-transformation stock photos, but approachable, grounded and not sci-fi. Soft daylight, neutral office tones with navy and blue accents, realistic skin and fabrics, clean uncluttered composition. No robots, neon brains, fake statistics, labels, logos or watermarks. Do not depict actual TechSavvy employees or customers; fictional illustrative people."
+    },
+    {
+      "output": "public/images/blog-it-growth-plan.webp",
+      "prompt": "Use case: ads-marketing. Asset type: wide landscape 3:2 business technology blog cover, crop-safe to 1.9:1. Original polished photorealistic editorial composite for an article about building an IT plan as a business grows. No words in image. Scene: two business professionals, one man and one woman, in smart business-casual clothing having a relaxed planning conversation at a small-office meeting table with a laptop and a tablet showing a clean abstract diagram with no readable text. Medium-wide view of faces, hands and devices; keep faces in center horizontal crop-safe band. Add subtle translucent white-line graphic icons near the tablet: connected business devices, a calendar and a simple roadmap/checklist, communicating IT planning and vendor coordination. These are clearly illustrative graphics, not real product UI or customer data. Friendly capable expressions, realistic anatomy and textures, warm natural daylight, navy/slate clothing, restrained blue accents and neutral background. Professional, human and credible rather than futuristic; no robots, floating big headline, logos, watermark, numbers or performance claims. Fictional illustrative people, not actual customers or staff."
+    }
+  ]
+}
