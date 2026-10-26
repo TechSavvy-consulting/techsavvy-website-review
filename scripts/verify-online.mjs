@@ -42,7 +42,7 @@ for (const route of routes) {
   assert.equal(new URL(response.url).pathname, url.pathname, `${route}: expected root-base route`);
   const html = await response.text();
   assert.match(html, /<meta name="robots" content="noindex,nofollow,noarchive"/i, `${route}: noindex`);
-  assert.match(html, /<meta name="techsavvy-revision" content="9"/, `${route}: current revision`);
+  assert.match(html, /<meta name="techsavvy-revision" content="10"/, `${route}: current revision`);
   assert.doesNotMatch(html, /Design preview only|Forms disabled|REVIEW SITE/i, `${route}: removed visual preview notices`);
   assert.equal((html.match(/<h1[\s>]/g) || []).length, 1, `${route}: one H1`);
   for(const form of html.matchAll(/<form\b([^>]*)>([\s\S]*?)<\/form>/gi)){
@@ -83,6 +83,6 @@ assert.equal(missing.status, 404, 'Unknown online page is a real 404');
 const missingHtml=await missing.text();
 assert.match(missingHtml, /Let’s get you/, 'Custom 404 serves helpful navigation');
 assert.match(missingHtml, /<meta name="robots" content="noindex,nofollow,noarchive"/i, 'Custom 404 noindex retained');
-assert.match(missingHtml, /<meta name="techsavvy-revision" content="9"/, 'Custom 404 current revision');
+assert.match(missingHtml, /<meta name="techsavvy-revision" content="10"/, 'Custom 404 current revision');
 assertSharing(missingHtml,'/404');
-console.log(`PASS: ${routes.length} online pages, ${assets.size} assets including ${shareAssets.size} JPEG share images, revision 9 service cards, retained title/buttons/social metadata, noindex, configured forms and real custom 404.`);
+console.log(`PASS: ${routes.length} online pages, ${assets.size} assets including ${shareAssets.size} JPEG share images, revision 10, simplified service cards, retained title/buttons/social metadata, noindex, configured forms and real custom 404.`);

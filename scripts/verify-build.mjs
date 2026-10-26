@@ -31,7 +31,7 @@ for(const route of routes){
   assert.match(html,/<html[^>]+lang="en"/i,`${route}: document language`);
   assert.equal((html.match(/<h1[\s>]/g)||[]).length,1,`${route}: one H1`);
   assert.match(html,/<meta name="robots" content="noindex,nofollow,noarchive"/i,`${route}: indexing guard`);
-  assert.match(html,/<meta name="techsavvy-revision" content="9"/i,`${route}: current revision`);
+  assert.match(html,/<meta name="techsavvy-revision" content="10"/i,`${route}: current revision`);
   assert.doesNotMatch(html,/<a\b[^>]*href="\/it-collaboration(?:[\/#?"])/i,`${route}: no links to retired Co-managed page`);
   assert.doesNotMatch(html,/co-managed/i,`${route}: retired Co-managed advertising removed`);
   assert.ok(!/virtual CIO|Tech Mentor Technologies|emergency-support-note/i.test(html),`${route}: retired terminology and footer strip`);
@@ -194,7 +194,7 @@ if(pagesPreview){
   assert.equal(files.some(x=>path.basename(x)==='CNAME'),false,'Custom domain is managed in GitHub Pages settings, not a CNAME file');
 }
 console.log(`PASS: ${routes.length} pages, ${linkCount} local links/assets, ${formCount} configured Formspree forms; no optional tracking scripts.`);
-console.log('PASS: revision 9 removes the six homepage service-card CTAs; title, form buttons, seven sharing images and schemas retained.');
+console.log('PASS: revision 10 retains the simplified homepage cards, title, form buttons, seven sharing images and schemas.');
 console.log('PASS: retired-page redirects/no links, credentials, distinct blog image, contact/privacy layout, three-second carousel and retained form/support workflows.');
 console.log(`PASS: expected origin ${expectedOrigin}, root base /, unchanged production canonicals and no obsolete repository-prefix paths.`);
 console.log(`PASS: ${referenceCount} Further reading links open safely in a new tab with accessible notices.`);

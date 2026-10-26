@@ -4,7 +4,9 @@ A modern, host-independent design example for TechSavvy Consulting. The producti
 
 **Status:** public GitHub Pages test arena. Cloudflare is the planned future production host, but no Cloudflare deployment or production cutover is authorized yet. On October 26, 2026 Kyle approved real Formspree inquiries and removal of visible preview notices. Optional tracking remains absent; noindex remains enabled. The live Wix site, main website DNS, email settings and advertising destinations remain unchanged.
 
-**Revision 9, October 26:** removes the Learn more links/arrows from all six homepage service cards and the trailing paragraph spacing reserved above those links. Headings, heading links, descriptions and icons remain unchanged; other pages and navigation are untouched. Rollback baseline: `e1f5a10cebbafda5430a8dae286d8c76d4e76de0`. Verify the Pages run and published revision metadata; this source note alone is not deployment confirmation.
+**Revision 10, October 26:** on screens up to 700px, the About-page portrait keeps its square framing and Kyle's name/title sit below the photo with a 12px gap, rather than overlaying the image. Desktop styling is unchanged. Retains the revision 9 homepage simplification. Rollback baseline for this mobile fix: `217f568a55bacb3e060b667eefa2bf7690598469`. Verify the Pages run and published revision metadata; this source note alone is not deployment confirmation.
+
+**Revision 9, October 26:** removed the Learn more links/arrows from all six homepage service cards and the trailing paragraph spacing reserved above those links. Headings, heading links, descriptions and icons remain unchanged. Rollback baseline: `e1f5a10cebbafda5430a8dae286d8c76d4e76de0`.
 
 **Revision 8, October 26:** updated the homepage search/browser title and inquiry-form buttons, and added the approved photographic sharing image plus individual article previews. These changes are retained. See [revision 8 release notes](docs/REVISION-8-RELEASE.md).
 
