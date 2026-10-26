@@ -14,7 +14,7 @@ async function walk(dir){for(const entry of await readdir(dir,{withFileTypes:tru
 await walk(dist);
 const generatedRoutes=files.filter(file=>file.endsWith('.html')).map(file=>{const relative=path.relative(dist,file).split(path.sep).join('/');return relative==='index.html'?'/':'/'+relative.replace(/\/index\.html$|\.html$/,'');});
 const routes=[...new Set([...inventory.pages.map(p=>p.path),'/thank-you','/404',...generatedRoutes])];
-let linkCount=0, formCount=0;
+let linkCount=0, formCount=0, referenceCount=0;
 for(const route of routes){
   const file=route==='/'?path.join(dist,'index.html'):path.join(dist,route.slice(1)+(pagesPreview&&route!=='/404'?'/index.html':'.html'));
   const html=await readFile(file,'utf8');
@@ -33,6 +33,14 @@ for(const route of routes){
   assert.equal(new URL(previewImage).origin,expectedOrigin,`${route}: preview image origin`);
   assert.doesNotMatch(html,/techsavvy-consulting\.github\.io|\/techsavvy-website-review(?:[/?#"']|$)/i,`${route}: no obsolete GitHub project URL or base`);
   assert.doesNotMatch(html,/<(?:script|iframe)[^>]+(?:googletagmanager|google-analytics|doubleclick|facebook\.net|youtube\.com\/embed)/i,`${route}: no optional tracking/embed`);
+  for(const note of html.matchAll(/<div class="article-note">\s*<strong>Further reading<\/strong>([\s\S]*?)<\/div>/g)){
+    for(const link of note[1].matchAll(/<a\b([^>]+)>/g)){
+      referenceCount++;
+      assert.match(link[1],/\btarget="_blank"/,`${route}: reference opens in a new tab`);
+      assert.match(link[1],/\brel="noopener noreferrer"/,`${route}: reference isolates the new tab`);
+      assert.match(link[1],/\baria-label="[^"]+opens in a new tab/,`${route}: accessible new-tab notice`);
+    }
+  }
   for(const match of html.matchAll(/<form\b([^>]*)>([\s\S]*?)<\/form>/gi)){
     formCount++;
     assert.doesNotMatch(match[1],/\b(action|data-netlify)\s*=/i,`${route}: no submission backend`);
@@ -53,6 +61,7 @@ for(const route of routes){
   for(const image of html.matchAll(/<img\b([^>]+)>/g))assert.match(image[1],/\balt=/,`${route}: image alt`);
 }
 assert.equal(formCount,2,'Expected home callback + contact form');
+assert.ok(referenceCount>0,'Further reading links were verified');
 assert.ok(files.some(x=>x.endsWith('techsavvy-introduction.mp4')),'Video is included');
 assert.equal(files.some(x=>/-original\./.test(x)),false,'Original oversized assets stay outside public output');
 if(pagesPreview){
@@ -62,4 +71,5 @@ if(pagesPreview){
 }
 console.log(`PASS: ${routes.length} pages, ${linkCount} local links/assets, ${formCount} disabled review forms; no optional tracking scripts.`);
 console.log(`PASS: expected origin ${expectedOrigin}, root base /, unchanged production canonicals and no obsolete repository-prefix paths.`);
+console.log(`PASS: ${referenceCount} Further reading links open safely in a new tab with accessible notices.`);
 console.log('Production domain, Wix, DNS and advertising are not changed by this verification.');

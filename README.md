@@ -4,7 +4,7 @@ A modern, host-independent design example for TechSavvy Consulting. The producti
 
 **Status:** public GitHub Pages test arena. Kyle approved the dedicated test address on October 26, 2026. Cloudflare is the planned future production host, but no Cloudflare deployment or production cutover is authorized by this setup. Forms are inactive and optional tracking is absent. The live Wix site, main website DNS, email and advertising destinations remain unchanged.
 
-**Current revision, October 26:** revision 3 includes Kyle's approved content updates, four rotating client testimonials, transparent client logos and three current featured articles. Kyle authorized publication to the existing GitHub Pages example. See [revision 3 release notes](docs/REVISION-3-RELEASE.md).
+**Current revision, October 26:** revision 4 adds Kyle's approved AI/software/growth and service-focused wording, fuller descriptions of Full and Remote Managed IT, a Google-verified Chris Moles excerpt, and new-tab Further reading links. Page layout, review safeguards and existing assets are preserved. Revision 3 introduced four rotating client testimonials, transparent client logos and three current featured articles; see [revision 3 release notes](docs/REVISION-3-RELEASE.md).
 
 **Test-address setup:** the build now targets the approved root-domain test address below. [Test-arena setup](docs/TEST-ARENA-SETUP.md) describes the settings, scope and verification requirements; a local build alone does not confirm DNS or HTTPS is active.
 

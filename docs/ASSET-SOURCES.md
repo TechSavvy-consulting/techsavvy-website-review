@@ -32,3 +32,7 @@ The following unmodified transparent PNGs were obtained from the businesses' off
 | `client-detx.png` | https://detxglobal.com/wp-content/uploads/2025/06/DetX-Final-white-scaled.png |
 
 `blog-email-security.svg` is an original code-authored TechSavvy illustration. It depicts an envelope and shield, without third-party brand marks, stock photography or a simulated software screenshot. The two refreshed articles retain their existing approved images. The original introduction video is unchanged.
+
+## Revision 4 — October 26, 2026
+
+Chris Moles's full original Google review was inspected in Google Maps on October 26, 2026, on the verified TechSavvy Consulting, LLC listing (website techsavvy.consulting and phone 918-400-2424). The public reviewer display name is Chris M; the review is signed Chris Moles, General Manager. The new short, verbatim excerpt highlights server/backup/device support and prompt resolution. An ellipsis marks omitted words; no rating, response-time guarantee or new business claim was added. The testimonial source now points to the Google Maps reviews rather than the earlier LinkedIn excerpt.

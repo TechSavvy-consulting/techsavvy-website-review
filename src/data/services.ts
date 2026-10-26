@@ -27,7 +27,7 @@ export const servicePages = [
       {
         id: 'cloud',
         title: 'Cloud tools that work together',
-        text: 'Support for Microsoft 365, Google Workspace and business cloud services, including accounts, email, collaboration and access.',
+        text: 'Support for Microsoft 365, Google Workspace, AI tools and business cloud services—from email and collaboration to secure access and practical everyday workflows.',
         icon: 'cloud',
       },
       {
@@ -66,12 +66,12 @@ export const servicePages = [
     plans: [
       {
         title: 'Full Managed IT',
-        text: 'Your IT department for remote and onsite support, with Proactive IT included: monitoring, maintenance, tested updates, security checks and backup oversight. IT leadership and vendor coordination keep the whole picture connected.',
+        text: 'Your complete IT solution with onsite and remote support: help desk, computers and servers, cybersecurity, backups and cloud services. Proactive IT keeps systems monitored, maintained and updated, while planning and vendor coordination connect everyday care with your business goals.',
         icon: 'people',
       },
       {
         title: 'Remote Managed IT',
-        text: 'Your remote IT department, with help desk support and Proactive IT included: monitoring, maintenance, tested updates, security checks and backup oversight. We coordinate hands-on work with your local technician and help guide your IT decisions.',
+        text: 'Your remote IT department: help desk, computers and servers, cybersecurity, backups, cloud services, planning and vendor coordination, with Proactive IT included. We provide ongoing remote care and coordinate with your local technician for physical access, equipment connections and other hands-on work.',
         icon: 'monitor',
       },
     ],

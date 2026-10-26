@@ -20,8 +20,8 @@ export const testimonials = [
   },
   {
     name: 'Chris Moles', business: 'DetX Global',
-    quote: 'I run a small business that has heavy IT requirements and Tech Savvy has never let us down.',
+    quote: 'We run multiple servers, back up systems, and varied user level types of machines. … Kyle has resolved the issue extremely quickly.',
     logo: '/images/client-detx.png', logoClass: 'detx', logoWidth: 2048, logoHeight: 883,
-    source: 'https://www.linkedin.com/feed/update/urn:li:share:7512923320745574401/',
+    source: 'https://www.google.com/maps/place/TechSavvy+Consulting,+LLC/@36.1400025,-96.029727,10z/data=!4m8!3m7!1s0x87b6c19ba79da427:0x68f2fcf79e7e8f6b!8m2!3d36.1400026!4d-96.029727!9m1!1b1!16s%2Fg%2F11mwznx1yt',
   },
 ];

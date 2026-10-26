@@ -56,7 +56,9 @@ const { post } = Astro.props;
       ))}
       {post.sources && post.sources.length > 0 && <div class="article-note">
         <strong>Further reading</strong>
-        <ul>{post.sources.map(source => <li><a href={source.url}>{source.label}</a></li>)}</ul>
+        <ul>{post.sources.map(source => (
+          <li><a href={source.url} target="_blank" rel="noopener noreferrer" aria-label={`${source.label} (opens in a new tab)`} title="Opens in a new tab">{source.label}</a></li>
+        ))}</ul>
       </div>}
       <p><a class="text-link" href={previewPath('/blog')}>Explore more articles <Icon name="arrow" size={18} /></a></p>
     </article>
