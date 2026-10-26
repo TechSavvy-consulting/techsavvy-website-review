@@ -51,7 +51,7 @@ const services = [
       <div class="section-heading-row">
         <div class="section-heading"><span class="eyebrow">The bigger picture, handled</span><h2>A complete IT relationship.<br/>One clear direction.</h2><p>We manage day-to-day IT and coordinate the specialists behind your business technology.</p></div>
       </div>
-      <div class="service-grid">{services.map(service => <article class="service-card"><span class="icon-box"><Icon name={service.icon} size={25}/></span><h3><a href={previewPath(service.path)}>{service.title}</a></h3><p>{service.text}</p><a class="text-link" href={previewPath(service.path)} aria-label={`Explore ${service.title}`}>Learn more <Icon name="arrow" size={16}/></a></article>)}</div>
+      <div class="service-grid">{services.map(service => <article class="service-card"><span class="icon-box"><Icon name={service.icon} size={25}/></span><h3><a href={previewPath(service.path)}>{service.title}</a></h3><p>{service.text}</p></article>)}</div>
     </div>
   </section>
 
@@ -98,3 +98,8 @@ const services = [
     <div class="container contact-grid"><div class="contact-copy"><span class="eyebrow">Let’s start a conversation</span><h2>What’s next<br/>for your business?</h2><p>Tell us where you want to go. Let’s talk about the IT support to help you get there.</p><div class="contact-details"><div class="contact-detail"><Icon name="phone" size={22}/><div><small>Give us a call</small><a class="phone-large" href="tel:+19184002424">(918) 400-2424</a></div></div><div class="contact-detail"><Icon name="mail" size={22}/><div><small>Send us an email</small><a href="mailto:sales@techsavvy.consulting">sales@techsavvy.consulting</a></div></div><div class="contact-detail"><Icon name="pin" size={22}/><div><small>Right here in Tulsa County</small><p>5840 S Memorial Dr<br/>Tulsa, OK 74145</p></div></div></div></div><ContactForm id="home-callback" callback compact /></div>
   </section>
 </BaseLayout>
+
+<style>
+  /* These homepage cards end at the description; no space for a removed CTA. */
+  .service-card p { margin-bottom: 0; }
+</style>

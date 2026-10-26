@@ -4,7 +4,9 @@ A modern, host-independent design example for TechSavvy Consulting. The producti
 
 **Status:** public GitHub Pages test arena. Cloudflare is the planned future production host, but no Cloudflare deployment or production cutover is authorized yet. On October 26, 2026 Kyle approved real Formspree inquiries and removal of visible preview notices. Optional tracking remains absent; noindex remains enabled. The live Wix site, main website DNS, email settings and advertising destinations remain unchanged.
 
-**Revision 8, October 26:** approved update for the GitHub test arena: new homepage search/browser title, plain inquiry-form submit buttons, the approved Tulsa-inspired photographic sharing image and article-specific blog sharing images. Visible page headlines, photos and layout remain unchanged. See [revision 8 release notes](docs/REVISION-8-RELEASE.md). A local build or this source note does not itself confirm deployment; verify the GitHub Pages run and published revision metadata.
+**Revision 9, October 26:** removes the Learn more links/arrows from all six homepage service cards and the trailing paragraph spacing reserved above those links. Headings, heading links, descriptions and icons remain unchanged; other pages and navigation are untouched. Rollback baseline: `e1f5a10cebbafda5430a8dae286d8c76d4e76de0`. Verify the Pages run and published revision metadata; this source note alone is not deployment confirmation.
+
+**Revision 8, October 26:** updated the homepage search/browser title and inquiry-form buttons, and added the approved photographic sharing image plus individual article previews. These changes are retained. See [revision 8 release notes](docs/REVISION-8-RELEASE.md).
 
 **Test-address setup:** the build now targets the approved root-domain test address below. [Test-arena setup](docs/TEST-ARENA-SETUP.md) describes the settings, scope and verification requirements; a local build alone does not confirm DNS or HTTPS is active.
 

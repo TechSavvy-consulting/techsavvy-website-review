@@ -42,7 +42,7 @@ for (const route of routes) {
   assert.equal(new URL(response.url).pathname, url.pathname, `${route}: expected root-base route`);
   const html = await response.text();
   assert.match(html, /<meta name="robots" content="noindex,nofollow,noarchive"/i, `${route}: noindex`);
-  assert.match(html, /<meta name="techsavvy-revision" content="8"/, `${route}: current revision`);
+  assert.match(html, /<meta name="techsavvy-revision" content="9"/, `${route}: current revision`);
   assert.doesNotMatch(html, /Design preview only|Forms disabled|REVIEW SITE/i, `${route}: removed visual preview notices`);
   assert.equal((html.match(/<h1[\s>]/g) || []).length, 1, `${route}: one H1`);
   for(const form of html.matchAll(/<form\b([^>]*)>([\s\S]*?)<\/form>/gi)){
@@ -53,6 +53,11 @@ for (const route of routes) {
     assert.equal(decodeHtml(submit.replace(/<[^>]+>/g,'').trim()),route==='/'?'Request a callback':'Send message',`${route}: approved submit label`);
   }
   if(route==='/')assert.equal(decodeHtml(html.match(/<title>([^<]+)<\/title>/)?.[1]||''),'TechSavvy Consulting | Managed IT & Cybersecurity in Tulsa','Approved homepage title');
+  if(route==='/'){
+    const cards=[...html.matchAll(/<article\b[^>]*class="service-card"[^>]*>([\s\S]*?)<\/article>/g)].map(match=>match[1]);
+    assert.equal(cards.length,6,'Six homepage service cards online');
+    for(const card of cards)assert.doesNotMatch(card,/Learn more|class="text-link"|aria-label="Explore |<button\b/,'Redundant service-card CTAs removed online');
+  }
   assertSharing(html,route);
   assert.doesNotMatch(html, /techsavvy-consulting\.github\.io|\/techsavvy-website-review(?:[/?#"']|$)/i, `${route}: no obsolete GitHub project URL or base`);
   assert.match(html, /<link rel="canonical" href="https:\/\/www\.techsavvy\.consulting/i, `${route}: production canonical retained`);
@@ -78,6 +83,6 @@ assert.equal(missing.status, 404, 'Unknown online page is a real 404');
 const missingHtml=await missing.text();
 assert.match(missingHtml, /Let’s get you/, 'Custom 404 serves helpful navigation');
 assert.match(missingHtml, /<meta name="robots" content="noindex,nofollow,noarchive"/i, 'Custom 404 noindex retained');
-assert.match(missingHtml, /<meta name="techsavvy-revision" content="8"/, 'Custom 404 current revision');
+assert.match(missingHtml, /<meta name="techsavvy-revision" content="9"/, 'Custom 404 current revision');
 assertSharing(missingHtml,'/404');
-console.log(`PASS: ${routes.length} online pages, ${assets.size} assets including ${shareAssets.size} JPEG share images, revision 8 title/buttons/social metadata, noindex, configured forms and real custom 404.`);
+console.log(`PASS: ${routes.length} online pages, ${assets.size} assets including ${shareAssets.size} JPEG share images, revision 9 service cards, retained title/buttons/social metadata, noindex, configured forms and real custom 404.`);
