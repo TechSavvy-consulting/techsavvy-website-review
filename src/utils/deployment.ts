@@ -1,4 +1,13 @@
-/** Build-time deployment targets. No target in this revision enables indexing. */
+/** Separate review and explicitly approved production build targets. */
+export const productionOrigin = 'https://www.techsavvy.consulting';
+export const noindexProductionPaths = ['/404', '/thank-you', '/it-support-for-small-business-tulsa', '/it-collaboration'];
+
+export function robotsForRoute(path: string, env: Record<string, string | undefined>): string {
+  const production = env.PREVIEW_PLATFORM === 'cloudflare-production' && env.SITE_HOSTING === 'cloudflare';
+  const normalizedPath = path.replace(/\/+$/, '') || '/';
+  return production && !noindexProductionPaths.includes(normalizedPath) ? 'index,follow' : 'noindex,nofollow,noarchive';
+}
+
 export function cloudflarePreviewOrigin(value: string | undefined): string {
   if (!value) throw new Error('A Cloudflare preview origin is required; use --origin https://<worker>.<account>.workers.dev.');
   let url: URL;
@@ -20,6 +29,10 @@ export function deploymentConfig(env: Record<string, string | undefined>) {
     if (env.SITE_HOSTING !== 'cloudflare') throw new Error('Cloudflare staging must set SITE_HOSTING=cloudflare for accurate provider disclosures.');
     return { site: cloudflarePreviewOrigin(env.CLOUDFLARE_PREVIEW_ORIGIN), outDir: './dist-cloudflare', directory: false };
   }
+  if (target === 'cloudflare-production') {
+    if (env.SITE_HOSTING !== 'cloudflare') throw new Error('Cloudflare production must set SITE_HOSTING=cloudflare for accurate provider disclosures.');
+    return { site: productionOrigin, outDir: './dist-production', directory: false };
+  }
   if (target === 'local') return { site: 'https://www.techsavvy.consulting', outDir: './dist', directory: false };
-  throw new Error(`Unsupported build target: ${target}. Production indexing is not enabled by this revision.`);
+  throw new Error(`Unsupported build target: ${target}. Use the explicit, separate deployment scripts.`);
 }

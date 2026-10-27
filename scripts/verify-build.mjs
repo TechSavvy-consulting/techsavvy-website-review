@@ -5,13 +5,15 @@ import path from 'node:path';
 import sharp from 'sharp';
 import { allPosts, featuredPosts } from '../src/data/blog.ts';
 import { defaultSocialImage, defaultSocialImageAlt, socialImageForPost } from '../src/utils/social-image.ts';
-import { deploymentConfig } from '../src/utils/deployment.ts';
+import { deploymentConfig, robotsForRoute } from '../src/utils/deployment.ts';
 
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const pagesPreview=process.argv.includes('--pages');
 const cloudflarePreview=process.argv.includes('--cloudflare');
-assert.equal(pagesPreview && cloudflarePreview,false,'Choose one artifact target');
-const deployment=deploymentConfig({...process.env,PREVIEW_PLATFORM:pagesPreview?'github-pages':cloudflarePreview?'cloudflare-workers':'local'});
+const production=process.argv.includes('--production');
+assert.ok([pagesPreview,cloudflarePreview,production].filter(Boolean).length<=1,'Choose one artifact target');
+const buildEnv={...process.env,PREVIEW_PLATFORM:pagesPreview?'github-pages':cloudflarePreview?'cloudflare-workers':production?'cloudflare-production':'local'};
+const deployment=deploymentConfig(buildEnv);
 const prefix='/';
 const expectedOrigin=deployment.site;
 const dist=path.resolve(root,deployment.outDir);
@@ -34,7 +36,7 @@ for(const route of routes){
   const html=await readFile(file,'utf8');
   assert.match(html,/<html[^>]+lang="en"/i,`${route}: document language`);
   assert.equal((html.match(/<h1[\s>]/g)||[]).length,1,`${route}: one H1`);
-  assert.match(html,/<meta name="robots" content="noindex,nofollow,noarchive"/i,`${route}: indexing guard`);
+  assert.equal(metaContent(html,'robots'),robotsForRoute(route,buildEnv),`${route}: target-specific indexing guard`);
   assert.match(html,/<meta name="techsavvy-revision" content="10"/i,`${route}: current revision`);
   assert.doesNotMatch(html,/<a\b[^>]*href="\/it-collaboration(?:[\/#?"])/i,`${route}: no links to retired Co-managed page`);
   assert.doesNotMatch(html,/co-managed/i,`${route}: retired Co-managed advertising removed`);
@@ -205,8 +207,9 @@ const hostedOnCloudflare=process.env.SITE_HOSTING==='cloudflare';
 assert.match(await htmlFor('english-privacy-policy'),hostedOnCloudflare?/Cloudflare provides website hosting and delivery for this website/:/Cloudflare is the selected hosting and delivery provider for the planned production launch/,'Privacy matches the actual build hosting target');
 assert.match(await htmlFor('accessibility-statement'),hostedOnCloudflare?/The website is hosted on Cloudflare/:/Production hosting is planned on Cloudflare/,'Accessibility matches the actual build hosting target');
 const carouselSource=await readFile(path.join(root,'src/components/Testimonials.astro'),'utf8');
-assert.match(carouselSource,/sync\(\);\}, 6000\)/,'Six-second browsing interval');
-for(const control of ['data-playback','data-next','data-previous','prefers-reduced-motion','focusPaused','document.hidden'])assert.ok(carouselSource.includes(control),`Carousel retains ${control}`);
+assert.match(carouselSource,/sync\(\);\}, 8000\)/,'Eight-second browsing interval');
+for(const control of ['data-playback','data-next','data-previous','prefers-reduced-motion',':focus-visible','document.hidden'])assert.ok(carouselSource.includes(control),`Carousel retains ${control}`);
+assert.doesNotMatch(carouselSource,/\bhovered\b|\bfocusPaused\b|addEventListener\('mouse(?:enter|leave)'/,'No hidden hover/focus suspension state');
 const support=await htmlFor('client-support');
 for(const url of ['https://downloads.level.io/level.msi','https://builds.level.io/stable/level-darwin-bundle-amd64.pkg','https://builds.level.io/stable/level-darwin-bundle-arm64.pkg','https://builds.level.io/stable/level-linux-amd64','https://builds.level.io/stable/level-linux-arm64'])assert.ok(support.includes(url),`Official support download: ${url}`);
 assert.doesNotMatch(support,/LEVEL_API_KEY|LEVEL_INSTALL_KEY|levelInstallKey/i,'No enrollment secrets in support page');
@@ -252,7 +255,7 @@ if(pagesPreview){
 }
 console.log(`PASS: ${routes.length} pages, ${linkCount} local links/assets, ${formCount} configured Formspree forms; no optional tracking scripts.`);
 console.log('PASS: revision 10 retains the simplified homepage cards, title, form buttons, seven sharing images and schemas.');
-console.log('PASS: retired-page redirects/no links, credentials, distinct blog image, contact/privacy layout, six-second carousel and retained form/support workflows.');
+console.log('PASS: retired-page redirects/no links, credentials, distinct blog image, contact/privacy layout, eight-second carousel and retained form/support workflows.');
 console.log(`PASS: expected origin ${expectedOrigin}, root base /, unchanged production canonicals and no obsolete repository-prefix paths.`);
 console.log(`PASS: ${referenceCount} Further reading links open safely in a new tab with accessible notices.`);
 console.log('Production domain, Wix, DNS and advertising are not changed by this verification.');

@@ -17,6 +17,7 @@ class Element {
   inert = false;
   textContent = '';
   innerHTML = '';
+  focusVisible = false;
   classList = {
     toggle: (name, active) => active ? this.classes.add(name) : this.classes.delete(name),
   };
@@ -27,7 +28,8 @@ class Element {
     listeners.push(listener);
     this.listeners.set(type, listeners);
   }
-  emit(type) { for (const listener of this.listeners.get(type) || []) listener(); }
+  matches(selector) { assert.equal(selector, ':focus-visible'); return this.focusVisible; }
+  emit(type, event = {}) { for (const listener of this.listeners.get(type) || []) listener(event); }
 }
 
 function fixture({ reducedMotion = false, hidden = false } = {}) {
@@ -65,6 +67,7 @@ function fixture({ reducedMotion = false, hidden = false } = {}) {
 
   runInNewContext(javascript, {
     document,
+    HTMLElement: Element,
     matchMedia: query => {
       assert.equal(query, '(prefers-reduced-motion: reduce)');
       return media;
@@ -87,7 +90,7 @@ function fixture({ reducedMotion = false, hidden = false } = {}) {
     timerCount: () => timers.size,
     scheduled: () => {
       assert.equal(timers.size, 1, 'Exactly one autoplay timer is pending');
-      assert.equal([...timers.values()][0].delay, 6000, 'Autoplay waits six seconds');
+      assert.equal([...timers.values()][0].delay, 8000, 'Autoplay waits eight seconds');
     },
     tick: () => {
       assert.equal(timers.size, 1, 'A timer must exist before advancing');
@@ -139,7 +142,10 @@ assert.equal(auto.timerCount(), 0, 'Manual arrows remain paused and wrap both wa
 const visibility = fixture();
 visibility.visibility(true);
 visibility.carousel.emit('mouseenter');
-assert.equal(visibility.timerCount(), 0, 'Hover pauses autoplay');
+visibility.scheduled();
+visibility.tick();
+visibility.active(1);
+assert.equal(visibility.playback.getAttribute('aria-label'), 'Pause automatic testimonials', 'Hover leaves autoplay running');
 visibility.carousel.emit('mouseleave');
 visibility.scheduled();
 visibility.document.hidden = true;
@@ -155,14 +161,43 @@ visibility.scheduled();
 
 const focus = fixture();
 focus.visibility(true);
-focus.carousel.emit('focusin');
+focus.next.focusVisible = true;
+focus.carousel.emit('focusin', { target: focus.next });
 assert.equal(focus.timerCount(), 0, 'Keyboard focus pauses autoplay');
+assert.equal(focus.playback.getAttribute('aria-label'), 'Play automatic testimonials', 'Keyboard pause is truthfully labelled');
 focus.carousel.emit('mouseleave');
 assert.equal(focus.timerCount(), 0, 'Pointer movement does not undo focus pause');
 focus.next.emit('click');
 focus.active(1);
 focus.playback.emit('click');
 focus.scheduled();
+
+const pointer = fixture();
+pointer.visibility(true);
+pointer.carousel.emit('mouseenter');
+pointer.carousel.emit('focusin', { target: pointer.playback });
+pointer.scheduled();
+pointer.playback.emit('click');
+assert.equal(pointer.timerCount(), 0, 'First pointer click on Pause really pauses');
+assert.equal(pointer.playback.getAttribute('aria-label'), 'Play automatic testimonials');
+pointer.playback.emit('click');
+pointer.scheduled();
+pointer.tick();
+pointer.active(1);
+assert.equal(pointer.playback.getAttribute('aria-label'), 'Pause automatic testimonials', 'Play resumes even while pointer stays in the carousel');
+pointer.playback.focusVisible = true;
+pointer.carousel.emit('focusin', { target: pointer.playback });
+assert.equal(pointer.timerCount(), 0, 'Keyboard entry to playback control pauses');
+assert.equal(pointer.playback.getAttribute('aria-label'), 'Play automatic testimonials');
+pointer.playback.emit('click');
+pointer.scheduled();
+pointer.playback.emit('click');
+assert.equal(pointer.timerCount(), 0, 'Keyboard can pause again without leaving the control');
+pointer.document.hidden = true;
+pointer.document.emit('visibilitychange');
+pointer.document.hidden = false;
+pointer.document.emit('visibilitychange');
+assert.equal(pointer.timerCount(), 0, 'Returning to a tab does not undo an explicit pause');
 
 const reduced = fixture({ reducedMotion: true });
 reduced.visibility(true);
@@ -175,4 +210,4 @@ reduced.scheduled();
 reduced.media.emit('change');
 assert.equal(reduced.timerCount(), 0, 'A reduced-motion change stops explicit playback');
 
-console.log('PASS: actual testimonial script uses six-second autoplay, one active accessible slide, working pause/play/arrows, hover/focus/visibility guards and reduced-motion protection. No browser or network requests used.');
+console.log('PASS: actual testimonial script uses eight-second autoplay during mouseover, truthful keyboard pause, first-click Pause/Play, working arrows, visibility guards and reduced-motion protection. No browser or network requests used.');

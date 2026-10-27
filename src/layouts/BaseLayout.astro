@@ -1,6 +1,7 @@
 ---
 import { previewPath } from '../utils/preview-path';
 import { defaultSocialImage, defaultSocialImageAlt } from '../utils/social-image';
+import { robotsForRoute } from '../utils/deployment';
 import Icon from '../components/Icon.astro';
 import '../styles/global.css';
 const { title = 'TechSavvy Consulting | Managed IT for Tulsa County', description = 'Managed IT, vendor coordination and IT leadership for Tulsa County businesses. Practical support that cares about your people and your growth.', path = '/', canonicalPath = path, article = false, socialImage = { path: defaultSocialImage, alt: defaultSocialImageAlt } } = Astro.props;
@@ -9,6 +10,7 @@ const previewImage = new URL(previewPath(socialImage.path), Astro.site).href;
 const brandImage = new URL(previewPath(defaultSocialImage), Astro.site).href;
 const previewUrl = new URL(previewPath(path), Astro.site).href;
 const current = String(path).replace(/\/$/, '') || '/';
+const robots = robotsForRoute(current, { PREVIEW_PLATFORM: import.meta.env.PREVIEW_PLATFORM, SITE_HOSTING: import.meta.env.SITE_HOSTING });
 const services = [
   {href:'/ai-services', label:'AI Services'},
   {href:'/outsourced-managed-it', label:'Managed IT services'},
@@ -26,7 +28,7 @@ const schema = { '@context':'https://schema.org', '@type':'LocalBusiness', '@id'
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     <meta name="description" content={description} />
-    <meta name="robots" content="noindex,nofollow,noarchive" />
+    <meta name="robots" content={robots} />
     <meta name="techsavvy-revision" content="10" />
     <link rel="canonical" href={canonical} />
     <link rel="icon" href={previewPath('/favicon.svg')} type="image/svg+xml" />

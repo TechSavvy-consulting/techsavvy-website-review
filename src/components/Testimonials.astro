@@ -74,9 +74,7 @@ import { testimonials } from '../data/testimonials';
     const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
     let current = 0;
     let playing = !reducedMotion.matches;
-    let hovered = false;
     let inView = false;
-    let focusPaused = false;
     let timer: ReturnType<typeof setTimeout> | undefined;
     const sync = () => {
       clearTimeout(timer);
@@ -84,8 +82,8 @@ import { testimonials } from '../data/testimonials';
       playback.setAttribute('aria-label', playing ? 'Pause automatic testimonials' : 'Play automatic testimonials');
       region.setAttribute('aria-live', playing ? 'off' : 'polite');
       count.setAttribute('aria-live', playing ? 'off' : 'polite');
-      // Six seconds per review; pause, hover, focus and arrows allow longer reading.
-      if (playing && inView && !hovered && !focusPaused && !document.hidden) timer = setTimeout(() => {show(current + 1); sync();}, 6000);
+      // Mouseover does not pause. Keep the button and playback intent in sync.
+      if (playing && inView && !document.hidden) timer = setTimeout(() => {show(current + 1); sync();}, 8000);
     };
     const show = (index: number) => {
       current = (index + slides.length) % slides.length;
@@ -95,10 +93,12 @@ import { testimonials } from '../data/testimonials';
     const manual = (step: number) => {playing = false; sync(); show(current + step);};
     previous.addEventListener('click', () => manual(-1));
     next.addEventListener('click', () => manual(1));
-    playback.addEventListener('click', () => {playing = !playing; focusPaused = false; sync();});
-    carousel.addEventListener('mouseenter', () => {hovered = true; sync();});
-    carousel.addEventListener('mouseleave', () => {hovered = false; sync();});
-    carousel.addEventListener('focusin', () => {focusPaused = true; sync();});
+    playback.addEventListener('click', () => {playing = !playing; sync();});
+    carousel.addEventListener('focusin', event => {
+      // Keyboard navigation gets a real, clearly labelled pause. Pointer focus
+      // must not flip the state before the visitor's Pause/Play click runs.
+      if (event.target instanceof HTMLElement && event.target.matches(':focus-visible')) {playing = false; sync();}
+    });
     document.addEventListener('visibilitychange', sync);
     reducedMotion.addEventListener('change', () => {if (reducedMotion.matches) {playing = false; sync();}});
     new IntersectionObserver(entries => {inView = entries[0].isIntersecting; sync();}, {threshold:.15}).observe(carousel);

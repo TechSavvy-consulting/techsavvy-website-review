@@ -1,12 +1,14 @@
 # Cloudflare staging copy - October 27, 2026
 
+Later same-day status: preview accepted; production launched separately under Kyle's explicit approval. See `CLOUDFLARE-LAUNCH-2026-10-27.md`. This document preserves the initial preview verification record below; its former pending-production gate is superseded. Preview now uses eight-second testimonials without hover pause, version `082ae03c-76fa-4fa7-a662-f47beb2e66a7`, and remains noindex.
+
 ## Scope and deployment
 
 - User approved creating and copying the existing approved website to Cloudflare for testing, not a production cutover.
 - Baseline approved website source: `bfc5d5fea9e9ac4883d84bea3bb1275fdcabc3bd`.
 - Temporary URL: https://techsavvy-website-preview.techsavvytulsaok.workers.dev/
 - Project: `techsavvy-website-preview`, existing TechSavvyTulsaOK Cloudflare account.
-- Initial deployment `1aaa5e48` was manually uploaded through the signed-in Cloudflare dashboard. Current deployment `0c18bca1-0915-4f7a-a47a-31ebf2115681` adds the narrowly scoped video-delivery handler through Wrangler; static page content is identical.
+- Initial deployment `1aaa5e48` was manually uploaded through the signed-in Cloudflare dashboard. The subsequent video-fix deployment `0c18bca1-0915-4f7a-a47a-31ebf2115681` added the narrowly scoped video-delivery handler through Wrangler; static page content was identical. The later eight-second carousel deployment is recorded above.
 - No custom domains or routes attached. No Git integration, automatic deployment, paid plan, visitor analytics or advertising pixels added. A small Worker handles byte-range requests for the existing introduction video; ordinary matching page/assets traffic remains static.
 - Cloudflare is independent of GitHub hosting. All website assets are uploaded to Cloudflare, the Worker uses only the internal ASSETS binding, and the artifact checker rejects GitHub/GitHub Pages/test-arena references. GitHub is optional source backup only.
 - 63 files uploaded from `dist-cloudflare/`, including 24 HTML pages. Largest asset is the existing 16,880,189-byte introduction video.

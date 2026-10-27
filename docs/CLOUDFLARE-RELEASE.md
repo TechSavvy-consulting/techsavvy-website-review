@@ -1,15 +1,21 @@
 # Cloudflare release checklist
 
-Updated October 27, 2026. Kyle approved the separate Cloudflare preview and synthetic form tests. Production cutover and DNS changes remain unapproved.
+Updated October 27, 2026. Kyle approved production after accepting the Cloudflare preview. Production is now hosted independently on Cloudflare; see `CLOUDFLARE-LAUNCH-2026-10-27.md` for deployment, verification and rollback records. Preview instructions below apply only to the isolated review copy.
 
 ## Current arrangement
 
 - GitHub `main` deploys only to https://websitenew.techsavvy.consulting/.
-- Production remains Wix. Do not change root/www, MX, SPF, DKIM, DMARC or other email records.
+- Production is `https://www.techsavvy.consulting/` on `techsavvy-website-production`. Apex redirects to www. Wix is retained for rollback, not canceled. MX, SPF, DKIM, DMARC and all other email/service records are unchanged.
 - The project is static Astro on Cloudflare Workers Static Assets Free. The introduction video additionally uses a small byte-range Worker because the basic static uploader did not supply partial responses. No server adapter, database or paid backend was added. The video is unchanged. Only video-first requests (and fallback requests without matching assets) may invoke runtime code and use Workers Free limits; ordinary matching page/assets traffic remains static.
 - Cloudflare must remain independent of GitHub: upload complete local artifacts deliberately; do not configure Git integration, automatic deployment, remote GitHub asset loading or redirects back to the test arena. GitHub is optional source backup, not a hosting dependency. Review hosting may move away from GitHub later.
 - Formspree supplies form processing. The public form ID may remain in source; no account password/API key belongs in the repository.
-- Cloudflare `_headers` and `_redirects` are prepared in public/. GitHub Pages ignores those settings. Noindex remains hardcoded in HTML and in the future Cloudflare preview header. Robots permits crawling so noindex can be read.
+- Cloudflare `_headers` and `_redirects` are prepared in public/. GitHub Pages ignores those settings. Review targets remain noindex. The separate explicit production build enables indexing for normal pages and generates production headers/robots; 404, thank-you and retired stubs remain noindex.
+
+## Production release gates
+
+Use `npm run build:production`, `npm run verify:production`, and, after an approved upload, `npm run verify:production:online`. Deploy complete local artifacts with the existing scoped login and `wrangler.production.jsonc`; never connect GitHub. Keep `dist-production` separate from `dist-cloudflare`.
+
+Production custom domains are dashboard-managed. Keep both `route` and `routes` omitted and `workers_dev: false` so future normal deployments preserve that domain attachment. This follows [Wrangler source-of-truth guidance](https://developers.cloudflare.com/workers/wrangler/configuration/#source-of-truth). Do not add empty routes, broaden saved permissions, or change DNS for routine content updates. Code rollback does not restore DNS/redirect rules.
 
 ## Approved Cloudflare preview workflow
 
@@ -48,6 +54,7 @@ Deploy only the configured `dist-cloudflare/` static assets and `cloudflare/vide
 - Homepage, contact and paid-landing forms use `https://formspree.io/f/mvkkkwyn`, “TechSavvy Website Inquiries.” Notifications were verified configured to sales@techsavvy.consulting on October 26; recheck ownership, recipient and delivery before launch.
 - The October 27 account check showed 2 of 50 submissions used before Cloudflare tests, shared across the Free account's forms. The signed-in Kyle-owned account has a verified sales@techsavvy.consulting recipient and its TechSavvy Website Inquiries workflow sends to that address. Check current usage before advertising; do not silently upgrade or alter other forms.
 - All three October 27 Cloudflare synthetic tests were confirmed delivered to sales@techsavvy.consulting. They consume three submissions and must not be counted as leads. Exact test IDs/times are in `CLOUDFLARE-PREVIEW-2026-10-27.md`.
+- The additional production contact test was accepted but filtered into Formspree spam. Only that known synthetic record was marked Not Spam; its matching email arrived at sales@techsavvy.consulting at 14:58:26 UTC. Keep this fourth launch test out of leads. No spam settings changed. See `CLOUDFLARE-LAUNCH-2026-10-27.md` for the qualified delivery evidence, and inspect the spam queue if notifications are unexpectedly absent.
 - Keep Formshield enabled. The new form was created with CAPTCHA disabled by default; no protection was disabled for this integration. Review abuse before choosing any additional protection.
 - Submissions contain only ordinary business inquiry fields. No uploads, passwords, payment information or PHI. Visitors are warned accordingly.
 - Native HTML POST is a no-JavaScript fallback. AJAX shows in-page success/errors, preserves fields on uncertain failures, and never automatically retries.

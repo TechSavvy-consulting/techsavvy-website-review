@@ -2,6 +2,7 @@ node_modules/
 dist/
 dist-pages/
 dist-cloudflare/
+dist-production/
 .wrangler/
 .astro/
 .netlify/

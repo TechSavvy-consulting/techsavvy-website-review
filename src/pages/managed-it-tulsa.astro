@@ -2,12 +2,14 @@
 import PaidLandingForm from '../components/PaidLandingForm.astro';
 import { previewPath } from '../utils/preview-path';
 import { defaultSocialImage, defaultSocialImageAlt } from '../utils/social-image';
+import { robotsForRoute } from '../utils/deployment';
 import '../styles/paid-landing.css';
 
 // Preserve the approved paid-search page independently of the organic site layout.
 const title = 'Managed IT Support in Tulsa | TechSavvy Consulting';
 const description = 'Complete managed IT support for Tulsa businesses with 10–100 computer and device users. Friendly, experienced local support with less disruption.';
 const path = '/managed-it-tulsa';
+const robots = robotsForRoute(path, { PREVIEW_PLATFORM: import.meta.env.PREVIEW_PLATFORM, SITE_HOSTING: import.meta.env.SITE_HOSTING });
 const canonical = new URL(path, 'https://www.techsavvy.consulting').href;
 const previewUrl = new URL(path, Astro.site).href;
 const previewImage = new URL(previewPath(defaultSocialImage), Astro.site).href;
@@ -20,7 +22,7 @@ const schema = { '@context':'https://schema.org', '@type':'LocalBusiness', '@id'
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     <meta name="description" content={description} />
-    <meta name="robots" content="noindex,nofollow,noarchive" />
+    <meta name="robots" content={robots} />
     <meta name="techsavvy-revision" content="10" />
     <link rel="canonical" href={canonical} />
     <link rel="icon" href={previewPath('/favicon.svg')} type="image/svg+xml" />
