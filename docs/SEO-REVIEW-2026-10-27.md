@@ -56,3 +56,56 @@ The new-site `/ai-services`, `/client-support` and three newer blog articles rem
 - Landing-page visual checks passed at 1440px desktop and 390px mobile. A 320px DOM geometry check found no horizontal overflow. The CTA reached the inquiry section, and the form retained all five visible labels. No form was submitted.
 - Both planned-host and future Cloudflare-host policy variants passed local build verification; the review artifact uses the planned-host variant.
 - After deployment, run `npm run verify:online` against the GitHub review domain. Production form-delivery tests remain pending separate approval.
+
+## Follow up page updates
+
+Requested October 27 after the SEO build. These are all additional visitor-facing changes; page layouts, graphics, metadata, article dates, navigation and form settings are unchanged.
+
+### Homepage
+
+- Testimonials now display for **6 seconds instead of 3 seconds**. The transition animation, pause/play buttons, arrows, hover/focus behavior and reduced-motion protection are unchanged.
+
+### Proactive IT
+
+| Location | Replacement text |
+| --- | --- |
+| Quarterly IT checkups card title | Monthly IT checkups |
+| Same card paragraph | Each month, we review system health, performance and capacity, then recommend improvements that support your business. |
+| Updates card title | Weekly updates, tested first |
+| Same card paragraph | We test updates in-house before rolling them out each week. Planned installation and follow-up checks help keep your operating systems and applications current and better protected. |
+| Security built into everyday care paragraph | Staff with cybersecurity training and certifications help protect your computers, servers and networks through endpoint protection, regular patching and monthly security checks. |
+| Answer to “What does ongoing IT care mean for our business?” | Your technology gets consistent attention between support calls. Weekly updates, monthly IT checkups and ongoing monitoring help keep your computers and servers current, better protected and ready for work. |
+
+The two quarterly references were the checkup card and the first FAQ answer. Other cards, questions, headings and answers are unchanged.
+
+### Backup and recovery
+
+| Location | Replacement text |
+| --- | --- |
+| Third benefit beneath the hero, formerly “Business-led recovery priorities” | Recovery planning built around your business |
+| Small heading above the service cards, formerly “IT that supports your next step.” | Backup protection and recovery |
+| Section heading, formerly “Your people. Your systems. Your goals.” | Protect your data. Plan your recovery. |
+| Section introduction, formerly “Connect everyday IT care…” | Keep important data backed up, check that copies are usable and plan how to restore the systems your business needs. |
+| Local and offsite copies paragraph | Combine local backups for convenient restores with offsite copies for added protection. We design the right approach around your systems and recovery needs. |
+
+### Blog
+
+- Removed this paragraph below the article grid: “All articles, newest first. Cards show original publication dates; refreshed articles show their updated date inside. Older guidance retained for reference is marked as an archive.”
+- Articles, order, dates and archive labels are unchanged.
+
+### AI services
+
+| Location | Replacement text |
+| --- | --- |
+| Paragraph beside “From a good idea to something useful.” | We connect AI with the tools you already use to simplify everyday work, automate repetitive tasks and help your business move forward. |
+| Step 01 heading, formerly “Find a useful starting point.” | Start with what matters to your business. |
+| Step 01 paragraph | We explore your goals and workflows, then recommend where AI or custom software can save time or improve how work gets done. We agree on the scope, price and expected outcome before work begins. |
+
+Steps 02 and 03, project-pricing terms, service descriptions, graphics and FAQs are unchanged.
+
+### Follow up verification
+
+- Tests confirm the six-second timer and existing pause/play/arrows, focus/visibility and reduced-motion behavior.
+- Built-page checks cover all replacement wording, removed phrases and the previously approved SEO/form/policy changes.
+- Visual checks covered Backup at desktop width and Proactive/AI at 390px mobile; no horizontal overflow was found on the mobile pages. The blog still shows six articles.
+- Independent source review found no unintended visible copy or layout changes on other pages. No forms were submitted and no production settings changed.

@@ -139,6 +139,7 @@ assert.match(home,/href="\/tulsa-it-faq#support-hours"/,'Support asterisk points
 assert.match(faq,/id="support-hours"/,'Support explanation target exists');
 assert.doesNotMatch(home,/Scoped and priced separately by project/,'Homepage project qualifier removed');
 const blog=await htmlFor('blog');
+assert.doesNotMatch(blog,/All articles, newest first\.|Cards show original publication dates; refreshed articles/,'Removed blog explanation');
 const cardPaths=html=>[...html.matchAll(/<a href="([^"]+)" class="blog-card-image"/g)].map(match=>match[1]);
 assert.equal(allPosts.length,6,'Six articles including the retained archive');
 assert.deepEqual(cardPaths(home),featuredPosts.map(post=>post.path),'Homepage has exactly the newest three articles in order');
@@ -155,6 +156,9 @@ assert.match(about,/Completed August 2026/,'Google AI month and year only');
 assert.doesNotMatch(about,/Valid through|One-year validity|August 10, 2026|June 5, 2026/i,'Certificate days and validity removed');
 assert.doesNotMatch(about,/Computers, servers, networks, cloud services and mobile devices are considered together/,'Removed repetitive About sentence');
 const ai=await htmlFor('ai-services');
+assert.match(ai,/We connect AI with the tools you already use to simplify everyday work/,'AI process introduction clarified');
+assert.match(ai,/Start with what matters to your business\./,'AI first step clarified');
+assert.doesNotMatch(ai,/We bring the technical help\.|Find a useful starting point\./,'Superseded AI process copy removed');
 assert.doesNotMatch(ai,/human review/i,'AI positioning no longer centers human review');
 assert.match(ai,/Your existing tools/,'AI hero emphasizes existing tools');
 const faqHeadings=[];
@@ -167,11 +171,17 @@ for(const route of ['outsourced-managed-it','proactive-it','offsite-backup-recov
   faqHeadings.push(heading);
 }
 assert.equal(new Set(faqHeadings).size,5,'Each remaining service FAQ has a distinct introduction');
+const proactive=await htmlFor('proactive-it');
+assert.doesNotMatch(proactive,/quarterly checkups|Quarterly IT checkups|inform our everyday care/i,'Proactive quarterly and unclear security copy removed');
+for(const text of ['Monthly IT checkups','Weekly updates, tested first','monthly security checks','Weekly updates, monthly IT checkups and ongoing monitoring'])assert.ok(proactive.includes(text),`Proactive service cadence: ${text}`);
+const backup=await htmlFor('offsite-backup-recovery');
+for(const text of ['Recovery planning built around your business','Backup protection and recovery','Protect your data. Plan your recovery.','Keep important data backed up, check that copies are usable','Combine local backups for convenient restores with offsite copies for added protection.'])assert.ok(backup.includes(text),`Backup-specific explanation: ${text}`);
+assert.doesNotMatch(backup,/Business-led recovery priorities|IT that supports your next step\.|Your people\. Your systems\. Your goals\.|Connect everyday IT care with the priorities|Balance recovery speed, storage locations/,'Generic backup copy removed');
 const hostedOnCloudflare=process.env.SITE_HOSTING==='cloudflare';
 assert.match(await htmlFor('english-privacy-policy'),hostedOnCloudflare?/Cloudflare provides website hosting and delivery for this website/:/Cloudflare is the selected hosting and delivery provider for the planned production launch/,'Privacy matches the actual build hosting target');
 assert.match(await htmlFor('accessibility-statement'),hostedOnCloudflare?/The website is hosted on Cloudflare/:/Production hosting is planned on Cloudflare/,'Accessibility matches the actual build hosting target');
 const carouselSource=await readFile(path.join(root,'src/components/Testimonials.astro'),'utf8');
-assert.match(carouselSource,/sync\(\);\}, 3000\)/,'Three-second browsing interval');
+assert.match(carouselSource,/sync\(\);\}, 6000\)/,'Six-second browsing interval');
 for(const control of ['data-playback','data-next','data-previous','prefers-reduced-motion','focusPaused','document.hidden'])assert.ok(carouselSource.includes(control),`Carousel retains ${control}`);
 const support=await htmlFor('client-support');
 for(const url of ['https://downloads.level.io/level.msi','https://builds.level.io/stable/level-darwin-bundle-amd64.pkg','https://builds.level.io/stable/level-darwin-bundle-arm64.pkg','https://builds.level.io/stable/level-linux-amd64','https://builds.level.io/stable/level-linux-arm64'])assert.ok(support.includes(url),`Official support download: ${url}`);
@@ -218,7 +228,7 @@ if(pagesPreview){
 }
 console.log(`PASS: ${routes.length} pages, ${linkCount} local links/assets, ${formCount} configured Formspree forms; no optional tracking scripts.`);
 console.log('PASS: revision 10 retains the simplified homepage cards, title, form buttons, seven sharing images and schemas.');
-console.log('PASS: retired-page redirects/no links, credentials, distinct blog image, contact/privacy layout, three-second carousel and retained form/support workflows.');
+console.log('PASS: retired-page redirects/no links, credentials, distinct blog image, contact/privacy layout, six-second carousel and retained form/support workflows.');
 console.log(`PASS: expected origin ${expectedOrigin}, root base /, unchanged production canonicals and no obsolete repository-prefix paths.`);
 console.log(`PASS: ${referenceCount} Further reading links open safely in a new tab with accessible notices.`);
 console.log('Production domain, Wix, DNS and advertising are not changed by this verification.');

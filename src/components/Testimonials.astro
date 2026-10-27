@@ -84,8 +84,8 @@ import { testimonials } from '../data/testimonials';
       playback.setAttribute('aria-label', playing ? 'Pause automatic testimonials' : 'Play automatic testimonials');
       region.setAttribute('aria-live', playing ? 'off' : 'polite');
       count.setAttribute('aria-live', playing ? 'off' : 'polite');
-      // A brisk browse interval; pause, hover, focus and arrows allow longer reading.
-      if (playing && inView && !hovered && !focusPaused && !document.hidden) timer = setTimeout(() => {show(current + 1); sync();}, 3000);
+      // Six seconds per review; pause, hover, focus and arrows allow longer reading.
+      if (playing && inView && !hovered && !focusPaused && !document.hidden) timer = setTimeout(() => {show(current + 1); sync();}, 6000);
     };
     const show = (index: number) => {
       current = (index + slides.length) % slides.length;

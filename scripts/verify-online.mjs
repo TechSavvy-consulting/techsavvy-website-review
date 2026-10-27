@@ -56,6 +56,16 @@ for (const route of routes) {
   }
   if(route==='/')assert.equal(decodeHtml(html.match(/<title>([^<]+)<\/title>/)?.[1]||''),'TechSavvy Consulting | Managed IT & Cybersecurity in Tulsa','Approved homepage title');
   if(route==='/'||route==='/contact')assert.match(html,/Number of users <span class="optional"[^>]*>\(optional\)<\/span>/,`${route}: latest approved label online`);
+  if(route==='/proactive-it'){
+    for(const text of ['Monthly IT checkups','Weekly updates, tested first','monthly security checks','Weekly updates, monthly IT checkups and ongoing monitoring'])assert.ok(html.includes(text),`${route}: ${text}`);
+    assert.doesNotMatch(html,/quarterly checkups|Quarterly IT checkups|inform our everyday care/i,`${route}: old wording removed`);
+  }
+  if(route==='/offsite-backup-recovery')for(const text of ['Recovery planning built around your business','Backup protection and recovery','Protect your data. Plan your recovery.','Combine local backups for convenient restores with offsite copies for added protection.'])assert.ok(html.includes(text),`${route}: ${text}`);
+  if(route==='/ai-services'){
+    assert.match(html,/We connect AI with the tools you already use/,`${route}: new process explanation`);
+    assert.match(html,/Start with what matters to your business\./,`${route}: new first step`);
+  }
+  if(route==='/blog')assert.doesNotMatch(html,/All articles, newest first\./,`${route}: removed explanatory note`);
   if(route==='/'){
     const cards=[...html.matchAll(/<article\b[^>]*class="service-card"[^>]*>([\s\S]*?)<\/article>/g)].map(match=>match[1]);
     assert.equal(cards.length,6,'Six homepage service cards online');

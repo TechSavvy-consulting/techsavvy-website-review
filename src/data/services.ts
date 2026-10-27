@@ -95,13 +95,13 @@ export const servicePages = [
         icon: 'server',
       },
       {
-        title: 'Quarterly IT checkups',
-        text: 'Look beyond individual alerts. We review system health, capacity and recurring issues, then explain what is working well and which improvements will help your business next.',
+        title: 'Monthly IT checkups',
+        text: 'Each month, we review system health, performance and capacity, then recommend improvements that support your business.',
         icon: 'clock',
       },
       {
-        title: 'Updates tested before rollout',
-        text: 'We test updates in-house before deploying them to customers. Planned rollouts and follow-up checks help keep operating systems and applications current, secure and ready for work.',
+        title: 'Weekly updates, tested first',
+        text: 'We test updates in-house before rolling them out each week. Planned installation and follow-up checks help keep your operating systems and applications current and better protected.',
         icon: 'settings',
       },
       {
@@ -111,7 +111,7 @@ export const servicePages = [
       },
       {
         title: 'Security built into everyday care',
-        text: 'Cybersecurity training and certifications held by our staff inform our everyday care. Endpoint protection, patching and security checks work together to strengthen your infrastructure and support the way your business works.',
+        text: 'Staff with cybersecurity training and certifications help protect your computers, servers and networks through endpoint protection, regular patching and monthly security checks.',
         icon: 'shield',
       },
       {
@@ -123,7 +123,7 @@ export const servicePages = [
     faq: [
       {
         question: 'What does ongoing IT care mean for our business?',
-        answer: 'Your technology gets consistent attention between support calls. Monitoring, routine maintenance and quarterly checkups help keep computers and servers cared for, so your people can focus on their work while we look after the technology behind it.',
+        answer: 'Your technology gets consistent attention between support calls. Weekly updates, monthly IT checkups and ongoing monitoring help keep your computers and servers current, better protected and ready for work.',
       },
       {
         question: 'How does proactive care strengthen our security?',
@@ -145,7 +145,7 @@ export const servicePages = [
     benefits: [
       'Local and offsite protection options',
       'Backup monitoring and restore testing',
-      'Business-led recovery priorities',
+      'Recovery planning built around your business',
     ],
     cards: [
       {
@@ -155,7 +155,7 @@ export const servicePages = [
       },
       {
         title: 'Local and offsite copies',
-        text: 'Balance recovery speed, storage locations, bandwidth and existing equipment in your backup design.',
+        text: 'Combine local backups for convenient restores with offsite copies for added protection. We design the right approach around your systems and recovery needs.',
         icon: 'cloud',
       },
       {
