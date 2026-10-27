@@ -1,0 +1,67 @@
+---
+import Icon from './Icon.astro';
+import { previewPath } from '../utils/preview-path';
+---
+
+<section class="thank-you-section" aria-labelledby="thank-you-heading">
+  <div class="container thank-you-grid">
+    <div class="thank-you-copy">
+      <span class="thank-you-check" aria-hidden="true"><Icon name="check" size={34} /></span>
+      <span class="eyebrow">A good conversation starts here</span>
+      <h1 id="thank-you-heading">Thanks for reaching out.<br/><em>We’re glad you did.</em></h1>
+      <p class="submission-confirmation" data-submission-confirmation hidden><Icon name="check" size={19} />Your message has been submitted.</p>
+      <p class="thank-you-lead">We look forward to learning about your business and how we can help.</p>
+      <div class="thank-you-note"><Icon name="chat" size={25} /><p>Good IT starts with a conversation.<br/>We’re glad to be part of yours.</p></div>
+      <a class="button button-primary" href={previewPath('/')}>Return to our homepage <Icon name="arrow" size={18} /></a>
+      <p class="thank-you-phone">Prefer a conversation now?<br/><a href="tel:+19184002424"><Icon name="phone" size={18} />(918) 400-2424</a></p>
+    </div>
+    <figure class="thank-you-portrait">
+      <img src={previewPath('/images/kyle-hearn-neutral.webp')} width="1000" height="1000" alt="Kyle Erik Hearn, founder of TechSavvy Consulting, smiling" fetchpriority="high" />
+      <figcaption><strong>Kyle Erik Hearn</strong><span>Founder &amp; Chief Technology Officer</span></figcaption>
+    </figure>
+  </div>
+</section>
+
+<script>
+  import { consumeFormConfirmation } from '../utils/form-confirmation';
+  // A short-lived, one-use functional marker confirms this tab just submitted.
+  // It contains no inquiry details and is never sent to analytics or any server.
+  const confirmation = document.querySelector<HTMLElement>('[data-submission-confirmation]');
+  if (confirmation && consumeFormConfirmation()) confirmation.hidden = false;
+</script>
+
+<style>
+  .thank-you-section { padding: 76px 0 84px; background: linear-gradient(125deg, #f1f7fc, #fafaf8 78%); }
+  .thank-you-grid { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, .85fr); gap: 80px; align-items: center; }
+  .thank-you-copy { max-width: 650px; }
+  .thank-you-check { display: grid; place-items: center; width: 66px; height: 66px; margin-bottom: 27px; border: 1px solid #c4dfd5; border-radius: 50%; background: #e5f3ed; color: #266f58; }
+  .thank-you-copy h1 { margin-top: 19px; color: var(--ink); font-size: clamp(2.5rem, 4.1vw, 3.8rem); letter-spacing: -.045em; line-height: 1.12; }
+  .thank-you-copy h1 em { color: var(--blue); font-style: normal; }
+  .submission-confirmation { display: flex; gap: 9px; align-items: center; margin-top: 26px; font-size: 1rem; color: #266f58; font-weight: 700; }
+  .submission-confirmation[hidden] { display: none; }
+  .submission-confirmation :global(svg) { flex-shrink: 0; }
+  .thank-you-lead { max-width: 480px; margin-top: 21px; font-size: 1.1rem; line-height: 1.8; color: var(--muted); }
+  .thank-you-note { display: flex; gap: 15px; align-items: center; margin: 27px 0 32px; padding-left: 17px; border-left: 3px solid #a6cde8; }
+  .thank-you-note :global(svg) { flex-shrink: 0; color: var(--blue); }
+  .thank-you-note p { color: var(--ink); font-size: .96rem; line-height: 1.7; }
+  .thank-you-phone { margin-top: 23px; color: var(--muted); font-size: .86rem; line-height: 1.8; }
+  .thank-you-phone a { display: inline-flex; align-items: center; gap: 9px; color: var(--ink); font-size: 1rem; font-weight: 700; text-decoration: none; }
+  .thank-you-phone a:hover { color: var(--blue); text-decoration: underline; }
+  .thank-you-portrait { width: 100%; max-width: 420px; justify-self: end; margin: 0; border-radius: 22px; overflow: hidden; background: white; border: 1px solid var(--line); box-shadow: 0 20px 55px #173b5710; }
+  .thank-you-portrait img { width: 100%; height: auto; aspect-ratio: 1; object-fit: cover; }
+  .thank-you-portrait figcaption { display: grid; gap: 5px; padding: 24px 27px; }
+  .thank-you-portrait strong { color: var(--ink); font-size: 1.05rem; }
+  .thank-you-portrait figcaption span { color: var(--muted); font-size: .85rem; line-height: 1.5; }
+  @media (max-width: 1000px) { .thank-you-grid { gap: 38px; } }
+  @media (max-width: 700px) {
+    .thank-you-section { padding: 42px 0 54px; }
+    .thank-you-grid { grid-template-columns: 1fr; gap: 34px; }
+    .thank-you-check { width: 54px; height: 54px; margin-bottom: 24px; }
+    .thank-you-copy h1 { font-size: clamp(2.35rem, 9vw, 3.2rem); }
+    .thank-you-lead { font-size: 1rem; }
+    .thank-you-note { margin-block: 23px 27px; }
+    .thank-you-copy .button { padding-inline: 18px; font-size: .84rem; }
+    .thank-you-portrait { justify-self: start; max-width: 350px; }
+    .thank-you-portrait figcaption { padding: 21px 23px; }
+  }
+</style>

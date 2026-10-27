@@ -2,6 +2,8 @@
 
 Follow Kyle's latest global instructions and the current chat's approvals.
 
+- FAQ/thank-you authorization (October 27, 2026): Kyle approved the agreed hourly/one-time support FAQ answer, a welcoming thank-you page using the existing approved portrait, and redirects to it after confirmed success from all three AJAX inquiry forms. Test and publish deliberately to Cloudflare, with no tracking changes. Keep errors/native POST fallback, form identifiers/requiredness, email/DNS/advertisements and all other content intact. Clearly marked delivery tests are verification, never leads.
+
 - Post-launch cleanup authorization (October 27, 2026): Kyle approved disabling optional Cloudflare RUM visitor analytics, adding captions/transcript to the unchanged homepage video, minimal copy/format consistency and readable footer text, plus using the existing head-only logo for ICO/Apple icons on all pages. Test and deliberately deploy the self-contained update to Cloudflare; no advertisements, email, DNS, new tracking, plan purchases or Wix cancellation. This supersedes older preview-only language for these approved changes only.
 
 - This repository is a separate design example, not the live website.

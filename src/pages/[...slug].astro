@@ -8,6 +8,7 @@ import BlogCards from '../components/BlogCards.astro';
 import StandardPages from '../components/StandardPages.astro';
 import BlogArticle from '../components/BlogArticle.astro';
 import PolicyContent from '../components/PolicyContent.astro';
+import ThankYou from '../components/ThankYou.astro';
 import { servicePages } from '../data/services';
 import { posts, allPosts } from '../data/blog';
 import inventory from '../data/source-inventory.json';
@@ -37,7 +38,7 @@ const pageMetadata: Record<string, {title: string; description: string}> = {
   '/tulsa-it-faq': {title:'Managed IT Questions Answered | TechSavvy Tulsa', description:'Learn about TechSavvy managed IT, IT director-level guidance, vendor coordination and support arrangements for Tulsa County organizations.'},
   '/english-privacy-policy': {title:'Privacy Policy | TechSavvy Consulting', description:'How TechSavvy handles website inquiries, the providers supporting this site, and how to contact us about privacy.'},
   '/accessibility-statement': {title:'Accessibility | TechSavvy Consulting', description:'Accessibility features on the TechSavvy website and ways to get help accessing our information and services.'},
-  '/thank-you': {title:'Thank You | TechSavvy Consulting', description:'Contact TechSavvy Consulting about your business technology, or call us when you need a more immediate conversation.'},
+  '/thank-you': {title:'Thank You | TechSavvy Consulting', description:'Thanks for reaching out. We look forward to learning about your business and how TechSavvy can help.'},
 };
 // Keep search/share metadata independent of the approved visible service copy.
 const title = pageMetadata[path]?.title || (service ? `${service.title} | TechSavvy Consulting` : post ? `${post.title} | TechSavvy Consulting` : source?.title || 'TechSavvy Consulting');
@@ -79,5 +80,5 @@ const faqIntroduction = faqIntroductions[path];
       <PolicyContent path={path} />
     </div></section>
   </>}
-  {path==='/thank-you' && <section class="section section-pale"><div class="container empty-state"><span class="eyebrow">Let’s keep the conversation going</span><h1 style="margin-top:15px">Thanks for reaching out.</h1><p>We look forward to learning about your business. A successfully submitted inquiry is confirmed on the contact form itself. If you need a more immediate conversation, call <a href="tel:+19184002424">(918) 400-2424</a>.</p><a href={previewPath('/')} class="button button-primary">Back to Home <Icon name="arrow" size={18}/></a></div></section>}
+  {path==='/thank-you' && <ThankYou />}
 </BaseLayout>

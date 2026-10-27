@@ -58,7 +58,7 @@ Deploy only the configured `dist-cloudflare/` static assets and `cloudflare/vide
 - The additional production contact test was accepted but filtered into Formspree spam. Only that known synthetic record was marked Not Spam; its matching email arrived at sales@techsavvy.consulting at 14:58:26 UTC. Keep this fourth launch test out of leads. No spam settings changed. See `CLOUDFLARE-LAUNCH-2026-10-27.md` for the qualified delivery evidence, and inspect the spam queue if notifications are unexpectedly absent.
 - Keep Formshield enabled. The new form was created with CAPTCHA disabled by default; no protection was disabled for this integration. Review abuse before choosing any additional protection.
 - Submissions contain only ordinary business inquiry fields. No uploads, passwords, payment information or PHI. Visitors are warned accordingly.
-- Native HTML POST is a no-JavaScript fallback. AJAX shows in-page success/errors, preserves fields on uncertain failures, and never automatically retries.
+- Native HTML POST remains a no-JavaScript fallback with Formspree-hosted confirmation. AJAX now redirects confirmed successful submissions to the same-origin `/thank-you` page, preserves fields on uncertain failures, and never automatically retries. See `THANK-YOU-RELEASE-2026-10-27.md` for the approved FAQ/confirmation release and three-form delivery evidence.
 - Level installers are vendor-hosted generic downloads. Customer-specific enrollment keys/commands must be delivered privately, never committed.
 
 ## References

@@ -129,7 +129,9 @@ assert.equal(formCount,3,'Expected home callback + contact + paid landing form')
 const htmlFor=async route=>readFile(path.join(dist,route+(pagesPreview?'/index.html':'.html')),'utf8');
 const faq=await htmlFor('tulsa-it-faq');
 assert.doesNotMatch(faq.match(/<main[^>]*>([\s\S]*?)<\/main>/)?.[1]||'',/<details\b/,'FAQ answers always visible');
-assert.equal((faq.match(/class="faq-answer-card"/g)||[]).length,11,'Eleven visible FAQ answers');
+assert.equal((faq.match(/class="faq-answer-card"/g)||[]).length,12,'Twelve visible FAQ answers');
+assert.match(faq,/Do you offer hourly or one-time support\?/,'Approved hourly-support question');
+assert.ok(faq.includes('For existing managed clients, we also offer hourly assistance and separately priced projects—including additional staff support, AI services and other work outside the managed agreement.'),'Existing managed-client exception is explicit');
 const home=await readFile(path.join(dist,'index.html'),'utf8');
 const homepageServices=[...home.matchAll(/<article\b[^>]*class="service-card"[^>]*>([\s\S]*?)<\/article>/g)].map(match=>match[1]);
 assert.equal(homepageServices.length,6,'All six homepage service cards retained');
@@ -239,6 +241,18 @@ for(const route of ['english-privacy-policy','accessibility-statement']){
   assert.doesNotMatch(main,/\bWix\b|\bGitHub\b/i,`${route}: no obsolete hosting provider references`);
 }
 const landing=await htmlFor('managed-it-tulsa');
+const thankYou=await htmlFor('thank-you');
+assert.match(thankYou,/Thanks for reaching out\./,'Warm thank-you headline');
+assert.match(thankYou,/We’re glad you did\./,'Approved welcoming message');
+assert.match(thankYou,/data-submission-confirmation[^>]*hidden/,'Direct visits do not falsely confirm a submission');
+assert.match(thankYou,/kyle-hearn-neutral.webp/,'Existing approved portrait reused');
+assert.doesNotMatch(thankYou,/confirmed on the contact form itself/,'Obsolete confirmation explanation removed');
+assert.match(thankYou,/Return to our homepage/,'Useful home link');
+assert.match(thankYou,/href="tel:\+19184002424"/,'Clickable direct-contact fallback');
+for(const route of ['/','contact','managed-it-tulsa']) {
+  const html=route==='/'?home:await htmlFor(route);
+  assert.match(html,/data-success-url="\/thank-you"/,`${route}: same-site successful-submission destination`);
+}
 assert.match(landing,/<link rel="canonical" href="https:\/\/www\.techsavvy\.consulting\/managed-it-tulsa"/, 'Paid landing preserves its production canonical');
 assert.doesNotMatch(landing,/<iframe\b|https?:\/\/[^"'<>\s]*(?:wixstatic|filesusr|parastorage|wix\.com)/i,'Paid landing no longer depends on Wix embeds or assets');
 const landingForm=landing.match(/<form\b[^>]*>([\s\S]*?)<\/form>/)?.[1]||'';

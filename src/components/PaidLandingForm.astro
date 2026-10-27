@@ -17,6 +17,7 @@ const endpoint = getContactFormEndpoint();
     data-contact-form
     data-paid-contact-form
     data-submission-mode={contactFormConfig.submissionMode}
+    data-success-url={previewPath('/thank-you')}
   >
     <p class="form-notice" id={`${id}-notice`}>Fields marked with an asterisk (*) are required.</p>
     <input type="hidden" name="subject" value="TechSavvy website: new inquiry" />
@@ -49,6 +50,7 @@ const endpoint = getContactFormEndpoint();
 
 <script>
   import { getFormspreeFieldErrors, isFormspreeSuccess } from '../utils/formspree-response';
+  import { rememberFormConfirmation } from '../utils/form-confirmation';
 
   // No credentials, tracking, draft storage or automatic retries. The form only
   // sends after its visitor submits it. Native POST remains available without JS.
@@ -63,8 +65,15 @@ const endpoint = getContactFormEndpoint();
 
     const originalLabel = submitLabel.textContent || 'Send message';
     let submitting = false;
+    let redirecting = false;
+    let fieldDisabledStates: Array<{ field: ContactField; disabled: boolean }> = [];
     const fields = Array.from(form.querySelectorAll<ContactField>('input:not([type="hidden"]):not([name="_gotcha"]), textarea, select'));
     const errors = Array.from(form.querySelectorAll<HTMLElement>('[data-field-error]'));
+
+    const restoreFields = () => {
+      fieldDisabledStates.forEach(({ field, disabled }) => { field.disabled = disabled; });
+      fieldDisabledStates = [];
+    };
 
     const setBusy = (busy: boolean) => {
       submitting = busy;
@@ -99,10 +108,12 @@ const endpoint = getContactFormEndpoint();
       field.addEventListener('change', () => clearFieldError(field));
     });
 
-    // Restore an enabled button if the visitor returns from hosted Formspree
-    // confirmation/challenge with the browser Back button.
+    // Restore controls when returning from our thank-you page or Formspree's
+    // native confirmation/challenge using the browser Back button.
     window.addEventListener('pageshow', event => {
-      if (event.persisted && form.dataset.submissionMode === 'native') {
+      if (event.persisted) {
+        redirecting = false;
+        restoreFields();
         setBusy(false);
         status.hidden = true;
       }
@@ -140,7 +151,7 @@ const endpoint = getContactFormEndpoint();
       // Freeze only after capturing the AJAX payload so a successful response
       // cannot erase edits made while that earlier payload was in flight.
       // Native POST returns above and keeps its fields enabled for serialization.
-      const fieldDisabledStates = fields.map(field => ({ field, disabled: field.disabled }));
+      fieldDisabledStates = fields.map(field => ({ field, disabled: field.disabled }));
       fields.forEach(field => { field.disabled = true; });
       setBusy(true);
       status.textContent = 'Sending your message…';
@@ -163,9 +174,24 @@ const endpoint = getContactFormEndpoint();
         if (isFormspreeSuccess(response.ok, contentType, result)) {
           form.reset();
           fields.forEach(clearFieldError);
-          status.textContent = 'Thank you—your message has been submitted. We look forward to talking with you.';
+          status.textContent = 'Thank you—your message has been submitted. ';
           status.hidden = false;
           status.focus();
+          // Keep confirmation useful if navigation is blocked. A redirect error
+          // must not suggest resending an inquiry already accepted by Formspree.
+          try {
+            const destination = new URL(form.dataset.successUrl || '/thank-you', window.location.href);
+            if (destination.origin !== window.location.origin) throw new Error('Invalid confirmation destination');
+            const confirmationLink = document.createElement('a');
+            confirmationLink.href = destination.href;
+            confirmationLink.textContent = 'Continue to your confirmation.';
+            status.append(confirmationLink);
+            rememberFormConfirmation();
+            redirecting = true;
+            window.location.assign(destination.href);
+          } catch {
+            redirecting = false;
+          }
           return;
         }
 
@@ -183,8 +209,10 @@ const endpoint = getContactFormEndpoint();
         showError('We couldn’t confirm your message was submitted. Your entries are still here. Please contact us at (918) 400-2424 or sales@techsavvy.consulting before trying again.');
       } finally {
         window.clearTimeout(timeout);
-        fieldDisabledStates.forEach(({ field, disabled }) => { field.disabled = disabled; });
-        setBusy(false);
+        if (!redirecting) {
+          restoreFields();
+          setBusy(false);
+        }
       }
     });
   });
