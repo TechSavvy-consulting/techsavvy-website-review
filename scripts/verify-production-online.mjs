@@ -65,7 +65,7 @@ const assertMetadata = (html, route, expected) => {
   assert.equal(actual['techsavvy-revision'], expected['techsavvy-revision'], `${route}: artifact revision`);
   assert.equal((html.match(/<h1[\s>]/gi) || []).length, 1, `${route}: one H1`);
   assert.doesNotMatch(html, /github\.io|githubusercontent\.com|websitenew\.techsavvy\.consulting|workers\.dev|wixstatic\.com|filesusr\.com/i, `${route}: self-contained production hosting`);
-  assert.doesNotMatch(html, /<(?:script|iframe)[^>]+(?:googletagmanager|google-analytics|doubleclick|facebook\.net|youtube\.com\/embed)/i, `${route}: no optional tracking or video embed`);
+  assert.doesNotMatch(html, /<(?:script|iframe)[^>]+(?:googletagmanager|google-analytics|doubleclick|facebook\.net|cloudflareinsights|data-cf-beacon|youtube\.com\/embed)/i, `${route}: no optional tracking or video embed in this response; live browser check also required`);
 };
 
 const redirectText = await readFile(path.join(dist, '_redirects'), 'utf8');

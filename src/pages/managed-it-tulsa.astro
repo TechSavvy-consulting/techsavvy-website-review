@@ -1,5 +1,6 @@
 ---
 import PaidLandingForm from '../components/PaidLandingForm.astro';
+import Favicons from '../components/Favicons.astro';
 import { previewPath } from '../utils/preview-path';
 import { defaultSocialImage, defaultSocialImageAlt } from '../utils/social-image';
 import { robotsForRoute } from '../utils/deployment';
@@ -25,7 +26,7 @@ const schema = { '@context':'https://schema.org', '@type':'LocalBusiness', '@id'
     <meta name="robots" content={robots} />
     <meta name="techsavvy-revision" content="10" />
     <link rel="canonical" href={canonical} />
-    <link rel="icon" href={previewPath('/favicon.svg')} type="image/svg+xml" />
+    <Favicons />
     <meta name="theme-color" content="#102543" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="TechSavvy Consulting" />
@@ -52,7 +53,7 @@ const schema = { '@context':'https://schema.org', '@type':'LocalBusiness', '@id'
     </div></header>
     <main id="main">
       <section class="hero"><div class="wrap hero-grid">
-        <div><p class="eyebrow">Your local IT team in Tulsa</p><h1>Keep Your Tech<br/><span>Working For You.</span></h1><p class="intro">Complete managed IT support for Tulsa businesses with <strong>10–100 computer and device users.</strong> We act as your local IT team.</p><div class="hero-actions"><a class="button" href="#talk-with-techsavvy">Let’s talk about your IT <span aria-hidden="true">&nbsp; →</span></a><a class="text-link" href="tel:+19184002424">Call (918) 400-2424</a></div><div class="home-action"><a class="button secondary" href={previewPath('/')}>Visit Our Home Page</a></div><p class="hero-note">Local support. Practical guidance. A plan that fits your business.</p></div>
+        <div><p class="eyebrow">Your local IT team in Tulsa</p><h1>Keep your tech<br/><span>working for you.</span></h1><p class="intro">Complete managed IT support for Tulsa businesses with <strong>10–100 computer and device users.</strong> We act as your local IT team.</p><div class="hero-actions"><a class="button" href="#talk-with-techsavvy">Let’s talk about your IT <span aria-hidden="true">&nbsp; →</span></a><a class="text-link" href="tel:+19184002424">Call (918) 400-2424</a></div><div class="home-action"><a class="button secondary" href={previewPath('/')}>Visit our home page</a></div><p class="hero-note">Local support. Practical guidance. A plan that fits your business.</p></div>
         <div class="hero-photo"><img src={previewPath('/images/managed-it-tulsa-hero.avif')} width="1265" height="747" alt="Technology professional working in a server room" fetchpriority="high" /><div class="photo-label">Your workday comes first.<span>Support designed to limit interruptions.</span></div></div>
       </div></section>
       <div class="proof"><div class="wrap">
@@ -70,7 +71,7 @@ const schema = { '@context':'https://schema.org', '@type':'LocalBusiness', '@id'
         <div class="service-scope"><h3>Complete IT service. One local team.</h3><p>We act as your business’s local IT team—from everyday help to long-term planning. Get remote and on-site support across the technology your business depends on.</p><ul class="service-list"><li>Computers and business devices</li><li>Servers and networks</li><li>Microsoft 365 and cloud services</li><li>Backups and recovery planning</li><li>Technology vendor coordination</li><li>IT planning and guidance</li></ul><small>Services, coverage and responsibilities are defined in your agreed support plan.</small></div>
       </div></section>
       <section id="talk-with-techsavvy" class="section background"><div class="wrap contact-grid">
-        <div class="contact-copy"><p class="eyebrow">Let’s start a conversation</p><h2>Tell us about your business.<br/>We’ll talk through your IT.</h2><p>Looking for an ongoing IT partner for your Tulsa-area organization? Let’s discuss the right approach for your people, systems and day-to-day work.</p><ul class="checks"><li>Support for 10–100 computer and device users</li><li>Remote and on-site options to fit your needs</li><li>Scope and pricing based on your service plan</li></ul><a class="phone" href="tel:+19184002424">(918) 400-2424</a><small>Prefer to call? We’re here Monday–Friday, 8 AM–5 PM Central.</small></div>
+        <div class="contact-copy"><p class="eyebrow">Let’s start a conversation</p><h2>Tell us about your business.<br/>We’ll talk through your IT.</h2><p>Looking for an ongoing IT partner for your Tulsa-area organization? Let’s discuss the right approach for your people, systems and day-to-day work.</p><ul class="checks"><li>Support for 10–100 computer and device users</li><li>Remote and on-site options to fit your needs</li><li>Scope and pricing based on your service plan</li></ul><a class="phone" href="tel:+19184002424">(918) 400-2424</a><small>Prefer to call? We’re here Monday–Friday, 8am–5pm Central.</small></div>
         <div class="form-card"><h3>Talk with TechSavvy</h3><p>A little context helps us start the right conversation.</p><PaidLandingForm /></div>
       </div></section>
       <section class="section process"><div class="wrap"><div class="section-title"><p class="eyebrow">A straightforward next step</p><h2>Start with a conversation.<br/>Build the right support plan.</h2></div><div class="steps"><article class="step"><span class="number">01 / LET’S TALK</span><h3>Share what you need</h3><p>Tell us about your business, device users and what you want from your IT support.</p></article><article class="step"><span class="number">02 / REVIEW THE FIT</span><h3>Understand the options</h3><p>We discuss your environment, priorities and whether recurring managed IT is the right fit.</p></article><article class="step"><span class="number">03 / PLAN TOGETHER</span><h3>Agree on the scope</h3><p>If we’re a good match, we’ll outline the support, responsibilities and pricing before you decide.</p></article></div></div></section>

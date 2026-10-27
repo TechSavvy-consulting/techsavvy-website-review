@@ -3,6 +3,7 @@ import { previewPath } from '../utils/preview-path';
 import { defaultSocialImage, defaultSocialImageAlt } from '../utils/social-image';
 import { robotsForRoute } from '../utils/deployment';
 import Icon from '../components/Icon.astro';
+import Favicons from '../components/Favicons.astro';
 import '../styles/global.css';
 const { title = 'TechSavvy Consulting | Managed IT for Tulsa County', description = 'Managed IT, vendor coordination and IT leadership for Tulsa County businesses. Practical support that cares about your people and your growth.', path = '/', canonicalPath = path, article = false, socialImage = { path: defaultSocialImage, alt: defaultSocialImageAlt } } = Astro.props;
 const canonical = new URL(canonicalPath, 'https://www.techsavvy.consulting').href;
@@ -31,7 +32,7 @@ const schema = { '@context':'https://schema.org', '@type':'LocalBusiness', '@id'
     <meta name="robots" content={robots} />
     <meta name="techsavvy-revision" content="10" />
     <link rel="canonical" href={canonical} />
-    <link rel="icon" href={previewPath('/favicon.svg')} type="image/svg+xml" />
+    <Favicons />
     <meta name="theme-color" content="#14324d" />
     <meta property="og:type" content={article ? 'article' : 'website'} />
     <meta property="og:site_name" content="TechSavvy Consulting" />
@@ -74,7 +75,7 @@ const schema = { '@context':'https://schema.org', '@type':'LocalBusiness', '@id'
         <div class="footer-brand"><a href={previewPath('/')} aria-label="TechSavvy Consulting home"><img src={previewPath('/images/techsavvy-logo.webp')} width="608" height="170" alt="TechSavvy Consulting" loading="lazy" /></a><p><span class="footer-tagline">Dependable IT. Practical AI.</span><br/>Personal relationships.<br/>A local partner for your business.</p><div class="social-links"><a href="https://www.linkedin.com/company/techsavvy-consulting/" rel="noopener noreferrer" target="_blank">LinkedIn <span>↗</span></a><a href="https://www.facebook.com/techsavvyok/" rel="noopener noreferrer" target="_blank">Facebook <span>↗</span></a><a href="https://www.instagram.com/techsavvyok/" rel="noopener noreferrer" target="_blank">Instagram <span>↗</span></a></div></div>
         <div><h2>How we help</h2><ul>{services.filter(item=>item.href!=='/it-support-business-tulsa').map(item=><li><a href={previewPath(item.href)}>{item.label}</a></li>)}</ul></div>
         <div><h2>TechSavvy</h2><ul><li><a href={previewPath('/about-it-support')}>About us</a></li><li><a href={previewPath('/it-support-business-tulsa')}>Why TechSavvy</a></li><li><a href={previewPath('/tulsa-it-faq')}>Common questions</a></li><li><a href={previewPath('/blog')}>TechSavvy blog</a></li><li><a href={previewPath('/contact')}>Contact us</a></li></ul></div>
-        <div class="footer-contact"><h2>Let’s connect</h2><a class="footer-phone" href="tel:+19184002424">(918) 400-2424</a><a href="mailto:sales@techsavvy.consulting">sales@techsavvy.consulting</a><p>5840 S Memorial Dr<br/>Tulsa, OK 74145</p><p>Monday–Friday<br/>8:00am–5:00pm Central</p></div>
+        <div class="footer-contact"><h2>Let’s connect</h2><a class="footer-phone" href="tel:+19184002424">(918) 400-2424</a><a href="mailto:sales@techsavvy.consulting">sales@techsavvy.consulting</a><p>5840 S Memorial Dr<br/>Tulsa, OK 74145</p><p>Monday–Friday<br/>8am–5pm Central</p></div>
       </div>
       <div class="container footer-bottom"><span>© {new Date().getFullYear()} TechSavvy Consulting, LLC.</span><div><a href={previewPath('/english-privacy-policy')}>Privacy policy</a><a href={previewPath('/accessibility-statement')}>Accessibility</a></div></div>
     </footer>

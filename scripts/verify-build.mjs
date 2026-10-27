@@ -6,6 +6,7 @@ import sharp from 'sharp';
 import { allPosts, featuredPosts } from '../src/data/blog.ts';
 import { defaultSocialImage, defaultSocialImageAlt, socialImageForPost } from '../src/utils/social-image.ts';
 import { deploymentConfig, robotsForRoute } from '../src/utils/deployment.ts';
+import { introductionTranscript } from '../src/data/introduction-transcript.ts';
 
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const pagesPreview=process.argv.includes('--pages');
@@ -35,6 +36,8 @@ for(const route of routes){
   const file=route==='/'?path.join(dist,'index.html'):path.join(dist,route.slice(1)+(pagesPreview&&route!=='/404'?'/index.html':'.html'));
   const html=await readFile(file,'utf8');
   assert.match(html,/<html[^>]+lang="en"/i,`${route}: document language`);
+  assert.match(html,/<link rel="icon" href="\/favicon.ico"/,`${route}: head-only ICO icon`);
+  assert.match(html,/<link rel="apple-touch-icon" href="\/apple-touch-icon.png"/,`${route}: head-only Apple icon`);
   assert.equal((html.match(/<h1[\s>]/g)||[]).length,1,`${route}: one H1`);
   assert.equal(metaContent(html,'robots'),robotsForRoute(route,buildEnv),`${route}: target-specific indexing guard`);
   assert.match(html,/<meta name="techsavvy-revision" content="10"/i,`${route}: current revision`);
@@ -77,7 +80,7 @@ for(const route of routes){
     assert.equal(schemas.find(schema=>schema['@type']==='BlogPosting')?.publisher?.['@id'],'https://www.techsavvy.consulting/#organization',`${route}: publisher references existing business`);
   }
   assert.doesNotMatch(html,/techsavvy-consulting\.github\.io|\/techsavvy-website-review(?:[/?#"']|$)/i,`${route}: no obsolete GitHub project URL or base`);
-  assert.doesNotMatch(html,/<(?:script|iframe)[^>]+(?:googletagmanager|google-analytics|doubleclick|facebook\.net|youtube\.com\/embed)/i,`${route}: no optional tracking/embed`);
+  assert.doesNotMatch(html,/<(?:script|iframe)[^>]+(?:googletagmanager|google-analytics|doubleclick|facebook\.net|cloudflareinsights|data-cf-beacon|youtube\.com\/embed)/i,`${route}: no optional tracking/embed in artifact; live browser check also required`);
   for(const note of html.matchAll(/<div class="article-note">\s*<strong>Further reading<\/strong>([\s\S]*?)<\/div>/g)){
     for(const link of note[1].matchAll(/<a\b([^>]+)>/g)){
       referenceCount++;
@@ -100,7 +103,7 @@ for(const route of routes){
     const submit=match[2].match(/<button\b[^>]*type="submit"[^>]*>([\s\S]*?)<\/button>/i)?.[1];
     assert.ok(submit,`${route}: submit button exists`);
     assert.doesNotMatch(submit,/↗|<svg\b|aria-hidden/i,`${route}: submit button has no decorative arrow`);
-    assert.equal(decodeHtml(submit.replace(/<[^>]+>/g,'').trim()),route==='/'?'Request a callback':route==='/managed-it-tulsa'?'Send Message':'Send message',`${route}: approved submit label`);
+    assert.equal(decodeHtml(submit.replace(/<[^>]+>/g,'').trim()),route==='/'?'Request a callback':'Send message',`${route}: approved submit label`);
   }
   for(const match of html.matchAll(/(?:href|src|poster)="(\/(?!\/)[^"]*)"/g)){
     const url=new URL(match[1],'https://review.local');
@@ -259,3 +262,32 @@ console.log('PASS: retired-page redirects/no links, credentials, distinct blog i
 console.log(`PASS: expected origin ${expectedOrigin}, root base /, unchanged production canonicals and no obsolete repository-prefix paths.`);
 console.log(`PASS: ${referenceCount} Further reading links open safely in a new tab with accessible notices.`);
 console.log('Production domain, Wix, DNS and advertising are not changed by this verification.');
+const vtt=await readFile(path.join(dist,'videos/techsavvy-introduction.en.vtt'),'utf8');
+assert.ok(vtt.startsWith('WEBVTT'));
+const cues=vtt.trim().split(/\r?\n\r?\n/).slice(1).map(block=>block.split(/\r?\n/));
+const seconds=value=>value.split(':').reduce((total,part)=>total*60+Number(part),0);
+let previousEnd=0;
+for(const [timing,...lines] of cues){
+  const [start,end]=timing.split(' --> ').map(seconds);
+  assert.ok(start>=previousEnd && end>start && end<=82.154,'Caption times fit unchanged video without overlaps');
+  assert.ok(lines.length<=2 && lines.every(line=>line.length<=42),'Readable caption lines');
+  previousEnd=end;
+}
+const normalize=value=>value.replace(/[^\p{L}\p{N}]+/gu,' ').trim().toLowerCase();
+assert.equal(normalize(cues.flatMap(cue=>cue.slice(1)).join(' ')),normalize(introductionTranscript.join(' ')),'Captions and visible transcript have identical spoken words');
+assert.match(home,/<track kind="captions" src="\/videos\/techsavvy-introduction.en.vtt" srclang="en" label="English"/);
+assert.match(home,/<details class="video-transcript"[^>]*>/);
+assert.doesNotMatch(home,/<details class="video-transcript"[^>]*\bopen\b/,'Transcript starts collapsed');
+const ico=await readFile(path.join(dist,'favicon.ico'));
+assert.equal(ico.readUInt16LE(2),1,'ICO image type');
+assert.equal(ico.readUInt16LE(4),6,'Six icon resolutions');
+for(const [index,size] of [16,32,48,64,128,256].entries()){
+  const entry=6+index*16;
+  assert.equal(ico[entry]||256,size);
+  const length=ico.readUInt32LE(entry+8),offset=ico.readUInt32LE(entry+12);
+  const frame=await sharp(ico.subarray(offset,offset+length)).metadata();
+  assert.equal(frame.width,size); assert.equal(frame.height,size);
+}
+const apple=await sharp(path.join(dist,'apple-touch-icon.png')).metadata();
+assert.equal(apple.width,180); assert.equal(apple.height,180);
+console.log(`PASS: head-only icons on every page; ${cues.length} timed captions match the collapsed transcript.`);

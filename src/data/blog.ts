@@ -284,8 +284,8 @@ export const posts: BlogPost[] = [
       {
         "heading": "Choose the relationship that fits your operation",
         "paragraphs": [
-          "Some businesses need an outside IT department, including hands-on support. Others already have someone onsite who knows the equipment and people but needs a consistent remote support operation behind them.",
-          "With Remote Managed IT, TechSavvy can provide remote help desk support, monitoring, updates, security care, backup checks, and server maintenance while your onsite resource handles local troubleshooting and hands-on tasks. Agree on how those roles work together so employees know where to get help."
+          "Some businesses need an outside IT department, including hands-on support. Others already have someone on-site who knows the equipment and people but needs a consistent remote support operation behind them.",
+          "With Remote Managed IT, TechSavvy can provide remote help desk support, monitoring, updates, security care, backup checks, and server maintenance while your on-site resource handles local troubleshooting and hands-on tasks. Agree on how those roles work together so employees know where to get help."
         ]
       },
       {
@@ -303,7 +303,7 @@ export const posts: BlogPost[] = [
         "bullets": [
           "How will employees request help, and how are urgent issues handled?",
           "Who manages updates, security checks, backups, and follow-up work?",
-          "How will remote and onsite responsibilities fit together?",
+          "How will remote and on-site responsibilities fit together?",
           "What is included in the recurring price, and how are additional costs approved?",
           "What happens during onboarding, and how will our systems and accounts be documented?"
         ]
@@ -357,7 +357,7 @@ export const posts: BlogPost[] = [
         "heading": "2. Who handles support, and how do you reach them?",
         "paragraphs": [
           "Walk through a realistic example: an employee cannot sign in, a business application stops working, or a server is unavailable. Ask who receives the request, how urgency is assessed, and how you will get updates.",
-          "Confirm support hours, emergency arrangements, and onsite coverage. If you have someone onsite already, discuss how remote help desk support and maintenance will connect with that person’s hands-on work."
+          "Confirm support hours, emergency arrangements, and on-site coverage. If you have someone on-site already, discuss how remote help desk support and maintenance will connect with that person’s hands-on work."
         ]
       },
       {

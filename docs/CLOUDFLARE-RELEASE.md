@@ -1,6 +1,6 @@
 # Cloudflare release checklist
 
-Updated October 27, 2026. Kyle approved production after accepting the Cloudflare preview. Production is now hosted independently on Cloudflare; see `CLOUDFLARE-LAUNCH-2026-10-27.md` for deployment, verification and rollback records. Preview instructions below apply only to the isolated review copy.
+Updated October 27, 2026. Kyle approved production after accepting the Cloudflare preview. Production is now hosted independently on Cloudflare; see `CLOUDFLARE-LAUNCH-2026-10-27.md` for launch/rollback records and `POST-LAUNCH-CLEANUP-2026-10-27.md` for approved captions, head-only icons, copy cleanup and optional RUM disablement. Preview instructions below apply only to the isolated review copy.
 
 ## Current arrangement
 
@@ -46,7 +46,8 @@ Deploy only the configured `dist-cloudflare/` static assets and `cloudflare/vide
 - Deliberately remove HTML/header noindex from production only, including the standalone paid landing page. Keep the GitHub arena noindex. Verify the prepared `/sitemap.xml` inventory and production canonicals, then review robots/Search Console ownership and submission. Do not submit the review sitemap or change indexing before approval.
 - Preserve `/managed-it-tulsa`, `/contact`, `/about-it-support` and `/outsourced-managed-it` at their current production paths. Verify every active ad/sitelink after cutover without editing the campaign. See `SEO-REVIEW-2026-10-27.md` for the retained URL inventory and exact review-build changes.
 - Review privacy/provider disclosures and any consent requirements for future analytics or marketing scripts. No such scripts are currently installed.
-- Add and verify accurate captions or a transcript for the introduction video. Revision 6's accessibility statement discloses the current limitation; update it when addressed. Do not claim full WCAG conformance without an appropriate audit.
+- Verify the no-optional-tracking decision in a real browser as well as raw HTTP: Cloudflare's automatic RUM injection was missed by the original HTTP-only launch check and was subsequently disabled during the approved cleanup. Keep security/operational processing intact.
+- Verify the English captions and expandable transcript added during the post-launch cleanup. The video is unchanged; the accessibility statement now describes these features. Do not claim full WCAG conformance without an appropriate audit.
 - Verify domain SSL, form delivery and old URLs after cutover. Keep the Wix site and prior DNS/artifact rollback available until accepted.
 
 ## Form operations

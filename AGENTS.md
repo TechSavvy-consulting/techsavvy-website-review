@@ -2,6 +2,8 @@
 
 Follow Kyle's latest global instructions and the current chat's approvals.
 
+- Post-launch cleanup authorization (October 27, 2026): Kyle approved disabling optional Cloudflare RUM visitor analytics, adding captions/transcript to the unchanged homepage video, minimal copy/format consistency and readable footer text, plus using the existing head-only logo for ICO/Apple icons on all pages. Test and deliberately deploy the self-contained update to Cloudflare; no advertisements, email, DNS, new tracking, plan purchases or Wix cancellation. This supersedes older preview-only language for these approved changes only.
+
 - This repository is a separate design example, not the live website.
 - The production Wix site, production DNS, email and advertising destinations are outside this implementation's write scope.
 - Kyle approved a public GitHub Pages example on October 24, 2026. The repository may be public.

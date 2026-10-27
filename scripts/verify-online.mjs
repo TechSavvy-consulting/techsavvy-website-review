@@ -52,7 +52,7 @@ for (const route of routes) {
     const submit=form[2].match(/<button\b[^>]*type="submit"[^>]*>([\s\S]*?)<\/button>/i)?.[1];
     assert.ok(submit,`${route}: submit button exists`);
     assert.doesNotMatch(submit,/↗|<svg\b|aria-hidden/i,`${route}: submit arrow removed`);
-    assert.equal(decodeHtml(submit.replace(/<[^>]+>/g,'').trim()),route==='/'?'Request a callback':route==='/managed-it-tulsa'?'Send Message':'Send message',`${route}: approved submit label`);
+    assert.equal(decodeHtml(submit.replace(/<[^>]+>/g,'').trim()),route==='/'?'Request a callback':'Send message',`${route}: approved submit label`);
   }
   if(route==='/')assert.equal(decodeHtml(html.match(/<title>([^<]+)<\/title>/)?.[1]||''),'TechSavvy Consulting | Managed IT & Cybersecurity in Tulsa','Approved homepage title');
   if(route==='/'||route==='/contact')assert.match(html,/Number of users <span class="optional"[^>]*>\(optional\)<\/span>/,`${route}: latest approved label online`);

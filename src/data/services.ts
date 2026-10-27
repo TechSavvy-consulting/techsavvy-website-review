@@ -7,7 +7,7 @@ export const servicePages = [
     summary: 'Keep your people productive and your technology moving forward. Get everyday support, proactive care and IT leadership in one working relationship.',
     icon: 'monitor',
     benefits: [
-      'Weekday help desk, 8am–5pm',
+      'Weekday help desk, 8am–5pm Central',
       'Full or Remote Managed IT plans',
       '24/7 emergency support according to your service plan',
     ],
@@ -52,11 +52,11 @@ export const servicePages = [
     faq: [
       {
         question: 'Which managed IT plan is right for us?',
-        answer: 'Both plans include Proactive IT: monitoring, maintenance, tested updates, security checks and backup oversight. Full Managed IT adds our onsite support. Remote Managed IT pairs our remote support with your local technician for hands-on work. We define covered systems, responsibilities and pricing together.',
+        answer: 'Both plans include Proactive IT: monitoring, maintenance, tested updates, security checks and backup oversight. Full Managed IT adds our on-site support. Remote Managed IT pairs our remote support with your local technician for hands-on work. We define covered systems, responsibilities and pricing together.',
       },
       {
         question: 'When can we get help?',
-        answer: 'Help desk support is available weekdays, 8am–5pm. After-hours, weekend and holiday emergency support is available 24/7 according to your service plan and its escalation process.',
+        answer: 'Help desk support is available weekdays, 8am–5pm Central. After-hours, weekend and holiday emergency support is available 24/7 according to your service plan and its escalation process.',
       },
       {
         question: 'Can you act as our IT department or work with our existing team?',
@@ -66,7 +66,7 @@ export const servicePages = [
     plans: [
       {
         title: 'Full Managed IT',
-        text: 'Your complete IT solution with onsite and remote support: help desk, computers and servers, cybersecurity, backups and cloud services. Proactive IT keeps systems monitored, maintained and updated, while planning and vendor coordination connect everyday care with your business goals.',
+        text: 'Your complete IT solution with on-site and remote support: help desk, computers and servers, cybersecurity, backups and cloud services. Proactive IT keeps systems monitored, maintained and updated, while planning and vendor coordination connect everyday care with your business goals.',
         icon: 'people',
       },
       {
@@ -106,7 +106,7 @@ export const servicePages = [
       },
       {
         title: 'Daily monitoring and follow-through',
-        text: 'Watch for device, server and backup issues, investigate alerts and follow through on repairs. You have an IT partner paying attention between support calls.',
+        text: 'We watch for device, server and backup issues, investigate alerts and follow through on repairs. You have an IT partner paying attention between support calls.',
         icon: 'monitor',
       },
       {
@@ -116,7 +116,7 @@ export const servicePages = [
       },
       {
         title: 'Backups with recovery in mind',
-        text: 'Check backup results and test restores. We help protect the work your business depends on and keep recovery priorities connected to your needs.',
+        text: 'We check backup results and test restores. We help protect the work your business depends on and keep recovery priorities connected to your needs.',
         icon: 'cloud',
       },
     ],

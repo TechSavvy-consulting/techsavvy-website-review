@@ -26,11 +26,11 @@ const endpoint = getContactFormEndpoint();
     </div>
     <label class="field" for={`${id}-name`}>Name <span aria-hidden="true">*</span><input id={`${id}-name`} name="name" autocomplete="name" required maxlength="120" aria-describedby={`${id}-name-error`} /><span class="field-error" id={`${id}-name-error`} data-field-error="name"></span></label>
     <label class="field" for={`${id}-email`}>Email <span aria-hidden="true">*</span><input id={`${id}-email`} name="email" type="email" autocomplete="email" required maxlength="254" aria-describedby={`${id}-email-error`} /><span class="field-error" id={`${id}-email-error`} data-field-error="email"></span></label>
-    <label class="field" for={`${id}-phone`}>Telephone <span class="optional">(optional)</span><input id={`${id}-phone`} name="phone" type="tel" autocomplete="tel" maxlength="50" aria-describedby={`${id}-phone-error`} /><span class="field-error" id={`${id}-phone-error`} data-field-error="phone"></span></label>
+    <label class="field" for={`${id}-phone`}>Phone <span class="optional">(optional)</span><input id={`${id}-phone`} name="phone" type="tel" autocomplete="tel" maxlength="50" aria-describedby={`${id}-phone-error`} /><span class="field-error" id={`${id}-phone-error`} data-field-error="phone"></span></label>
     <label class="field" for={`${id}-company`}>Company <span class="optional">(optional)</span><input id={`${id}-company`} name="company" autocomplete="organization" maxlength="160" aria-describedby={`${id}-company-error`} /><span class="field-error" id={`${id}-company-error`} data-field-error="company"></span></label>
     <label class="field" for={`${id}-message`}>Message <span aria-hidden="true">*</span><textarea id={`${id}-message`} name="message" rows="4" required maxlength="5000" aria-describedby={`${id}-message-error ${id}-privacy`}></textarea><span class="field-error" id={`${id}-message-error`} data-field-error="message"></span></label>
     <p class="form-privacy" id={`${id}-privacy`}>Please leave out passwords, patient information and other sensitive details.</p>
-    <button class="button form-button" type="submit"><span data-submit-label>Send Message</span></button>
+    <button class="button form-button" type="submit"><span data-submit-label>Send message</span></button>
     <p class="form-feedback" id={`${id}-status`} data-form-status role="status" aria-live="polite" aria-atomic="true" tabindex="-1" hidden></p>
     <p class="form-feedback form-feedback-error" id={`${id}-error`} data-form-error role="alert" aria-atomic="true" tabindex="-1" hidden></p>
     <div class="form-direct-contact">

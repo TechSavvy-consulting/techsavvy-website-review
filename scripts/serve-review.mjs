@@ -5,7 +5,7 @@ import { fileURLToPath } from 'node:url';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', 'dist');
 const port = Number(process.env.PORT || 4321);
-const types = { '.html':'text/html; charset=utf-8', '.css':'text/css; charset=utf-8', '.js':'application/javascript; charset=utf-8', '.json':'application/json', '.xml':'application/xml; charset=utf-8', '.avif':'image/avif', '.webp':'image/webp', '.png':'image/png', '.jpg':'image/jpeg', '.svg':'image/svg+xml', '.mp4':'video/mp4', '.txt':'text/plain; charset=utf-8', '.woff2':'font/woff2' };
+const types = { '.html':'text/html; charset=utf-8', '.css':'text/css; charset=utf-8', '.js':'application/javascript; charset=utf-8', '.json':'application/json', '.xml':'application/xml; charset=utf-8', '.avif':'image/avif', '.webp':'image/webp', '.png':'image/png', '.jpg':'image/jpeg', '.svg':'image/svg+xml', '.ico':'image/x-icon', '.mp4':'video/mp4', '.vtt':'text/vtt; charset=utf-8', '.txt':'text/plain; charset=utf-8', '.woff2':'font/woff2' };
 const aliases = { '/search-lp':'/contact', '/home-1':'/' };
 
 const server = http.createServer(async (req, res) => {
