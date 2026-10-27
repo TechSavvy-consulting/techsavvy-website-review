@@ -1,22 +1,32 @@
 # Cloudflare release checklist
 
-Updated October 27, 2026. This is preparation, not a deployment or DNS authorization.
+Updated October 27, 2026. Kyle approved the separate Cloudflare preview and synthetic form tests. Production cutover and DNS changes remain unapproved.
 
 ## Current arrangement
 
 - GitHub `main` deploys only to https://websitenew.techsavvy.consulting/.
 - Production remains Wix. Do not change root/www, MX, SPF, DKIM, DMARC or other email records.
-- The project is static Astro: Node 24, `npm ci`, `npm run build`, output `dist`. No server adapter, database or paid backend is needed for current features.
+- The project is static Astro on Cloudflare Workers Static Assets Free for the new preview. No Worker runtime, server adapter, database or paid backend is needed for current features. Cloudflare currently recommends Workers for new projects; older Pages-specific setup notes are superseded here.
 - Formspree supplies form processing. The public form ID may remain in source; no account password/API key belongs in the repository.
 - Cloudflare `_headers` and `_redirects` are prepared in public/. GitHub Pages ignores those settings. Noindex remains hardcoded in HTML and in the future Cloudflare preview header. Robots permits crawling so noindex can be read.
 
-## When Kyle approves Cloudflare preview
+## Approved Cloudflare preview workflow
 
 1. Record the exact approved Git commit and prior rollback commit. Build from that revision, not an unreviewed moving branch.
-2. Choose manual Direct Upload, or disable automatic production deployments if using Cloudflare Git integration. Direct Upload and Git-integrated projects have different migration constraints; confirm the method before creating a project.
+2. Use the signed-in dashboard's Workers static-folder upload. Do not connect a Git repository or automatic deployment pipeline. The optional `wrangler.preview.jsonc` describes the same static-only configuration for future separately authenticated CLI use; it is not part of the public artifact.
 3. Set Astro's `site` to the actual Cloudflare preview origin for correct sharing images/URLs. Keep production canonicals and noindex during preview. Set `SITE_HOSTING=cloudflare` only for an artifact that will actually be hosted on Cloudflare. This selects the prepared current-host policy wording; GitHub review builds must leave it unset and describe Cloudflare as planned. Review provider disclosures against the actual configuration.
 4. Build and run route, link, form and responsive checks. Upload the approved artifact only after deployment approval. Do not connect the main domain yet.
-5. Verify HTTPS, retained paths, redirect query strings, real 404 status, assets/video range, emergency-support asterisk-to-FAQ link, keyboard/mobile interactions and all three form workflows. Separately approve delivery tests, then send clearly identified synthetic inquiries and verify receipt at sales@techsavvy.consulting. Never count internal tests as leads.
+5. Verify HTTPS, retained paths, redirect query strings, real 404 status, assets/video range, emergency-support asterisk-to-FAQ link, keyboard/mobile interactions and all three form workflows. Delivery tests are approved for this preview: send clearly identified synthetic inquiries and verify receipt at sales@techsavvy.consulting. Never count internal tests as leads.
+
+Build the preview explicitly (Node 24; dependencies already locked):
+
+```powershell
+npm ci
+npm run build:cloudflare -- --origin https://techsavvy-website-preview.techsavvytulsaok.workers.dev
+npm run verify:cloudflare -- --origin https://techsavvy-website-preview.techsavvytulsaok.workers.dev
+```
+
+Upload only `dist-cloudflare/`, not the repository. Dashboard settings: assets root `/`, HTML handling `auto-trailing-slash` (the generated `.html` files resolve at extensionless, non-trailing-slash paths), and not-found handling `404-page`. This preview build rejects custom/production origins and has no indexing-enable mode. Keep GitHub builds on their existing separate workflow.
 
 ## Separate production cutover
 
@@ -31,7 +41,7 @@ Updated October 27, 2026. This is preparation, not a deployment or DNS authoriza
 ## Form operations
 
 - Homepage, contact and paid-landing forms use `https://formspree.io/f/mvkkkwyn`, “TechSavvy Website Inquiries.” Notifications were verified configured to sales@techsavvy.consulting on October 26; recheck ownership, recipient and delivery before launch.
-- The October 26 account check showed 50 submissions/month shared across the Free account's forms. Check current usage and allowance before advertising; do not silently upgrade or alter other forms.
+- The October 27 account check showed 2 of 50 submissions used before Cloudflare tests, shared across the Free account's forms. The signed-in Kyle-owned account has a verified sales@techsavvy.consulting recipient and its TechSavvy Website Inquiries workflow sends to that address. Check current usage before advertising; do not silently upgrade or alter other forms.
 - Keep Formshield enabled. The new form was created with CAPTCHA disabled by default; no protection was disabled for this integration. Review abuse before choosing any additional protection.
 - Submissions contain only ordinary business inquiry fields. No uploads, passwords, payment information or PHI. Visitors are warned accordingly.
 - Native HTML POST is a no-JavaScript fallback. AJAX shows in-page success/errors, preserves fields on uncertain failures, and never automatically retries.
@@ -39,9 +49,10 @@ Updated October 27, 2026. This is preparation, not a deployment or DNS authoriza
 
 ## References
 
-- https://developers.cloudflare.com/pages/framework-guides/deploy-an-astro-site/
-- https://developers.cloudflare.com/pages/configuration/redirects/
-- https://developers.cloudflare.com/pages/configuration/headers/
-- https://developers.cloudflare.com/pages/get-started/direct-upload/
-- https://developers.cloudflare.com/pages/configuration/branch-build-controls/
+- https://developers.cloudflare.com/pages/
+- https://developers.cloudflare.com/workers/static-assets/
+- https://developers.cloudflare.com/workers/static-assets/redirects/
+- https://developers.cloudflare.com/workers/static-assets/headers/
+- https://developers.cloudflare.com/workers/static-assets/routing/static-site-generation/
+- https://developers.cloudflare.com/workers/static-assets/billing-and-limitations/
 - https://developers.google.com/search/docs/crawling-indexing/block-indexing

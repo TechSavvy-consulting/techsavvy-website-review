@@ -1,14 +1,15 @@
 import { defineConfig } from 'astro/config';
+import { deploymentConfig } from './src/utils/deployment.ts';
 
-const githubPreview = process.env.PREVIEW_PLATFORM === 'github-pages';
+const deployment = deploymentConfig(process.env);
 
 export default defineConfig({
-  site: githubPreview ? 'https://websitenew.techsavvy.consulting' : 'https://www.techsavvy.consulting',
+  site: deployment.site,
   base: '/',
-  outDir: githubPreview ? './dist-pages' : './dist',
+  outDir: deployment.outDir,
   output: 'static',
-  trailingSlash: githubPreview ? 'always' : 'never',
-  build: { format: githubPreview ? 'directory' : 'file' },
+  trailingSlash: deployment.directory ? 'always' : 'never',
+  build: { format: deployment.directory ? 'directory' : 'file' },
   server: { host: '127.0.0.1', port: 4321 },
   devToolbar: { enabled: false },
 });

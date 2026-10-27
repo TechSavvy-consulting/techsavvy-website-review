@@ -5,12 +5,16 @@ import path from 'node:path';
 import sharp from 'sharp';
 import { allPosts, featuredPosts } from '../src/data/blog.ts';
 import { defaultSocialImage, defaultSocialImageAlt, socialImageForPost } from '../src/utils/social-image.ts';
+import { deploymentConfig } from '../src/utils/deployment.ts';
 
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const pagesPreview=process.argv.includes('--pages');
+const cloudflarePreview=process.argv.includes('--cloudflare');
+assert.equal(pagesPreview && cloudflarePreview,false,'Choose one artifact target');
+const deployment=deploymentConfig({...process.env,PREVIEW_PLATFORM:pagesPreview?'github-pages':cloudflarePreview?'cloudflare-workers':'local'});
 const prefix='/';
-const expectedOrigin=pagesPreview?'https://websitenew.techsavvy.consulting':'https://www.techsavvy.consulting';
-const dist=path.join(root,pagesPreview?'dist-pages':'dist');
+const expectedOrigin=deployment.site;
+const dist=path.resolve(root,deployment.outDir);
 const inventory=JSON.parse(await readFile(path.join(root,'src/data/source-inventory.json'),'utf8'));
 const files=[];
 async function walk(dir){for(const entry of await readdir(dir,{withFileTypes:true})){const full=path.join(dir,entry.name);if(entry.isDirectory())await walk(full);else files.push(full);}}
