@@ -20,6 +20,10 @@ const result = spawnSync(process.execPath, [path.join(root, 'scripts/verify-buil
 });
 if (result.error) throw result.error;
 if (result.status !== 0) process.exit(result.status ?? 1);
+const videoCheck = spawnSync(process.execPath, [path.join(root, 'scripts/verify-video-worker.mjs')], { cwd: root, stdio: 'inherit' });
+if (videoCheck.error) throw videoCheck.error;
+if (videoCheck.status !== 0) process.exit(videoCheck.status ?? 1);
+assert.deepEqual(await readFile(path.join(dist, 'videos/techsavvy-introduction.mp4')), await readFile(path.join(root, 'public/videos/techsavvy-introduction.mp4')), 'Deployed video stays byte-for-byte identical to the approved source');
 
 const files = [];
 async function walk(dir) {
@@ -36,6 +40,9 @@ for (const file of files) {
   const bytes = (await stat(file)).size;
   largest = Math.max(largest, bytes);
   assert.ok(bytes <= 25 * 1024 * 1024, `${path.relative(dist, file)}: within the 25 MiB asset limit`);
+  if (/\.(?:html|css|js|mjs|svg|xml|txt|json)$/i.test(file)) {
+    assert.doesNotMatch(await readFile(file, 'utf8'), /(?:github\.com|github\.io|githubusercontent\.com|websitenew\.techsavvy\.consulting)/i, `${path.relative(dist, file)}: Cloudflare copy has no GitHub-hosting dependency`);
+  }
 }
 const headers = await readFile(path.join(dist, '_headers'), 'utf8');
 assert.equal(headers, await readFile(path.join(root, 'public/_headers'), 'utf8'), 'Preview headers are preserved');
@@ -44,6 +51,6 @@ assert.match(headers, /X-Content-Type-Options:\s*nosniff/i, 'Security header ret
 assert.equal(await readFile(path.join(dist, '_redirects'), 'utf8'), await readFile(path.join(root, 'public/_redirects'), 'utf8'), 'Approved redirects are preserved');
 assert.match(await readFile(path.join(dist, 'robots.txt'), 'utf8'), /Allow:\s*\//, 'Crawlers can read noindex');
 assert.ok(files.includes(path.join(dist, '404.html')), 'Root custom 404 exists for 404-page handling');
-assert.equal(files.some(file => ['_worker.js', '_routes.json'].includes(path.basename(file))), false, 'No Worker runtime is included');
+assert.equal(files.some(file => ['_worker.js', '_routes.json'].includes(path.basename(file))), false, 'Worker source is separate from public assets');
 console.log(`PASS: Cloudflare staging artifact has ${files.length} static files; largest asset ${largest} bytes; noindex headers, redirects and custom 404 retained.`);
 console.log('This is an artifact check only. Workers routing, HTTP responses and deployment are verified separately; no network requests or form submissions were made.');

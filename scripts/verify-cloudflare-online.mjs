@@ -176,16 +176,29 @@ console.log(`PASS: ${redirectChecks} redirect/query checks and three genuine cus
 
 const videos = assetFiles.filter(file => file.endsWith('.mp4'));
 assert.ok(videos.length, 'At least one video exists to verify range playback');
+let videoChecks = 0;
 for (const file of videos) {
-  const response = await request(`/${file}`, { headers: { Range: 'bytes=0-31' } });
-  if (response.status !== 206) await response.body?.cancel(); // Do not download the full movie on a failed range check.
-  assert.equal(response.status, 206, `${file}: partial-content response for video seeking`);
-  assert.equal(contentType(response), 'video/mp4', `${file}: video MIME type`);
-  assertHeaders(response, file);
-  assert.equal(response.headers.get('content-range'), `bytes 0-31/${(await stat(path.join(dist, file))).size}`, `${file}: correct content range`);
-  const bytes = Buffer.from(await response.arrayBuffer());
-  assert.equal(bytes.length, 32, `${file}: exactly 32 requested bytes`);
   const expected = await readFile(path.join(dist, file));
-  assert.deepEqual(bytes, expected.subarray(0, 32), `${file}: video bytes match artifact`);
+  const size = expected.length;
+  const middle = Math.floor(size / 2);
+  for (const [range, start, end] of [['bytes=0-31', 0, 31], [`bytes=${middle}-${middle + 31}`, middle, middle + 31], [`bytes=${size - 32}-`, size - 32, size - 1], ['bytes=-32', size - 32, size - 1]]) {
+    const response = await request(`/${file}`, { headers: { Range: range } });
+    if (response.status !== 206) await response.body?.cancel(); // Do not download the full movie on a failed range check.
+    assert.equal(response.status, 206, `${file}: partial-content response for video seeking`);
+    assert.equal(contentType(response), 'video/mp4', `${file}: video MIME type`);
+    assertHeaders(response, file);
+    assert.equal(response.headers.get('content-range'), `bytes ${start}-${end}/${size}`, `${file}: correct content range`);
+    assert.equal(response.headers.get('accept-ranges'), 'bytes', `${file}: advertised range support`);
+    const bytes = Buffer.from(await response.arrayBuffer());
+    assert.equal(bytes.length, 32, `${file}: exactly 32 requested bytes`);
+    assert.deepEqual(bytes, expected.subarray(start, end + 1), `${file}: video bytes match artifact`);
+    videoChecks++;
+  }
+  const invalid = await request(`/${file}`, { headers: { Range: `bytes=${size}-` } });
+  assert.equal(invalid.status, 416, `${file}: out-of-bounds range rejected`);
+  assert.equal(invalid.headers.get('content-range'), `bytes */${size}`, `${file}: correct unsatisfied range`);
+  assertHeaders(invalid, file);
+  assert.equal((await invalid.arrayBuffer()).byteLength, 0, `${file}: empty unsatisfied-range response`);
+  videoChecks++;
 }
-console.log(`PASS: ${videos.length} video range checks. ${requests} read-only requests completed. Forms, external destinations, browser appearance and email delivery were not tested.`);
+console.log(`PASS: ${videoChecks} beginning/middle/end/suffix/invalid video range checks. ${requests} read-only requests completed. Forms, external destinations, browser appearance and email delivery were not tested.`);

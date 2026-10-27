@@ -17,6 +17,7 @@
     "verify:pages": "node scripts/verify-build.mjs --pages",
     "verify:cloudflare": "node scripts/verify-cloudflare.mjs",
     "verify:cloudflare:online": "node scripts/verify-cloudflare-online.mjs",
+    "verify:video-worker": "node scripts/verify-video-worker.mjs",
     "verify:online": "node scripts/verify-online.mjs",
     "verify:http": "node scripts/verify-http.mjs"
   },

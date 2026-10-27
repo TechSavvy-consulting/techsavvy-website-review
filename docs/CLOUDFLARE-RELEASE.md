@@ -6,14 +6,15 @@ Updated October 27, 2026. Kyle approved the separate Cloudflare preview and synt
 
 - GitHub `main` deploys only to https://websitenew.techsavvy.consulting/.
 - Production remains Wix. Do not change root/www, MX, SPF, DKIM, DMARC or other email records.
-- The project is static Astro on Cloudflare Workers Static Assets Free for the new preview. No Worker runtime, server adapter, database or paid backend is needed for current features. Cloudflare currently recommends Workers for new projects; older Pages-specific setup notes are superseded here.
+- The project is static Astro on Cloudflare Workers Static Assets Free. The introduction video additionally uses a small byte-range Worker because the basic static uploader did not supply partial responses. No server adapter, database or paid backend was added. The video is unchanged. Only video-first requests (and fallback requests without matching assets) may invoke runtime code and use Workers Free limits; ordinary matching page/assets traffic remains static.
+- Cloudflare must remain independent of GitHub: upload complete local artifacts deliberately; do not configure Git integration, automatic deployment, remote GitHub asset loading or redirects back to the test arena. GitHub is optional source backup, not a hosting dependency. Review hosting may move away from GitHub later.
 - Formspree supplies form processing. The public form ID may remain in source; no account password/API key belongs in the repository.
 - Cloudflare `_headers` and `_redirects` are prepared in public/. GitHub Pages ignores those settings. Noindex remains hardcoded in HTML and in the future Cloudflare preview header. Robots permits crawling so noindex can be read.
 
 ## Approved Cloudflare preview workflow
 
 1. Record the exact approved Git commit and prior rollback commit. Build from that revision, not an unreviewed moving branch.
-2. Use the signed-in dashboard's Workers static-folder upload. Do not connect a Git repository or automatic deployment pipeline. The optional `wrangler.preview.jsonc` describes the same static-only configuration for future separately authenticated CLI use; it is not part of the public artifact.
+2. Use the approved `wrangler.preview.jsonc` and the existing limited-scope deployment login. Do not connect a Git repository or automatic deployment pipeline. The basic dashboard uploader was used for the first copy but does not deploy the required video handler. Worker code stays outside the public assets directory. Do not broaden authentication scopes for unrelated features.
 3. Set Astro's `site` to the actual Cloudflare preview origin for correct sharing images/URLs. Keep production canonicals and noindex during preview. Set `SITE_HOSTING=cloudflare` only for an artifact that will actually be hosted on Cloudflare. This selects the prepared current-host policy wording; GitHub review builds must leave it unset and describe Cloudflare as planned. Review provider disclosures against the actual configuration.
 4. Build and run route, link, form and responsive checks. Upload the approved artifact only after deployment approval. Do not connect the main domain yet.
 5. Verify HTTPS, retained paths, redirect query strings, real 404 status, assets/video range, emergency-support asterisk-to-FAQ link, keyboard/mobile interactions and all three form workflows. Delivery tests are approved for this preview: send clearly identified synthetic inquiries and verify receipt at sales@techsavvy.consulting. Never count internal tests as leads.
@@ -24,9 +25,13 @@ Build the preview explicitly (Node 24; dependencies already locked):
 npm ci
 npm run build:cloudflare -- --origin https://techsavvy-website-preview.techsavvytulsaok.workers.dev
 npm run verify:cloudflare -- --origin https://techsavvy-website-preview.techsavvytulsaok.workers.dev
+npm exec --yes --package=wrangler@4.153.0 -- wrangler deploy --config wrangler.preview.jsonc --dry-run
+# Only within an approved preview-deployment task:
+npm exec --yes --package=wrangler@4.153.0 -- wrangler deploy --config wrangler.preview.jsonc
+npm run verify:cloudflare:online -- --origin https://techsavvy-website-preview.techsavvytulsaok.workers.dev
 ```
 
-Upload only `dist-cloudflare/`, not the repository. Dashboard settings: assets root `/`, HTML handling `auto-trailing-slash` (the generated `.html` files resolve at extensionless, non-trailing-slash paths), and not-found handling `404-page`. This preview build rejects custom/production origins and has no indexing-enable mode. Keep GitHub builds on their existing separate workflow.
+Deploy only the configured `dist-cloudflare/` static assets and `cloudflare/video-worker.mjs`, never the repository folder or credentials. Settings: HTML handling `auto-trailing-slash` (the generated `.html` files resolve at extensionless, non-trailing-slash paths), not-found handling `404-page`, and `run_worker_first` restricted to `/videos/techsavvy-introduction.mp4`. The Worker only reads the internal ASSETS binding. Its known video length is guarded by tests; replacing the video requires updating that guard and rechecking all ranges. This preview build rejects custom/production origins and has no indexing-enable mode. Keep any GitHub builds on their separate workflow. Rolling back to initial deployment `1aaa5e48` restores the exact static-only copy but also restores the video-seeking limitation; prefer a known-good tested full deployment.
 
 ## Separate production cutover
 
@@ -42,6 +47,7 @@ Upload only `dist-cloudflare/`, not the repository. Dashboard settings: assets r
 
 - Homepage, contact and paid-landing forms use `https://formspree.io/f/mvkkkwyn`, “TechSavvy Website Inquiries.” Notifications were verified configured to sales@techsavvy.consulting on October 26; recheck ownership, recipient and delivery before launch.
 - The October 27 account check showed 2 of 50 submissions used before Cloudflare tests, shared across the Free account's forms. The signed-in Kyle-owned account has a verified sales@techsavvy.consulting recipient and its TechSavvy Website Inquiries workflow sends to that address. Check current usage before advertising; do not silently upgrade or alter other forms.
+- All three October 27 Cloudflare synthetic tests were confirmed delivered to sales@techsavvy.consulting. They consume three submissions and must not be counted as leads. Exact test IDs/times are in `CLOUDFLARE-PREVIEW-2026-10-27.md`.
 - Keep Formshield enabled. The new form was created with CAPTCHA disabled by default; no protection was disabled for this integration. Review abuse before choosing any additional protection.
 - Submissions contain only ordinary business inquiry fields. No uploads, passwords, payment information or PHI. Visitors are warned accordingly.
 - Native HTML POST is a no-JavaScript fallback. AJAX shows in-page success/errors, preserves fields on uncertain failures, and never automatically retries.
