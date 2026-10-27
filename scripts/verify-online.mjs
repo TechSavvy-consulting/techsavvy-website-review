@@ -57,10 +57,14 @@ for (const route of routes) {
   if(route==='/')assert.equal(decodeHtml(html.match(/<title>([^<]+)<\/title>/)?.[1]||''),'TechSavvy Consulting | Managed IT & Cybersecurity in Tulsa','Approved homepage title');
   if(route==='/'||route==='/contact')assert.match(html,/Number of users <span class="optional"[^>]*>\(optional\)<\/span>/,`${route}: latest approved label online`);
   if(route==='/proactive-it'){
-    for(const text of ['Monthly IT checkups','Weekly updates, tested first','monthly security checks','Weekly updates, monthly IT checkups and ongoing monitoring'])assert.ok(html.includes(text),`${route}: ${text}`);
+    for(const text of ['Monthly IT checkups','Weekly updates, tested first','monthly security checks','Weekly updates, monthly IT checkups and ongoing monitoring','Daily monitoring and follow-through'])assert.ok(html.includes(text),`${route}: ${text}`);
     assert.doesNotMatch(html,/quarterly checkups|Quarterly IT checkups|inform our everyday care/i,`${route}: old wording removed`);
   }
-  if(route==='/offsite-backup-recovery')for(const text of ['Recovery planning built around your business','Backup protection and recovery','Protect your data. Plan your recovery.','Combine local backups for convenient restores with offsite copies for added protection.'])assert.ok(html.includes(text),`${route}: ${text}`);
+  if(route==='/offsite-backup-recovery'){
+    for(const text of ['When something goes wrong, your business keeps going.','so recovery is a plan, not a scramble.','Local and offsite copies of your data','Backups monitored by our team','A recovery plan built around your business','Backup protection is part of your managed IT relationship. We design it, run it and check it, so your data is there when you need it.','We start with what matters most','Local backups make everyday restores quick.','Monitored by our team','Tested restores','A recovery plan for your business','including HIPAA where it applies.','A true backup keeps separate, recoverable versions over time','During planning we agree on which systems matter most','Can you review the backups we already have?','then give you a clear, practical recommendation.','How confident are you in your backups?','If you’re not sure your data could be restored today, let’s find out together.'])assert.ok(html.includes(text),`${route}: ${text}`);
+    assert.match(html,/<a class="button button-white" href="\/contact">Talk with us about your backups <svg/,`${route}: approved CTA and destination`);
+    assert.equal((html.match(/<path d="M4 13l2-5h3"/g)||[]).length,2,`${route}: two new backup-drive icons`);
+  }
   if(route==='/ai-services'){
     assert.match(html,/We connect AI with the tools you already use/,`${route}: new process explanation`);
     assert.match(html,/Start with what matters to your business\./,`${route}: new first step`);

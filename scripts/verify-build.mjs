@@ -173,9 +173,29 @@ for(const route of ['outsourced-managed-it','proactive-it','offsite-backup-recov
 assert.equal(new Set(faqHeadings).size,5,'Each remaining service FAQ has a distinct introduction');
 const proactive=await htmlFor('proactive-it');
 assert.doesNotMatch(proactive,/quarterly checkups|Quarterly IT checkups|inform our everyday care/i,'Proactive quarterly and unclear security copy removed');
-for(const text of ['Monthly IT checkups','Weekly updates, tested first','monthly security checks','Weekly updates, monthly IT checkups and ongoing monitoring'])assert.ok(proactive.includes(text),`Proactive service cadence: ${text}`);
+for(const text of ['Monthly IT checkups','Weekly updates, tested first','monthly security checks','Weekly updates, monthly IT checkups and ongoing monitoring','Daily monitoring and follow-through'])assert.ok(proactive.includes(text),`Proactive service cadence: ${text}`);
 const backup=await htmlFor('offsite-backup-recovery');
-for(const text of ['Recovery planning built around your business','Backup protection and recovery','Protect your data. Plan your recovery.','Keep important data backed up, check that copies are usable','Combine local backups for convenient restores with offsite copies for added protection.'])assert.ok(backup.includes(text),`Backup-specific explanation: ${text}`);
+for(const text of [
+  'When something goes wrong, your business keeps going.',
+  'Hardware fails. Files get deleted. Ransomware happens. We protect the data your business depends on, monitor your backups and test restores, so recovery is a plan, not a scramble.',
+  'Local and offsite copies of your data','Backups monitored by our team','A recovery plan built around your business',
+  'Backup protection and recovery','Protect your data. Plan your recovery.',
+  'Backup protection is part of your managed IT relationship. We design it, run it and check it, so your data is there when you need it.',
+  'We start with what matters most','We work with you to identify your critical systems and data, then set backup schedules, retention and responsibilities around them.',
+  'Local and offsite copies','Local backups make everyday restores quick. Offsite copies protect you from hardware failure, ransomware, fire and theft.',
+  'Monitored by our team','We review backup results, investigate warnings and failures, and resolve problems before they put your data at risk.',
+  'Tested restores','We test restores and recovery steps, document the results and fix any gaps before you ever need them.',
+  'A recovery plan for your business','Together we decide which systems come back first, so your people can get back to work with as little downtime as possible.',
+  'Security and retention','Encryption, access controls, separated storage and retention settings that fit your data and your compliance needs, including HIPAA where it applies.',
+  'Is cloud sync the same as a backup?','No. Services like OneDrive, Google Drive and Dropbox sync changes to every device, including accidental deletions and files encrypted by ransomware. A true backup keeps separate, recoverable versions over time, with retention, access controls and tested restores.',
+  'How quickly could we recover?','It depends on what fails. A deleted file can usually be restored quickly; rebuilding a failed server takes longer. During planning we agree on which systems matter most and test recovery against those priorities, so you know what to expect before anything goes wrong.',
+  'Can you review the backups we already have?','Yes. We’ll look at what’s covered, recent backup results, retention and whether restores have actually been tested, then give you a clear, practical recommendation.',
+  'How confident are you in your backups?','If you’re not sure your data could be restored today, let’s find out together.',
+])assert.ok(backup.includes(text),`Approved backup copy: ${text}`);
+assert.match(backup,/<a class="button button-white" href="\/contact">Talk with us about your backups <svg/,'Backup CTA retains Contact destination and arrow');
+assert.equal((backup.match(/<path d="M4 13l2-5h3"/g)||[]).length,2,'Both requested Backup hero icons use the backup-drive symbol');
+assert.equal((backup.match(/<details class="faq-item">/g)||[]).length,3,'Backup retains three collapsible FAQs');
+assert.match(proactive,/<a class="button button-white" href="\/contact">Let’s talk about your IT <svg/,'Other service CTAs retain their default label');
 assert.doesNotMatch(backup,/Business-led recovery priorities|IT that supports your next step\.|Your people\. Your systems\. Your goals\.|Connect everyday IT care with the priorities|Balance recovery speed, storage locations/,'Generic backup copy removed');
 const hostedOnCloudflare=process.env.SITE_HOSTING==='cloudflare';
 assert.match(await htmlFor('english-privacy-policy'),hostedOnCloudflare?/Cloudflare provides website hosting and delivery for this website/:/Cloudflare is the selected hosting and delivery provider for the planned production launch/,'Privacy matches the actual build hosting target');
