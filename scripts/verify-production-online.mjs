@@ -128,7 +128,7 @@ const mediaTypes = {
   '.woff2': ['font/woff2'], '.woff': ['font/woff'], '.vtt': ['text/vtt'],
 };
 const contentType = response => (response.headers.get('content-type') || '').split(';', 1)[0].trim().toLowerCase();
-const allowedOrigins = new Set([origin, 'https://techsavvy.consulting', 'http://techsavvy.consulting']);
+const allowedOrigins = new Set([origin, 'http://www.techsavvy.consulting', 'https://techsavvy.consulting', 'http://techsavvy.consulting']);
 let requests = 0;
 async function request(target, options = {}) {
   const url = new URL(target, origin);
@@ -200,6 +200,17 @@ for (const protocol of ['http:', 'https:']) for (const route of ['/', `/managed-
   apexChecks++;
 }
 console.log(`PASS: ${redirectChecks} approved path/query redirects and ${apexChecks} HTTP/HTTPS apex-to-www 301 checks. DNS provider record shapes are not assumed.`);
+
+// A separate dashboard-managed Single Redirect upgrades only HTTP www.
+// Guard it explicitly: testing apex redirects alone does not cover this host.
+let wwwHttpsChecks = 0;
+for (const route of ['/', '/contact', '/managed-it-tulsa', '/post/managed-it-service-switching']) for (const suffix of ['', query]) {
+  const from = `http://www.techsavvy.consulting${route}${suffix}`;
+  const response = await request(from, { method: 'HEAD' });
+  assertExactRedirect(response, from, origin + route + suffix);
+  wwwHttpsChecks++;
+}
+console.log(`PASS: ${wwwHttpsChecks} HTTP-www-to-HTTPS 301 checks preserve exact paths and encoded query strings.`);
 
 // The artifact uses flat .html files, but Workers canonicalizes requests such as
 // /contact.html and /contact/ to /contact. These generated redirects are routing
