@@ -5,9 +5,11 @@ interface Props {
 
 const { path } = Astro.props;
 const isPrivacy = path === '/english-privacy-policy';
+// Set only for an approved deployment that actually uses Cloudflare hosting.
+const hostedOnCloudflare = import.meta.env.SITE_HOSTING === 'cloudflare';
 ---
 
-<p class="article-note">Updated October 26, 2026</p>
+<p class="article-note">Updated October 27, 2026</p>
 
 {isPrivacy ? <>
   <h2>About this policy</h2>
@@ -21,6 +23,7 @@ const isPrivacy = path === '/english-privacy-policy';
   <p>We use this information to respond, understand your business needs, arrange conversations, prepare proposals and maintain related correspondence. We may also use relevant records to protect our services, resolve disputes or meet legal obligations. Submitting an inquiry does not automatically subscribe you to a marketing mailing list.</p>
 
   <h2>Providers that help operate the website</h2>
+  <p>{hostedOnCloudflare ? 'Cloudflare provides website hosting and delivery for this website.' : 'Cloudflare is the selected hosting and delivery provider for the planned production launch. This review version is available before that migration.'} See <a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener noreferrer">Cloudflare’s privacy policy</a>.</p>
   <p>Our hosting and website-delivery providers process technical information needed to deliver pages, maintain reliability and protect against abuse. This can include IP addresses, requested pages, browser or device details and access times.</p>
   <p>Formspree receives and processes form submissions, stores submission records and sends notifications to TechSavvy at sales@techsavvy.consulting. It may process technical information such as IP addresses, browser details and referring pages to operate its service and prevent abuse. See <a href="https://formspree.io/legal/privacy-policy/" target="_blank" rel="noopener noreferrer">Formspree’s privacy policy</a>.</p>
   <p>Our email and business systems also hold the correspondence we receive. Provider processing may occur in the United States or other countries where those providers operate. Providers’ own privacy notices describe their practices.</p>
@@ -56,6 +59,7 @@ const isPrivacy = path === '/english-privacy-policy';
     <li>Controls to pause or move through testimonials, and a FAQ page with answers already visible.</li>
   </ul>
   <p>The site uses standard HTML, CSS and JavaScript. Some interactive features depend on JavaScript; phone and email links provide another way to contact us.</p>
+  <p>{hostedOnCloudflare ? 'The website is hosted on Cloudflare.' : 'Production hosting is planned on Cloudflare.'} Accessibility is implemented in the website’s content, layout and controls; hosting does not itself certify accessibility.</p>
 
   <h2>Limitations and ongoing work</h2>
   <p>The homepage introduction video does not currently include a separate captions track or full transcript. External websites, form-provider pages and downloaded software may have different accessibility features. We have not verified every browser and assistive-technology combination, and barriers may remain.</p>

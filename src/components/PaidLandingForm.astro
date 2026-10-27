@@ -1,0 +1,211 @@
+---
+import { previewPath } from '../utils/preview-path';
+import { contactFormConfig, getContactFormEndpoint } from '../data/contact-form';
+
+const id = 'managed-it-tulsa-form';
+const endpoint = getContactFormEndpoint();
+---
+
+{endpoint ? (
+  <form
+    id={id}
+    class="paid-contact-form"
+    action={endpoint}
+    method="POST"
+    accept-charset="UTF-8"
+    aria-describedby={`${id}-notice ${id}-privacy`}
+    data-contact-form
+    data-paid-contact-form
+    data-submission-mode={contactFormConfig.submissionMode}
+  >
+    <p class="form-notice" id={`${id}-notice`}>Fields marked with an asterisk (*) are required.</p>
+    <input type="hidden" name="subject" value="TechSavvy website: new inquiry" />
+    <input type="hidden" name="form-location" value={id} />
+    <div class="form-honeypot" aria-hidden="true">
+      <label for={`${id}-website`}>Leave this field empty<input id={`${id}-website`} type="text" name="_gotcha" tabindex="-1" autocomplete="off" /></label>
+    </div>
+    <label class="field" for={`${id}-name`}>Name <span aria-hidden="true">*</span><input id={`${id}-name`} name="name" autocomplete="name" required maxlength="120" aria-describedby={`${id}-name-error`} /><span class="field-error" id={`${id}-name-error`} data-field-error="name"></span></label>
+    <label class="field" for={`${id}-email`}>Email <span aria-hidden="true">*</span><input id={`${id}-email`} name="email" type="email" autocomplete="email" required maxlength="254" aria-describedby={`${id}-email-error`} /><span class="field-error" id={`${id}-email-error`} data-field-error="email"></span></label>
+    <label class="field" for={`${id}-phone`}>Telephone <span class="optional">(optional)</span><input id={`${id}-phone`} name="phone" type="tel" autocomplete="tel" maxlength="50" aria-describedby={`${id}-phone-error`} /><span class="field-error" id={`${id}-phone-error`} data-field-error="phone"></span></label>
+    <label class="field" for={`${id}-company`}>Company <span class="optional">(optional)</span><input id={`${id}-company`} name="company" autocomplete="organization" maxlength="160" aria-describedby={`${id}-company-error`} /><span class="field-error" id={`${id}-company-error`} data-field-error="company"></span></label>
+    <label class="field" for={`${id}-message`}>Message <span aria-hidden="true">*</span><textarea id={`${id}-message`} name="message" rows="4" required maxlength="5000" aria-describedby={`${id}-message-error ${id}-privacy`}></textarea><span class="field-error" id={`${id}-message-error`} data-field-error="message"></span></label>
+    <p class="form-privacy" id={`${id}-privacy`}>Please leave out passwords, patient information and other sensitive details.</p>
+    <button class="button form-button" type="submit"><span data-submit-label>Send Message</span></button>
+    <p class="form-feedback" id={`${id}-status`} data-form-status role="status" aria-live="polite" aria-atomic="true" tabindex="-1" hidden></p>
+    <p class="form-feedback form-feedback-error" id={`${id}-error`} data-form-error role="alert" aria-atomic="true" tabindex="-1" hidden></p>
+    <div class="form-direct-contact">
+      <p>Prefer to reach us directly? <a href="tel:+19184002424">(918) 400-2424</a> · <a href="mailto:sales@techsavvy.consulting">Email us</a></p>
+      <a class="form-policy-link" href={previewPath('/english-privacy-policy')}>Privacy policy</a>
+    </div>
+  </form>
+) : (
+  <section class="paid-contact-form" aria-labelledby={`${id}-heading`}>
+    <h3 id={`${id}-heading`}>We’d love to hear from you.</h3>
+    <p>Online messages aren’t available yet. Call or email us, and we’ll help you find the right next step for your business.</p>
+    <div class="form-direct-contact"><p><a href="tel:+19184002424">(918) 400-2424</a> · <a href="mailto:sales@techsavvy.consulting">Email us</a></p><a class="form-policy-link" href={previewPath('/english-privacy-policy')}>Privacy policy</a></div>
+    <p class="form-privacy">Please leave out passwords, patient information and other sensitive details.</p>
+  </section>
+)}
+
+<script>
+  import { getFormspreeFieldErrors, isFormspreeSuccess } from '../utils/formspree-response';
+
+  // No credentials, tracking, draft storage or automatic retries. The form only
+  // sends after its visitor submits it. Native POST remains available without JS.
+  type ContactField = HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement;
+
+  document.querySelectorAll<HTMLFormElement>('form[data-paid-contact-form]').forEach(form => {
+    const submit = form.querySelector<HTMLButtonElement>('button[type="submit"]');
+    const submitLabel = form.querySelector<HTMLElement>('[data-submit-label]');
+    const status = form.querySelector<HTMLElement>('[data-form-status]');
+    const errorStatus = form.querySelector<HTMLElement>('[data-form-error]');
+    if (!submit || !submitLabel || !status || !errorStatus) return;
+
+    const originalLabel = submitLabel.textContent || 'Send message';
+    let submitting = false;
+    const fields = Array.from(form.querySelectorAll<ContactField>('input:not([type="hidden"]):not([name="_gotcha"]), textarea, select'));
+    const errors = Array.from(form.querySelectorAll<HTMLElement>('[data-field-error]'));
+
+    const setBusy = (busy: boolean) => {
+      submitting = busy;
+      submit.disabled = busy;
+      submit.setAttribute('aria-disabled', String(busy));
+      form.setAttribute('aria-busy', String(busy));
+      submitLabel.textContent = busy ? 'Sending…' : originalLabel;
+    };
+
+    const showError = (message: string) => {
+      status.hidden = true;
+      errorStatus.textContent = message;
+      errorStatus.hidden = false;
+      errorStatus.focus();
+    };
+
+    const clearFieldError = (field: ContactField) => {
+      field.removeAttribute('aria-invalid');
+      const error = errors.find(item => item.dataset.fieldError === field.name);
+      if (error) error.textContent = '';
+    };
+
+    const showFieldError = (field: ContactField, message: string) => {
+      field.setAttribute('aria-invalid', 'true');
+      const error = errors.find(item => item.dataset.fieldError === field.name);
+      if (error) error.textContent = message;
+    };
+
+    fields.forEach(field => {
+      field.addEventListener('invalid', () => showFieldError(field, field.validationMessage));
+      field.addEventListener('input', () => clearFieldError(field));
+      field.addEventListener('change', () => clearFieldError(field));
+    });
+
+    // Restore an enabled button if the visitor returns from hosted Formspree
+    // confirmation/challenge with the browser Back button.
+    window.addEventListener('pageshow', event => {
+      if (event.persisted && form.dataset.submissionMode === 'native') {
+        setBusy(false);
+        status.hidden = true;
+      }
+    });
+
+    form.addEventListener('submit', async event => {
+      if (submitting) {
+        event.preventDefault();
+        return;
+      }
+
+      fields.forEach(clearFieldError);
+      errorStatus.hidden = true;
+      status.hidden = true;
+      if (!form.reportValidity()) {
+        event.preventDefault();
+        return;
+      }
+
+      if (form.dataset.submissionMode !== 'ajax') {
+        setBusy(true);
+        status.textContent = 'Continuing to Formspree to complete your message…';
+        status.hidden = false;
+        return;
+      }
+
+      event.preventDefault();
+      const action = new URL(form.action);
+      if (action.origin !== 'https://formspree.io' || !/^\/f\/[a-z0-9]+$/i.test(action.pathname) || action.search || action.hash) {
+        showError('Online messages are unavailable right now. Please call (918) 400-2424 or email sales@techsavvy.consulting.');
+        return;
+      }
+
+      const data = new FormData(form);
+      // Freeze only after capturing the AJAX payload so a successful response
+      // cannot erase edits made while that earlier payload was in flight.
+      // Native POST returns above and keeps its fields enabled for serialization.
+      const fieldDisabledStates = fields.map(field => ({ field, disabled: field.disabled }));
+      fields.forEach(field => { field.disabled = true; });
+      setBusy(true);
+      status.textContent = 'Sending your message…';
+      status.hidden = false;
+      const controller = new AbortController();
+      const timeout = window.setTimeout(() => controller.abort(), 20000);
+
+      try {
+        const response = await fetch(action.href, {
+          method: 'POST',
+          body: data,
+          headers: { Accept: 'application/json' },
+          credentials: 'omit',
+          signal: controller.signal,
+        });
+        const contentType = response.headers.get('content-type');
+        const isJson = contentType?.toLowerCase().includes('application/json');
+        const result = isJson ? await response.json() : null;
+
+        if (isFormspreeSuccess(response.ok, contentType, result)) {
+          form.reset();
+          fields.forEach(clearFieldError);
+          status.textContent = 'Thank you—your message has been submitted. We look forward to talking with you.';
+          status.hidden = false;
+          status.focus();
+          return;
+        }
+
+        getFormspreeFieldErrors(result).forEach(error => {
+          const field = fields.find(item => item.name === error.field);
+          if (field) showFieldError(field, error.message);
+        });
+        const hasFieldErrors = fields.some(field => field.hasAttribute('aria-invalid'));
+        showError(hasFieldErrors
+          ? 'Please check the highlighted fields, then send your message again.'
+          : 'We couldn’t confirm your message was submitted. Your entries are still here. Please call (918) 400-2424 or email sales@techsavvy.consulting for help.');
+      } catch {
+        // A lost response can occur after a submission was received. Never retry
+        // automatically or tell the visitor that delivery definitely failed.
+        showError('We couldn’t confirm your message was submitted. Your entries are still here. Please contact us at (918) 400-2424 or sales@techsavvy.consulting before trying again.');
+      } finally {
+        window.clearTimeout(timeout);
+        fieldDisabledStates.forEach(({ field, disabled }) => { field.disabled = disabled; });
+        setBusy(false);
+      }
+    });
+  });
+</script>
+
+<style>
+  .form-honeypot { display: none; }
+  .paid-contact-form .field { margin-top: 15px; }
+  .paid-contact-form .optional { font-weight: 400; }
+  .paid-contact-form .form-notice, .paid-contact-form .form-privacy { margin-top: 15px; color: var(--muted); font-size: 12px; line-height: 1.6; }
+  .paid-contact-form textarea { height: 96px; }
+  .paid-contact-form .field-error { display: block; color: #a32935; font-size: 12px; font-weight: 500; margin-top: 5px; }
+  .paid-contact-form .field-error:empty { display: none; }
+  .paid-contact-form [aria-invalid="true"] { border-color: #a32935; }
+  .form-feedback { margin-top: 18px; padding: 13px 15px; background: var(--pale); border: 1px solid #bdd7eb; border-radius: 7px; color: var(--ink); font-size: 14px; line-height: 1.7; }
+  .form-feedback-error { background: #fff5f3; border-color: #edc6c0; color: #7e2731; }
+  .form-feedback[hidden] { display: none; }
+  .form-direct-contact { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px 18px; margin-top: 14px; font-size: 12px; line-height: 1.7; }
+  .form-direct-contact p { flex: 1 1 260px; margin: 0; }
+  .form-direct-contact a { color: var(--blue); text-decoration: underline; text-underline-offset: 3px; }
+  .form-direct-contact p a { white-space: nowrap; }
+  .form-direct-contact .form-policy-link { flex: 0 0 auto; margin-left: auto; white-space: nowrap; }
+  @media (max-width: 700px) { .paid-contact-form input, .paid-contact-form textarea { font-size: 16px; } }
+</style>

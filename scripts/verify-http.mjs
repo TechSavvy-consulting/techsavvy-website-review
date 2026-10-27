@@ -5,7 +5,7 @@ import { posts } from '../src/data/blog.ts';
 const base='http://127.0.0.1:4321';
 const source=JSON.parse(await readFile(new URL('../src/data/source-inventory.json',import.meta.url),'utf8'));
 let pages=0;
-for(const route of new Set([...source.pages.map(p=>p.path),'/thank-you','/client-support','/ai-services',...posts.map(post=>post.path)])){
+for(const route of new Set([...source.pages.map(p=>p.path),'/thank-you','/client-support','/ai-services','/managed-it-tulsa',...posts.map(post=>post.path)])){
   const response=await fetch(base+route);
   assert.equal(response.status,200,route);
   assert.match(response.headers.get('x-robots-tag')||'',/noindex/,`${route}: HTTP indexing guard`);
@@ -24,6 +24,11 @@ for(const method of ['POST','PUT','DELETE'])assert.equal((await fetch(base+'/con
 const video=await fetch(base+'/videos/techsavvy-introduction.mp4',{headers:{Range:'bytes=0-31'}});
 assert.equal(video.status,206,'Video supports range playback');
 assert.equal((await video.arrayBuffer()).byteLength,32,'Correct video range length');
+for(const [asset,type] of [['/sitemap.xml','application/xml'],['/images/managed-it-tulsa-hero.avif','image/avif']]){
+  const response=await fetch(base+asset,{method:'HEAD'});
+  assert.equal(response.status,200,`${asset}: available`);
+  assert.ok((response.headers.get('content-type')||'').startsWith(type),`${asset}: correct content type`);
+}
 const home=await (await fetch(base)).text();
 assert.match(home,/<a[^>]+aria-current="page"[^>]*>Home<\/a>/,'Home active navigation');
 const about=await (await fetch(base+'/about-it-support')).text();

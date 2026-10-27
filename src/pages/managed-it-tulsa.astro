@@ -1,0 +1,85 @@
+---
+import PaidLandingForm from '../components/PaidLandingForm.astro';
+import { previewPath } from '../utils/preview-path';
+import { defaultSocialImage, defaultSocialImageAlt } from '../utils/social-image';
+import '../styles/paid-landing.css';
+
+// Preserve the approved paid-search page independently of the organic site layout.
+const title = 'Managed IT Support in Tulsa | TechSavvy Consulting';
+const description = 'Complete managed IT support for Tulsa businesses with 10–100 computer and device users. Friendly, experienced local support with less disruption.';
+const path = '/managed-it-tulsa';
+const canonical = new URL(path, 'https://www.techsavvy.consulting').href;
+const previewUrl = new URL(path, Astro.site).href;
+const previewImage = new URL(previewPath(defaultSocialImage), Astro.site).href;
+const schema = { '@context':'https://schema.org', '@type':'LocalBusiness', '@id':'https://www.techsavvy.consulting/#organization', name:'TechSavvy Consulting, LLC', url:'https://www.techsavvy.consulting/', image:previewImage, telephone:'+19184002424', email:'sales@techsavvy.consulting', foundingDate:'2015', address:{'@type':'PostalAddress',streetAddress:'5840 S Memorial Dr',addressLocality:'Tulsa',addressRegion:'OK',postalCode:'74145',addressCountry:'US'}, areaServed:{'@type':'AdministrativeArea',name:'Tulsa County, Oklahoma'}, openingHours:['Mo-Fr 08:00-17:00'], sameAs:['https://www.linkedin.com/company/techsavvy-consulting/','https://www.facebook.com/techsavvyok/','https://www.instagram.com/techsavvyok/'], knowsAbout:['Managed IT Services','IT Leadership','Vendor Management','Cybersecurity','Microsoft 365','Backup and Recovery'] };
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="robots" content="noindex,nofollow,noarchive" />
+    <meta name="techsavvy-revision" content="10" />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" href={previewPath('/favicon.svg')} type="image/svg+xml" />
+    <meta name="theme-color" content="#102543" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="TechSavvy Consulting" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={previewUrl} />
+    <meta property="og:image" content={previewImage} />
+    <meta property="og:image:alt" content={defaultSocialImageAlt} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={previewImage} />
+    <meta name="twitter:image:alt" content={defaultSocialImageAlt} />
+    <script type="application/ld+json" set:html={JSON.stringify(schema).replace(/</g, '\\u003c')} />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to main content</a>
+    <header class="header"><div class="wrap">
+      <a href={previewPath('/')} aria-label="TechSavvy Consulting home"><img class="logo" src={previewPath('/images/managed-it-tulsa-logo.png')} alt="TechSavvy Consulting" width="608" height="170" /></a>
+      <div class="header-contact"><small>TALK WITH TECHSAVVY</small><a class="phone" href="tel:+19184002424">(918) 400-2424</a></div>
+    </div></header>
+    <main id="main">
+      <section class="hero"><div class="wrap hero-grid">
+        <div><p class="eyebrow">Your local IT team in Tulsa</p><h1>Keep Your Tech<br/><span>Working For You.</span></h1><p class="intro">Complete managed IT support for Tulsa businesses with <strong>10–100 computer and device users.</strong> We act as your local IT team.</p><div class="hero-actions"><a class="button" href="#talk-with-techsavvy">Let’s talk about your IT <span aria-hidden="true">&nbsp; →</span></a><a class="text-link" href="tel:+19184002424">Call (918) 400-2424</a></div><div class="home-action"><a class="button secondary" href={previewPath('/')}>Visit Our Home Page</a></div><p class="hero-note">Local support. Practical guidance. A plan that fits your business.</p></div>
+        <div class="hero-photo"><img src={previewPath('/images/managed-it-tulsa-hero.avif')} width="1265" height="747" alt="Technology professional working in a server room" fetchpriority="high" /><div class="photo-label">Your workday comes first.<span>Support designed to limit interruptions.</span></div></div>
+      </div></section>
+      <div class="proof"><div class="wrap">
+        <div class="proof-item"><span class="proof-icon" aria-hidden="true">★</span><div><strong>5.0 / 5 on Google · 16 reviews</strong><small>Rating checked October 23, 2026*</small></div></div>
+        <div class="proof-item"><span class="proof-icon" aria-hidden="true">✓</span><div><strong>Tulsa-area support</strong><small>Remote help and on-site service options</small></div></div>
+        <div class="proof-item"><span class="proof-icon" aria-hidden="true">↗</span><div><strong>Built around your business</strong><small>Ongoing support, not just one-off fixes</small></div></div>
+      </div></div>
+      <section class="section"><div class="wrap">
+        <div class="section-title"><p class="eyebrow">Less disruption. More support.</p><h2>You don’t always have to stop working for us to help.</h2><p>We can handle some troubleshooting and repairs in the background while you keep working.</p></div>
+        <div class="benefits">
+          <article class="card"><span class="number">01 / A LONGER-TERM PARTNER</span><h3>A local team that knows your IT</h3><p>Bring day-to-day support and technology planning together with a team that gets to know your people, systems and priorities.</p></article>
+          <article class="card"><span class="number">02 / PEOPLE YOU CAN TALK TO</span><h3>Friendly, experienced support</h3><p>Get help from people who explain things clearly, listen to the problem and help you understand your options.</p></article>
+          <article class="card"><span class="number">03 / PLAN AHEAD</span><h3>Practical guidance for what’s next</h3><p>We help you prioritize technology needs and plan improvements around your business, budget and goals.</p></article>
+        </div>
+        <div class="service-scope"><h3>Complete IT service. One local team.</h3><p>We act as your business’s local IT team—from everyday help to long-term planning. Get remote and on-site support across the technology your business depends on.</p><ul class="service-list"><li>Computers and business devices</li><li>Servers and networks</li><li>Microsoft 365 and cloud services</li><li>Backups and recovery planning</li><li>Technology vendor coordination</li><li>IT planning and guidance</li></ul><small>Services, coverage and responsibilities are defined in your agreed support plan.</small></div>
+      </div></section>
+      <section id="talk-with-techsavvy" class="section background"><div class="wrap contact-grid">
+        <div class="contact-copy"><p class="eyebrow">Let’s start a conversation</p><h2>Tell us about your business.<br/>We’ll talk through your IT.</h2><p>Looking for an ongoing IT partner for your Tulsa-area organization? Let’s discuss the right approach for your people, systems and day-to-day work.</p><ul class="checks"><li>Support for 10–100 computer and device users</li><li>Remote and on-site options to fit your needs</li><li>Scope and pricing based on your service plan</li></ul><a class="phone" href="tel:+19184002424">(918) 400-2424</a><small>Prefer to call? We’re here Monday–Friday, 8 AM–5 PM Central.</small></div>
+        <div class="form-card"><h3>Talk with TechSavvy</h3><p>A little context helps us start the right conversation.</p><PaidLandingForm /></div>
+      </div></section>
+      <section class="section process"><div class="wrap"><div class="section-title"><p class="eyebrow">A straightforward next step</p><h2>Start with a conversation.<br/>Build the right support plan.</h2></div><div class="steps"><article class="step"><span class="number">01 / LET’S TALK</span><h3>Share what you need</h3><p>Tell us about your business, device users and what you want from your IT support.</p></article><article class="step"><span class="number">02 / REVIEW THE FIT</span><h3>Understand the options</h3><p>We discuss your environment, priorities and whether recurring managed IT is the right fit.</p></article><article class="step"><span class="number">03 / PLAN TOGETHER</span><h3>Agree on the scope</h3><p>If we’re a good match, we’ll outline the support, responsibilities and pricing before you decide.</p></article></div></div></section>
+      <section class="section"><div class="wrap faq"><div class="section-title"><p class="eyebrow">A few common questions</p><h2>What to know before we talk.</h2></div>
+        <details open><summary>Who is this service for?</summary><p>Tulsa-area organizations looking for recurring IT support, generally with 10–100 people who use computers or business devices. Employee headcount and device-user count are not always the same.</p></details>
+        <details open><summary>Can you help without stopping my work?</summary><p>Sometimes. We can handle some troubleshooting and repairs in the background. Other issues need your participation, a restart or hands-on work; we’ll explain what is needed.</p></details>
+        <details open><summary>Can you act as our local IT team?</summary><p>Yes. We can provide complete managed IT support across your computers, servers, networks, cloud services and backups, with remote and on-site help. We’ll agree on the services, coverage and responsibilities that fit your business.</p></details>
+        <details open><summary>How is managed IT priced?</summary><p>Pricing depends on your environment, supported users and devices, and the services included. We’ll review your needs and provide a scoped proposal.</p></details>
+      </div></section>
+      <section class="closing"><div class="wrap"><div><h2>Keep your tech working for you.</h2><p>Let’s discuss the right IT support for your business.</p></div><a class="button white" href="#talk-with-techsavvy">Talk with TechSavvy <span aria-hidden="true">&nbsp; →</span></a></div></section>
+    </main>
+    <footer class="footer"><div class="wrap"><div><img class="footer-logo" src={previewPath('/images/managed-it-tulsa-logo.png')} alt="TechSavvy Consulting" width="608" height="170" loading="lazy" /><span>Tulsa, Oklahoma · <a href="tel:+19184002424">(918) 400-2424</a></span></div><div><a href={previewPath('/about-it-support')}>About TechSavvy</a> &nbsp; · &nbsp; <a href={previewPath('/contact')}>Contact</a> &nbsp; · &nbsp; <a href={previewPath('/english-privacy-policy')}>Privacy</a><br/>© {new Date().getFullYear()} TechSavvy Consulting, LLC</div></div><div class="wrap review-note">*Google rating: 5.0/5 from 16 reviews, checked October 23, 2026.</div></footer>
+  </body>
+</html>

@@ -26,6 +26,10 @@ const isAccessibility = path==='/accessibility-statement';
 const retiredServicePage = ['/it-support-for-small-business-tulsa','/it-collaboration'].includes(path);
 const serviceDestination = previewPath('/outsourced-managed-it');
 const pageMetadata: Record<string, {title: string; description: string}> = {
+  '/outsourced-managed-it': {title:'Managed IT Services in Tulsa | TechSavvy Consulting', description:'Managed IT for Tulsa-area organizations with 10–100 computer/device users. Local support, cybersecurity, backup oversight and practical IT guidance.'},
+  '/proactive-it': {title:'Proactive IT Maintenance & Monitoring in Tulsa | TechSavvy Consulting', description:'Proactive IT care for Tulsa businesses, including monitoring, tested updates, security checks and backup oversight as part of managed support.'},
+  '/offsite-backup-recovery': {title:'Business Backup & Recovery in Tulsa | TechSavvy Consulting', description:'Business backup and recovery planning for Tulsa organizations, with local and offsite options, monitoring and restore testing around your priorities.'},
+  '/it-support-business-tulsa': {title:'Why TechSavvy | Tulsa IT Support & Consulting', description:'Meet a Tulsa IT partner invested in your business: friendly support, practical guidance, vendor coordination and relationships built for long-term growth.'},
   '/about-it-support': {title:'About TechSavvy Consulting | Your Tulsa County IT Partner', description:'Get to know TechSavvy: practical IT leadership, customer care, vendor coordination and a commitment to serving Jesus and the Tulsa community.'},
   '/contact': {title:'Talk About Your IT Plan | TechSavvy Consulting, Tulsa', description:'Talk with TechSavvy about managed IT, IT leadership and vendor coordination for your Tulsa County business. Start with your goals and what comes next.'},
   '/it-support-for-small-business-tulsa': {title:'Managed IT Services | TechSavvy Consulting', description:'Continue to TechSavvy managed IT services: connected support, proactive care and IT leadership for your business.'},
@@ -35,9 +39,10 @@ const pageMetadata: Record<string, {title: string; description: string}> = {
   '/accessibility-statement': {title:'Accessibility | TechSavvy Consulting', description:'Accessibility features on the TechSavvy website and ways to get help accessing our information and services.'},
   '/thank-you': {title:'Thank You | TechSavvy Consulting', description:'Contact TechSavvy Consulting about your business technology, or call us when you need a more immediate conversation.'},
 };
-const title = service ? `${service.title} | TechSavvy Consulting` : post ? `${post.title} | TechSavvy Consulting` : pageMetadata[path]?.title || source?.title || 'TechSavvy Consulting';
-const description = service?.summary || post?.excerpt || pageMetadata[path]?.description || source?.description || 'Practical IT support and leadership for Tulsa County businesses.';
-const articleSchema = post && { '@context':'https://schema.org','@type':'BlogPosting',headline:post.title,datePublished:post.date,dateModified:post.updatedDate || post.date,author:{'@type':'Person',name:post.author},publisher:{'@type':'Organization',name:'TechSavvy Consulting, LLC'},mainEntityOfPage:'https://www.techsavvy.consulting'+post.path,image:new URL(previewPath(socialImage!.path),Astro.site).href };
+// Keep search/share metadata independent of the approved visible service copy.
+const title = pageMetadata[path]?.title || (service ? `${service.title} | TechSavvy Consulting` : post ? `${post.title} | TechSavvy Consulting` : source?.title || 'TechSavvy Consulting');
+const description = pageMetadata[path]?.description || service?.summary || post?.excerpt || source?.description || 'Practical IT support and leadership for Tulsa County businesses.';
+const articleSchema = post && { '@context':'https://schema.org','@type':'BlogPosting',headline:post.title,datePublished:post.date,dateModified:post.updatedDate || post.date,author:{'@type':'Person',name:post.author},publisher:{'@id':'https://www.techsavvy.consulting/#organization'},mainEntityOfPage:'https://www.techsavvy.consulting'+post.path,image:new URL(previewPath(socialImage!.path),Astro.site).href };
 const faqIntroductions: Record<string, {eyebrow: string; heading: string; text: string}> = {
   '/outsourced-managed-it': {eyebrow:'Finding your fit', heading:'Let’s talk through the possibilities.', text:'A good IT relationship starts with understanding what works for your business. Here are a few helpful starting points.'},
   '/proactive-it': {eyebrow:'A closer look at ongoing care', heading:'Know what’s working behind the scenes.', text:'See how regular attention keeps your technology connected to the way your people work.'},

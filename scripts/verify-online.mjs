@@ -5,7 +5,7 @@ import { defaultSocialImage, defaultSocialImageAlt, socialImageForPost } from '.
 
 const base = new URL('https://websitenew.techsavvy.consulting/');
 const inventory = JSON.parse(await readFile(new URL('../src/data/source-inventory.json', import.meta.url), 'utf8'));
-const routes = [...new Set([...inventory.pages.map(page => page.path), '/thank-you', '/client-support', '/ai-services', ...posts.map(post=>post.path)])];
+const routes = [...new Set([...inventory.pages.map(page => page.path), '/thank-you', '/client-support', '/ai-services', '/managed-it-tulsa', ...posts.map(post=>post.path)])];
 const assets = new Set();
 const shareAssets = new Set();
 const decodeHtml=value=>value.replace(/&(?:amp|quot|apos|lt|gt|#\d+|#x[\da-f]+);/gi,entity=>{
@@ -28,7 +28,9 @@ const assertSharing=(html,route)=>{
   assert.equal(metaContent(html,'twitter:image'),url,`${route}: Twitter image`);
   assert.equal(metaContent(html,'twitter:image:alt'),image.alt,`${route}: Twitter image description`);
   const schemas=[...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].map(match=>JSON.parse(match[1]));
-  assert.equal(schemas.find(schema=>schema['@type']==='ProfessionalService')?.image,new URL(defaultSocialImage,base).href,`${route}: business schema brand image`);
+  assert.equal(schemas.filter(schema=>schema['@type']==='LocalBusiness').length,1,`${route}: one business entity`);
+  assert.equal(schemas.find(schema=>schema['@type']==='LocalBusiness')?.['@id'],'https://www.techsavvy.consulting/#organization',`${route}: stable business entity`);
+  assert.equal(schemas.find(schema=>schema['@type']==='LocalBusiness')?.image,new URL(defaultSocialImage,base).href,`${route}: business schema brand image`);
   if(post)assert.equal(schemas.find(schema=>schema['@type']==='BlogPosting')?.image,url,`${route}: article schema image`);
   shareAssets.add(url);
   assets.add(url);
@@ -50,9 +52,10 @@ for (const route of routes) {
     const submit=form[2].match(/<button\b[^>]*type="submit"[^>]*>([\s\S]*?)<\/button>/i)?.[1];
     assert.ok(submit,`${route}: submit button exists`);
     assert.doesNotMatch(submit,/↗|<svg\b|aria-hidden/i,`${route}: submit arrow removed`);
-    assert.equal(decodeHtml(submit.replace(/<[^>]+>/g,'').trim()),route==='/'?'Request a callback':'Send message',`${route}: approved submit label`);
+    assert.equal(decodeHtml(submit.replace(/<[^>]+>/g,'').trim()),route==='/'?'Request a callback':route==='/managed-it-tulsa'?'Send Message':'Send message',`${route}: approved submit label`);
   }
   if(route==='/')assert.equal(decodeHtml(html.match(/<title>([^<]+)<\/title>/)?.[1]||''),'TechSavvy Consulting | Managed IT & Cybersecurity in Tulsa','Approved homepage title');
+  if(route==='/'||route==='/contact')assert.match(html,/Number of users <span class="optional"[^>]*>\(optional\)<\/span>/,`${route}: latest approved label online`);
   if(route==='/'){
     const cards=[...html.matchAll(/<article\b[^>]*class="service-card"[^>]*>([\s\S]*?)<\/article>/g)].map(match=>match[1]);
     assert.equal(cards.length,6,'Six homepage service cards online');

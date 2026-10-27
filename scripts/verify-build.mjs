@@ -62,9 +62,14 @@ for(const route of routes){
   assert.equal(metaContent(html,'twitter:image:alt'),expectedImage.alt,`${route}: Twitter image description`);
   shareImages.add(expectedImage.path);
   const schemas=[...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].map(match=>JSON.parse(match[1]));
-  assert.equal(schemas.filter(schema=>schema['@type']==='ProfessionalService').length,1,`${route}: one business schema`);
-  assert.equal(schemas.find(schema=>schema['@type']==='ProfessionalService')?.image,new URL(defaultSocialImage,expectedOrigin).href,`${route}: business schema always uses brand image`);
-  if(post)assert.equal(schemas.find(schema=>schema['@type']==='BlogPosting')?.image,previewImage,`${route}: article schema uses article image`);
+  assert.equal(schemas.filter(schema=>schema['@type']==='LocalBusiness').length,1,`${route}: one business schema`);
+  assert.equal(schemas.some(schema=>schema['@type']==='ProfessionalService'),false,`${route}: deprecated business type removed`);
+  assert.equal(schemas.find(schema=>schema['@type']==='LocalBusiness')?.['@id'],'https://www.techsavvy.consulting/#organization',`${route}: stable business identity`);
+  assert.equal(schemas.find(schema=>schema['@type']==='LocalBusiness')?.image,new URL(defaultSocialImage,expectedOrigin).href,`${route}: business schema always uses brand image`);
+  if(post){
+    assert.equal(schemas.find(schema=>schema['@type']==='BlogPosting')?.image,previewImage,`${route}: article schema uses article image`);
+    assert.equal(schemas.find(schema=>schema['@type']==='BlogPosting')?.publisher?.['@id'],'https://www.techsavvy.consulting/#organization',`${route}: publisher references existing business`);
+  }
   assert.doesNotMatch(html,/techsavvy-consulting\.github\.io|\/techsavvy-website-review(?:[/?#"']|$)/i,`${route}: no obsolete GitHub project URL or base`);
   assert.doesNotMatch(html,/<(?:script|iframe)[^>]+(?:googletagmanager|google-analytics|doubleclick|facebook\.net|youtube\.com\/embed)/i,`${route}: no optional tracking/embed`);
   for(const note of html.matchAll(/<div class="article-note">\s*<strong>Further reading<\/strong>([\s\S]*?)<\/div>/g)){
@@ -89,7 +94,7 @@ for(const route of routes){
     const submit=match[2].match(/<button\b[^>]*type="submit"[^>]*>([\s\S]*?)<\/button>/i)?.[1];
     assert.ok(submit,`${route}: submit button exists`);
     assert.doesNotMatch(submit,/↗|<svg\b|aria-hidden/i,`${route}: submit button has no decorative arrow`);
-    assert.equal(decodeHtml(submit.replace(/<[^>]+>/g,'').trim()),route==='/'?'Request a callback':'Send message',`${route}: approved submit label`);
+    assert.equal(decodeHtml(submit.replace(/<[^>]+>/g,'').trim()),route==='/'?'Request a callback':route==='/managed-it-tulsa'?'Send Message':'Send message',`${route}: approved submit label`);
   }
   for(const match of html.matchAll(/(?:href|src|poster)="(\/(?!\/)[^"]*)"/g)){
     const url=new URL(match[1],'https://review.local');
@@ -111,7 +116,7 @@ for(const imagePath of shareImages){
   assert.equal(metadata.width,1200,`${imagePath}: actual 1200px width`);
   assert.equal(metadata.height,630,`${imagePath}: actual 630px height`);
 }
-assert.equal(formCount,2,'Expected home callback + contact form');
+assert.equal(formCount,3,'Expected home callback + contact + paid landing form');
 const htmlFor=async route=>readFile(path.join(dist,route+(pagesPreview?'/index.html':'.html')),'utf8');
 const faq=await htmlFor('tulsa-it-faq');
 assert.doesNotMatch(faq.match(/<main[^>]*>([\s\S]*?)<\/main>/)?.[1]||'',/<details\b/,'FAQ answers always visible');
@@ -162,7 +167,9 @@ for(const route of ['outsourced-managed-it','proactive-it','offsite-backup-recov
   faqHeadings.push(heading);
 }
 assert.equal(new Set(faqHeadings).size,5,'Each remaining service FAQ has a distinct introduction');
-assert.doesNotMatch(await htmlFor('english-privacy-policy'),/hosted on GitHub|hosted on Cloudflare/i,'Hosting disclosure does not misstate the pending migration');
+const hostedOnCloudflare=process.env.SITE_HOSTING==='cloudflare';
+assert.match(await htmlFor('english-privacy-policy'),hostedOnCloudflare?/Cloudflare provides website hosting and delivery for this website/:/Cloudflare is the selected hosting and delivery provider for the planned production launch/,'Privacy matches the actual build hosting target');
+assert.match(await htmlFor('accessibility-statement'),hostedOnCloudflare?/The website is hosted on Cloudflare/:/Production hosting is planned on Cloudflare/,'Accessibility matches the actual build hosting target');
 const carouselSource=await readFile(path.join(root,'src/components/Testimonials.astro'),'utf8');
 assert.match(carouselSource,/sync\(\);\}, 3000\)/,'Three-second browsing interval');
 for(const control of ['data-playback','data-next','data-previous','prefers-reduced-motion','focusPaused','document.hidden'])assert.ok(carouselSource.includes(control),`Carousel retains ${control}`);
@@ -179,11 +186,27 @@ const privacyMain=privacy.match(/<main[^>]*>([\s\S]*?)<\/main>/)?.[1]||'';
 assert.doesNotMatch(privacyMain,/write to TechSavvy|5840 S Memorial/i,'Privacy postal contact option removed');
 assert.match(home,/blog-it-growth-plan-v2.webp/,'New distinct growth-planning illustration used');
 for(const [route,html] of [['home',home],['contact',await htmlFor('contact')]]){
+  assert.match(html,/Number of users <span class="optional"[^>]*>\(optional\)<\/span>/,`${route}: final approved user-count label`);
+  assert.doesNotMatch(html,/Approximate number of users|#device users|# computer\/device users/,`${route}: superseded field labels absent`);
   assert.doesNotMatch(html,/Formspree processes this form/i,`${route}: processor sentence removed`);
   const direct=html.match(/class="form-direct-contact"[\s\S]*?<\/div>/)?.[0]||'';
   assert.match(direct,/english-privacy-policy/,`${route}: privacy link in direct-contact row`);
   assert.match(direct,/mailto:sales@techsavvy.consulting/,`${route}: direct email retained`);
 }
+for(const route of ['english-privacy-policy','accessibility-statement']){
+  const html=await htmlFor(route);
+  const main=html.match(/<main[^>]*>([\s\S]*?)<\/main>/)?.[1]||'';
+  assert.doesNotMatch(main,/\bWix\b|\bGitHub\b/i,`${route}: no obsolete hosting provider references`);
+}
+const landing=await htmlFor('managed-it-tulsa');
+assert.match(landing,/<link rel="canonical" href="https:\/\/www\.techsavvy\.consulting\/managed-it-tulsa"/, 'Paid landing preserves its production canonical');
+assert.doesNotMatch(landing,/<iframe\b|https?:\/\/[^"'<>\s]*(?:wixstatic|filesusr|parastorage|wix\.com)/i,'Paid landing no longer depends on Wix embeds or assets');
+const landingForm=landing.match(/<form\b[^>]*>([\s\S]*?)<\/form>/)?.[1]||'';
+assert.match(landingForm,/name="form-location" value="managed-it-tulsa-form"/,'Paid landing location identifier retained for manual qualification');
+assert.doesNotMatch(landingForm,/name="(?:user-count|on-site-servers|preferred-date|preferred-time)"/,'Paid landing preserves its original five inquiry fields');
+const sitemap=await readFile(path.join(dist,'sitemap.xml'),'utf8');
+assert.match(sitemap,/<loc>https:\/\/www.techsavvy.consulting\/managed-it-tulsa<\/loc>/,'Production sitemap includes ad landing page');
+assert.doesNotMatch(sitemap,/websitenew|github|\/thank-you|\/404|\/it-collaboration|\/it-support-for-small-business-tulsa|\/home-1|\/search-lp/,'Sitemap contains production content routes only');
 assert.match(await htmlFor('ai-services'),/priced per project|priced for each project|project-based/i,'AI project pricing distinction');
 assert.ok(referenceCount>0,'Further reading links were verified');
 assert.ok(files.some(x=>x.endsWith('techsavvy-introduction.mp4')),'Video is included');
